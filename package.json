@@ -15,11 +15,13 @@
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.6.0",
     "i18next": "11.9.1",
+    "konva": "2.5.1",
     "prop-types": "15.6.2",
     "qs": "6.5.2",
     "react": "16.5.2",
     "react-dom": "16.5.2",
     "react-i18next": "8.0.7",
+    "react-konva": "16.6.31",
     "react-scripts": "2.0.5",
     "react-select": "2.1.0",
     "reactstrap": "6.5.0"
