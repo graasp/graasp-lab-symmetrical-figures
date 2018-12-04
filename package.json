@@ -4,7 +4,8 @@
   "private": true,
   "author": "React EPFL",
   "contributors": [
-    "Juan Carlos Farah"
+    "Juan Carlos Farah",
+    "Mashkour Abdel Aziz"
   ],
   "license": "MIT",
   "dependencies": {
