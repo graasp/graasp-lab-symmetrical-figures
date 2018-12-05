@@ -1,0 +1,11 @@
+.description-title {
+  padding-top: 2rem;
+}
+.observe-button, .test-button {
+  width: 50%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.test-button {
+  background-color: #F9FBE7;
+}

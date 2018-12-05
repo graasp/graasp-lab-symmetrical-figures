@@ -1,0 +1,20 @@
+.description-container {
+  background-color: #9E9D24;
+  padding-left: 0;
+  padding-right: 0;
+}
+.triangle-parent {
+  padding-right: 0;
+}
+.triangle-container {
+  background-color: #F9FBE7;
+}
+.konvajs-content {
+  width: 100% !important;
+  height: 100% !important;
+}
+.btn {
+  border-radius: 0;
+  font-size: 26px;
+  color: #000;
+}
