@@ -22,7 +22,7 @@ const Triangle = ({
         context.closePath();
         context.fillStrokeShape(shape);
       }}
-      stroke="#{000}"
+      stroke="#000"
       strokeWidth={3}
       opacity={0.5}
     />
