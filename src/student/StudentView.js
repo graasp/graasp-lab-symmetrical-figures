@@ -6,6 +6,7 @@ import { Stage } from 'react-konva';
 import './StudentView.css';
 import Triangle from '../component/Triangle';
 import Decription from '../component/Decription';
+import Liner from '../component/Liner';
 
 class StudentView extends Component {
   static propTypes = {
@@ -29,6 +30,29 @@ class StudentView extends Component {
       { x: 500, y: 500 },
       { x: 400, y: 600 },
     ],
+    linePoints: [680, 50, 200, 600],
+  }
+
+  handleDragMove = (e) => {
+    const { linePoints } = this.state;
+    const newLinePoints = [...linePoints];
+    newLinePoints[0] = e.target.x();
+    newLinePoints[1] = e.target.y();
+    this.handleChange(newLinePoints);
+  }
+
+  handleDragMoveOne = (e) => {
+    const { linePoints } = this.state;
+    const newLinePoints = [...linePoints];
+    newLinePoints[2] = e.target.x();
+    newLinePoints[3] = e.target.y();
+    this.handleChange(newLinePoints);
+  }
+
+  handleChange = (newLinePoints) => {
+    this.setState({
+      linePoints: newLinePoints,
+    });
   }
 
   render() {
@@ -37,6 +61,7 @@ class StudentView extends Component {
       node,
       triangleA,
       triangleB,
+      linePoints,
     } = this.state;
     const { t } = this.props;
     return (
@@ -55,17 +80,11 @@ class StudentView extends Component {
               }
               t={t}
             />
-            <Triangle
+            <Liner
               color={color}
-              node={node}
-              points={
-                [
-                  { x: triangleA[0].x, y: triangleA[0].y },
-                  { x: triangleA[1].x, y: triangleA[1].y },
-                  { x: triangleA[2].x, y: triangleA[2].y },
-                ]
-              }
-              t={t}
+              linePoints={linePoints}
+              handleDragMove={this.handleDragMove}
+              handleDragMoveOne={this.handleDragMoveOne}
             />
             <Triangle
               color={color}
@@ -78,6 +97,7 @@ class StudentView extends Component {
                 ]
               }
               t={t}
+              linePoints={linePoints}
             />
           </Stage>
         </Col>
