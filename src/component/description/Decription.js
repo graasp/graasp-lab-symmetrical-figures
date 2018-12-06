@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Input } from 'reactstrap';
 import './Description.css';
 import Triangle from './Triangle.svg';
@@ -7,7 +8,7 @@ import Polygon from './Polygon.svg';
 import Line from './Line.svg';
 import Point from './Point.svg';
 
-const Decription = () => (
+const Decription = ({ handleCheck }) => (
   <div className="main-container">
     <Button
       outline
@@ -36,8 +37,8 @@ const Decription = () => (
     <img src={Line} alt="Line" className="" />
     <div className="description-checkbox">
       <div className="displayer displayer-one">
-        <h2 className="display-line">Afficher droites</h2>
-        <Input type="checkbox" className="choice-checker" />
+        <h2 className="display-line">Afficher grille</h2>
+        <Input type="checkbox" className="choice-checker" onClick={handleCheck} />
       </div>
       <div className="displayer">
         <h2 className="display-point">Afficher points</h2>
@@ -47,4 +48,7 @@ const Decription = () => (
   </div>
 );
 
+Decription.propTypes = {
+  handleCheck: PropTypes.func.isRequired,
+};
 export default Decription;

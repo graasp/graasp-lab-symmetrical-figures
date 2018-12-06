@@ -1,5 +1,6 @@
 export const AppState = {
   color: '#000',
+  displayed: false,
   node: {
     A: 'A',
     B: 'B',

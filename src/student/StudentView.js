@@ -51,9 +51,17 @@ class StudentView extends Component {
     });
   }
 
+  handleCheck = () => {
+    const { displayed } = this.state;
+    this.setState({
+      displayed: !displayed,
+    });
+  }
+
   render() {
     const {
       color,
+      displayed,
       node,
       triangleA,
       triangleB,
@@ -63,6 +71,12 @@ class StudentView extends Component {
     return (
       <Row className="app-loader">
         <Col md={8} className="triangle-container">
+          { displayed ? (
+            <Stage width="1000" height="750">
+              <Grid />
+            </Stage>
+          ) : ''
+          }
           <Stage width="1000" height="750">
             <Triangle
               color={color}
@@ -82,7 +96,6 @@ class StudentView extends Component {
               handleDragMove={this.handleDragMove}
               handleDragMoveOne={this.handleDragMoveOne}
             />
-            <Grid />
             <Triangle
               color={color}
               node={node}
@@ -100,7 +113,7 @@ class StudentView extends Component {
         </Col>
         <Col md={4} className="description-container">
           <div className="text-center">
-            <Decription />
+            <Decription handleCheck={this.handleCheck} />
           </div>
         </Col>
       </Row>
