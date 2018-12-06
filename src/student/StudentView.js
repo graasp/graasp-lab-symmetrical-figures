@@ -4,54 +4,50 @@ import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 import { Stage } from 'react-konva';
 import './StudentView.css';
-import Triangle from '../component/Triangle';
-import Decription from '../component/Decription';
-import Liner from '../component/Liner';
+import Triangle from '../component/triangle/Triangle';
+import Decription from '../component/description/Decription';
+import Liner from '../component/liner/Liner';
+import { AppState } from '../config/AppState';
 
 class StudentView extends Component {
   static propTypes = {
     t: PropTypes.func.isRequired,
   };
 
-  state = {
-    color: '#000',
-    node: {
-      A: 'A',
-      B: 'B',
-      C: 'C',
-    },
-    triangleA: [
-      { x: 150, y: 250 },
-      { x: 300, y: 300 },
-      { x: 200, y: 400 },
-    ],
-    triangleB: [
-      { x: 550, y: 650 },
-      { x: 500, y: 500 },
-      { x: 400, y: 600 },
-    ],
-    linePoints: [680, 50, 200, 600],
-  }
-
-  handleDragMove = (e) => {
-    const { linePoints } = this.state;
-    const newLinePoints = [...linePoints];
-    newLinePoints[0] = e.target.x();
-    newLinePoints[1] = e.target.y();
-    this.handleChange(newLinePoints);
-  }
+  state = AppState;
 
   handleDragMoveOne = (e) => {
     const { linePoints } = this.state;
     const newLinePoints = [...linePoints];
     newLinePoints[2] = e.target.x();
     newLinePoints[3] = e.target.y();
-    this.handleChange(newLinePoints);
+    this.handleLineChange(newLinePoints);
   }
 
-  handleChange = (newLinePoints) => {
+  handleDragMove = (e) => {
+    const { linePoints, triangleA } = this.state;
+    const newLinePoints = [...linePoints];
+    const newTriangleAPoints = [...triangleA];
+    newLinePoints[0] = e.target.x();
+    newLinePoints[1] = e.target.y();
+    const newTriangle = newTriangleAPoints.map(({ x, y }) => ({
+      x: x + e.target.x(),
+      y: y + e.target.y(),
+    }));
+    this.handleLineChange(newLinePoints);
+    this.handleTriangleChange(newTriangle);
+  }
+
+  handleLineChange = (newLinePoints) => {
     this.setState({
       linePoints: newLinePoints,
+    });
+  }
+
+  handleTriangleChange = (newTriangle) => {
+    console.log('changing triangle coordinates');
+    this.setState({
+      triangleA: newTriangle,
     });
   }
 
