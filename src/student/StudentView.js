@@ -6,6 +6,7 @@ import { Stage } from 'react-konva';
 import './StudentView.css';
 import Triangle from '../component/triangle/Triangle';
 import Decription from '../component/description/Decription';
+import Grid from '../component/grid/Grid';
 import Liner from '../component/liner/Liner';
 import { AppState } from '../config/AppState';
 
@@ -45,7 +46,6 @@ class StudentView extends Component {
   }
 
   handleTriangleChange = (newTriangle) => {
-    console.log('changing triangle coordinates');
     this.setState({
       triangleA: newTriangle,
     });
@@ -63,7 +63,7 @@ class StudentView extends Component {
     return (
       <Row className="app-loader">
         <Col md={8} className="triangle-container">
-          <Stage width="700" height="700">
+          <Stage width="1000" height="750">
             <Triangle
               color={color}
               node={node}
@@ -82,6 +82,7 @@ class StudentView extends Component {
               handleDragMove={this.handleDragMove}
               handleDragMoveOne={this.handleDragMoveOne}
             />
+            <Grid />
             <Triangle
               color={color}
               node={node}
