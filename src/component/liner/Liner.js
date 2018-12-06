@@ -9,7 +9,6 @@ import {
 const Liner = ({
   color,
   handleDragMove,
-  handleDragMoveOne,
   linePoints,
 }) => (
   <Layer>
@@ -33,8 +32,6 @@ const Liner = ({
       stroke="#555"
       strokeWidth={0.5}
       shadowBlur={5}
-      onDragMove={handleDragMoveOne}
-      draggable
     />
   </Layer>
 );
@@ -42,7 +39,6 @@ const Liner = ({
 Liner.propTypes = {
   color: PropTypes.string.isRequired,
   handleDragMove: PropTypes.func.isRequired,
-  handleDragMoveOne: PropTypes.func.isRequired,
   linePoints: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
 };
 
