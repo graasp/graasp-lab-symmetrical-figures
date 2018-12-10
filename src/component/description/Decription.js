@@ -8,7 +8,12 @@ import Polygon from './Polygon.svg';
 import Line from './Line.svg';
 import Point from './Point.svg';
 
-const Decription = ({ handleCheck, showPointsDisplay }) => (
+const Decription = ({
+  handleCheck,
+  showPointsDisplay,
+  handleView,
+  toggleLine,
+}) => (
   <div className="main-container">
     <Button
       outline
@@ -33,8 +38,16 @@ const Decription = ({ handleCheck, showPointsDisplay }) => (
     <h2 className="description-symetri">
       Symétrie par rapport à
     </h2>
-    <img src={Point} alt="Point" className="point-figure" />
-    <img src={Line} alt="Line" className="" />
+    <div className="dots-or-line-choice">
+      <div className="dot-choice">
+        <img src={Point} alt="Point" className="point-figure" />
+        <Input type="radio" name="kind-checker" onChange={handleView} />
+      </div>
+      <div className="line-choice">
+        <img src={Line} alt="Line" className="" />
+        <Input type="radio" checked={toggleLine} name="kind-checker" onChange={handleView} />
+      </div>
+    </div>
     <div className="description-checkbox">
       <div className="displayer displayer-one">
         <h2 className="display-line">Afficher grille</h2>
@@ -51,5 +64,7 @@ const Decription = ({ handleCheck, showPointsDisplay }) => (
 Decription.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   showPointsDisplay: PropTypes.func.isRequired,
+  handleView: PropTypes.func.isRequired,
+  toggleLine: PropTypes.bool.isRequired,
 };
 export default Decription;

@@ -14,9 +14,6 @@
   margin-left: 5rem;
   margin-right: 5rem;
 }
-.point-figure {
-  margin-right: 5rem;
-}
 .description-symetri {
    margin-top: 5rem;
    padding-top: 2rem;
@@ -35,4 +32,23 @@
 }
 .displayer-one {
   margin: 3rem;
+}
+.dot-choice, .line-choice {
+  width: 50%;
+  display: inline-block;
+  position: relative;
+}
+.dot-choice>input, .line-choice>input {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+.dot-choice>input {
+  top: 3rem;
+}
+.line-choice>input {
+  top: 4rem;
+}
+.dots-or-line-choice {
+  padding: 0 7rem 5rem;
 }
