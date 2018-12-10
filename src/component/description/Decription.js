@@ -41,11 +41,11 @@ const Decription = ({
     <div className="dots-or-line-choice">
       <div className="dot-choice">
         <img src={Point} alt="Point" className="point-figure" />
-        <Input type="radio" name="kind-checker" onChange={handleView} />
+        <Input type="radio" checked={toggleLine} name="kind-checker" onChange={handleView} />
       </div>
       <div className="line-choice">
         <img src={Line} alt="Line" className="" />
-        <Input type="radio" checked={toggleLine} name="kind-checker" onChange={handleView} />
+        <Input type="radio" name="kind-checker" onChange={handleView} />
       </div>
     </div>
     <div className="description-checkbox">
