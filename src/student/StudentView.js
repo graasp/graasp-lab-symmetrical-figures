@@ -7,6 +7,7 @@ import './StudentView.css';
 import Triangle from '../component/triangle/Triangle';
 import Decription from '../component/description/Decription';
 import Grid from '../component/grid/Grid';
+import Points from '../component/points/Points';
 import Liner from '../component/liner/Liner';
 import { AppState } from '../config/AppState';
 
@@ -58,11 +59,21 @@ class StudentView extends Component {
     });
   }
 
+  showPointsDisplay = () => {
+    const { showPoints } = this.state;
+    this.setState({
+      showPoints: !showPoints,
+    });
+  }
+
   render() {
     const {
       color,
       displayed,
+      showPoints,
       node,
+      nodeA,
+      nodeB,
       triangleA,
       triangleB,
       linePoints,
@@ -74,6 +85,33 @@ class StudentView extends Component {
           { displayed ? (
             <Stage width="1000" height="750">
               <Grid />
+            </Stage>
+          ) : ''
+          }
+          { showPoints ? (
+            <Stage width="1000" height="750">
+              <Points
+                color={color}
+                node={nodeA}
+                points={
+                  [
+                    { x: triangleA[0].x, y: triangleA[0].y },
+                    { x: triangleA[1].x, y: triangleA[1].y },
+                    { x: triangleA[2].x, y: triangleA[2].y },
+                  ]
+                }
+              />
+              <Points
+                color={color}
+                node={nodeB}
+                points={
+                  [
+                    { x: triangleB[0].x, y: triangleB[0].y },
+                    { x: triangleB[1].x, y: triangleB[1].y },
+                    { x: triangleB[2].x, y: triangleB[2].y },
+                  ]
+                }
+              />
             </Stage>
           ) : ''
           }
@@ -113,7 +151,10 @@ class StudentView extends Component {
         </Col>
         <Col md={4} className="description-container">
           <div className="text-center">
-            <Decription handleCheck={this.handleCheck} />
+            <Decription
+              handleCheck={this.handleCheck}
+              showPointsDisplay={this.showPointsDisplay}
+            />
           </div>
         </Col>
       </Row>

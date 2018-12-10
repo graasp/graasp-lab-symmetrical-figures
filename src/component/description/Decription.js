@@ -8,7 +8,7 @@ import Polygon from './Polygon.svg';
 import Line from './Line.svg';
 import Point from './Point.svg';
 
-const Decription = ({ handleCheck }) => (
+const Decription = ({ handleCheck, showPointsDisplay }) => (
   <div className="main-container">
     <Button
       outline
@@ -42,7 +42,7 @@ const Decription = ({ handleCheck }) => (
       </div>
       <div className="displayer">
         <h2 className="display-point">Afficher points</h2>
-        <Input type="checkbox" className="choice-checker" />
+        <Input type="checkbox" className="choice-checker" onClick={showPointsDisplay} />
       </div>
     </div>
   </div>
@@ -50,5 +50,6 @@ const Decription = ({ handleCheck }) => (
 
 Decription.propTypes = {
   handleCheck: PropTypes.func.isRequired,
+  showPointsDisplay: PropTypes.func.isRequired,
 };
 export default Decription;
