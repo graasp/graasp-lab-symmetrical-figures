@@ -8,7 +8,7 @@ import Polygon from './Polygon.svg';
 import Line from './Line.svg';
 import Point from './Point.svg';
 
-const Decription = ({
+const Description = ({
   handleCheck,
   showPointsDisplay,
   handleView,
@@ -61,10 +61,10 @@ const Decription = ({
   </div>
 );
 
-Decription.propTypes = {
+Description.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   showPointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
-export default Decription;
+export default Description;
