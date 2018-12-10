@@ -100,6 +100,12 @@ class StudentView extends Component {
       lineAxeOne,
       lineAxeTwo,
       lineAxeThree,
+      triangleOpacity,
+      triangleStroke,
+      triangleShadowBlur,
+      triangleStrokeWidth,
+      shapeStroke,
+      circleRadius,
     } = this.state;
     const { t } = this.props;
     return (
@@ -167,6 +173,12 @@ class StudentView extends Component {
           }
           <Stage width={width} height={height}>
             <Triangle
+              opacity={triangleOpacity}
+              stroke={triangleStroke}
+              shadowBlur={triangleShadowBlur}
+              strokeWidth={triangleStrokeWidth}
+              shapeStroke={shapeStroke}
+              radius={circleRadius}
               color={color}
               node={node}
               points={
@@ -180,6 +192,12 @@ class StudentView extends Component {
             />
 
             <Triangle
+              opacity={triangleOpacity}
+              stroke={triangleStroke}
+              shadowBlur={triangleShadowBlur}
+              strokeWidth={triangleStrokeWidth}
+              shapeStroke={shapeStroke}
+              radius={circleRadius}
               color={color}
               node={node}
               points={
