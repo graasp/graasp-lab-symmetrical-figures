@@ -1,10 +1,16 @@
 export const AppState = {
   color: '#000',
   displayed: false,
-  node: {
+  showPoints: false,
+  nodeA: {
     A: 'A',
     B: 'B',
     C: 'C',
+  },
+  nodeB: {
+    A: "A'",
+    B: "B'",
+    C: "C'",
   },
   triangleA: [
     { x: 150, y: 250 },
