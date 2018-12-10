@@ -4,7 +4,7 @@ export const AppState = {
   color: '#000',
   displayed: false,
   showPoints: false,
-  toggleLine: true,
+  toggleLine: false,
   nodeA: {
     A: 'A',
     B: 'B',
@@ -12,8 +12,8 @@ export const AppState = {
   },
   nodeB: {
     A: "A'",
-    B: "B'",
-    C: "C'",
+    B: "C'",
+    C: "B'",
   },
   triangleA: [
     { x: 150, y: 250 },
