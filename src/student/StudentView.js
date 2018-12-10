@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 import {
-  Circle,
-  Layer,
   Stage,
 } from 'react-konva';
 import './StudentView.css';
@@ -13,6 +11,8 @@ import Decription from '../component/description/Decription';
 import Grid from '../component/grid/Grid';
 import Points from '../component/points/Points';
 import Liner from '../component/liner/Liner';
+import Axes from '../component/axes/Axes';
+import MidPoint from '../component/axes/MidPoint';
 import { AppState } from '../config/AppState';
 
 class StudentView extends Component {
@@ -72,12 +72,18 @@ class StudentView extends Component {
 
   handleView = () => {
     const { toggleLine } = this.state;
-    this.setState({ toggleLine: !toggleLine });
-  }
 
+    this.setState({
+      toggleLine: !toggleLine,
+      nodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
+    });
+  }
 
   render() {
     const {
+      axePointsOne,
+      axePointsTwo,
+      axePointsThree,
       toggleLine,
       circlePoints,
       color,
@@ -91,6 +97,9 @@ class StudentView extends Component {
       linePoints,
       height,
       width,
+      lineAxeOne,
+      lineAxeTwo,
+      lineAxeThree,
     } = this.state;
     const { t } = this.props;
     return (
@@ -104,27 +113,28 @@ class StudentView extends Component {
           }
           { toggleLine ? (
             <Stage width={width} height={height}>
-              <Liner
+              <MidPoint
                 color={color}
-                linePoints={linePoints}
-                handleDragMove={this.handleDragMove}
-                handleDragMoveOne={this.handleDragMoveOne}
+                circlePoints={circlePoints}
+              />
+              <Axes
+                axePointsOne={axePointsOne}
+                axePointsTwo={axePointsTwo}
+                axePointsThree={axePointsThree}
               />
             </Stage>
           )
             : (
               <Stage width={width} height={height}>
-                <Layer>
-                  <Circle
-                    x={circlePoints[0]}
-                    y={circlePoints[1]}
-                    radius={5}
-                    fill={color}
-                    stroke="red"
-                    strokeWidth={5}
-                    shadowBlur={5}
-                  />
-                </Layer>
+                <Liner
+                  color={color}
+                  linePoints={linePoints}
+                  handleDragMove={this.handleDragMove}
+                  handleDragMoveOne={this.handleDragMoveOne}
+                  lineAxeOne={lineAxeOne}
+                  lineAxeTwo={lineAxeTwo}
+                  lineAxeThree={lineAxeThree}
+                />
               </Stage>
             )
           }
