@@ -1,8 +1,10 @@
 export const AppState = {
-  toggleLine: true,
+  width: 1000,
+  height: 750,
   color: '#000',
   displayed: false,
   showPoints: false,
+  toggleLine: true,
   nodeA: {
     A: 'A',
     B: 'B',
@@ -24,6 +26,7 @@ export const AppState = {
     { x: 400, y: 600 },
   ],
   linePoints: [680, 50, 200, 600],
+  circlePoints: [350, 450],
 };
 
 export default AppState;
