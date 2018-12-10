@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
-import { Stage } from 'react-konva';
+import {
+  Circle,
+  Layer,
+  Stage,
+} from 'react-konva';
 import './StudentView.css';
 import Triangle from '../component/triangle/Triangle';
 import Decription from '../component/description/Decription';
@@ -66,8 +70,15 @@ class StudentView extends Component {
     });
   }
 
+  handleView = () => {
+    const { toggleLine } = this.state;
+    this.setState({ toggleLine: !toggleLine });
+  }
+
+
   render() {
     const {
+      toggleLine,
       color,
       displayed,
       showPoints,
@@ -87,6 +98,32 @@ class StudentView extends Component {
               <Grid />
             </Stage>
           ) : ''
+          }
+          { toggleLine ? (
+            <Stage width="1000" height="750">
+              <Liner
+                color={color}
+                linePoints={linePoints}
+                handleDragMove={this.handleDragMove}
+                handleDragMoveOne={this.handleDragMoveOne}
+              />
+            </Stage>
+          )
+            : (
+              <Stage width="1000" height="750">
+                <Layer>
+                  <Circle
+                    x={linePoints[2]}
+                    y={linePoints[3]}
+                    radius={5}
+                    fill={color}
+                    stroke="red"
+                    strokeWidth={5}
+                    shadowBlur={5}
+                  />
+                </Layer>
+              </Stage>
+            )
           }
           { showPoints ? (
             <Stage width="1000" height="750">
@@ -128,12 +165,7 @@ class StudentView extends Component {
               }
               t={t}
             />
-            <Liner
-              color={color}
-              linePoints={linePoints}
-              handleDragMove={this.handleDragMove}
-              handleDragMoveOne={this.handleDragMoveOne}
-            />
+
             <Triangle
               color={color}
               node={node}
@@ -154,6 +186,8 @@ class StudentView extends Component {
             <Decription
               handleCheck={this.handleCheck}
               showPointsDisplay={this.showPointsDisplay}
+              handleView={this.handleView}
+              toggleLine={toggleLine}
             />
           </div>
         </Col>
