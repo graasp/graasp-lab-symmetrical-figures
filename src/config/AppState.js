@@ -1,4 +1,5 @@
 export const AppState = {
+  toggleLine: true,
   color: '#000',
   displayed: false,
   showPoints: false,
