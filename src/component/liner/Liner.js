@@ -13,6 +13,9 @@ const Liner = ({
   lineAxeOne,
   lineAxeTwo,
   lineAxeThree,
+  shadowBlur,
+  lineStroke,
+  radius,
 }) => (
   <Layer>
     <Line
@@ -36,7 +39,7 @@ const Liner = ({
           lineAxeOne[3],
         ]
       }
-      stroke="#1DE9B6"
+      stroke={lineStroke}
       strokeWidth={1}
     />
     <Line
@@ -48,7 +51,7 @@ const Liner = ({
           lineAxeTwo[3],
         ]
       }
-      stroke="#1DE9B6"
+      stroke={lineStroke}
       strokeWidth={1}
     />
     <Line
@@ -60,34 +63,37 @@ const Liner = ({
           lineAxeThree[3],
         ]
       }
-      stroke="#1DE9B6"
+      stroke={lineStroke}
       strokeWidth={1}
     />
     <Circle
       x={linePoints[0]}
       y={linePoints[1]}
-      radius={5}
+      radius={radius}
       fill={color}
-      stroke="#555"
+      stroke={lineStroke}
       strokeWidth={0.5}
-      shadowBlur={5}
+      shadowBlur={shadowBlur}
       onDragMove={handleDragMove}
       draggable
     />
     <Circle
       x={linePoints[2]}
       y={linePoints[3]}
-      radius={5}
+      radius={radius}
       fill={color}
-      stroke="#555"
+      stroke={lineStroke}
       strokeWidth={0.5}
-      shadowBlur={5}
+      shadowBlur={shadowBlur}
     />
   </Layer>
 );
 
 Liner.propTypes = {
   color: PropTypes.string.isRequired,
+  radius: PropTypes.number.isRequired,
+  lineStroke: PropTypes.string.isRequired,
+  shadowBlur: PropTypes.number.isRequired,
   handleDragMove: PropTypes.func.isRequired,
   linePoints: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   lineAxeOne: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
