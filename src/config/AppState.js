@@ -38,6 +38,7 @@ export const AppState = {
   triangleOpacity: 0.5,
   triangleStroke: '#555',
   shapeStroke: '#000',
+  lineStroke: '#1DE9B6',
   triangleShadowBlur: 5,
   triangleStrokeWidth: 5,
   circleRadius: 5,
