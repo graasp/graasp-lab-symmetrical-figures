@@ -79,6 +79,7 @@ class StudentView extends Component {
   render() {
     const {
       toggleLine,
+      circlePoints,
       color,
       displayed,
       showPoints,
@@ -88,19 +89,21 @@ class StudentView extends Component {
       triangleA,
       triangleB,
       linePoints,
+      height,
+      width,
     } = this.state;
     const { t } = this.props;
     return (
       <Row className="app-loader">
         <Col md={8} className="triangle-container">
           { displayed ? (
-            <Stage width="1000" height="750">
+            <Stage width={width} height={height}>
               <Grid />
             </Stage>
           ) : ''
           }
           { toggleLine ? (
-            <Stage width="1000" height="750">
+            <Stage width={width} height={height}>
               <Liner
                 color={color}
                 linePoints={linePoints}
@@ -110,11 +113,11 @@ class StudentView extends Component {
             </Stage>
           )
             : (
-              <Stage width="1000" height="750">
+              <Stage width={width} height={height}>
                 <Layer>
                   <Circle
-                    x={linePoints[2]}
-                    y={linePoints[3]}
+                    x={circlePoints[0]}
+                    y={circlePoints[1]}
                     radius={5}
                     fill={color}
                     stroke="red"
@@ -126,7 +129,7 @@ class StudentView extends Component {
             )
           }
           { showPoints ? (
-            <Stage width="1000" height="750">
+            <Stage width={width} height={height}>
               <Points
                 color={color}
                 node={nodeA}
@@ -152,7 +155,7 @@ class StudentView extends Component {
             </Stage>
           ) : ''
           }
-          <Stage width="1000" height="750">
+          <Stage width={width} height={height}>
             <Triangle
               color={color}
               node={node}
