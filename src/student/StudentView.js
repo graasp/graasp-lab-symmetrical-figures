@@ -106,6 +106,7 @@ class StudentView extends Component {
       triangleStrokeWidth,
       shapeStroke,
       circleRadius,
+      lineStroke,
     } = this.state;
     const { t } = this.props;
     return (
@@ -140,6 +141,9 @@ class StudentView extends Component {
                   lineAxeOne={lineAxeOne}
                   lineAxeTwo={lineAxeTwo}
                   lineAxeThree={lineAxeThree}
+                  lineStroke={lineStroke}
+                  radius={circleRadius}
+                  shadowBlur={triangleShadowBlur}
                 />
               </Stage>
             )
