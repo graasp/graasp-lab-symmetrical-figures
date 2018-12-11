@@ -1,10 +1,4 @@
 export const AppState = {
-  width: window.innerWidth,
-  height: window.innerHeight,
-  color: '#000',
-  displayed: false,
-  showPoints: false,
-  toggleLine: true,
   nodeA: {
     A: 'A',
     B: 'B',
@@ -27,6 +21,12 @@ export const AppState = {
     { x: 500, y: 500 },
     { x: 400, y: 600 },
   ],
+  width: window.innerWidth,
+  height: window.innerHeight,
+  color: '#000',
+  displayed: false,
+  showPoints: false,
+  toggleLine: true,
   linePoints: [750, 50, 200, 600], // this is our main line separator coordinates
   lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
   lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
@@ -37,11 +37,21 @@ export const AppState = {
   axePointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
   triangleOpacity: 0.5,
   triangleStroke: '#555',
-  shapeStroke: '#000',
   lineStroke: '#1DE9B6',
+  lineStrokeWidth: 0.5,
   triangleShadowBlur: 5,
   triangleStrokeWidth: 5,
+  axeStroke: '#0091EA',
+  axeStrokeWidth: 0.5,
+  shapeStroke: '#000',
   circleRadius: 5,
+  midPointStroke: '#D50000',
+  midPointStrokeWidth: 5,
+  midPointShadowBlur: 5,
+  midPointRadius: 5,
+  gridStroke: '#ced4da',
+  gridStrokeWidth: 0.5,
+  pointSize: 30,
 };
 
 export default AppState;
