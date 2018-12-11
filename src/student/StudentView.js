@@ -183,6 +183,7 @@ class StudentView extends Component {
                 }
               />
               <Points
+                fontSize={pointSize}
                 color={color}
                 node={nodeB}
                 points={
