@@ -8,16 +8,20 @@ import {
 const MidPoint = ({
   color,
   circlePoints,
+  stroke,
+  strokeWidth,
+  shadowBlur,
+  radius,
 }) => (
   <Layer>
     <Circle
       x={circlePoints[0]}
       y={circlePoints[1]}
-      radius={5}
+      radius={radius}
       fill={color}
-      stroke="red"
-      strokeWidth={5}
-      shadowBlur={5}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+      shadowBlur={shadowBlur}
     />
   </Layer>
 );
@@ -25,6 +29,10 @@ const MidPoint = ({
 MidPoint.propTypes = {
   circlePoints: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   color: PropTypes.string.isRequired,
+  stroke: PropTypes.string.isRequired,
+  strokeWidth: PropTypes.number.isRequired,
+  shadowBlur: PropTypes.number.isRequired,
+  radius: PropTypes.number.isRequired,
 };
 
 export default MidPoint;

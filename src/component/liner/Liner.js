@@ -16,6 +16,7 @@ const Liner = ({
   shadowBlur,
   lineStroke,
   radius,
+  strokeWidth,
 }) => (
   <Layer>
     <Line
@@ -72,7 +73,7 @@ const Liner = ({
       radius={radius}
       fill={color}
       stroke={lineStroke}
-      strokeWidth={0.5}
+      strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
       onDragMove={handleDragMove}
       draggable
@@ -83,13 +84,14 @@ const Liner = ({
       radius={radius}
       fill={color}
       stroke={lineStroke}
-      strokeWidth={0.5}
+      strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
     />
   </Layer>
 );
 
 Liner.propTypes = {
+  strokeWidth: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
   radius: PropTypes.number.isRequired,
   lineStroke: PropTypes.string.isRequired,

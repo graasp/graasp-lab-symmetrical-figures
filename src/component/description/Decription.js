@@ -18,7 +18,7 @@ const Description = ({
     <Button
       outline
       color="secondary"
-      className=" observe-button"
+      className="observe-button"
     >
       Observer
     </Button>
@@ -32,30 +32,67 @@ const Description = ({
     <h2 className="description-choice">
       Choisissez une forme
     </h2>
-    <img src={Triangle} alt="Triangle" className="" />
-    <img src={Rectangle} alt="Rectangle" className="rectangle-figure" />
-    <img src={Polygon} alt="Polygon" className="" />
+    <img
+      src={Triangle}
+      alt="Triangle"
+      className="triangle-figure"
+    />
+    <img
+      src={Rectangle}
+      alt="Rectangle"
+      className="rectangle-figure"
+    />
+    <img
+      src={Polygon}
+      alt="Polygon"
+      className="polygon-figure"
+    />
     <h2 className="description-symetri">
       Symétrie par rapport à
     </h2>
     <div className="dots-or-line-choice">
       <div className="dot-choice">
-        <img src={Point} alt="Point" className="point-figure" />
-        <Input type="radio" checked={toggleLine} name="kind-checker" onChange={handleView} />
+        <img
+          src={Point}
+          alt="Point"
+          className="point-figure"
+        />
+        <Input
+          type="radio"
+          checked={toggleLine}
+          name="kind-checker"
+          onChange={handleView}
+        />
       </div>
       <div className="line-choice">
-        <img src={Line} alt="Line" className="" />
-        <Input type="radio" name="kind-checker" onChange={handleView} />
+        <img
+          src={Line}
+          alt="Line"
+          className="line-figure"
+        />
+        <Input
+          type="radio"
+          name="kind-checker"
+          onChange={handleView}
+        />
       </div>
     </div>
     <div className="description-checkbox">
       <div className="displayer displayer-one">
         <h2 className="display-line">Afficher grille</h2>
-        <Input type="checkbox" className="choice-checker" onClick={handleCheck} />
+        <Input
+          type="checkbox"
+          className="choice-checker"
+          onClick={handleCheck}
+        />
       </div>
       <div className="displayer">
         <h2 className="display-point">Afficher points</h2>
-        <Input type="checkbox" className="choice-checker" onClick={showPointsDisplay} />
+        <Input
+          type="checkbox"
+          className="choice-checker"
+          onClick={showPointsDisplay}
+        />
       </div>
     </div>
   </div>

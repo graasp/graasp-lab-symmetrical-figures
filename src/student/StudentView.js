@@ -107,6 +107,16 @@ class StudentView extends Component {
       shapeStroke,
       circleRadius,
       lineStroke,
+      axeStroke,
+      axeStrokeWidth,
+      lineStrokeWidth,
+      midPointStroke,
+      midPointStrokeWidth,
+      midPointShadowBlur,
+      midPointRadius,
+      gridStroke,
+      gridStrokeWidth,
+      pointSize,
     } = this.state;
     const { t } = this.props;
     return (
@@ -114,7 +124,10 @@ class StudentView extends Component {
         <Col md={8} className="triangle-container">
           { displayed ? (
             <Stage width={width} height={height}>
-              <Grid />
+              <Grid
+                stroke={gridStroke}
+                strokeWidth={gridStrokeWidth}
+              />
             </Stage>
           ) : ''
           }
@@ -123,11 +136,17 @@ class StudentView extends Component {
               <MidPoint
                 color={color}
                 circlePoints={circlePoints}
+                stroke={midPointStroke}
+                strokeWidth={midPointStrokeWidth}
+                shadowBlur={midPointShadowBlur}
+                radius={midPointRadius}
               />
               <Axes
                 axePointsOne={axePointsOne}
                 axePointsTwo={axePointsTwo}
                 axePointsThree={axePointsThree}
+                stroke={axeStroke}
+                strokeWidth={axeStrokeWidth}
               />
             </Stage>
           )
@@ -144,6 +163,7 @@ class StudentView extends Component {
                   lineStroke={lineStroke}
                   radius={circleRadius}
                   shadowBlur={triangleShadowBlur}
+                  strokeWidth={lineStrokeWidth}
                 />
               </Stage>
             )
@@ -151,6 +171,7 @@ class StudentView extends Component {
           { showPoints ? (
             <Stage width={width} height={height}>
               <Points
+                fontSize={pointSize}
                 color={color}
                 node={nodeA}
                 points={

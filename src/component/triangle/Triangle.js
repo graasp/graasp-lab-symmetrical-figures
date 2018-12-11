@@ -35,7 +35,7 @@ const Triangle = ({
     <Circle
       x={points[0].x}
       y={points[0].y}
-      radius={5}
+      radius={radius}
       fill={color}
       stroke={stroke}
       strokeWidth={strokeWidth}
