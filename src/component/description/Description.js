@@ -7,6 +7,7 @@ import Point from './Point.svg';
 import Forms from '../forms/Forms';
 
 const Description = ({
+  handleForm,
   handleCheck,
   showPointsDisplay,
   handleView,
@@ -27,7 +28,9 @@ const Description = ({
     >
       Tester
     </Button>
-    <Forms />
+    <Forms
+      handleForm={handleForm}
+    />
     <h2 className="description-symetri">
       Symétrie par rapport à
     </h2>
@@ -80,6 +83,7 @@ const Description = ({
 );
 
 Description.propTypes = {
+  handleForm: PropTypes.func.isRequired,
   handleCheck: PropTypes.func.isRequired,
   showPointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
