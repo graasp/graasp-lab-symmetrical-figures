@@ -23,9 +23,11 @@ export const AppState = {
   ],
   width: window.innerWidth,
   height: window.innerHeight,
-  color: '#000',
   displayed: false,
   showPoints: false,
+  isTriangleActive: true,
+  isPolygonActive: false,
+  isSquareActive: false,
   toggleLine: true,
   linePoints: [750, 50, 200, 600], // this is our main line separator coordinates
   lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
@@ -36,22 +38,24 @@ export const AppState = {
   axePointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
   axePointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
   triangleOpacity: 0.5,
-  triangleStroke: '#555',
-  lineStroke: '#1DE9B6',
   lineStrokeWidth: 0.5,
   triangleShadowBlur: 5,
   triangleStrokeWidth: 5,
-  axeStroke: '#0091EA',
   axeStrokeWidth: 0.5,
-  shapeStroke: '#000',
   circleRadius: 5,
-  midPointStroke: '#D50000',
   midPointStrokeWidth: 5,
   midPointShadowBlur: 5,
   midPointRadius: 5,
-  gridStroke: '#ced4da',
   gridStrokeWidth: 0.5,
   pointSize: 30,
+  color: '#000',
+  shapeStroke: '#000',
+  axeStroke: '#0091EA',
+  gridStroke: '#ced4da',
+  lineStroke: '#1DE9B6',
+  currentForm: 'triangle',
+  triangleStroke: '#555',
+  midPointStroke: '#D50000',
 };
 
 export default AppState;
