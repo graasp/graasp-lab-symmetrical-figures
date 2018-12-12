@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Input } from 'reactstrap';
 import './Description.css';
-import Triangle from './Triangle.svg';
-import Rectangle from './Rectangle.svg';
-import Polygon from './Polygon.svg';
 import Line from './Line.svg';
 import Point from './Point.svg';
+import Forms from '../forms/Forms';
 
 const Description = ({
   handleCheck,
@@ -29,24 +27,7 @@ const Description = ({
     >
       Tester
     </Button>
-    <h2 className="description-choice">
-      Choisissez une forme
-    </h2>
-    <img
-      src={Triangle}
-      alt="Triangle"
-      className="triangle-figure"
-    />
-    <img
-      src={Rectangle}
-      alt="Rectangle"
-      className="rectangle-figure"
-    />
-    <img
-      src={Polygon}
-      alt="Polygon"
-      className="polygon-figure"
-    />
+    <Forms />
     <h2 className="description-symetri">
       Symétrie par rapport à
     </h2>
