@@ -41,21 +41,21 @@ const Forms = () => (
       <Col md={4}>
         <Input
           type="radio"
-          name="triangle-choice"
+          name="form-choice"
           className="form-checker"
         />
       </Col>
       <Col md={4}>
         <Input
           type="radio"
-          name="square-choice"
+          name="form-choice"
           className="form-checker"
         />
       </Col>
       <Col md={4}>
         <Input
           type="radio"
-          name="polygon-choice"
+          name="form-choice"
           className="form-checker"
         />
       </Col>
