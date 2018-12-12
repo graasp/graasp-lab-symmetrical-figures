@@ -8,12 +8,17 @@ import {
 import './StudentView.css';
 import Triangle from '../component/triangle/Triangle';
 import Decription from '../component/description/Decription';
-import Grid from '../component/grid/Grid';
+import HorizontalGrid from '../component/grids/HorizontalGrid';
+import VerticalGrid from '../component/grids/VerticalGrid';
 import Points from '../component/points/Points';
 import Liner from '../component/liner/Liner';
 import Axes from '../component/axes/Axes';
 import MidPoint from '../component/axes/MidPoint';
 import { AppState } from '../config/AppState';
+import {
+  IDENTIC_PATH_0,
+  IDENTIC_PATH_1,
+} from '../constants/Paths';
 
 class StudentView extends Component {
   static propTypes = {
@@ -124,9 +129,17 @@ class StudentView extends Component {
         <Col md={8} className="triangle-container">
           { displayed ? (
             <Stage width={width} height={height}>
-              <Grid
+              <HorizontalGrid
                 stroke={gridStroke}
                 strokeWidth={gridStrokeWidth}
+                IDENTIC_PATH_0={IDENTIC_PATH_0}
+                IDENTIC_PATH_1={IDENTIC_PATH_1}
+              />
+              <VerticalGrid
+                stroke={gridStroke}
+                strokeWidth={gridStrokeWidth}
+                IDENTIC_PATH_0={IDENTIC_PATH_0}
+                IDENTIC_PATH_1={IDENTIC_PATH_1}
               />
             </Stage>
           ) : ''
