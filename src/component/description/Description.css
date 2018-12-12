@@ -1,7 +1,3 @@
-.description-choice {
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-}
 .observe-button, .test-button {
   width: 50%;
   padding-top: 1rem;
@@ -10,13 +6,8 @@
 .test-button {
   background-color: #F9FBE7;
 }
-.rectangle-figure {
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
 .description-symetri {
    margin-top: 5rem;
-   padding-top: 2rem;
  }
 .choice-checker {
   width: 2rem;
