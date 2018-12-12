@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Col,
   Input,
@@ -9,7 +10,7 @@ import Rectangle from './Rectangle.svg';
 import Polygon from './Polygon.svg';
 import './Forms.css';
 
-const Forms = () => (
+const Forms = ({ handleForm }) => (
   <div className="main-container">
     <h2 className="description-choice">
       Choisissez une forme
@@ -43,6 +44,7 @@ const Forms = () => (
           type="radio"
           name="form-choice"
           className="form-checker"
+          onChange={e => handleForm(e, 'triangle')}
         />
       </Col>
       <Col md={4}>
@@ -50,6 +52,7 @@ const Forms = () => (
           type="radio"
           name="form-choice"
           className="form-checker"
+          onChange={e => handleForm(e, 'square')}
         />
       </Col>
       <Col md={4}>
@@ -57,10 +60,14 @@ const Forms = () => (
           type="radio"
           name="form-choice"
           className="form-checker"
+          onChange={e => handleForm(e, 'polygon')}
         />
       </Col>
     </Row>
   </div>
 );
 
+Forms.propTypes = {
+  handleForm: PropTypes.func.isRequired,
+};
 export default Forms;
