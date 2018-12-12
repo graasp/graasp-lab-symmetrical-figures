@@ -6,14 +6,12 @@ import {
   Stage,
 } from 'react-konva';
 import './StudentView.css';
-import Triangle from '../component/triangle/Triangle';
-import Decription from '../component/description/Decription';
+import Description from '../component/description/Description';
 import HorizontalGrid from '../component/grids/HorizontalGrid';
 import VerticalGrid from '../component/grids/VerticalGrid';
-import Points from '../component/points/Points';
-import Liner from '../component/liner/Liner';
-import Axes from '../component/axes/Axes';
-import MidPoint from '../component/axes/MidPoint';
+import TriangleView from '../component/triangleView/TriangleView';
+import PolygonView from '../component/polygonView/PolygonView';
+import SquareView from '../component/squareView/SquareView';
 import { AppState } from '../config/AppState';
 import {
   IDENTIC_PATH_0,
@@ -84,44 +82,71 @@ class StudentView extends Component {
     });
   }
 
+  handleForm = (e, target) => {
+    if (target === 'triangle') {
+      this.setState({
+        isTriangleActive: true,
+        isPolygonActive: false,
+        isSquareActive: false,
+      });
+    }
+    if (target === 'polygon') {
+      this.setState({
+        isTriangleActive: false,
+        isPolygonActive: true,
+        isSquareActive: false,
+      });
+    }
+    if (target === 'square') {
+      this.setState({
+        isTriangleActive: false,
+        isPolygonActive: false,
+        isSquareActive: true,
+      });
+    }
+  }
+
+
   render() {
     const {
       axePointsOne,
       axePointsTwo,
       axePointsThree,
-      toggleLine,
+      axeStroke,
+      axeStrokeWidth,
       circlePoints,
+      circleRadius,
       color,
       displayed,
-      showPoints,
-      node,
-      nodeA,
-      nodeB,
-      triangleA,
-      triangleB,
-      linePoints,
+      gridStroke,
+      gridStrokeWidth,
       height,
-      width,
+      isPolygonActive,
+      isSquareActive,
+      isTriangleActive,
+      linePoints,
       lineAxeOne,
       lineAxeTwo,
       lineAxeThree,
-      triangleOpacity,
-      triangleStroke,
-      triangleShadowBlur,
-      triangleStrokeWidth,
-      shapeStroke,
-      circleRadius,
       lineStroke,
-      axeStroke,
-      axeStrokeWidth,
       lineStrokeWidth,
       midPointStroke,
       midPointStrokeWidth,
       midPointShadowBlur,
       midPointRadius,
-      gridStroke,
-      gridStrokeWidth,
+      nodeA,
+      nodeB,
       pointSize,
+      shapeStroke,
+      showPoints,
+      toggleLine,
+      triangleA,
+      triangleB,
+      triangleOpacity,
+      triangleStroke,
+      triangleShadowBlur,
+      triangleStrokeWidth,
+      width,
     } = this.state;
     const { t } = this.props;
     return (
@@ -144,120 +169,64 @@ class StudentView extends Component {
             </Stage>
           ) : ''
           }
-          { toggleLine ? (
-            <Stage width={width} height={height}>
-              <MidPoint
-                color={color}
-                circlePoints={circlePoints}
-                stroke={midPointStroke}
-                strokeWidth={midPointStrokeWidth}
-                shadowBlur={midPointShadowBlur}
-                radius={midPointRadius}
-              />
-              <Axes
-                axePointsOne={axePointsOne}
-                axePointsTwo={axePointsTwo}
-                axePointsThree={axePointsThree}
-                stroke={axeStroke}
-                strokeWidth={axeStrokeWidth}
-              />
-            </Stage>
-          )
-            : (
-              <Stage width={width} height={height}>
-                <Liner
-                  color={color}
-                  linePoints={linePoints}
-                  handleDragMove={this.handleDragMove}
-                  handleDragMoveOne={this.handleDragMoveOne}
-                  lineAxeOne={lineAxeOne}
-                  lineAxeTwo={lineAxeTwo}
-                  lineAxeThree={lineAxeThree}
-                  lineStroke={lineStroke}
-                  radius={circleRadius}
-                  shadowBlur={triangleShadowBlur}
-                  strokeWidth={lineStrokeWidth}
-                />
-              </Stage>
-            )
-          }
-          { showPoints ? (
-            <Stage width={width} height={height}>
-              <Points
-                fontSize={pointSize}
-                color={color}
-                node={nodeA}
-                points={
-                  [
-                    { x: triangleA[0].x, y: triangleA[0].y },
-                    { x: triangleA[1].x, y: triangleA[1].y },
-                    { x: triangleA[2].x, y: triangleA[2].y },
-                  ]
-                }
-              />
-              <Points
-                fontSize={pointSize}
-                color={color}
-                node={nodeB}
-                points={
-                  [
-                    { x: triangleB[0].x, y: triangleB[0].y },
-                    { x: triangleB[1].x, y: triangleB[1].y },
-                    { x: triangleB[2].x, y: triangleB[2].y },
-                  ]
-                }
-              />
-            </Stage>
+          { isTriangleActive ? (
+            <TriangleView
+              axePointsOne={axePointsOne}
+              axePointsTwo={axePointsTwo}
+              axePointsThree={axePointsThree}
+              axeStroke={axeStroke}
+              axeStrokeWidth={axeStrokeWidth}
+              circlePoints={circlePoints}
+              circleRadius={circleRadius}
+              color={color}
+              handleDragMove={this.handleDragMove}
+              handleDragMoveOne={this.handleDragMoveOne}
+              height={height}
+              linePoints={linePoints}
+              lineAxeOne={lineAxeOne}
+              lineAxeTwo={lineAxeTwo}
+              lineAxeThree={lineAxeThree}
+              lineStroke={lineStroke}
+              lineStrokeWidth={lineStrokeWidth}
+              midPointStroke={midPointStroke}
+              midPointStrokeWidth={midPointStrokeWidth}
+              midPointShadowBlur={midPointShadowBlur}
+              midPointRadius={midPointRadius}
+              nodeA={nodeA}
+              nodeB={nodeB}
+              pointSize={pointSize}
+              shapeStroke={shapeStroke}
+              showPoints={showPoints}
+              triangleA={triangleA}
+              triangleB={triangleB}
+              triangleOpacity={triangleOpacity}
+              triangleStroke={triangleStroke}
+              triangleShadowBlur={triangleShadowBlur}
+              triangleStrokeWidth={triangleStrokeWidth}
+              toggleLine={toggleLine}
+              width={width}
+            />
           ) : ''
           }
-          <Stage width={width} height={height}>
-            <Triangle
-              opacity={triangleOpacity}
-              stroke={triangleStroke}
-              shadowBlur={triangleShadowBlur}
-              strokeWidth={triangleStrokeWidth}
-              shapeStroke={shapeStroke}
-              radius={circleRadius}
-              color={color}
-              node={node}
-              points={
-                [
-                  { x: triangleA[0].x, y: triangleA[0].y },
-                  { x: triangleA[1].x, y: triangleA[1].y },
-                  { x: triangleA[2].x, y: triangleA[2].y },
-                ]
-              }
-              t={t}
-            />
+          { isPolygonActive ? (
+            <PolygonView />
+          ) : ''
+          }
+          { isSquareActive ? (
+            <SquareView />
+          ) : ''
+          }
 
-            <Triangle
-              opacity={triangleOpacity}
-              stroke={triangleStroke}
-              shadowBlur={triangleShadowBlur}
-              strokeWidth={triangleStrokeWidth}
-              shapeStroke={shapeStroke}
-              radius={circleRadius}
-              color={color}
-              node={node}
-              points={
-                [
-                  { x: triangleB[0].x, y: triangleB[0].y },
-                  { x: triangleB[1].x, y: triangleB[1].y },
-                  { x: triangleB[2].x, y: triangleB[2].y },
-                ]
-              }
-              t={t}
-              linePoints={linePoints}
-            />
-          </Stage>
         </Col>
         <Col md={4} className="description-container">
           <div className="text-center">
-            <Decription
+            <Description
               handleCheck={this.handleCheck}
-              showPointsDisplay={this.showPointsDisplay}
+              handleForm={this.handleForm}
               handleView={this.handleView}
+              showPointsDisplay={this.showPointsDisplay}
               toggleLine={toggleLine}
+              t={t}
             />
           </div>
         </Col>
