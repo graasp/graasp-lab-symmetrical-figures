@@ -1,4 +1,29 @@
 export const AppState = {
+  axePointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
+  axePointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
+  axePointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
+  axeStroke: '#0091EA',
+  axeStrokeWidth: 0.5,
+  circleRadius: 5,
+  circlePoints: [350, 450], // this is our middle circle coordinates
+  color: '#000',
+  displayed: false,
+  gridStrokeWidth: 0.5,
+  gridStroke: '#ced4da',
+  height: window.innerHeight,
+  isTriangleActive: true,
+  isPolygonActive: false,
+  isSquareActive: false,
+  lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
+  lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
+  lineAxeThree: [200, 400, 400, 600], // this is CC' left line separator coordinates
+  linePoints: [750, 50, 200, 600], // this is our main line separator coordinates
+  lineStroke: '#1DE9B6',
+  lineStrokeWidth: 0.5,
+  midPointStroke: '#D50000',
+  midPointStrokeWidth: 5,
+  midPointShadowBlur: 5,
+  midPointRadius: 5,
   nodeA: {
     A: 'A',
     B: 'B',
@@ -9,6 +34,14 @@ export const AppState = {
     B: "C'",
     C: "B'",
   },
+  pointSize: 30,
+  shapeStroke: '#000',
+  showPoints: false,
+  toggleLine: true,
+  triangleOpacity: 0.5,
+  triangleShadowBlur: 5,
+  triangleStrokeWidth: 5,
+  triangleStroke: '#555',
   // triangleA is our left triangle coordinates
   triangleA: [
     { x: 150, y: 250 },
@@ -22,40 +55,6 @@ export const AppState = {
     { x: 400, y: 600 },
   ],
   width: window.innerWidth,
-  height: window.innerHeight,
-  displayed: false,
-  showPoints: false,
-  isTriangleActive: true,
-  isPolygonActive: false,
-  isSquareActive: false,
-  toggleLine: true,
-  linePoints: [750, 50, 200, 600], // this is our main line separator coordinates
-  lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
-  lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
-  lineAxeThree: [200, 400, 400, 600], // this is CC' left line separator coordinates
-  circlePoints: [350, 450], // this is our middle circle coordinates
-  axePointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
-  axePointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
-  axePointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
-  triangleOpacity: 0.5,
-  lineStrokeWidth: 0.5,
-  triangleShadowBlur: 5,
-  triangleStrokeWidth: 5,
-  axeStrokeWidth: 0.5,
-  circleRadius: 5,
-  midPointStrokeWidth: 5,
-  midPointShadowBlur: 5,
-  midPointRadius: 5,
-  gridStrokeWidth: 0.5,
-  pointSize: 30,
-  color: '#000',
-  shapeStroke: '#000',
-  axeStroke: '#0091EA',
-  gridStroke: '#ced4da',
-  lineStroke: '#1DE9B6',
-  currentForm: 'triangle',
-  triangleStroke: '#555',
-  midPointStroke: '#D50000',
 };
 
 export default AppState;
