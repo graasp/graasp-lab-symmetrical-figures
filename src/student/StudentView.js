@@ -14,7 +14,7 @@ import { AppState } from '../config/AppState';
 import {
   IDENTIC_PATH_0,
   IDENTIC_PATH_1,
-} from '../constants/Paths';
+} from '../constants/Common';
 
 class StudentView extends Component {
   static propTypes = {
@@ -72,6 +72,7 @@ class StudentView extends Component {
 
   render() {
     const {
+      color,
       displayed,
       gridStroke,
       gridStrokeWidth,
@@ -118,7 +119,11 @@ class StudentView extends Component {
           ) : ''
           }
           { isSquareActive ? (
-            <SquareView />
+            <SquareView
+              color={color}
+              height={height}
+              width={width}
+            />
           ) : ''
           }
 
