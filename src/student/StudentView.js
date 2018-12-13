@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
-import {
-  Stage,
-} from 'react-konva';
+import { Stage } from 'react-konva';
 import './StudentView.css';
 import Description from '../component/description/Description';
 import HorizontalGrid from '../component/grids/HorizontalGrid';
@@ -25,40 +23,6 @@ class StudentView extends Component {
 
   state = AppState;
 
-  handleDragMoveOne = (e) => {
-    const { linePoints } = this.state;
-    const newLinePoints = [...linePoints];
-    newLinePoints[2] = e.target.x();
-    newLinePoints[3] = e.target.y();
-    this.handleLineChange(newLinePoints);
-  }
-
-  handleDragMove = (e) => {
-    const { linePoints, triangleA } = this.state;
-    const newLinePoints = [...linePoints];
-    const newTriangleAPoints = [...triangleA];
-    newLinePoints[0] = e.target.x();
-    newLinePoints[1] = e.target.y();
-    const newTriangle = newTriangleAPoints.map(({ x, y }) => ({
-      x: x + e.target.x(),
-      y: y + e.target.y(),
-    }));
-    this.handleLineChange(newLinePoints);
-    this.handleTriangleChange(newTriangle);
-  }
-
-  handleLineChange = (newLinePoints) => {
-    this.setState({
-      linePoints: newLinePoints,
-    });
-  }
-
-  handleTriangleChange = (newTriangle) => {
-    this.setState({
-      triangleA: newTriangle,
-    });
-  }
-
   handleCheck = () => {
     const { displayed } = this.state;
     this.setState({
@@ -66,7 +30,7 @@ class StudentView extends Component {
     });
   }
 
-  showPointsDisplay = () => {
+  handlePointsDisplay = () => {
     const { showPoints } = this.state;
     this.setState({
       showPoints: !showPoints,
@@ -106,17 +70,8 @@ class StudentView extends Component {
     }
   }
 
-
   render() {
     const {
-      axePointsOne,
-      axePointsTwo,
-      axePointsThree,
-      axeStroke,
-      axeStrokeWidth,
-      circlePoints,
-      circleRadius,
-      color,
       displayed,
       gridStroke,
       gridStrokeWidth,
@@ -124,28 +79,9 @@ class StudentView extends Component {
       isPolygonActive,
       isSquareActive,
       isTriangleActive,
-      linePoints,
-      lineAxeOne,
-      lineAxeTwo,
-      lineAxeThree,
-      lineStroke,
-      lineStrokeWidth,
-      midPointStroke,
-      midPointStrokeWidth,
-      midPointShadowBlur,
-      midPointRadius,
-      nodeA,
       nodeB,
-      pointSize,
-      shapeStroke,
       showPoints,
       toggleLine,
-      triangleA,
-      triangleB,
-      triangleOpacity,
-      triangleStroke,
-      triangleShadowBlur,
-      triangleStrokeWidth,
       width,
     } = this.state;
     const { t } = this.props;
@@ -171,40 +107,9 @@ class StudentView extends Component {
           }
           { isTriangleActive ? (
             <TriangleView
-              axePointsOne={axePointsOne}
-              axePointsTwo={axePointsTwo}
-              axePointsThree={axePointsThree}
-              axeStroke={axeStroke}
-              axeStrokeWidth={axeStrokeWidth}
-              circlePoints={circlePoints}
-              circleRadius={circleRadius}
-              color={color}
-              handleDragMove={this.handleDragMove}
-              handleDragMoveOne={this.handleDragMoveOne}
-              height={height}
-              linePoints={linePoints}
-              lineAxeOne={lineAxeOne}
-              lineAxeTwo={lineAxeTwo}
-              lineAxeThree={lineAxeThree}
-              lineStroke={lineStroke}
-              lineStrokeWidth={lineStrokeWidth}
-              midPointStroke={midPointStroke}
-              midPointStrokeWidth={midPointStrokeWidth}
-              midPointShadowBlur={midPointShadowBlur}
-              midPointRadius={midPointRadius}
-              nodeA={nodeA}
-              nodeB={nodeB}
-              pointSize={pointSize}
-              shapeStroke={shapeStroke}
-              showPoints={showPoints}
-              triangleA={triangleA}
-              triangleB={triangleB}
-              triangleOpacity={triangleOpacity}
-              triangleStroke={triangleStroke}
-              triangleShadowBlur={triangleShadowBlur}
-              triangleStrokeWidth={triangleStrokeWidth}
               toggleLine={toggleLine}
-              width={width}
+              showPoints={showPoints}
+              nodeB={nodeB}
             />
           ) : ''
           }
@@ -224,7 +129,7 @@ class StudentView extends Component {
               handleCheck={this.handleCheck}
               handleForm={this.handleForm}
               handleView={this.handleView}
-              showPointsDisplay={this.showPointsDisplay}
+              handlePointsDisplay={this.handlePointsDisplay}
               toggleLine={toggleLine}
               t={t}
             />
