@@ -9,7 +9,7 @@ import Forms from '../forms/Forms';
 const Description = ({
   handleForm,
   handleCheck,
-  showPointsDisplay,
+  handlePointsDisplay,
   handleView,
   toggleLine,
 }) => (
@@ -75,7 +75,7 @@ const Description = ({
         <Input
           type="checkbox"
           className="choice-checker"
-          onClick={showPointsDisplay}
+          onClick={handlePointsDisplay}
         />
       </div>
     </div>
@@ -85,7 +85,7 @@ const Description = ({
 Description.propTypes = {
   handleForm: PropTypes.func.isRequired,
   handleCheck: PropTypes.func.isRequired,
-  showPointsDisplay: PropTypes.func.isRequired,
+  handlePointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
