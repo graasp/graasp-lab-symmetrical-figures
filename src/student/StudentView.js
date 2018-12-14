@@ -122,6 +122,7 @@ class StudentView extends Component {
             <SquareView
               color={color}
               height={height}
+              toggleLine={toggleLine}
               width={width}
             />
           ) : ''
