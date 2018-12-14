@@ -37,14 +37,15 @@ import {
   lineStrokeWidth,
 } from '../../constants/Common';
 
-class SquareView extends Component {
+export class SquareView extends Component {
   state = SquareState;
 
   render() {
-    const { middleLinePoint, shadowBlur } = this.state;
+    const { middleLinePoint, middleLinePointLineStroke, shadowBlur } = this.state;
     const {
       color,
       height,
+      midPointStroke,
       toggleLine,
       width,
     } = this.props;
@@ -94,6 +95,11 @@ class SquareView extends Component {
             <Stage width={width} height={height}>
               <MidLine
                 color={color}
+                IDENTIC_PATH_2={IDENTIC_PATH_2}
+                IDENTIC_PATH_3={IDENTIC_PATH_3}
+                IDENTIC_PATH_4={IDENTIC_PATH_4}
+                IDENTIC_PATH_5={IDENTIC_PATH_5}
+                IDENTIC_PATH_6={IDENTIC_PATH_6}
                 radius={radius}
                 stroke={stroke}
                 strokeWidth={linestrokeWidth}
@@ -104,6 +110,8 @@ class SquareView extends Component {
                 lineStrokeWidth={lineStrokeWidth}
                 shadowBlur={shadowBlur}
                 middleLinePoint={middleLinePoint}
+                midPointStroke={midPointStroke}
+                middleLinePointLineStroke={middleLinePointLineStroke}
               />
             </Stage>
           )
@@ -116,6 +124,7 @@ class SquareView extends Component {
 SquareView.propTypes = {
   color: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
+  midPointStroke: PropTypes.string.isRequired,
   toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
 };
