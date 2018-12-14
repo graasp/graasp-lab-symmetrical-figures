@@ -12,9 +12,16 @@ const MidLine = ({
   circlePointsX,
   circlePointsY,
   circlePointsY2,
+  IDENTIC_PATH_2,
+  IDENTIC_PATH_3,
+  IDENTIC_PATH_4,
+  IDENTIC_PATH_5,
+  IDENTIC_PATH_6,
   stroke,
   lineStrokeWidth,
   middleLinePoint,
+  middleLinePointLineStroke,
+  midPointStroke,
   shadowBlur,
   radius,
   strokeWidth,
@@ -50,6 +57,54 @@ const MidLine = ({
       stroke={blackStroke}
       strokeWidth={lineStrokeWidth}
     />
+    <Line
+      points={
+        [
+          IDENTIC_PATH_3,
+          IDENTIC_PATH_3,
+          IDENTIC_PATH_5,
+          IDENTIC_PATH_3,
+        ]
+      }
+      stroke={midPointStroke}
+      strokeWidth={2}
+    />
+    <Line
+      points={
+        [
+          IDENTIC_PATH_3,
+          IDENTIC_PATH_4,
+          IDENTIC_PATH_5,
+          IDENTIC_PATH_4,
+        ]
+      }
+      stroke={midPointStroke}
+      strokeWidth={2}
+    />
+    <Line
+      points={
+        [
+          IDENTIC_PATH_2,
+          IDENTIC_PATH_4,
+          IDENTIC_PATH_6,
+          IDENTIC_PATH_4,
+        ]
+      }
+      stroke={middleLinePointLineStroke}
+      strokeWidth={9}
+    />
+    <Line
+      points={
+        [
+          IDENTIC_PATH_2,
+          IDENTIC_PATH_3,
+          IDENTIC_PATH_6,
+          IDENTIC_PATH_3,
+        ]
+      }
+      stroke={middleLinePointLineStroke}
+      strokeWidth={7}
+    />
   </Layer>
 );
 
@@ -58,6 +113,12 @@ MidLine.propTypes = {
   circlePointsY: PropTypes.number.isRequired,
   circlePointsY2: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
+  IDENTIC_PATH_2: PropTypes.number.isRequired,
+  IDENTIC_PATH_3: PropTypes.number.isRequired,
+  IDENTIC_PATH_4: PropTypes.number.isRequired,
+  IDENTIC_PATH_5: PropTypes.number.isRequired,
+  IDENTIC_PATH_6: PropTypes.number.isRequired,
+  midPointStroke: PropTypes.string.isRequired,
   stroke: PropTypes.number.isRequired,
   strokeWidth: PropTypes.number.isRequired,
   lineStrokeWidth: PropTypes.number.isRequired,
@@ -65,6 +126,7 @@ MidLine.propTypes = {
   radius: PropTypes.number.isRequired,
   blackStroke: PropTypes.string.isRequired,
   middleLinePoint: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  middleLinePointLineStroke: PropTypes.string.isRequired,
 };
 
 export default MidLine;
