@@ -138,6 +138,7 @@ class StudentView extends Component {
               handleForm={this.handleForm}
               handleView={this.handleView}
               handlePointsDisplay={this.handlePointsDisplay}
+              isTriangleActive={isTriangleActive}
               toggleLine={toggleLine}
               t={t}
             />
