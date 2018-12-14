@@ -11,6 +11,7 @@ const MidLine = ({
   color,
   circlePointsX,
   circlePointsY,
+  circlePointsY2,
   stroke,
   lineStrokeWidth,
   middleLinePoint,
@@ -22,6 +23,15 @@ const MidLine = ({
     <Circle
       x={circlePointsX}
       y={circlePointsY}
+      radius={radius}
+      fill={color}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+      shadowBlur={shadowBlur}
+    />
+    <Circle
+      x={circlePointsX}
+      y={circlePointsY2}
       radius={radius}
       fill={color}
       stroke={stroke}
@@ -46,6 +56,7 @@ const MidLine = ({
 MidLine.propTypes = {
   circlePointsX: PropTypes.number.isRequired,
   circlePointsY: PropTypes.number.isRequired,
+  circlePointsY2: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
   stroke: PropTypes.number.isRequired,
   strokeWidth: PropTypes.number.isRequired,

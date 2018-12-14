@@ -4,6 +4,7 @@ export const CIRCLE_RADIUS = 5;
 export const CIRCLE_X = 450;
 export const circlePointsX = 450;
 export const circlePointsY = 100;
+export const circlePointsY2 = 800;
 export const CIRCLE_Y = 400;
 export const IDENTIC_PATH_0 = 10;
 export const IDENTIC_PATH_1 = 1000;
