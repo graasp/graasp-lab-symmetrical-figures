@@ -1,0 +1,17 @@
+.description-choice {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+.forms-choice {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+.rectangle-figure {
+  padding-right: .6rem;
+}
+.polygon-figure {
+  padding-right: 1.5rem;
+}
+.form-checker {
+  cursor: pointer;
+}
