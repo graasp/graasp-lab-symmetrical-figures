@@ -1,7 +1,7 @@
 export const AppState = {
-  axePointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
-  axePointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
-  axePointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
+  axisPointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
+  axisPointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
+  axisPointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
   axeStroke: '#0091EA',
   axeStrokeWidth: 0.5,
   circleRadius: 5,
@@ -37,7 +37,7 @@ export const AppState = {
   pointSize: 30,
   shapeStroke: '#000',
   showPoints: false,
-  toggleLine: true,
+  toggleLine: false,
   triangleOpacity: 0.5,
   triangleShadowBlur: 5,
   triangleStrokeWidth: 5,

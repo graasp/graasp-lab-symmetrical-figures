@@ -57,9 +57,9 @@ class TriangleView extends Component {
 
   render() {
     const {
-      axePointsOne,
-      axePointsTwo,
-      axePointsThree,
+      axisPointsOne,
+      axisPointsTwo,
+      axisPointsThree,
       axeStroke,
       axeStrokeWidth,
       circlePoints,
@@ -103,9 +103,9 @@ class TriangleView extends Component {
               radius={midPointRadius}
             />
             <Axes
-              axePointsOne={axePointsOne}
-              axePointsTwo={axePointsTwo}
-              axePointsThree={axePointsThree}
+              axisPointsOne={axisPointsOne}
+              axisPointsTwo={axisPointsTwo}
+              axisPointsThree={axisPointsThree}
               stroke={axeStroke}
               strokeWidth={axeStrokeWidth}
             />
