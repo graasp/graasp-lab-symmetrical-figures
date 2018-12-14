@@ -10,7 +10,7 @@ import Rectangle from './Rectangle.svg';
 import Polygon from './Polygon.svg';
 import './Forms.css';
 
-const Forms = ({ handleForm }) => (
+const Forms = ({ handleForm, isTriangleActive }) => (
   <div className="main-container">
     <h2 className="description-choice">
       Choisissez une forme
@@ -43,6 +43,7 @@ const Forms = ({ handleForm }) => (
         <Input
           type="radio"
           name="form-choice"
+          checked={isTriangleActive}
           className="form-checker"
           onChange={e => handleForm(e, 'triangle')}
         />
@@ -69,5 +70,6 @@ const Forms = ({ handleForm }) => (
 
 Forms.propTypes = {
   handleForm: PropTypes.func.isRequired,
+  isTriangleActive: PropTypes.bool.isRequired,
 };
 export default Forms;
