@@ -33,6 +33,7 @@ import {
   squareCommonY,
   circlePointsX,
   circlePointsY,
+  circlePointsY2,
   lineStrokeWidth,
 } from '../../constants/Common';
 
@@ -41,7 +42,12 @@ class SquareView extends Component {
 
   render() {
     const { middleLinePoint, shadowBlur } = this.state;
-    const { color, height, width } = this.props;
+    const {
+      color,
+      height,
+      toggleLine,
+      width,
+    } = this.props;
     return (
       <div className="square-container">
         <Stage width={width} height={height}>
@@ -65,33 +71,43 @@ class SquareView extends Component {
               width={squareWidth}
             />
           </Layer>
-          <Axes
-            CIRCLE_RADIUS={CIRCLE_RADIUS}
-            CIRCLE_X={CIRCLE_X}
-            CIRCLE_Y={CIRCLE_Y}
-            IDENTIC_PATH_2={IDENTIC_PATH_2}
-            IDENTIC_PATH_3={IDENTIC_PATH_3}
-            IDENTIC_PATH_4={IDENTIC_PATH_4}
-            IDENTIC_PATH_5={IDENTIC_PATH_5}
-            IDENTIC_PATH_6={IDENTIC_PATH_6}
-            blackStroke={blackStroke}
-            blueStroke={blueStroke}
-            strokeWidth={strokeWidth}
-            shadowBlur={shadowBlur}
-          />
-          <MidLine
-            color={color}
-            radius={radius}
-            stroke={stroke}
-            strokeWidth={linestrokeWidth}
-            blackStroke={blackStroke}
-            circlePointsX={circlePointsX}
-            circlePointsY={circlePointsY}
-            lineStrokeWidth={lineStrokeWidth}
-            shadowBlur={shadowBlur}
-            middleLinePoint={middleLinePoint}
-          />
         </Stage>
+        { toggleLine ? (
+          <Stage width={width} height={height}>
+            <Axes
+              CIRCLE_RADIUS={CIRCLE_RADIUS}
+              CIRCLE_X={CIRCLE_X}
+              CIRCLE_Y={CIRCLE_Y}
+              IDENTIC_PATH_2={IDENTIC_PATH_2}
+              IDENTIC_PATH_3={IDENTIC_PATH_3}
+              IDENTIC_PATH_4={IDENTIC_PATH_4}
+              IDENTIC_PATH_5={IDENTIC_PATH_5}
+              IDENTIC_PATH_6={IDENTIC_PATH_6}
+              blackStroke={blackStroke}
+              blueStroke={blueStroke}
+              strokeWidth={strokeWidth}
+              shadowBlur={shadowBlur}
+            />
+          </Stage>
+        )
+          : (
+            <Stage width={width} height={height}>
+              <MidLine
+                color={color}
+                radius={radius}
+                stroke={stroke}
+                strokeWidth={linestrokeWidth}
+                blackStroke={blackStroke}
+                circlePointsX={circlePointsX}
+                circlePointsY={circlePointsY}
+                circlePointsY2={circlePointsY2}
+                lineStrokeWidth={lineStrokeWidth}
+                shadowBlur={shadowBlur}
+                middleLinePoint={middleLinePoint}
+              />
+            </Stage>
+          )
+        }
       </div>
     );
   }
@@ -100,6 +116,7 @@ class SquareView extends Component {
 SquareView.propTypes = {
   color: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
+  toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
 };
 
