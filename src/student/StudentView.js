@@ -82,6 +82,7 @@ class StudentView extends Component {
       isTriangleActive,
       nodeB,
       showPoints,
+      midPointStroke,
       toggleLine,
       width,
     } = this.state;
@@ -122,6 +123,7 @@ class StudentView extends Component {
             <SquareView
               color={color}
               height={height}
+              midPointStroke={midPointStroke}
               toggleLine={toggleLine}
               width={width}
             />
