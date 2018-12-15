@@ -24,15 +24,29 @@ export const AppState = {
   midPointStrokeWidth: 5,
   midPointShadowBlur: 5,
   midPointRadius: 5,
-  nodeA: {
+  squareNodeA: {
     A: 'A',
     B: 'B',
     C: 'C',
+    D: 'D',
   },
-  nodeB: {
+  squareNodeB: {
     A: "A'",
     B: "C'",
     C: "B'",
+    D: "D'",
+  },
+  triangleNodeA: {
+    A: 'A',
+    B: 'B',
+    C: 'C',
+    D: 'D',
+  },
+  triangleNodeB: {
+    A: "A'",
+    B: "C'",
+    C: "B'",
+    D: "D'",
   },
   pointSize: 30,
   shapeStroke: '#000',

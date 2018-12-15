@@ -46,6 +46,8 @@ export class SquareView extends Component {
       color,
       height,
       midPointStroke,
+      squareNodeA,
+      squareNodeB,
       toggleLine,
       width,
     } = this.props;
@@ -112,6 +114,8 @@ export class SquareView extends Component {
                 middleLinePoint={middleLinePoint}
                 midPointStroke={midPointStroke}
                 middleLinePointLineStroke={middleLinePointLineStroke}
+                squareNodeA={squareNodeA}
+                squareNodeB={squareNodeB}
               />
             </Stage>
           )
@@ -125,6 +129,8 @@ SquareView.propTypes = {
   color: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
   midPointStroke: PropTypes.string.isRequired,
+  squareNodeA: PropTypes.bool.isRequired,
+  squareNodeB: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
 };
