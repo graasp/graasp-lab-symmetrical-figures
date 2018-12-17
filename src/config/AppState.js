@@ -32,21 +32,19 @@ export const AppState = {
   },
   squareNodeB: {
     A: "A'",
-    B: "C'",
-    C: "B'",
+    B: "B'",
+    C: "C'",
     D: "D'",
   },
   triangleNodeA: {
     A: 'A',
     B: 'B',
     C: 'C',
-    D: 'D',
   },
   triangleNodeB: {
     A: "A'",
     B: "C'",
     C: "B'",
-    D: "D'",
   },
   pointSize: 30,
   shapeStroke: '#000',
