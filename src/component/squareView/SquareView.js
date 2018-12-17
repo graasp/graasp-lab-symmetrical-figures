@@ -100,6 +100,7 @@ export class SquareView extends Component {
             <Stage width={width} height={height}>
               <SymetricalAxis
                 color={color}
+                fontSize={pointSize}
                 IDENTIC_PATH_2={IDENTIC_PATH_2}
                 IDENTIC_PATH_3={IDENTIC_PATH_3}
                 IDENTIC_PATH_4={IDENTIC_PATH_4}
