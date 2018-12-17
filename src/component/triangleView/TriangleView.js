@@ -176,7 +176,6 @@ class TriangleView extends Component {
             stroke={triangleStroke}
             strokeWidth={triangleStrokeWidth}
           />
-
           <Triangle
             color={color}
             linePoints={linePoints}
