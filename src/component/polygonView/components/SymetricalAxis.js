@@ -4,13 +4,18 @@ import {
   Circle,
   Layer,
   Line,
+  Text,
 } from 'react-konva';
 // this component handle and manage all our symnetrical axes
 // for our square view. It draws all the lines using the identic paths
 const SymetricalAxis = ({
+  blackStroke,
   color,
   circlePointsY,
   circlePointsY2,
+  fontSize,
+  IDENTIC_PATH_3,
+  IDENTIC_PATH_6,
   middleLinePoint,
   shadowBlur,
   radius,
@@ -48,13 +53,24 @@ const SymetricalAxis = ({
       stroke={redStroke}
       strokeWidth={3}
     />
+    <Text
+      x={IDENTIC_PATH_3 + 90}
+      y={IDENTIC_PATH_6 + 40}
+      text="Axe de Symetrie"
+      fontSize={fontSize}
+      fill={blackStroke}
+    />
   </Layer>
 );
 
 SymetricalAxis.propTypes = {
   circlePointsY: PropTypes.number.isRequired,
   circlePointsY2: PropTypes.number.isRequired,
+  blackStroke: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  fontSize: PropTypes.number.isRequired,
+  IDENTIC_PATH_3: PropTypes.number.isRequired,
+  IDENTIC_PATH_6: PropTypes.number.isRequired,
   redStroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
   shadowBlur: PropTypes.number.isRequired,
