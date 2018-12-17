@@ -6,6 +6,7 @@ import {
   Stage,
 } from 'react-konva';
 import { SquareState } from '../../config/SquareState';
+import Annotation from './axes/Annotation';
 import Axes from './axes/Axes';
 import MidLine from './axes/MidLine';
 import {
@@ -19,7 +20,6 @@ import {
   IDENTIC_PATH_6,
   blackStroke,
   blueStroke,
-  linestrokeWidth,
   radius,
   stroke,
   strokeWidth,
@@ -46,8 +46,10 @@ export class SquareView extends Component {
       color,
       height,
       midPointStroke,
+      pointSize,
       squareNodeA,
       squareNodeB,
+      showPoints,
       toggleLine,
       width,
     } = this.props;
@@ -104,7 +106,7 @@ export class SquareView extends Component {
                 IDENTIC_PATH_6={IDENTIC_PATH_6}
                 radius={radius}
                 stroke={stroke}
-                strokeWidth={linestrokeWidth}
+                strokeWidth={lineStrokeWidth}
                 blackStroke={blackStroke}
                 circlePointsX={circlePointsX}
                 circlePointsY={circlePointsY}
@@ -120,6 +122,23 @@ export class SquareView extends Component {
             </Stage>
           )
         }
+        { showPoints ? (
+          <Stage width={width} height={height}>
+            <Annotation
+              IDENTIC_PATH_2={IDENTIC_PATH_2}
+              IDENTIC_PATH_3={IDENTIC_PATH_3}
+              IDENTIC_PATH_4={IDENTIC_PATH_4}
+              IDENTIC_PATH_5={IDENTIC_PATH_5}
+              IDENTIC_PATH_6={IDENTIC_PATH_6}
+              middleLinePointLineStroke={middleLinePointLineStroke}
+              fontSize={pointSize}
+              squareNodeA={squareNodeA}
+              squareNodeB={squareNodeB}
+              blackStroke={blackStroke}
+            />
+          </Stage>
+        ) : ''
+        }
       </div>
     );
   }
@@ -129,8 +148,20 @@ SquareView.propTypes = {
   color: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
   midPointStroke: PropTypes.string.isRequired,
-  squareNodeA: PropTypes.bool.isRequired,
-  squareNodeB: PropTypes.bool.isRequired,
+  pointSize: PropTypes.number.isRequired,
+  squareNodeA: PropTypes.shape({
+    A: PropTypes.string.isRequired,
+    B: PropTypes.string.isRequired,
+    C: PropTypes.string.isRequired,
+    D: PropTypes.string.isRequired,
+  }).isRequired,
+  squareNodeB: PropTypes.shape({
+    A: PropTypes.string.isRequired,
+    B: PropTypes.string.isRequired,
+    C: PropTypes.string.isRequired,
+    D: PropTypes.string.isRequired,
+  }).isRequired,
+  showPoints: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
 };
