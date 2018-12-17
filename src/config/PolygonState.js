@@ -8,6 +8,13 @@ export const PolygonState = {
     800,
   ],
   middleLinePointLineStroke: 'rgba(6, 129, 218, .5)',
+  polygonNode: {
+    A: 'A',
+    B: 'B',
+    C: 'C',
+    D: 'D',
+    E: 'E',
+  },
 };
 
 export default PolygonState;
