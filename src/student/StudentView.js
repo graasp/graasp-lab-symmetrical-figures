@@ -43,6 +43,12 @@ class StudentView extends Component {
     this.setState({
       toggleLine: !toggleLine,
       triangleNodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
+      squareNodeB: toggleLine
+        ? {
+          A: "A'", B: "B'", C: "C'", D: "D'",
+        } : {
+          A: "C'", B: "D'", C: "A'", D: "B'",
+        },
     });
   }
 
@@ -80,6 +86,7 @@ class StudentView extends Component {
       isPolygonActive,
       isSquareActive,
       isTriangleActive,
+      pointSize,
       squareNodeA,
       squareNodeB,
       triangleNodeB,
@@ -126,8 +133,10 @@ class StudentView extends Component {
               color={color}
               height={height}
               midPointStroke={midPointStroke}
+              pointSize={pointSize}
               squareNodeA={squareNodeA}
               squareNodeB={squareNodeB}
+              showPoints={showPoints}
               toggleLine={toggleLine}
               width={width}
             />
