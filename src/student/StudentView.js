@@ -129,6 +129,7 @@ class StudentView extends Component {
               color={color}
               height={height}
               midPointStroke={midPointStroke}
+              pointSize={pointSize}
               showPoints={showPoints}
               toggleLine={toggleLine}
               width={width}
