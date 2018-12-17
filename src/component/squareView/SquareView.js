@@ -8,7 +8,7 @@ import {
 import { SquareState } from '../../config/SquareState';
 import Annotation from './axes/Annotation';
 import Axes from './axes/Axes';
-import MidLine from './axes/MidLine';
+import SymetricalAxis from './axes/SymetricalAxis';
 import {
   CIRCLE_RADIUS,
   CIRCLE_X,
@@ -36,7 +36,8 @@ import {
   circlePointsY2,
   lineStrokeWidth,
 } from '../../constants/Common';
-
+// this component manage our square figures, the Symetrical axes
+// and the names of each square. then sitch view based on choice
 export class SquareView extends Component {
   state = SquareState;
 
@@ -97,7 +98,7 @@ export class SquareView extends Component {
         )
           : (
             <Stage width={width} height={height}>
-              <MidLine
+              <SymetricalAxis
                 color={color}
                 IDENTIC_PATH_2={IDENTIC_PATH_2}
                 IDENTIC_PATH_3={IDENTIC_PATH_3}

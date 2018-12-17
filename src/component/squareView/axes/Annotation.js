@@ -4,7 +4,8 @@ import {
   Layer,
   Text,
 } from 'react-konva';
-
+// this component takes in charge all related to the square
+// names witch are: ABCD anf A'B'C'D'.
 const Annotation = ({
   blackStroke,
   IDENTIC_PATH_2,
