@@ -5,8 +5,9 @@ import {
   Layer,
   Line,
 } from 'react-konva';
-
-const MidLine = ({
+// this component handle and manage all our symnetrical axes
+// for our square view. It draws all the lines using the identic paths
+const SymetricalAxis = ({
   blackStroke,
   color,
   circlePointsX,
@@ -108,7 +109,7 @@ const MidLine = ({
   </Layer>
 );
 
-MidLine.propTypes = {
+SymetricalAxis.propTypes = {
   circlePointsX: PropTypes.number.isRequired,
   circlePointsY: PropTypes.number.isRequired,
   circlePointsY2: PropTypes.number.isRequired,
@@ -129,4 +130,4 @@ MidLine.propTypes = {
   middleLinePointLineStroke: PropTypes.string.isRequired,
 };
 
-export default MidLine;
+export default SymetricalAxis;
