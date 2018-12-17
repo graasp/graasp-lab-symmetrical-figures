@@ -74,13 +74,6 @@ const Annotation = ({
       fontSize={fontSize}
       fill={blackStroke}
     />
-    <Text
-      x={IDENTIC_PATH_3 + 40}
-      y={IDENTIC_PATH_6 + 40}
-      text="Axe de Symetrie"
-      fontSize={fontSize}
-      fill={blackStroke}
-    />
   </Layer>
 );
 
