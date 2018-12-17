@@ -4,6 +4,7 @@ import {
   Circle,
   Layer,
   Line,
+  Text,
 } from 'react-konva';
 
 const Liner = ({
@@ -86,6 +87,13 @@ const Liner = ({
       stroke={lineStroke}
       strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
+    />
+    <Text
+      x={linePoints[0] + 10}
+      y={linePoints[1] + 10}
+      text="Axe de Symetrie"
+      fontSize={30}
+      fill={color}
     />
   </Layer>
 );
