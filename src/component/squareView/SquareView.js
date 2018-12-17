@@ -6,9 +6,9 @@ import {
   Stage,
 } from 'react-konva';
 import { SquareState } from '../../config/SquareState';
-import Annotation from './axes/Annotation';
-import Axes from './axes/Axes';
-import SymetricalAxis from './axes/SymetricalAxis';
+import Annotation from './components/Annotation';
+import Axes from './components/Axes';
+import SymetricalAxis from './components/SymetricalAxis';
 import {
   CIRCLE_RADIUS,
   CIRCLE_X,
