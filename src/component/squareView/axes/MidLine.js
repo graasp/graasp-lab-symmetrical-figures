@@ -4,7 +4,6 @@ import {
   Circle,
   Layer,
   Line,
-  Text,
 } from 'react-konva';
 
 const MidLine = ({
@@ -68,7 +67,7 @@ const MidLine = ({
         ]
       }
       stroke={midPointStroke}
-      strokeWidth={2}
+      strokeWidth={3}
     />
     <Line
       points={
@@ -80,7 +79,7 @@ const MidLine = ({
         ]
       }
       stroke={midPointStroke}
-      strokeWidth={2}
+      strokeWidth={3}
     />
     <Line
       points={
@@ -104,9 +103,8 @@ const MidLine = ({
         ]
       }
       stroke={middleLinePointLineStroke}
-      strokeWidth={7}
+      strokeWidth={9}
     />
-    <Text />
   </Layer>
 );
 
