@@ -42,7 +42,13 @@ class StudentView extends Component {
 
     this.setState({
       toggleLine: !toggleLine,
-      nodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
+      triangleNodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
+      squareNodeB: toggleLine
+        ? {
+          A: "A'", B: "B'", C: "C'", D: "D'",
+        } : {
+          A: "C'", B: "D'", C: "A'", D: "B'",
+        },
     });
   }
 
@@ -80,8 +86,12 @@ class StudentView extends Component {
       isPolygonActive,
       isSquareActive,
       isTriangleActive,
-      nodeB,
+      pointSize,
+      squareNodeA,
+      squareNodeB,
+      triangleNodeB,
       showPoints,
+      midPointStroke,
       toggleLine,
       width,
     } = this.state;
@@ -108,9 +118,9 @@ class StudentView extends Component {
           }
           { isTriangleActive ? (
             <TriangleView
+              triangleNodeB={triangleNodeB}
               toggleLine={toggleLine}
               showPoints={showPoints}
-              nodeB={nodeB}
             />
           ) : ''
           }
@@ -122,6 +132,12 @@ class StudentView extends Component {
             <SquareView
               color={color}
               height={height}
+              midPointStroke={midPointStroke}
+              pointSize={pointSize}
+              squareNodeA={squareNodeA}
+              squareNodeB={squareNodeB}
+              showPoints={showPoints}
+              toggleLine={toggleLine}
               width={width}
             />
           ) : ''
@@ -135,6 +151,7 @@ class StudentView extends Component {
               handleForm={this.handleForm}
               handleView={this.handleView}
               handlePointsDisplay={this.handlePointsDisplay}
+              isTriangleActive={isTriangleActive}
               toggleLine={toggleLine}
               t={t}
             />

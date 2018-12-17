@@ -6,9 +6,9 @@ import {
 } from 'react-konva';
 
 const Axes = ({
-  axePointsOne,
-  axePointsTwo,
-  axePointsThree,
+  axisPointsOne,
+  axisPointsTwo,
+  axisPointsThree,
   stroke,
   strokeWidth,
 }) => (
@@ -16,10 +16,10 @@ const Axes = ({
     <Line
       points={
         [
-          axePointsOne[0],
-          axePointsOne[1],
-          axePointsOne[2],
-          axePointsOne[3],
+          axisPointsOne[0],
+          axisPointsOne[1],
+          axisPointsOne[2],
+          axisPointsOne[3],
         ]
       }
       stroke={stroke}
@@ -28,10 +28,10 @@ const Axes = ({
     <Line
       points={
         [
-          axePointsTwo[0],
-          axePointsTwo[1],
-          axePointsTwo[2],
-          axePointsTwo[3],
+          axisPointsTwo[0],
+          axisPointsTwo[1],
+          axisPointsTwo[2],
+          axisPointsTwo[3],
         ]
       }
       stroke={stroke}
@@ -40,10 +40,10 @@ const Axes = ({
     <Line
       points={
         [
-          axePointsThree[0],
-          axePointsThree[1],
-          axePointsThree[2],
-          axePointsThree[3],
+          axisPointsThree[0],
+          axisPointsThree[1],
+          axisPointsThree[2],
+          axisPointsThree[3],
         ]
       }
       stroke={stroke}
@@ -55,9 +55,9 @@ const Axes = ({
 Axes.propTypes = {
   stroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
-  axePointsOne: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  axePointsTwo: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  axePointsThree: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  axisPointsOne: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  axisPointsTwo: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  axisPointsThree: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
 };
 
 export default Axes;

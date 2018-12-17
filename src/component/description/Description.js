@@ -11,6 +11,7 @@ const Description = ({
   handleCheck,
   handlePointsDisplay,
   handleView,
+  isTriangleActive,
   toggleLine,
 }) => (
   <div className="main-container">
@@ -30,6 +31,7 @@ const Description = ({
     </Button>
     <Forms
       handleForm={handleForm}
+      isTriangleActive={isTriangleActive}
     />
     <h2 className="description-symetri">
       Symétrie par rapport à
@@ -87,6 +89,7 @@ Description.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   handlePointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
+  isTriangleActive: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
 export default Description;

@@ -12,7 +12,7 @@ class TriangleView extends Component {
   static propTypes = {
     showPoints: PropTypes.bool.isRequired,
     toggleLine: PropTypes.bool.isRequired,
-    nodeB: PropTypes.shape({
+    triangleNodeB: PropTypes.shape({
       A: PropTypes.string.isRequired,
       B: PropTypes.string.isRequired,
       C: PropTypes.string.isRequired,
@@ -57,9 +57,9 @@ class TriangleView extends Component {
 
   render() {
     const {
-      axePointsOne,
-      axePointsTwo,
-      axePointsThree,
+      axisPointsOne,
+      axisPointsTwo,
+      axisPointsThree,
       axeStroke,
       axeStrokeWidth,
       circlePoints,
@@ -76,7 +76,7 @@ class TriangleView extends Component {
       midPointStrokeWidth,
       midPointShadowBlur,
       midPointRadius,
-      nodeA,
+      triangleNodeA,
       pointSize,
       shapeStroke,
       triangleA,
@@ -88,7 +88,7 @@ class TriangleView extends Component {
       width,
     } = this.state;
 
-    const { showPoints, nodeB, toggleLine } = this.props;
+    const { showPoints, triangleNodeB, toggleLine } = this.props;
 
     return (
       <div className="triangle-content">
@@ -103,9 +103,9 @@ class TriangleView extends Component {
               radius={midPointRadius}
             />
             <Axes
-              axePointsOne={axePointsOne}
-              axePointsTwo={axePointsTwo}
-              axePointsThree={axePointsThree}
+              axisPointsOne={axisPointsOne}
+              axisPointsTwo={axisPointsTwo}
+              axisPointsThree={axisPointsThree}
               stroke={axeStroke}
               strokeWidth={axeStrokeWidth}
             />
@@ -134,7 +134,7 @@ class TriangleView extends Component {
             <Points
               color={color}
               fontSize={pointSize}
-              node={nodeA}
+              node={triangleNodeA}
               points={
                 [
                   { x: triangleA[0].x, y: triangleA[0].y },
@@ -146,7 +146,7 @@ class TriangleView extends Component {
             <Points
               color={color}
               fontSize={pointSize}
-              node={nodeB}
+              node={triangleNodeB}
               points={
                 [
                   { x: triangleB[0].x, y: triangleB[0].y },
@@ -161,7 +161,7 @@ class TriangleView extends Component {
         <Stage width={width} height={height}>
           <Triangle
             color={color}
-            nodeA={nodeA}
+            triangleNodeA={triangleNodeA}
             opacity={triangleOpacity}
             points={
               [
@@ -176,11 +176,10 @@ class TriangleView extends Component {
             stroke={triangleStroke}
             strokeWidth={triangleStrokeWidth}
           />
-
           <Triangle
             color={color}
             linePoints={linePoints}
-            nodeB={nodeB}
+            triangleNodeB={triangleNodeB}
             opacity={triangleOpacity}
             points={
               [

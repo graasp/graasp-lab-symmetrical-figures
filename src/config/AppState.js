@@ -1,7 +1,7 @@
 export const AppState = {
-  axePointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
-  axePointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
-  axePointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
+  axisPointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
+  axisPointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
+  axisPointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
   axeStroke: '#0091EA',
   axeStrokeWidth: 0.5,
   circleRadius: 5,
@@ -11,9 +11,9 @@ export const AppState = {
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',
   height: window.innerHeight,
-  isTriangleActive: false,
+  isTriangleActive: true,
   isPolygonActive: false,
-  isSquareActive: true,
+  isSquareActive: false,
   lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
   lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
   lineAxeThree: [200, 400, 400, 600], // this is CC' left line separator coordinates
@@ -24,12 +24,24 @@ export const AppState = {
   midPointStrokeWidth: 5,
   midPointShadowBlur: 5,
   midPointRadius: 5,
-  nodeA: {
+  squareNodeA: {
+    A: 'A',
+    B: 'B',
+    C: 'C',
+    D: 'D',
+  },
+  squareNodeB: {
+    A: "A'",
+    B: "B'",
+    C: "C'",
+    D: "D'",
+  },
+  triangleNodeA: {
     A: 'A',
     B: 'B',
     C: 'C',
   },
-  nodeB: {
+  triangleNodeB: {
     A: "A'",
     B: "C'",
     C: "B'",

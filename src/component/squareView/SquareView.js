@@ -6,8 +6,9 @@ import {
   Stage,
 } from 'react-konva';
 import { SquareState } from '../../config/SquareState';
+import Annotation from './axes/Annotation';
 import Axes from './axes/Axes';
-import MidLine from './axes/MidLine';
+import SymetricalAxis from './axes/SymetricalAxis';
 import {
   CIRCLE_RADIUS,
   CIRCLE_X,
@@ -19,7 +20,6 @@ import {
   IDENTIC_PATH_6,
   blackStroke,
   blueStroke,
-  linestrokeWidth,
   radius,
   stroke,
   strokeWidth,
@@ -33,15 +33,27 @@ import {
   squareCommonY,
   circlePointsX,
   circlePointsY,
+  circlePointsY2,
   lineStrokeWidth,
 } from '../../constants/Common';
-
-class SquareView extends Component {
+// this component manage our square figures, the Symetrical axes
+// and the names of each square. then sitch view based on choice
+export class SquareView extends Component {
   state = SquareState;
 
   render() {
-    const { middleLinePoint, shadowBlur } = this.state;
-    const { color, height, width } = this.props;
+    const { middleLinePoint, middleLinePointLineStroke, shadowBlur } = this.state;
+    const {
+      color,
+      height,
+      midPointStroke,
+      pointSize,
+      squareNodeA,
+      squareNodeB,
+      showPoints,
+      toggleLine,
+      width,
+    } = this.props;
     return (
       <div className="square-container">
         <Stage width={width} height={height}>
@@ -65,33 +77,69 @@ class SquareView extends Component {
               width={squareWidth}
             />
           </Layer>
-          <Axes
-            CIRCLE_RADIUS={CIRCLE_RADIUS}
-            CIRCLE_X={CIRCLE_X}
-            CIRCLE_Y={CIRCLE_Y}
-            IDENTIC_PATH_2={IDENTIC_PATH_2}
-            IDENTIC_PATH_3={IDENTIC_PATH_3}
-            IDENTIC_PATH_4={IDENTIC_PATH_4}
-            IDENTIC_PATH_5={IDENTIC_PATH_5}
-            IDENTIC_PATH_6={IDENTIC_PATH_6}
-            blackStroke={blackStroke}
-            blueStroke={blueStroke}
-            strokeWidth={strokeWidth}
-            shadowBlur={shadowBlur}
-          />
-          <MidLine
-            color={color}
-            radius={radius}
-            stroke={stroke}
-            strokeWidth={linestrokeWidth}
-            blackStroke={blackStroke}
-            circlePointsX={circlePointsX}
-            circlePointsY={circlePointsY}
-            lineStrokeWidth={lineStrokeWidth}
-            shadowBlur={shadowBlur}
-            middleLinePoint={middleLinePoint}
-          />
         </Stage>
+        { toggleLine ? (
+          <Stage width={width} height={height}>
+            <Axes
+              CIRCLE_RADIUS={CIRCLE_RADIUS}
+              CIRCLE_X={CIRCLE_X}
+              CIRCLE_Y={CIRCLE_Y}
+              IDENTIC_PATH_2={IDENTIC_PATH_2}
+              IDENTIC_PATH_3={IDENTIC_PATH_3}
+              IDENTIC_PATH_4={IDENTIC_PATH_4}
+              IDENTIC_PATH_5={IDENTIC_PATH_5}
+              IDENTIC_PATH_6={IDENTIC_PATH_6}
+              blackStroke={blackStroke}
+              blueStroke={blueStroke}
+              strokeWidth={strokeWidth}
+              shadowBlur={shadowBlur}
+            />
+          </Stage>
+        )
+          : (
+            <Stage width={width} height={height}>
+              <SymetricalAxis
+                color={color}
+                IDENTIC_PATH_2={IDENTIC_PATH_2}
+                IDENTIC_PATH_3={IDENTIC_PATH_3}
+                IDENTIC_PATH_4={IDENTIC_PATH_4}
+                IDENTIC_PATH_5={IDENTIC_PATH_5}
+                IDENTIC_PATH_6={IDENTIC_PATH_6}
+                radius={radius}
+                stroke={stroke}
+                strokeWidth={lineStrokeWidth}
+                blackStroke={blackStroke}
+                circlePointsX={circlePointsX}
+                circlePointsY={circlePointsY}
+                circlePointsY2={circlePointsY2}
+                lineStrokeWidth={lineStrokeWidth}
+                shadowBlur={shadowBlur}
+                middleLinePoint={middleLinePoint}
+                midPointStroke={midPointStroke}
+                middleLinePointLineStroke={middleLinePointLineStroke}
+                squareNodeA={squareNodeA}
+                squareNodeB={squareNodeB}
+              />
+            </Stage>
+          )
+        }
+        { showPoints ? (
+          <Stage width={width} height={height}>
+            <Annotation
+              IDENTIC_PATH_2={IDENTIC_PATH_2}
+              IDENTIC_PATH_3={IDENTIC_PATH_3}
+              IDENTIC_PATH_4={IDENTIC_PATH_4}
+              IDENTIC_PATH_5={IDENTIC_PATH_5}
+              IDENTIC_PATH_6={IDENTIC_PATH_6}
+              middleLinePointLineStroke={middleLinePointLineStroke}
+              fontSize={pointSize}
+              squareNodeA={squareNodeA}
+              squareNodeB={squareNodeB}
+              blackStroke={blackStroke}
+            />
+          </Stage>
+        ) : ''
+        }
       </div>
     );
   }
@@ -100,6 +148,22 @@ class SquareView extends Component {
 SquareView.propTypes = {
   color: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
+  midPointStroke: PropTypes.string.isRequired,
+  pointSize: PropTypes.number.isRequired,
+  squareNodeA: PropTypes.shape({
+    A: PropTypes.string.isRequired,
+    B: PropTypes.string.isRequired,
+    C: PropTypes.string.isRequired,
+    D: PropTypes.string.isRequired,
+  }).isRequired,
+  squareNodeB: PropTypes.shape({
+    A: PropTypes.string.isRequired,
+    B: PropTypes.string.isRequired,
+    C: PropTypes.string.isRequired,
+    D: PropTypes.string.isRequired,
+  }).isRequired,
+  showPoints: PropTypes.bool.isRequired,
+  toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
 };
 

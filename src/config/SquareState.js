@@ -7,6 +7,7 @@ export const SquareState = {
     450,
     800,
   ],
+  middleLinePointLineStroke: 'rgba(6, 129, 218, .5)',
 };
 
 export default SquareState;
