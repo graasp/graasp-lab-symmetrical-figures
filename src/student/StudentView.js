@@ -12,8 +12,12 @@ import PolygonView from '../component/polygonView/PolygonView';
 import SquareView from '../component/squareView/SquareView';
 import { AppState } from '../config/AppState';
 import {
+  blackStroke,
+  defaultSize,
   IDENTIC_PATH_0,
   IDENTIC_PATH_1,
+  IDENTIC_PATH_6,
+  IDENTIC_PATH_7,
 } from '../constants/Common';
 
 class StudentView extends Component {
@@ -102,16 +106,22 @@ class StudentView extends Component {
           { displayed ? (
             <Stage width={width} height={height}>
               <HorizontalGrid
+                blackStroke={blackStroke}
+                defaultSize={defaultSize}
                 stroke={gridStroke}
                 strokeWidth={gridStrokeWidth}
                 IDENTIC_PATH_0={IDENTIC_PATH_0}
                 IDENTIC_PATH_1={IDENTIC_PATH_1}
+                IDENTIC_PATH_6={IDENTIC_PATH_6}
               />
               <VerticalGrid
+                blackStroke={blackStroke}
+                defaultSize={defaultSize}
                 stroke={gridStroke}
                 strokeWidth={gridStrokeWidth}
                 IDENTIC_PATH_0={IDENTIC_PATH_0}
                 IDENTIC_PATH_1={IDENTIC_PATH_1}
+                IDENTIC_PATH_7={IDENTIC_PATH_7}
               />
             </Stage>
           ) : ''
