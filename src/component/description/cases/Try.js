@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'reactstrap';
+import { Button, Table } from 'reactstrap';
 import TableDatas from './TableDatas';
 
 const Try = () => (
@@ -39,6 +39,11 @@ const Try = () => (
         </tr>
       </tbody>
     </Table>
+    <Button
+      color="secondary"
+    >
+      Vérifier
+    </Button>
   </div>
 );
 
