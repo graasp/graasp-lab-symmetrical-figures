@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 import {
   Layer,
   Line,
+  Text,
 } from 'react-konva';
 
 const HorizintalGrid = ({
+  blackStroke,
+  defaultSize,
   stroke,
   strokeWidth,
   IDENTIC_PATH_0,
   IDENTIC_PATH_1,
+  IDENTIC_PATH_6,
 }) => (
   <Layer>
     <Line
@@ -102,14 +106,143 @@ const HorizintalGrid = ({
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 + 75}
+      text={1}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 + 25}
+      text={2}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 25}
+      text={3}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 75}
+      text={4}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 125}
+      text={5}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 175}
+      text={6}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 225}
+      text={7}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 275}
+      text={8}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 325}
+      text={9}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 375}
+      text={10}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 425}
+      text={11}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 475}
+      text={12}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 525}
+      text={13}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 575}
+      text={14}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 625}
+      text={15}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 675}
+      text={16}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 725}
+      text={17}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={20}
+      y={IDENTIC_PATH_6 - 775}
+      text="(Y)"
+      fontSize={40}
+      fill={blackStroke}
+    />
   </Layer>
 );
 
 HorizintalGrid.propTypes = {
+  blackStroke: PropTypes.string.isRequired,
+  defaultSize: PropTypes.number.isRequired,
   stroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
   IDENTIC_PATH_0: PropTypes.number.isRequired,
   IDENTIC_PATH_1: PropTypes.number.isRequired,
+  IDENTIC_PATH_6: PropTypes.number.isRequired,
 };
 
 export default HorizintalGrid;
