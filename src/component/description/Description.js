@@ -22,6 +22,10 @@ export class Description extends Component {
     }
   }
 
+  handleDatas = (e) => {
+    console.log('input changed', e.target.value);
+  }
+
   render() {
     const {
       handleForm,
@@ -63,6 +67,7 @@ export class Description extends Component {
           />
         ) : (
           <Try
+            handleDatas={this.handleDatas}
             isPolygonActive={isPolygonActive}
             isSquareActive={isSquareActive}
           />
