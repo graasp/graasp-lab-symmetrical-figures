@@ -125,7 +125,15 @@ class StudentView extends Component {
           ) : ''
           }
           { isPolygonActive ? (
-            <PolygonView />
+            <PolygonView
+              color={color}
+              height={height}
+              midPointStroke={midPointStroke}
+              pointSize={pointSize}
+              showPoints={showPoints}
+              toggleLine={toggleLine}
+              width={width}
+            />
           ) : ''
           }
           { isSquareActive ? (
