@@ -28,6 +28,8 @@ export class Description extends Component {
       handleCheck,
       handlePointsDisplay,
       handleView,
+      isPolygonActive,
+      isSquareActive,
       isTriangleActive,
       toggleLine,
     } = this.props;
@@ -60,7 +62,10 @@ export class Description extends Component {
             toggleLine={toggleLine}
           />
         ) : (
-          <Try />
+          <Try
+            isPolygonActive={isPolygonActive}
+            isSquareActive={isSquareActive}
+          />
         )
         }
       </div>
@@ -73,6 +78,8 @@ Description.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   handlePointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
+  isPolygonActive: PropTypes.bool.isRequired,
+  isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
