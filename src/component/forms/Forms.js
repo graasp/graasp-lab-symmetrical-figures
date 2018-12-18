@@ -13,7 +13,7 @@ import './Forms.css';
 const Forms = ({ handleForm, isTriangleActive }) => (
   <div className="main-container">
     <h2 className="description-choice">
-      Choisissez une forme
+      Choisis une forme
     </h2>
     <Row>
       <Col md={4}>
