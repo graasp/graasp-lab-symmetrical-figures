@@ -78,7 +78,8 @@ class TriangleView extends Component {
       midPointRadius,
       triangleNodeA,
       pointSize,
-      shapeStroke,
+      blueShapeStroke,
+      greenShapeStroke,
       triangleA,
       triangleB,
       triangleOpacity,
@@ -172,7 +173,7 @@ class TriangleView extends Component {
             }
             radius={circleRadius}
             shadowBlur={triangleShadowBlur}
-            shapeStroke={shapeStroke}
+            shapeStroke={greenShapeStroke}
             stroke={triangleStroke}
             strokeWidth={triangleStrokeWidth}
           />
@@ -190,7 +191,7 @@ class TriangleView extends Component {
             }
             radius={circleRadius}
             shadowBlur={triangleShadowBlur}
-            shapeStroke={shapeStroke}
+            shapeStroke={blueShapeStroke}
             stroke={triangleStroke}
             strokeWidth={triangleStrokeWidth}
           />
