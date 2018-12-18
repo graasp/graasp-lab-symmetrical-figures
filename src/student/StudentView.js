@@ -28,9 +28,9 @@ class StudentView extends Component {
   state = AppState;
 
   handleCheck = () => {
-    const { displayed } = this.state;
+    const { showGrid } = this.state;
     this.setState({
-      displayed: !displayed,
+      showGrid: !showGrid,
     });
   }
 
@@ -83,7 +83,7 @@ class StudentView extends Component {
   render() {
     const {
       color,
-      displayed,
+      showGrid,
       gridStroke,
       gridStrokeWidth,
       height,
@@ -103,7 +103,7 @@ class StudentView extends Component {
     return (
       <Row className="app-loader">
         <Col md={8} className="triangle-container">
-          { displayed ? (
+          { showGrid ? (
             <Stage width={width} height={height}>
               <HorizontalGrid
                 blackStroke={blackStroke}
