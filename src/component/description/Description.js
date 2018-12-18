@@ -1,88 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Input } from 'reactstrap';
+import { Button } from 'reactstrap';
 import './Description.css';
-import Line from './Line.svg';
-import Point from './Point.svg';
-import Forms from '../forms/Forms';
+import Observe from './cases/Observe';
+import Try from './cases/Try';
+import { AppState } from '../../config/AppState';
 
-const Description = ({
-  handleForm,
-  handleCheck,
-  handlePointsDisplay,
-  handleView,
-  isTriangleActive,
-  toggleLine,
-}) => (
-  <div className="main-container">
-    <Button
-      outline
-      color="secondary"
-      className="observe-button"
-    >
-      Observer
-    </Button>
-    <Button
-      outline
-      color="secondary"
-      className="test-button"
-    >
-      Tester
-    </Button>
-    <Forms
-      handleForm={handleForm}
-      isTriangleActive={isTriangleActive}
-    />
-    <h2 className="description-symetri">
-      Symétrie par rapport à
-    </h2>
-    <div className="dots-or-line-choice">
-      <div className="dot-choice">
-        <img
-          src={Point}
-          alt="Point"
-          className="point-figure"
-        />
-        <Input
-          type="radio"
-          checked={toggleLine}
-          name="kind-checker"
-          onChange={handleView}
-        />
+export class Description extends Component {
+  state = AppState;
+
+  handleCase = (e, value) => {
+    if (value === 'observing') {
+      this.setState({
+        swicthCase: true,
+      });
+    }
+    if (value === 'testing') {
+      this.setState({
+        swicthCase: false,
+      });
+    }
+  }
+
+  render() {
+    const {
+      handleForm,
+      handleCheck,
+      handlePointsDisplay,
+      handleView,
+      isTriangleActive,
+      toggleLine,
+    } = this.props;
+    const { swicthCase } = this.state;
+    return (
+      <div className="desc-container">
+        <Button
+          outline
+          color="secondary"
+          className={`${swicthCase ? 'observe-button-active' : ''} observe-button`}
+          onClick={e => this.handleCase(e, 'observing')}
+        >
+          Observer
+        </Button>
+        <Button
+          outline
+          color="secondary"
+          className={`${swicthCase ? '' : 'test-button-active'} test-button`}
+          onClick={e => this.handleCase(e, 'testing')}
+        >
+          Tester
+        </Button>
+        { swicthCase ? (
+          <Observe
+            handleForm={handleForm}
+            handleCheck={handleCheck}
+            handleView={handleView}
+            handlePointsDisplay={handlePointsDisplay}
+            isTriangleActive={isTriangleActive}
+            toggleLine={toggleLine}
+          />
+        ) : (
+          <Try />
+        )
+        }
       </div>
-      <div className="line-choice">
-        <img
-          src={Line}
-          alt="Line"
-          className="line-figure"
-        />
-        <Input
-          type="radio"
-          name="kind-checker"
-          onChange={handleView}
-        />
-      </div>
-    </div>
-    <div className="description-checkbox">
-      <div className="displayer displayer-one">
-        <h2 className="display-line">Afficher grille</h2>
-        <Input
-          type="checkbox"
-          className="choice-checker"
-          onClick={handleCheck}
-        />
-      </div>
-      <div className="displayer">
-        <h2 className="display-point">Afficher points</h2>
-        <Input
-          type="checkbox"
-          className="choice-checker"
-          onClick={handlePointsDisplay}
-        />
-      </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 Description.propTypes = {
   handleForm: PropTypes.func.isRequired,
