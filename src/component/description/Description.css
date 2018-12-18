@@ -3,7 +3,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.test-button {
+.test-button-active, .observe-button-active {
   background-color: #F9FBE7;
 }
 .description-symetri {
@@ -42,4 +42,10 @@
 }
 .dots-or-line-choice {
   padding: 0 7rem 5rem;
+}
+.testing-container {
+  padding-top: 2rem;
+}
+th {
+  font-size: 2rem;
 }
