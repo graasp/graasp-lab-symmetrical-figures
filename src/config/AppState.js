@@ -50,7 +50,6 @@ export const AppState = {
   blueShapeStroke: 'blue',
   greenShapeStroke: 'green',
   showPoints: false,
-  swicthCase: false,
   toggleLine: true,
   triangleOpacity: 0.5,
   triangleShadowBlur: 5,
