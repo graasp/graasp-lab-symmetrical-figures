@@ -108,120 +108,113 @@ const HorizintalGrid = ({
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 + 75}
+      y={IDENTIC_PATH_6 + 25}
       text={1}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 + 25}
+      y={IDENTIC_PATH_6 - 25}
       text={2}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 25}
+      y={IDENTIC_PATH_6 - 75}
       text={3}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 75}
+      y={IDENTIC_PATH_6 - 125}
       text={4}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 125}
+      y={IDENTIC_PATH_6 - 175}
       text={5}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 175}
+      y={IDENTIC_PATH_6 - 225}
       text={6}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 225}
+      y={IDENTIC_PATH_6 - 275}
       text={7}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 275}
+      y={IDENTIC_PATH_6 - 325}
       text={8}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 325}
+      y={IDENTIC_PATH_6 - 375}
       text={9}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 375}
+      y={IDENTIC_PATH_6 - 425}
       text={10}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 425}
+      y={IDENTIC_PATH_6 - 475}
       text={11}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 475}
+      y={IDENTIC_PATH_6 - 525}
       text={12}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 525}
+      y={IDENTIC_PATH_6 - 575}
       text={13}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 575}
+      y={IDENTIC_PATH_6 - 625}
       text={14}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 625}
+      y={IDENTIC_PATH_6 - 675}
       text={15}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
       x={20}
-      y={IDENTIC_PATH_6 - 675}
-      text={16}
-      fontSize={defaultSize}
-      fill={blackStroke}
-    />
-    <Text
-      x={20}
       y={IDENTIC_PATH_6 - 725}
-      text={17}
+      text={16}
       fontSize={defaultSize}
       fill={blackStroke}
     />

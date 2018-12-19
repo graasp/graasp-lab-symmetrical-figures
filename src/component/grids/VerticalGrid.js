@@ -117,113 +117,113 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Text
-      x={40}
-      y={IDENTIC_PATH_7 + 5}
+      x={90}
+      y={IDENTIC_PATH_7}
       text={1}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={90}
-      y={IDENTIC_PATH_7 + 5}
+      x={140}
+      y={IDENTIC_PATH_7}
       text={2}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={140}
-      y={IDENTIC_PATH_7 + 5}
+      x={190}
+      y={IDENTIC_PATH_7}
       text={3}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={190}
-      y={IDENTIC_PATH_7 + 5}
+      x={240}
+      y={IDENTIC_PATH_7}
       text={4}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={240}
-      y={IDENTIC_PATH_7 + 5}
+      x={290}
+      y={IDENTIC_PATH_7}
       text={5}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={290}
-      y={IDENTIC_PATH_7 + 5}
+      x={340}
+      y={IDENTIC_PATH_7}
       text={6}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={340}
-      y={IDENTIC_PATH_7 + 5}
+      x={390}
+      y={IDENTIC_PATH_7}
       text={7}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={390}
-      y={IDENTIC_PATH_7 + 5}
+      x={440}
+      y={IDENTIC_PATH_7}
       text={8}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={440}
-      y={IDENTIC_PATH_7 + 5}
+      x={490}
+      y={IDENTIC_PATH_7}
       text={9}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={490}
-      y={IDENTIC_PATH_7 + 5}
+      x={540}
+      y={IDENTIC_PATH_7}
       text={10}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={540}
-      y={IDENTIC_PATH_7 + 5}
+      x={590}
+      y={IDENTIC_PATH_7}
       text={11}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={590}
-      y={IDENTIC_PATH_7 + 5}
+      x={640}
+      y={IDENTIC_PATH_7}
       text={12}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={640}
-      y={IDENTIC_PATH_7 + 5}
+      x={690}
+      y={IDENTIC_PATH_7}
       text={13}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={690}
-      y={IDENTIC_PATH_7 + 5}
+      x={740}
+      y={IDENTIC_PATH_7}
       text={14}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={740}
-      y={IDENTIC_PATH_7 + 5}
+      x={790}
+      y={IDENTIC_PATH_7}
       text={15}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={790}
-      y={IDENTIC_PATH_7 + 5}
+      x={840}
+      y={IDENTIC_PATH_7}
       text="(X)"
       fontSize={40}
       fill={blackStroke}
