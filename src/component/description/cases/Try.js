@@ -5,11 +5,14 @@ import TableDatas from './TableDatas';
 
 const Try = ({
   handleDatas,
+  handleVerify,
   isPolygonActive,
   isSquareActive,
 }) => (
   <div className="testing-container">
     <p className="testing-message">
+      <b>1-</b>
+      &nbsp;
       Observe attentivement le schéma puis complète les cases vides par
       les coordonnées de chaque point
     </p>
@@ -32,32 +35,32 @@ const Try = ({
       <tbody>
         <tr>
           <th scope="row">A</th>
-          <TableDatas index="0" name="X" handleDatas={handleDatas} />
-          <TableDatas index="1" name="Y" handleDatas={handleDatas} />
+          <TableDatas point="A" axis="x" name="X" handleDatas={handleDatas} />
+          <TableDatas point="A" axis="y" name="Y" handleDatas={handleDatas} />
         </tr>
         <tr>
           <th scope="row">B</th>
-          <TableDatas index="1" name="X" handleDatas={handleDatas} />
-          <TableDatas index="2" name="Y" handleDatas={handleDatas} />
+          <TableDatas point="B" axis="x" name="X" handleDatas={handleDatas} />
+          <TableDatas point="B" axis="y" name="Y" handleDatas={handleDatas} />
         </tr>
         <tr>
           <th scope="row">C</th>
-          <TableDatas index="1" name="X" handleDatas={handleDatas} />
-          <TableDatas index="2" name="Y" handleDatas={handleDatas} />
+          <TableDatas point="C" axis="x" name="X" handleDatas={handleDatas} />
+          <TableDatas point="C" axis="y" name="Y" handleDatas={handleDatas} />
         </tr>
         { isSquareActive || isPolygonActive ? (
           <tr>
             <th scope="row">D</th>
-            <TableDatas index="1" name="X" handleDatas={handleDatas} />
-            <TableDatas index="2" name="Y" handleDatas={handleDatas} />
+            <TableDatas point="D" axis="x" name="X" handleDatas={handleDatas} />
+            <TableDatas point="D" axis="y" name="Y" handleDatas={handleDatas} />
           </tr>
         ) : ''
         }
         { isPolygonActive ? (
           <tr>
             <th scope="row">E</th>
-            <TableDatas index="1" name="X" handleDatas={handleDatas} />
-            <TableDatas index="2" name="Y" handleDatas={handleDatas} />
+            <TableDatas point="E" axis="x" name="X" handleDatas={handleDatas} />
+            <TableDatas point="E" axis="y" name="Y" handleDatas={handleDatas} />
           </tr>
         ) : ''
         }
@@ -65,6 +68,7 @@ const Try = ({
     </Table>
     <Button
       color="secondary"
+      onClick={handleVerify}
     >
       Vérifier
     </Button>
@@ -73,6 +77,7 @@ const Try = ({
 
 Try.propTypes = {
   handleDatas: PropTypes.func.isRequired,
+  handleVerify: PropTypes.func.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
 };
