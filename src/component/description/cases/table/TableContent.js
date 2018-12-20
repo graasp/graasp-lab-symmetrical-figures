@@ -49,7 +49,9 @@ const TableContent = ({
             <TableDatas point="D" axis="x" name="X" handleDatas={handleDatas} />
             <TableDatas point="D" axis="y" name="Y" handleDatas={handleDatas} />
           </tr>
-        ) : ''
+        ) : (
+          <tr />
+        )
         }
         { isPolygonActive ? (
           <tr>
@@ -57,7 +59,9 @@ const TableContent = ({
             <TableDatas point="E" axis="x" name="X" handleDatas={handleDatas} />
             <TableDatas point="E" axis="y" name="Y" handleDatas={handleDatas} />
           </tr>
-        ) : ''
+        ) : (
+          <tr />
+        )
         }
       </tbody>
     </Table>
