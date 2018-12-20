@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Input } from 'reactstrap';
 import Line from './Line.svg';
 import Point from './Point.svg';
-import Forms from '../../forms/Forms';
+import Forms from '../../../forms/Forms';
 
 const Observe = ({
   handleForm,

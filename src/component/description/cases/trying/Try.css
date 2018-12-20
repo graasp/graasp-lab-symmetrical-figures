@@ -25,3 +25,10 @@ th {
   display: inline-block;
   width: 13rem;
 }
+.symetric-found {
+  color: yellow;
+  font-size: 1.2rem;
+}
+.verfy-answer {
+  margin-top: 3rem;
+}

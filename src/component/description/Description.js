@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Button } from 'reactstrap';
 import './Description.css';
-import Observe from './cases/Observe';
-import Try from './cases/Try';
+import Observe from './cases/observing/Observe';
+import TabComponent from './TabComponent';
+import Try from './cases/trying/Try';
 import { CoordState } from '../../config/CoordState';
-import { TRI_COORD_A, TRI_COORD_B, TRI_COORD_C } from '../../constants/Coordinates';
+import {
+  FR_SYMETRIC_WORD,
+  SYMETRIC_OF_A,
+  SYMETRIC_OF_C,
+  TRI_COORD_A,
+  TRI_COORD_B,
+  TRI_COORD_C,
+} from '../../constants/Coordinates';
 
 export class Description extends Component {
   state = CoordState;
@@ -24,6 +31,66 @@ export class Description extends Component {
     }
   }
 
+  handleSymetricWord = (e, usecase) => {
+    const typedWords = e.target.value;
+    switch (usecase) {
+      case 'symmetricWord':
+        if (typedWords.length === FR_SYMETRIC_WORD.length) {
+          const convertedWords = this.compareWords(typedWords, FR_SYMETRIC_WORD);
+          if (convertedWords === 0) {
+            this.setState({
+              isWordFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isWordFound: false,
+            });
+          }
+        }
+        break;
+      case 'symmetricOfA':
+        if (typedWords.length === SYMETRIC_OF_A.length) {
+          const convertedWords = this.compareWords(typedWords, SYMETRIC_OF_A);
+          if (convertedWords === 0) {
+            this.setState({
+              isSymOfAFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSymOfAFound: false,
+            });
+          }
+        }
+        break;
+      case 'symmetricOfC':
+        if (typedWords.length === SYMETRIC_OF_C.length) {
+          const convertedWords = this.compareWords(typedWords, SYMETRIC_OF_C);
+          if (convertedWords === 0) {
+            this.setState({
+              isSymOfCFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSymOfCFound: false,
+            });
+          }
+        }
+        break;
+      default:
+        this.setState({
+          isWordFound: false,
+          isSymOfAFound: false,
+          isSymOfCFound: false,
+        });
+    }
+  }
+
+  compareWords = (typedWords, symmetricWord) => {
+    const w1 = typedWords.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const w2 = symmetricWord.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return w1.localeCompare(w2);
+  }
+
   handleDatas = (event) => {
     event.preventDefault();
     const { dataset, value } = event.target;
@@ -38,59 +105,55 @@ export class Description extends Component {
     if (point === 'C') {
       this.cheCheckCCoordinates(axis, parsedValue);
     }
-  }
-
-  cheCheckACoordinates = (axis, parsedValue) => {
-    const { triCoordA } = this.state;
-    const newTriCoordA = [...triCoordA];
-    if (axis === 'x') {
-      newTriCoordA[0].x = parsedValue;
-      this.setState({
-        triCoordA: newTriCoordA,
-      });
-    } else if (axis === 'y') {
-      newTriCoordA[0].y = parsedValue;
-      this.setState({
-        triCoordA: newTriCoordA,
-      });
+    const { triCoordA, triCoordB, triCoordC } = this.state;
+    switch (point) {
+      case 'A':
+        this.cheCheckCoordinates(axis, parsedValue, point, triCoordA);
+        break;
+      case 'B':
+        this.cheCheckCoordinates(axis, parsedValue, point, triCoordB);
+        break;
+      case 'C':
+        this.cheCheckCoordinates(axis, parsedValue, point, triCoordC);
+        break;
+      default:
+        this.cheCheckCoordinates();
     }
   }
 
-  cheCheckBCoordinates = (axis, parsedValue) => {
-    const { triCoordB } = this.state;
-    const newTriCoordB = [...triCoordB];
+  cheCheckCoordinates = (axis, parsedValue, point, triangleCoord) => {
+    const newTriCoord = [...triangleCoord];
     if (axis === 'x') {
-      newTriCoordB[0].x = parsedValue;
-      this.setState({
-        triCoordB: newTriCoordB,
-      });
+      newTriCoord[0].x = parsedValue;
     } else if (axis === 'y') {
-      newTriCoordB[0].y = parsedValue;
+      newTriCoord[0].y = parsedValue;
+    }
+    if (point === 'A') {
       this.setState({
-        triCoordB: newTriCoordB,
+        triCoordA: newTriCoord,
       });
     }
-  }
-
-  cheCheckCCoordinates = (axis, parsedValue) => {
-    const { triCoordC } = this.state;
-    const newTriCoordC = [...triCoordC];
-    if (axis === 'x') {
-      newTriCoordC[0].x = parsedValue;
+    if (point === 'B') {
       this.setState({
-        triCoordC: newTriCoordC,
+        triCoordB: newTriCoord,
       });
-    } else if (axis === 'y') {
-      newTriCoordC[0].y = parsedValue;
+    }
+    if (point === 'C') {
       this.setState({
-        triCoordC: newTriCoordC,
+        triCoordC: newTriCoord,
       });
     }
   }
 
   handleVerify = () => {
-    const { triCoordA, triCoordB, triCoordC } = this.state;
-    // console.log('triCoordA', triCoordA, TRI_COORD_A);
+    const {
+      isWordFound,
+      isSymOfAFound,
+      isSymOfCFound,
+      triCoordA,
+      triCoordB,
+      triCoordC,
+    } = this.state;
     const compareACoord = this.isArrayEqual(triCoordA, TRI_COORD_A);
     const compareBCoord = this.isArrayEqual(triCoordB, TRI_COORD_B);
     const compareCCoord = this.isArrayEqual(triCoordC, TRI_COORD_C);
@@ -100,9 +163,25 @@ export class Description extends Component {
     if (compareACoord && compareBCoord && compareCCoord) {
       // console.log('Youpiii all corrdinates match. Congrats');
     }
+
+    if (isWordFound) {
+      this.setState({
+        foundWord: true,
+      });
+    }
+    if (isSymOfAFound) {
+      this.setState({
+        symOfAFound: true,
+      });
+    }
+    if (isSymOfCFound) {
+      this.setState({
+        symOfCFound: true,
+      });
+    }
   };
 
-  isArrayEqual = (array1, array2) => _(array1).differenceWith(array2, _.isEqual).isEmpty()
+  isArrayEqual = (array1, array2) => _(array1).differenceWith(array2, _.isEqual).isEmpty();
 
   render() {
     const {
@@ -115,25 +194,15 @@ export class Description extends Component {
       isTriangleActive,
       toggleLine,
     } = this.props;
-    const { swicthCase } = this.state;
+    const {
+      foundWord,
+      symOfAFound,
+      symOfCFound,
+      swicthCase,
+    } = this.state;
     return (
       <div className="desc-container">
-        <Button
-          outline
-          color="secondary"
-          className={`${swicthCase ? 'observe-button-active' : ''} observe-button`}
-          onClick={e => this.handleCase(e, 'observing')}
-        >
-          Observer
-        </Button>
-        <Button
-          outline
-          color="secondary"
-          className={`${swicthCase ? '' : 'test-button-active'} test-button`}
-          onClick={e => this.handleCase(e, 'testing')}
-        >
-          Tester
-        </Button>
+        <TabComponent swicthCase={swicthCase} handleCase={this.handleCase} />
         { swicthCase ? (
           <Observe
             handleForm={handleForm}
@@ -145,10 +214,14 @@ export class Description extends Component {
           />
         ) : (
           <Try
+            foundWord={foundWord}
             handleDatas={this.handleDatas}
+            handleSymetricWord={this.handleSymetricWord}
             handleVerify={this.handleVerify}
             isPolygonActive={isPolygonActive}
             isSquareActive={isSquareActive}
+            symOfAFound={symOfAFound}
+            symOfCFound={symOfCFound}
             toggleLine={toggleLine}
           />
         )
