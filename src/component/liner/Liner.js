@@ -91,7 +91,7 @@ const Liner = ({
     <Text
       x={linePoints[0] + 10}
       y={linePoints[1] + 10}
-      text="Axe de Symetrie"
+      text="(D) Axe de Symetrie"
       fontSize={30}
       fill={color}
     />
