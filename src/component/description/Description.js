@@ -8,8 +8,11 @@ import Try from './cases/trying/Try';
 import { CoordState } from '../../config/CoordState';
 import {
   FR_SYMETRIC_WORD,
-  SYMETRIC_OF_A,
-  SYMETRIC_OF_C,
+  TRI_SYM_OF_A,
+  TRI_SYM_OF_C,
+  SQ_SYM_OF_A,
+  SQ_SYM_OF_B,
+  SQ_SYM_OF_D,
   SQ_COORD_A,
   SQ_COORD_B,
   SQ_COORD_C,
@@ -35,10 +38,10 @@ export class Description extends Component {
     }
   }
 
-  handleSymetricWord = (e, usecase) => {
+  handleSymetricWord = (e, usecase, kind) => {
     const typedWords = e.target.value;
-    switch (usecase) {
-      case 'symmetricWord':
+    switch (true) {
+      case ((usecase === 'symmetricWord')):
         if (typedWords.length === FR_SYMETRIC_WORD.length) {
           const convertedWords = this.compareWords(typedWords, FR_SYMETRIC_WORD);
           if (convertedWords === 0) {
@@ -52,9 +55,9 @@ export class Description extends Component {
           }
         }
         break;
-      case 'symmetricOfA':
-        if (typedWords.length === SYMETRIC_OF_A.length) {
-          const convertedWords = this.compareWords(typedWords, SYMETRIC_OF_A);
+      case ((usecase === 'symmetricOfA') && (kind === 'triangle')):
+        if (typedWords.length === TRI_SYM_OF_A.length) {
+          const convertedWords = this.compareWords(typedWords, TRI_SYM_OF_A);
           if (convertedWords === 0) {
             this.setState({
               isSymOfAFound: true,
@@ -66,9 +69,9 @@ export class Description extends Component {
           }
         }
         break;
-      case 'symmetricOfC':
-        if (typedWords.length === SYMETRIC_OF_C.length) {
-          const convertedWords = this.compareWords(typedWords, SYMETRIC_OF_C);
+      case ((usecase === 'symmetricOfC') && (kind === 'triangle')):
+        if (typedWords.length === TRI_SYM_OF_C.length) {
+          const convertedWords = this.compareWords(typedWords, TRI_SYM_OF_C);
           if (convertedWords === 0) {
             this.setState({
               isSymOfCFound: true,
@@ -80,11 +83,56 @@ export class Description extends Component {
           }
         }
         break;
+      case ((usecase === 'symmetricOfA') && (kind === 'square')):
+        if (typedWords.length === SQ_SYM_OF_A.length) {
+          const convertedWords = this.compareWords(typedWords, SQ_SYM_OF_A);
+          if (convertedWords === 0) {
+            this.setState({
+              isSqSymOfAFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSqSymOfAFound: false,
+            });
+          }
+        }
+        break;
+      case ((usecase === 'symmetricOfB') && (kind === 'square')):
+        if (typedWords.length === SQ_SYM_OF_B.length) {
+          const convertedWords = this.compareWords(typedWords, SQ_SYM_OF_B);
+          if (convertedWords === 0) {
+            this.setState({
+              isSqSymOfBFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSqSymOfBFound: false,
+            });
+          }
+        }
+        break;
+      case ((usecase === 'symmetricOfD') && (kind === 'square')):
+        if (typedWords.length === SQ_SYM_OF_D.length) {
+          const convertedWords = this.compareWords(typedWords, SQ_SYM_OF_D);
+          if (convertedWords === 0) {
+            this.setState({
+              isSqSymOfDFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSqSymOfDFound: false,
+            });
+          }
+        }
+        break;
       default:
         this.setState({
           isWordFound: false,
           isSymOfAFound: false,
           isSymOfCFound: false,
+          isSqSymOfAFound: false,
+          isSqSymOfBFound: false,
+          isSqSymOfDFound: false,
         });
     }
   }
@@ -187,6 +235,9 @@ export class Description extends Component {
       isWordFound,
       isSymOfAFound,
       isSymOfCFound,
+      isSqSymOfAFound,
+      isSqSymOfBFound,
+      isSqSymOfDFound,
       sqCoordA,
       sqCoordB,
       sqCoordC,
@@ -228,6 +279,21 @@ export class Description extends Component {
         symOfCFound: true,
       });
     }
+    if (isSqSymOfAFound) {
+      this.setState({
+        sqSymOfAFound: true,
+      });
+    }
+    if (isSqSymOfBFound) {
+      this.setState({
+        sqSymOfBFound: true,
+      });
+    }
+    if (isSqSymOfDFound) {
+      this.setState({
+        sqSymOfDFound: true,
+      });
+    }
   };
 
   isArrayEqual = (array1, array2) => _(array1).differenceWith(array2, _.isEqual).isEmpty();
@@ -246,7 +312,12 @@ export class Description extends Component {
     const {
       foundWord,
       symOfAFound,
+      symOfBFound,
       symOfCFound,
+      symOfDFound,
+      sqSymOfAFound,
+      sqSymOfBFound,
+      sqSymOfDFound,
       swicthCase,
     } = this.state;
     return (
@@ -271,7 +342,12 @@ export class Description extends Component {
             isSquareActive={isSquareActive}
             isTriangleActive={isTriangleActive}
             symOfAFound={symOfAFound}
+            symOfBFound={symOfBFound}
             symOfCFound={symOfCFound}
+            symOfDFound={symOfDFound}
+            sqSymOfAFound={sqSymOfAFound}
+            sqSymOfBFound={sqSymOfBFound}
+            sqSymOfDFound={sqSymOfDFound}
             toggleLine={toggleLine}
           />
         )
