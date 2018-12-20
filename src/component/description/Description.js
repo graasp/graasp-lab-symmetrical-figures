@@ -138,8 +138,8 @@ export class Description extends Component {
           <Observe
             handleForm={handleForm}
             handleCheck={handleCheck}
-            handleView={handleView}
             handlePointsDisplay={handlePointsDisplay}
+            handleView={handleView}
             isTriangleActive={isTriangleActive}
             toggleLine={toggleLine}
           />
@@ -149,6 +149,7 @@ export class Description extends Component {
             handleVerify={this.handleVerify}
             isPolygonActive={isPolygonActive}
             isSquareActive={isSquareActive}
+            toggleLine={toggleLine}
           />
         )
         }
