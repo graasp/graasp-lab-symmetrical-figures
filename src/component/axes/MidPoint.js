@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Circle,
   Layer,
+  Text,
 } from 'react-konva';
 
 const MidPoint = ({
@@ -22,6 +23,13 @@ const MidPoint = ({
       stroke={stroke}
       strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
+    />
+    <Text
+      x={circlePoints[0] + 20}
+      y={circlePoints[1] - 50}
+      text="(M) Point de symétrie"
+      fontSize={40}
+      fill="green"
     />
   </Layer>
 );
