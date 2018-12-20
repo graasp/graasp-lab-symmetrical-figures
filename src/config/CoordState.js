@@ -2,6 +2,12 @@
 // eslint-disable-next-line import/prefer-default-export
 
 export const CoordState = {
+  foundWord: false,
+  isSymOfAFound: false,
+  isSymOfCFound: false,
+  isWordFound: false,
+  symOfAFound: false,
+  symOfCFound: false,
   swicthCase: false,
   triCoordA: [{ x: 0, y: 13 }],
   triCoordB: [{ x: 5, y: 0 }],
