@@ -58,7 +58,7 @@ const TriangleExo = ({
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfC')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfC', 'triangle')}
           />
         )
         }
@@ -80,7 +80,7 @@ const TriangleExo = ({
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfA')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfA', 'triangle')}
           />
         )
         }
