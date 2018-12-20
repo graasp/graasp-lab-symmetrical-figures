@@ -13,8 +13,16 @@ const Try = ({
     <p className="testing-message">
       <b>1-</b>
       &nbsp;
-      Observe attentivement le schéma puis complète les cases vides par
-      les coordonnées de chaque point
+      Observe attentivement le schéma puis
+      &nbsp;
+      <b>complète</b>
+      &nbsp;
+      les cases vides par
+      les
+      &nbsp;
+      <b>coordonnées</b>
+      &nbsp;
+      de chaque point
     </p>
     <Table borderless>
       <thead>
