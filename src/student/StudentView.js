@@ -12,8 +12,12 @@ import PolygonView from '../component/polygonView/PolygonView';
 import SquareView from '../component/squareView/SquareView';
 import { AppState } from '../config/AppState';
 import {
+  blackStroke,
+  defaultSize,
   IDENTIC_PATH_0,
   IDENTIC_PATH_1,
+  IDENTIC_PATH_6,
+  IDENTIC_PATH_7,
 } from '../constants/Common';
 
 class StudentView extends Component {
@@ -24,9 +28,9 @@ class StudentView extends Component {
   state = AppState;
 
   handleCheck = () => {
-    const { displayed } = this.state;
+    const { showGrid } = this.state;
     this.setState({
-      displayed: !displayed,
+      showGrid: !showGrid,
     });
   }
 
@@ -79,7 +83,7 @@ class StudentView extends Component {
   render() {
     const {
       color,
-      displayed,
+      showGrid,
       gridStroke,
       gridStrokeWidth,
       height,
@@ -99,19 +103,25 @@ class StudentView extends Component {
     return (
       <Row className="app-loader">
         <Col md={8} className="triangle-container">
-          { displayed ? (
+          { showGrid ? (
             <Stage width={width} height={height}>
               <HorizontalGrid
+                blackStroke={blackStroke}
+                defaultSize={defaultSize}
                 stroke={gridStroke}
                 strokeWidth={gridStrokeWidth}
                 IDENTIC_PATH_0={IDENTIC_PATH_0}
                 IDENTIC_PATH_1={IDENTIC_PATH_1}
+                IDENTIC_PATH_6={IDENTIC_PATH_6}
               />
               <VerticalGrid
+                blackStroke={blackStroke}
+                defaultSize={defaultSize}
                 stroke={gridStroke}
                 strokeWidth={gridStrokeWidth}
                 IDENTIC_PATH_0={IDENTIC_PATH_0}
                 IDENTIC_PATH_1={IDENTIC_PATH_1}
+                IDENTIC_PATH_7={IDENTIC_PATH_7}
               />
             </Stage>
           ) : ''
@@ -159,6 +169,8 @@ class StudentView extends Component {
               handleForm={this.handleForm}
               handleView={this.handleView}
               handlePointsDisplay={this.handlePointsDisplay}
+              isPolygonActive={isPolygonActive}
+              isSquareActive={isSquareActive}
               isTriangleActive={isTriangleActive}
               toggleLine={toggleLine}
               t={t}

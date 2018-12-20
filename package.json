@@ -16,6 +16,7 @@
     "enzyme-adapter-react-16": "1.6.0",
     "i18next": "11.9.1",
     "konva": "2.5.1",
+    "lodash": "4.17.11",
     "prop-types": "15.6.2",
     "qs": "6.5.2",
     "react": "16.6.3",

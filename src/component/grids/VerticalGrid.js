@@ -3,22 +3,21 @@ import PropTypes from 'prop-types';
 import {
   Layer,
   Line,
+  Text,
 } from 'react-konva';
 
 const VerticalGrid = ({
+  blackStroke,
+  defaultSize,
   stroke,
   strokeWidth,
   IDENTIC_PATH_0,
   IDENTIC_PATH_1,
+  IDENTIC_PATH_7,
 }) => (
   <Layer>
     <Line
       points={[IDENTIC_PATH_0, IDENTIC_PATH_0, 0, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[25, IDENTIC_PATH_0, 25, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -28,17 +27,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[75, IDENTIC_PATH_0, 75, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[100, IDENTIC_PATH_0, 100, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[125, IDENTIC_PATH_0, 125, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -48,17 +37,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[175, IDENTIC_PATH_0, 175, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[200, IDENTIC_PATH_0, 200, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[225, IDENTIC_PATH_0, 225, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -68,17 +47,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[275, IDENTIC_PATH_0, 275, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[300, IDENTIC_PATH_0, 300, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[325, IDENTIC_PATH_0, 325, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -88,17 +57,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[375, IDENTIC_PATH_0, 375, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[400, IDENTIC_PATH_0, 400, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[425, IDENTIC_PATH_0, 425, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -108,17 +67,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[475, IDENTIC_PATH_0, 475, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[500, IDENTIC_PATH_0, 500, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[525, IDENTIC_PATH_0, 525, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -128,17 +77,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[575, IDENTIC_PATH_0, 575, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[600, IDENTIC_PATH_0, 600, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[625, IDENTIC_PATH_0, 625, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -148,17 +87,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[675, IDENTIC_PATH_0, 675, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[700, IDENTIC_PATH_0, 700, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[725, IDENTIC_PATH_0, 725, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -168,17 +97,7 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[775, IDENTIC_PATH_0, 775, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[800, IDENTIC_PATH_0, 800, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[825, IDENTIC_PATH_0, 825, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -188,38 +107,138 @@ const VerticalGrid = ({
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[875, IDENTIC_PATH_0, 875, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[900, IDENTIC_PATH_0, 900, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
     <Line
-      points={[925, IDENTIC_PATH_0, 925, IDENTIC_PATH_1]}
+      points={[IDENTIC_PATH_7, IDENTIC_PATH_0, IDENTIC_PATH_7, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
-    <Line
-      points={[950, IDENTIC_PATH_0, 950, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
+    <Text
+      x={90}
+      y={IDENTIC_PATH_7}
+      text={1}
+      fontSize={defaultSize}
+      fill={blackStroke}
     />
-    <Line
-      points={[975, IDENTIC_PATH_0, 975, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
+    <Text
+      x={140}
+      y={IDENTIC_PATH_7}
+      text={2}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={190}
+      y={IDENTIC_PATH_7}
+      text={3}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={240}
+      y={IDENTIC_PATH_7}
+      text={4}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={290}
+      y={IDENTIC_PATH_7}
+      text={5}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={340}
+      y={IDENTIC_PATH_7}
+      text={6}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={390}
+      y={IDENTIC_PATH_7}
+      text={7}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={440}
+      y={IDENTIC_PATH_7}
+      text={8}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={490}
+      y={IDENTIC_PATH_7}
+      text={9}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={540}
+      y={IDENTIC_PATH_7}
+      text={10}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={590}
+      y={IDENTIC_PATH_7}
+      text={11}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={640}
+      y={IDENTIC_PATH_7}
+      text={12}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={690}
+      y={IDENTIC_PATH_7}
+      text={13}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={740}
+      y={IDENTIC_PATH_7}
+      text={14}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={790}
+      y={IDENTIC_PATH_7}
+      text={15}
+      fontSize={defaultSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={840}
+      y={IDENTIC_PATH_7}
+      text="(X)"
+      fontSize={40}
+      fill={blackStroke}
     />
   </Layer>
 );
 
 VerticalGrid.propTypes = {
+  blackStroke: PropTypes.string.isRequired,
+  defaultSize: PropTypes.number.isRequired,
   stroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
   IDENTIC_PATH_0: PropTypes.number.isRequired,
   IDENTIC_PATH_1: PropTypes.number.isRequired,
+  IDENTIC_PATH_7: PropTypes.number.isRequired,
 };
 
 export default VerticalGrid;

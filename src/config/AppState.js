@@ -7,7 +7,7 @@ export const AppState = {
   circleRadius: 5,
   circlePoints: [350, 450], // this is our middle circle coordinates
   color: '#000',
-  displayed: false,
+  showGrid: true,
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',
   height: window.innerHeight,
@@ -47,7 +47,8 @@ export const AppState = {
     C: "B'",
   },
   pointSize: 30,
-  shapeStroke: '#000',
+  blueShapeStroke: 'blue',
+  greenShapeStroke: 'green',
   showPoints: false,
   toggleLine: true,
   triangleOpacity: 0.5,
