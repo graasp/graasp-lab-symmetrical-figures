@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 import './Try.css';
 import TableContent from '../table/TableContent';
 import StepOne from '../steps/StepOne';
-import StepTwo from '../steps/StepTwo';
+import TrianglePractice from '../exercices/TrianglePractice';
 
 const Try = ({
   foundWord,
@@ -13,6 +13,7 @@ const Try = ({
   handleVerify,
   isPolygonActive,
   isSquareActive,
+  isTriangleActive,
   symOfAFound,
   symOfCFound,
   toggleLine,
@@ -24,13 +25,17 @@ const Try = ({
       isPolygonActive={isPolygonActive}
       isSquareActive={isSquareActive}
     />
-    <StepTwo
-      toggleLine={toggleLine}
-      foundWord={foundWord}
-      symOfAFound={symOfAFound}
-      symOfCFound={symOfCFound}
-      handleSymetricWord={handleSymetricWord}
-    />
+    { isTriangleActive ? (
+      <TrianglePractice
+        toggleLine={toggleLine}
+        foundWord={foundWord}
+        symOfAFound={symOfAFound}
+        symOfCFound={symOfCFound}
+        handleSymetricWord={handleSymetricWord}
+      />
+    ) : ''
+    }
+
     <Button
       color="secondary"
       onClick={handleVerify}
@@ -48,6 +53,7 @@ Try.propTypes = {
   handleVerify: PropTypes.func.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
+  isTriangleActive: PropTypes.bool.isRequired,
   symOfAFound: PropTypes.bool.isRequired,
   symOfCFound: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
