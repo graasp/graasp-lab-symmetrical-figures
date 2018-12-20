@@ -23,3 +23,7 @@ export const POLY_COORD_B = [{ x: 12, y: 11 }];
 export const POLY_COORD_C = [{ x: 11, y: 7.5 }];
 export const POLY_COORD_D = [{ x: 7, y: 7.5 }];
 export const POLY_COORD_E = [{ x: 6, y: 11 }];
+export const EN_SYMETRIC_WORD = 'symmetrical';
+export const FR_SYMETRIC_WORD = 'symétriques';
+export const SYMETRIC_OF_C = 'C';
+export const SYMETRIC_OF_A = 'A';
