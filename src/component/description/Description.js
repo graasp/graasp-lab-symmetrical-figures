@@ -10,6 +10,10 @@ import {
   FR_SYMETRIC_WORD,
   SYMETRIC_OF_A,
   SYMETRIC_OF_C,
+  SQ_COORD_A,
+  SQ_COORD_B,
+  SQ_COORD_C,
+  SQ_COORD_D,
   TRI_COORD_A,
   TRI_COORD_B,
   TRI_COORD_C,
@@ -92,55 +96,88 @@ export class Description extends Component {
   }
 
   handleDatas = (event) => {
+    console.log('fffff');
     event.preventDefault();
     const { dataset, value } = event.target;
     const { axis, point } = dataset;
     const parsedValue = Number.parseInt(value, 10);
-    if (point === 'A') {
-      this.cheCheckACoordinates(axis, parsedValue);
-    }
-    if (point === 'B') {
-      this.cheCheckBCoordinates(axis, parsedValue);
-    }
-    if (point === 'C') {
-      this.cheCheckCCoordinates(axis, parsedValue);
-    }
-    const { triCoordA, triCoordB, triCoordC } = this.state;
-    switch (point) {
-      case 'A':
+    const { kind } = this.props;
+    const {
+      triCoordA,
+      triCoordB,
+      triCoordC,
+      sqCoordA,
+      sqCoordB,
+      sqCoordC,
+      sqCoordD,
+    } = this.state;
+    switch (true) {
+      case ((point === 'A') && (kind === 'triangle')):
         this.cheCheckCoordinates(axis, parsedValue, point, triCoordA);
         break;
-      case 'B':
+      case ((point === 'B') && (kind === 'triangle')):
         this.cheCheckCoordinates(axis, parsedValue, point, triCoordB);
         break;
-      case 'C':
+      case ((point === 'C') && (kind === 'triangle')):
         this.cheCheckCoordinates(axis, parsedValue, point, triCoordC);
         break;
+      case ((point === 'A') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordA);
+        break;
+      case ((point === 'B') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordB);
+        break;
+      case ((point === 'C') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordC);
+        break;
+      case ((point === 'D') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordD);
+        break;
       default:
-        this.cheCheckCoordinates();
+        this.cheCheckCoordinates(axis, parsedValue, point, triCoordA, kind);
     }
   }
 
-  cheCheckCoordinates = (axis, parsedValue, point, triangleCoord) => {
-    const newTriCoord = [...triangleCoord];
+  cheCheckCoordinates = (axis, parsedValue, point, coordinates, kind) => {
+    const newCoordinates = [...coordinates];
     if (axis === 'x') {
-      newTriCoord[0].x = parsedValue;
+      newCoordinates[0].x = parsedValue;
     } else if (axis === 'y') {
-      newTriCoord[0].y = parsedValue;
+      newCoordinates[0].y = parsedValue;
     }
-    if (point === 'A') {
+    if ((point === 'A') && (kind === 'triangle')) {
       this.setState({
-        triCoordA: newTriCoord,
+        triCoordA: newCoordinates,
       });
     }
-    if (point === 'B') {
+    if ((point === 'B') && (kind === 'triangle')) {
       this.setState({
-        triCoordB: newTriCoord,
+        triCoordB: newCoordinates,
       });
     }
-    if (point === 'C') {
+    if ((point === 'C') && (kind === 'triangle')) {
       this.setState({
-        triCoordC: newTriCoord,
+        triCoordC: newCoordinates,
+      });
+    }
+    if ((point === 'A') && (kind === 'square')) {
+      this.setState({
+        sqCoordA: newCoordinates,
+      });
+    }
+    if ((point === 'B') && (kind === 'square')) {
+      this.setState({
+        sqCoordB: newCoordinates,
+      });
+    }
+    if ((point === 'C') && (kind === 'square')) {
+      this.setState({
+        sqCoordC: newCoordinates,
+      });
+    }
+    if ((point === 'D') && (kind === 'square')) {
+      this.setState({
+        sqCoordD: newCoordinates,
       });
     }
   }
@@ -150,6 +187,10 @@ export class Description extends Component {
       isWordFound,
       isSymOfAFound,
       isSymOfCFound,
+      sqCoordA,
+      sqCoordB,
+      sqCoordC,
+      sqCoordD,
       triCoordA,
       triCoordB,
       triCoordC,
@@ -157,11 +198,19 @@ export class Description extends Component {
     const compareACoord = this.isArrayEqual(triCoordA, TRI_COORD_A);
     const compareBCoord = this.isArrayEqual(triCoordB, TRI_COORD_B);
     const compareCCoord = this.isArrayEqual(triCoordC, TRI_COORD_C);
+    const compareSqACoord = this.isArrayEqual(sqCoordA, SQ_COORD_A);
+    const compareSqBCoord = this.isArrayEqual(sqCoordB, SQ_COORD_B);
+    const compareSqCCoord = this.isArrayEqual(sqCoordC, SQ_COORD_C);
+    const compareSqDCoord = this.isArrayEqual(sqCoordD, SQ_COORD_D);
     // console.log('Printing A coords comparison', compareACoord);
     // console.log('Printing B coords comparison', compareBCoord);
     // console.log('Printing C coords comparison', compareCCoord);
     if (compareACoord && compareBCoord && compareCCoord) {
-      // console.log('Youpiii all corrdinates match. Congrats');
+      // console.log('Youpiii TRIANGLE corrdinates match. Congrats');
+    }
+
+    if (compareSqACoord && compareSqBCoord && compareSqCCoord && compareSqDCoord) {
+      // console.log('Youpiii SQUARE corrdinates match. Congrats');
     }
 
     if (isWordFound) {
@@ -220,6 +269,7 @@ export class Description extends Component {
             handleVerify={this.handleVerify}
             isPolygonActive={isPolygonActive}
             isSquareActive={isSquareActive}
+            isTriangleActive={isTriangleActive}
             symOfAFound={symOfAFound}
             symOfCFound={symOfCFound}
             toggleLine={toggleLine}
@@ -236,6 +286,7 @@ Description.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   handlePointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
+  kind: PropTypes.string.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
