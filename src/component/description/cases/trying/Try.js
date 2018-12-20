@@ -5,6 +5,7 @@ import './Try.css';
 import TableContent from '../table/TableContent';
 import StepOne from '../steps/StepOne';
 import TrianglePractice from '../exercices/TrianglePractice';
+import SquarePractice from '../exercices/SquarePractice';
 
 const Try = ({
   foundWord,
@@ -15,7 +16,9 @@ const Try = ({
   isSquareActive,
   isTriangleActive,
   symOfAFound,
+  symOfBFound,
   symOfCFound,
+  symOfDFound,
   toggleLine,
 }) => (
   <div className="testing-container">
@@ -34,6 +37,18 @@ const Try = ({
         handleSymetricWord={handleSymetricWord}
       />
     ) : ''
+    }
+    { isSquareActive ? (
+      <SquarePractice
+        toggleLine={toggleLine}
+        foundWord={foundWord}
+        symOfAFound={symOfAFound}
+        symOfBFound={symOfBFound}
+        symOfDFound={symOfDFound}
+        handleSymetricWord={handleSymetricWord}
+      />
+    ) : ''
+
     }
 
     <Button
@@ -55,7 +70,9 @@ Try.propTypes = {
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
   symOfAFound: PropTypes.bool.isRequired,
+  symOfBFound: PropTypes.bool.isRequired,
   symOfCFound: PropTypes.bool.isRequired,
+  symOfDFound: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
 export default Try;
