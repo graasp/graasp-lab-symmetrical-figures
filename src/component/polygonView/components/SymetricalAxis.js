@@ -14,8 +14,9 @@ const SymetricalAxis = ({
   circlePointsY,
   circlePointsY2,
   fontSize,
-  IDENTIC_PATH_3,
-  IDENTIC_PATH_6,
+  SYM_AXIS_0,
+  SYM_AXIS_1,
+  SYM_AXIS_2,
   middleLinePoint,
   shadowBlur,
   radius,
@@ -24,7 +25,7 @@ const SymetricalAxis = ({
 }) => (
   <Layer>
     <Circle
-      x={500}
+      x={SYM_AXIS_1}
       y={circlePointsY}
       radius={radius}
       fill={color}
@@ -33,7 +34,7 @@ const SymetricalAxis = ({
       shadowBlur={shadowBlur}
     />
     <Circle
-      x={500}
+      x={SYM_AXIS_1}
       y={circlePointsY2}
       radius={radius}
       fill={color}
@@ -54,8 +55,8 @@ const SymetricalAxis = ({
       strokeWidth={3}
     />
     <Text
-      x={IDENTIC_PATH_3 + 90}
-      y={IDENTIC_PATH_6 + 40}
+      x={SYM_AXIS_0}
+      y={SYM_AXIS_2}
       text="Axe de Symetrie"
       fontSize={fontSize}
       fill={blackStroke}
@@ -69,8 +70,9 @@ SymetricalAxis.propTypes = {
   blackStroke: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   fontSize: PropTypes.number.isRequired,
-  IDENTIC_PATH_3: PropTypes.number.isRequired,
-  IDENTIC_PATH_6: PropTypes.number.isRequired,
+  SYM_AXIS_0: PropTypes.number.isRequired,
+  SYM_AXIS_1: PropTypes.number.isRequired,
+  SYM_AXIS_2: PropTypes.number.isRequired,
   redStroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
   shadowBlur: PropTypes.number.isRequired,
