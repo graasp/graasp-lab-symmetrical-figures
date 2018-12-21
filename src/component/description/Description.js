@@ -60,11 +60,11 @@ export class Description extends Component {
           const convertedWords = this.compareWords(typedWords, TRI_SYM_OF_A);
           if (convertedWords === 0) {
             this.setState({
-              isSymOfAFound: true,
+              isTriSymOfAFound: true,
             });
           } else if (convertedWords === 1 || convertedWords === -1) {
             this.setState({
-              isSymOfAFound: false,
+              isTriSymOfAFound: false,
             });
           }
         }
@@ -74,11 +74,11 @@ export class Description extends Component {
           const convertedWords = this.compareWords(typedWords, TRI_SYM_OF_C);
           if (convertedWords === 0) {
             this.setState({
-              isSymOfCFound: true,
+              isTriSymOfCFound: true,
             });
           } else if (convertedWords === 1 || convertedWords === -1) {
             this.setState({
-              isSymOfCFound: false,
+              isTriSymOfCFound: false,
             });
           }
         }
@@ -128,8 +128,8 @@ export class Description extends Component {
       default:
         this.setState({
           isWordFound: false,
-          isSymOfAFound: false,
-          isSymOfCFound: false,
+          isTriSymOfAFound: false,
+          isTriSymOfCFound: false,
           isSqSymOfAFound: false,
           isSqSymOfBFound: false,
           isSqSymOfDFound: false,
@@ -233,8 +233,8 @@ export class Description extends Component {
   handleVerify = () => {
     const {
       isWordFound,
-      isSymOfAFound,
-      isSymOfCFound,
+      isTriSymOfAFound,
+      isTriSymOfCFound,
       isSqSymOfAFound,
       isSqSymOfBFound,
       isSqSymOfDFound,
@@ -269,12 +269,12 @@ export class Description extends Component {
         foundWord: true,
       });
     }
-    if (isSymOfAFound) {
+    if (isTriSymOfAFound) {
       this.setState({
         symOfAFound: true,
       });
     }
-    if (isSymOfCFound) {
+    if (isTriSymOfCFound) {
       this.setState({
         symOfCFound: true,
       });

@@ -3,8 +3,8 @@
 
 export const CoordState = {
   foundWord: false,
-  isSymOfAFound: false,
-  isSymOfCFound: false,
+  isTriSymOfAFound: false,
+  isTriSymOfCFound: false,
   isSqSymOfAFound: false,
   isSqSymOfBFound: false,
   isSqSymOfCFound: false,
