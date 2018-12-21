@@ -4,50 +4,98 @@ import {
   Layer,
   Text,
 } from 'react-konva';
-// this component takes in charge all related to the square
+// this component takes in charge all related to the left polygon
 // names witch are: ABCD anf A'B'C'D'.
 const Annotation = ({
   blackStroke,
-  IDENTIC_PATH_2,
-  IDENTIC_PATH_3,
-  IDENTIC_PATH_4,
-  IDENTIC_PATH_5,
+  TEXT_X_0,
+  TEXT_X_1,
+  TEXT_X_2,
+  TEXT_X_3,
+  TEXT_X_4,
+  TEXT_X_5,
+  TEXT_X_6,
+  TEXT_X_7,
+  TEXT_X_8,
+  TEXT_X_9,
+  TEXT_Y_0,
+  TEXT_Y_1,
+  TEXT_Y_2,
+  TEXT_Y_3,
+  TEXT_Y_4,
+  TEXT_Y_5,
   fontSize,
   polygonNode,
 }) => (
   <Layer>
     <Text
-      x={IDENTIC_PATH_4 - 10}
-      y={IDENTIC_PATH_2 + 100}
+      x={TEXT_X_0}
+      y={TEXT_Y_0}
       text={polygonNode.A}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={350}
-      y={IDENTIC_PATH_4 + 20}
+      x={TEXT_X_1}
+      y={TEXT_Y_1}
       text={polygonNode.D}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={620}
-      y={IDENTIC_PATH_4 + 20}
-      text={polygonNode.C}
+      x={TEXT_X_2}
+      y={TEXT_Y_2}
+      text={polygonNode.B}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_3 + 10}
-      y={IDENTIC_PATH_3 + 30}
+      x={TEXT_X_3}
+      y={TEXT_Y_2}
       text={polygonNode.E}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_5 + 70}
-      y={IDENTIC_PATH_3 + 30}
-      text={polygonNode.B}
+      x={TEXT_X_4}
+      y={TEXT_Y_1}
+      text={polygonNode.C}
+      fontSize={fontSize}
+      fill={blackStroke}
+    />
+
+    <Text
+      x={TEXT_X_5}
+      y={TEXT_Y_3}
+      text={polygonNode.Aprim}
+      fontSize={fontSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={TEXT_X_6}
+      y={TEXT_Y_4}
+      text={polygonNode.Bprim}
+      fontSize={fontSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={TEXT_X_7}
+      y={TEXT_Y_5}
+      text={polygonNode.Cprim}
+      fontSize={fontSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={TEXT_X_8}
+      y={TEXT_Y_5}
+      text={polygonNode.Dprim}
+      fontSize={fontSize}
+      fill={blackStroke}
+    />
+    <Text
+      x={TEXT_X_9}
+      y={TEXT_Y_4}
+      text={polygonNode.Eprim}
       fontSize={fontSize}
       fill={blackStroke}
     />
@@ -56,10 +104,22 @@ const Annotation = ({
 
 Annotation.propTypes = {
   blackStroke: PropTypes.string.isRequired,
-  IDENTIC_PATH_2: PropTypes.number.isRequired,
-  IDENTIC_PATH_3: PropTypes.number.isRequired,
-  IDENTIC_PATH_4: PropTypes.number.isRequired,
-  IDENTIC_PATH_5: PropTypes.number.isRequired,
+  TEXT_X_0: PropTypes.number.isRequired,
+  TEXT_X_1: PropTypes.number.isRequired,
+  TEXT_X_2: PropTypes.number.isRequired,
+  TEXT_X_3: PropTypes.number.isRequired,
+  TEXT_X_4: PropTypes.number.isRequired,
+  TEXT_X_5: PropTypes.number.isRequired,
+  TEXT_X_6: PropTypes.number.isRequired,
+  TEXT_X_7: PropTypes.number.isRequired,
+  TEXT_X_8: PropTypes.number.isRequired,
+  TEXT_X_9: PropTypes.number.isRequired,
+  TEXT_Y_0: PropTypes.number.isRequired,
+  TEXT_Y_1: PropTypes.number.isRequired,
+  TEXT_Y_2: PropTypes.number.isRequired,
+  TEXT_Y_3: PropTypes.number.isRequired,
+  TEXT_Y_4: PropTypes.number.isRequired,
+  TEXT_Y_5: PropTypes.number.isRequired,
   fontSize: PropTypes.number.isRequired,
   polygonNode: PropTypes.shape({
     A: PropTypes.string.isRequired,
