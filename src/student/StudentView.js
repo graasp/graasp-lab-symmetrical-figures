@@ -59,6 +59,7 @@ class StudentView extends Component {
   handleForm = (e, target) => {
     if (target === 'triangle') {
       this.setState({
+        kind: 'triangle',
         isTriangleActive: true,
         isPolygonActive: false,
         isSquareActive: false,
@@ -66,6 +67,7 @@ class StudentView extends Component {
     }
     if (target === 'polygon') {
       this.setState({
+        kind: 'polygon',
         isTriangleActive: false,
         isPolygonActive: true,
         isSquareActive: false,
@@ -73,6 +75,7 @@ class StudentView extends Component {
     }
     if (target === 'square') {
       this.setState({
+        kind: 'square',
         isTriangleActive: false,
         isPolygonActive: false,
         isSquareActive: true,
@@ -87,6 +90,7 @@ class StudentView extends Component {
       gridStroke,
       gridStrokeWidth,
       height,
+      kind,
       isPolygonActive,
       isSquareActive,
       isTriangleActive,
@@ -169,6 +173,7 @@ class StudentView extends Component {
               handleForm={this.handleForm}
               handleView={this.handleView}
               handlePointsDisplay={this.handlePointsDisplay}
+              kind={kind}
               isPolygonActive={isPolygonActive}
               isSquareActive={isSquareActive}
               isTriangleActive={isTriangleActive}

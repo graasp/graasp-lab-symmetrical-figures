@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'reactstrap';
 
-const Two = ({
+const TriangleExo = ({
   foundWord,
   handleSymetricWord,
   toggleLine,
@@ -58,7 +58,7 @@ const Two = ({
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfC')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfC', 'triangle')}
           />
         )
         }
@@ -80,7 +80,7 @@ const Two = ({
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfA')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfA', 'triangle')}
           />
         )
         }
@@ -117,7 +117,7 @@ const Two = ({
   </div>
 );
 
-Two.propTypes = {
+TriangleExo.propTypes = {
   foundWord: PropTypes.bool.isRequired,
   handleSymetricWord: PropTypes.func.isRequired,
   symOfAFound: PropTypes.bool.isRequired,
@@ -125,4 +125,4 @@ Two.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
 };
 
-export default Two;
+export default TriangleExo;

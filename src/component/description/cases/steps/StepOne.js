@@ -1,6 +1,6 @@
 import React from 'react';
 
-const One = () => (
+const StepOne = () => (
   <div>
     <p className="testing-message">
       <b>1-</b>
@@ -19,4 +19,4 @@ const One = () => (
   </div>
 );
 
-export default One;
+export default StepOne;

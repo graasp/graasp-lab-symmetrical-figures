@@ -11,9 +11,10 @@ export const AppState = {
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',
   height: window.innerHeight,
-  isTriangleActive: true,
+  isTriangleActive: false,
   isPolygonActive: false,
-  isSquareActive: false,
+  isSquareActive: true,
+  kind: 'triangle',
   lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
   lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
   lineAxeThree: [200, 400, 400, 600], // this is CC' left line separator coordinates
@@ -50,7 +51,7 @@ export const AppState = {
   blueShapeStroke: 'blue',
   greenShapeStroke: 'green',
   showPoints: true,
-  toggleLine: false,
+  toggleLine: true,
   triangleOpacity: 0.5,
   triangleShadowBlur: 5,
   triangleStrokeWidth: 5,

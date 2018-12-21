@@ -8,8 +8,15 @@ import Try from './cases/trying/Try';
 import { CoordState } from '../../config/CoordState';
 import {
   FR_SYMETRIC_WORD,
-  SYMETRIC_OF_A,
-  SYMETRIC_OF_C,
+  TRI_SYM_OF_A,
+  TRI_SYM_OF_C,
+  SQ_SYM_OF_A,
+  SQ_SYM_OF_B,
+  SQ_SYM_OF_D,
+  SQ_COORD_A,
+  SQ_COORD_B,
+  SQ_COORD_C,
+  SQ_COORD_D,
   TRI_COORD_A,
   TRI_COORD_B,
   TRI_COORD_C,
@@ -31,10 +38,10 @@ export class Description extends Component {
     }
   }
 
-  handleSymetricWord = (e, usecase) => {
+  handleSymetricWord = (e, usecase, kind) => {
     const typedWords = e.target.value;
-    switch (usecase) {
-      case 'symmetricWord':
+    switch (true) {
+      case ((usecase === 'symmetricWord')):
         if (typedWords.length === FR_SYMETRIC_WORD.length) {
           const convertedWords = this.compareWords(typedWords, FR_SYMETRIC_WORD);
           if (convertedWords === 0) {
@@ -48,30 +55,72 @@ export class Description extends Component {
           }
         }
         break;
-      case 'symmetricOfA':
-        if (typedWords.length === SYMETRIC_OF_A.length) {
-          const convertedWords = this.compareWords(typedWords, SYMETRIC_OF_A);
+      case ((usecase === 'symmetricOfA') && (kind === 'triangle')):
+        if (typedWords.length === TRI_SYM_OF_A.length) {
+          const convertedWords = this.compareWords(typedWords, TRI_SYM_OF_A);
           if (convertedWords === 0) {
             this.setState({
-              isSymOfAFound: true,
+              isTriSymOfAFound: true,
             });
           } else if (convertedWords === 1 || convertedWords === -1) {
             this.setState({
-              isSymOfAFound: false,
+              isTriSymOfAFound: false,
             });
           }
         }
         break;
-      case 'symmetricOfC':
-        if (typedWords.length === SYMETRIC_OF_C.length) {
-          const convertedWords = this.compareWords(typedWords, SYMETRIC_OF_C);
+      case ((usecase === 'symmetricOfC') && (kind === 'triangle')):
+        if (typedWords.length === TRI_SYM_OF_C.length) {
+          const convertedWords = this.compareWords(typedWords, TRI_SYM_OF_C);
           if (convertedWords === 0) {
             this.setState({
-              isSymOfCFound: true,
+              isTriSymOfCFound: true,
             });
           } else if (convertedWords === 1 || convertedWords === -1) {
             this.setState({
-              isSymOfCFound: false,
+              isTriSymOfCFound: false,
+            });
+          }
+        }
+        break;
+      case ((usecase === 'symmetricOfA') && (kind === 'square')):
+        if (typedWords.length === SQ_SYM_OF_A.length) {
+          const convertedWords = this.compareWords(typedWords, SQ_SYM_OF_A);
+          if (convertedWords === 0) {
+            this.setState({
+              isSqSymOfAFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSqSymOfAFound: false,
+            });
+          }
+        }
+        break;
+      case ((usecase === 'symmetricOfB') && (kind === 'square')):
+        if (typedWords.length === SQ_SYM_OF_B.length) {
+          const convertedWords = this.compareWords(typedWords, SQ_SYM_OF_B);
+          if (convertedWords === 0) {
+            this.setState({
+              isSqSymOfBFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSqSymOfBFound: false,
+            });
+          }
+        }
+        break;
+      case ((usecase === 'symmetricOfD') && (kind === 'square')):
+        if (typedWords.length === SQ_SYM_OF_D.length) {
+          const convertedWords = this.compareWords(typedWords, SQ_SYM_OF_D);
+          if (convertedWords === 0) {
+            this.setState({
+              isSqSymOfDFound: true,
+            });
+          } else if (convertedWords === 1 || convertedWords === -1) {
+            this.setState({
+              isSqSymOfDFound: false,
             });
           }
         }
@@ -79,8 +128,11 @@ export class Description extends Component {
       default:
         this.setState({
           isWordFound: false,
-          isSymOfAFound: false,
-          isSymOfCFound: false,
+          isTriSymOfAFound: false,
+          isTriSymOfCFound: false,
+          isSqSymOfAFound: false,
+          isSqSymOfBFound: false,
+          isSqSymOfDFound: false,
         });
     }
   }
@@ -92,55 +144,88 @@ export class Description extends Component {
   }
 
   handleDatas = (event) => {
+    console.log('fffff');
     event.preventDefault();
     const { dataset, value } = event.target;
     const { axis, point } = dataset;
     const parsedValue = Number.parseInt(value, 10);
-    if (point === 'A') {
-      this.cheCheckACoordinates(axis, parsedValue);
-    }
-    if (point === 'B') {
-      this.cheCheckBCoordinates(axis, parsedValue);
-    }
-    if (point === 'C') {
-      this.cheCheckCCoordinates(axis, parsedValue);
-    }
-    const { triCoordA, triCoordB, triCoordC } = this.state;
-    switch (point) {
-      case 'A':
+    const { kind } = this.props;
+    const {
+      triCoordA,
+      triCoordB,
+      triCoordC,
+      sqCoordA,
+      sqCoordB,
+      sqCoordC,
+      sqCoordD,
+    } = this.state;
+    switch (true) {
+      case ((point === 'A') && (kind === 'triangle')):
         this.cheCheckCoordinates(axis, parsedValue, point, triCoordA);
         break;
-      case 'B':
+      case ((point === 'B') && (kind === 'triangle')):
         this.cheCheckCoordinates(axis, parsedValue, point, triCoordB);
         break;
-      case 'C':
+      case ((point === 'C') && (kind === 'triangle')):
         this.cheCheckCoordinates(axis, parsedValue, point, triCoordC);
         break;
+      case ((point === 'A') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordA);
+        break;
+      case ((point === 'B') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordB);
+        break;
+      case ((point === 'C') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordC);
+        break;
+      case ((point === 'D') && (kind === 'square')):
+        this.cheCheckCoordinates(axis, parsedValue, point, sqCoordD);
+        break;
       default:
-        this.cheCheckCoordinates();
+        this.cheCheckCoordinates(axis, parsedValue, point, triCoordA, kind);
     }
   }
 
-  cheCheckCoordinates = (axis, parsedValue, point, triangleCoord) => {
-    const newTriCoord = [...triangleCoord];
+  cheCheckCoordinates = (axis, parsedValue, point, coordinates, kind) => {
+    const newCoordinates = [...coordinates];
     if (axis === 'x') {
-      newTriCoord[0].x = parsedValue;
+      newCoordinates[0].x = parsedValue;
     } else if (axis === 'y') {
-      newTriCoord[0].y = parsedValue;
+      newCoordinates[0].y = parsedValue;
     }
-    if (point === 'A') {
+    if ((point === 'A') && (kind === 'triangle')) {
       this.setState({
-        triCoordA: newTriCoord,
+        triCoordA: newCoordinates,
       });
     }
-    if (point === 'B') {
+    if ((point === 'B') && (kind === 'triangle')) {
       this.setState({
-        triCoordB: newTriCoord,
+        triCoordB: newCoordinates,
       });
     }
-    if (point === 'C') {
+    if ((point === 'C') && (kind === 'triangle')) {
       this.setState({
-        triCoordC: newTriCoord,
+        triCoordC: newCoordinates,
+      });
+    }
+    if ((point === 'A') && (kind === 'square')) {
+      this.setState({
+        sqCoordA: newCoordinates,
+      });
+    }
+    if ((point === 'B') && (kind === 'square')) {
+      this.setState({
+        sqCoordB: newCoordinates,
+      });
+    }
+    if ((point === 'C') && (kind === 'square')) {
+      this.setState({
+        sqCoordC: newCoordinates,
+      });
+    }
+    if ((point === 'D') && (kind === 'square')) {
+      this.setState({
+        sqCoordD: newCoordinates,
       });
     }
   }
@@ -148,8 +233,15 @@ export class Description extends Component {
   handleVerify = () => {
     const {
       isWordFound,
-      isSymOfAFound,
-      isSymOfCFound,
+      isTriSymOfAFound,
+      isTriSymOfCFound,
+      isSqSymOfAFound,
+      isSqSymOfBFound,
+      isSqSymOfDFound,
+      sqCoordA,
+      sqCoordB,
+      sqCoordC,
+      sqCoordD,
       triCoordA,
       triCoordB,
       triCoordC,
@@ -157,11 +249,19 @@ export class Description extends Component {
     const compareACoord = this.isArrayEqual(triCoordA, TRI_COORD_A);
     const compareBCoord = this.isArrayEqual(triCoordB, TRI_COORD_B);
     const compareCCoord = this.isArrayEqual(triCoordC, TRI_COORD_C);
+    const compareSqACoord = this.isArrayEqual(sqCoordA, SQ_COORD_A);
+    const compareSqBCoord = this.isArrayEqual(sqCoordB, SQ_COORD_B);
+    const compareSqCCoord = this.isArrayEqual(sqCoordC, SQ_COORD_C);
+    const compareSqDCoord = this.isArrayEqual(sqCoordD, SQ_COORD_D);
     // console.log('Printing A coords comparison', compareACoord);
     // console.log('Printing B coords comparison', compareBCoord);
     // console.log('Printing C coords comparison', compareCCoord);
     if (compareACoord && compareBCoord && compareCCoord) {
-      // console.log('Youpiii all corrdinates match. Congrats');
+      // console.log('Youpiii TRIANGLE corrdinates match. Congrats');
+    }
+
+    if (compareSqACoord && compareSqBCoord && compareSqCCoord && compareSqDCoord) {
+      // console.log('Youpiii SQUARE corrdinates match. Congrats');
     }
 
     if (isWordFound) {
@@ -169,14 +269,29 @@ export class Description extends Component {
         foundWord: true,
       });
     }
-    if (isSymOfAFound) {
+    if (isTriSymOfAFound) {
       this.setState({
         symOfAFound: true,
       });
     }
-    if (isSymOfCFound) {
+    if (isTriSymOfCFound) {
       this.setState({
         symOfCFound: true,
+      });
+    }
+    if (isSqSymOfAFound) {
+      this.setState({
+        sqSymOfAFound: true,
+      });
+    }
+    if (isSqSymOfBFound) {
+      this.setState({
+        sqSymOfBFound: true,
+      });
+    }
+    if (isSqSymOfDFound) {
+      this.setState({
+        sqSymOfDFound: true,
       });
     }
   };
@@ -197,7 +312,12 @@ export class Description extends Component {
     const {
       foundWord,
       symOfAFound,
+      symOfBFound,
       symOfCFound,
+      symOfDFound,
+      sqSymOfAFound,
+      sqSymOfBFound,
+      sqSymOfDFound,
       swicthCase,
     } = this.state;
     return (
@@ -220,8 +340,14 @@ export class Description extends Component {
             handleVerify={this.handleVerify}
             isPolygonActive={isPolygonActive}
             isSquareActive={isSquareActive}
+            isTriangleActive={isTriangleActive}
             symOfAFound={symOfAFound}
+            symOfBFound={symOfBFound}
             symOfCFound={symOfCFound}
+            symOfDFound={symOfDFound}
+            sqSymOfAFound={sqSymOfAFound}
+            sqSymOfBFound={sqSymOfBFound}
+            sqSymOfDFound={sqSymOfDFound}
             toggleLine={toggleLine}
           />
         )
@@ -236,6 +362,7 @@ Description.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   handlePointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
+  kind: PropTypes.string.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
