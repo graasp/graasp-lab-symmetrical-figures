@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'reactstrap';
 
-const SquareExo = ({
+const SquarePractice = ({
   foundWord,
   handleSymetricWord,
   toggleLine,
@@ -140,7 +140,7 @@ const SquareExo = ({
   </div>
 );
 
-SquareExo.propTypes = {
+SquarePractice.propTypes = {
   foundWord: PropTypes.bool.isRequired,
   handleSymetricWord: PropTypes.func.isRequired,
   symOfAFound: PropTypes.bool.isRequired,
@@ -149,4 +149,4 @@ SquareExo.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
 };
 
-export default SquareExo;
+export default SquarePractice;
