@@ -13,11 +13,9 @@ import {
   CIRCLE_RADIUS,
   CIRCLE_X,
   CIRCLE_Y,
-  IDENTIC_PATH_2,
-  IDENTIC_PATH_3,
-  IDENTIC_PATH_4,
-  IDENTIC_PATH_5,
-  IDENTIC_PATH_6,
+  SYM_AXIS_0,
+  SYM_AXIS_1,
+  SYM_AXIS_2,
   blackStroke,
   blueStroke,
   radius,
@@ -26,15 +24,53 @@ import {
   circlePointsY,
   circlePointsY2,
   lineStrokeWidth,
+  POLY_PATH_0,
+  POLY_PATH_1,
+  POLY_PATH_5,
+  POLY_PATH_6,
+  POLY_PATH_7,
+  POLY_PATH_8,
+  POLY_PATH_9,
+  POLY_PATH_10,
+  POLY_PATH_13,
+  POLY_PATH_14,
+  POLY_PATH_15,
+  POLY_PATH_16,
+  POLY_PATH_17,
+  POLY_PATH_18,
+  POLY_PATH_19,
+  POLY_PATH_20,
+  POLY_PATH_21,
+  POLY_PATH_22,
+  POLY_PATH_23,
+  POLY_PATH_24,
+  POLY_PATH_25,
+  POLY_PATH_26,
+  POLY_PATH_27,
   POLYGON_PATH_0,
   POLYGON_PATH_1,
   POLYGON_PATH_2,
-  POLYGON_PATH_3,
+  POLY_PATH_2,
   POLYGON_PATH_4,
   POLYGON_PATH_5,
-  POLYGON_PATH_6,
-  POLYGON_PATH_7,
+  POLY_PATH_12,
   redStroke,
+  TEXT_X_0,
+  TEXT_X_1,
+  TEXT_X_2,
+  TEXT_X_3,
+  TEXT_X_4,
+  TEXT_X_5,
+  TEXT_X_6,
+  TEXT_X_7,
+  TEXT_X_8,
+  TEXT_X_9,
+  TEXT_Y_0,
+  TEXT_Y_1,
+  TEXT_Y_2,
+  TEXT_Y_3,
+  TEXT_Y_4,
+  TEXT_Y_5,
 } from '../../constants/Common';
 // this component manage our square figures, the Symetrical axes
 // and the names of each square. then sitch view based on choice
@@ -62,14 +98,25 @@ export class PolygonView extends Component {
         <Stage width={1000} height={1000}>
           <Layer>
             <RegularPolygon
-              fill="yellow"
-              radius={160}
+              fill="#FF8A65"
+              radius={100}
               sides={5}
               stroke="black"
               strokeWidth={4}
-              x={500}
-              y={400}
+              x={200}
+              y={500}
               opacity={0.7}
+            />
+            <RegularPolygon
+              fill="#FFFF8D"
+              radius={100}
+              sides={5}
+              stroke="black"
+              strokeWidth={4}
+              x={800}
+              y={500}
+              opacity={0.7}
+              rotation={107}
             />
           </Layer>
         </Stage>
@@ -79,14 +126,36 @@ export class PolygonView extends Component {
               CIRCLE_RADIUS={CIRCLE_RADIUS}
               CIRCLE_X={CIRCLE_X}
               CIRCLE_Y={CIRCLE_Y}
+              POLY_PATH_0={POLY_PATH_0}
+              POLY_PATH_1={POLY_PATH_1}
               POLYGON_PATH_0={POLYGON_PATH_0}
               POLYGON_PATH_1={POLYGON_PATH_1}
               POLYGON_PATH_2={POLYGON_PATH_2}
-              POLYGON_PATH_3={POLYGON_PATH_3}
+              POLY_PATH_2={POLY_PATH_2}
+              POLY_PATH_5={POLY_PATH_5}
+              POLY_PATH_6={POLY_PATH_6}
+              POLY_PATH_7={POLY_PATH_7}
+              POLY_PATH_8={POLY_PATH_8}
+              POLY_PATH_9={POLY_PATH_9}
+              POLY_PATH_10={POLY_PATH_10}
+              POLY_PATH_13={POLY_PATH_13}
+              POLY_PATH_14={POLY_PATH_14}
+              POLY_PATH_15={POLY_PATH_15}
+              POLY_PATH_16={POLY_PATH_16}
+              POLY_PATH_17={POLY_PATH_17}
+              POLY_PATH_18={POLY_PATH_18}
+              POLY_PATH_19={POLY_PATH_19}
+              POLY_PATH_20={POLY_PATH_20}
+              POLY_PATH_21={POLY_PATH_21}
+              POLY_PATH_22={POLY_PATH_22}
+              POLY_PATH_23={POLY_PATH_23}
+              POLY_PATH_24={POLY_PATH_24}
+              POLY_PATH_25={POLY_PATH_25}
+              POLY_PATH_26={POLY_PATH_26}
+              POLY_PATH_27={POLY_PATH_27}
               POLYGON_PATH_4={POLYGON_PATH_4}
               POLYGON_PATH_5={POLYGON_PATH_5}
-              POLYGON_PATH_6={POLYGON_PATH_6}
-              POLYGON_PATH_7={POLYGON_PATH_7}
+              POLY_PATH_12={POLY_PATH_12}
               blackStroke={blackStroke}
               blueStroke={blueStroke}
               redStroke={redStroke}
@@ -99,11 +168,9 @@ export class PolygonView extends Component {
             <Stage width={width} height={height}>
               <SymetricalAxis
                 color={color}
-                IDENTIC_PATH_2={IDENTIC_PATH_2}
-                IDENTIC_PATH_3={IDENTIC_PATH_3}
-                IDENTIC_PATH_4={IDENTIC_PATH_4}
-                IDENTIC_PATH_5={IDENTIC_PATH_5}
-                IDENTIC_PATH_6={IDENTIC_PATH_6}
+                SYM_AXIS_0={SYM_AXIS_0}
+                SYM_AXIS_1={SYM_AXIS_1}
+                SYM_AXIS_2={SYM_AXIS_2}
                 radius={radius}
                 redStroke={redStroke}
                 strokeWidth={lineStrokeWidth}
@@ -124,15 +191,27 @@ export class PolygonView extends Component {
         { showPoints ? (
           <Stage width={width} height={height}>
             <Annotation
-              IDENTIC_PATH_2={IDENTIC_PATH_2}
-              IDENTIC_PATH_3={IDENTIC_PATH_3}
-              IDENTIC_PATH_4={IDENTIC_PATH_4}
-              IDENTIC_PATH_5={IDENTIC_PATH_5}
-              IDENTIC_PATH_6={IDENTIC_PATH_6}
               middleLinePointLineStroke={middleLinePointLineStroke}
+              POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
               polygonNode={polygonNode}
               blackStroke={blackStroke}
+              TEXT_X_0={TEXT_X_0}
+              TEXT_X_1={TEXT_X_1}
+              TEXT_X_2={TEXT_X_2}
+              TEXT_X_3={TEXT_X_3}
+              TEXT_X_4={TEXT_X_4}
+              TEXT_X_5={TEXT_X_5}
+              TEXT_X_6={TEXT_X_6}
+              TEXT_X_7={TEXT_X_7}
+              TEXT_X_8={TEXT_X_8}
+              TEXT_X_9={TEXT_X_9}
+              TEXT_Y_0={TEXT_Y_0}
+              TEXT_Y_1={TEXT_Y_1}
+              TEXT_Y_2={TEXT_Y_2}
+              TEXT_Y_3={TEXT_Y_3}
+              TEXT_Y_4={TEXT_Y_4}
+              TEXT_Y_5={TEXT_Y_5}
             />
           </Stage>
         ) : ''
