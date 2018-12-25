@@ -39,3 +39,57 @@ export const POLYGON_PATH_4 = 500;
 export const POLYGON_PATH_5 = 530;
 export const POLYGON_PATH_6 = 595;
 export const POLYGON_PATH_7 = 650;
+export const POLYGON_PATH_8 = 855;
+
+export const TEXT_X_0 = 190;
+export const TEXT_X_1 = 250;
+export const TEXT_X_2 = 70;
+export const TEXT_X_3 = 300;
+export const TEXT_X_4 = 110;
+export const TEXT_X_5 = 790;
+export const TEXT_X_6 = 910;
+export const TEXT_X_7 = 870;
+export const TEXT_X_8 = 730;
+export const TEXT_X_9 = 670;
+
+export const TEXT_Y_0 = 350;
+export const TEXT_Y_1 = 600;
+export const TEXT_Y_2 = 450;
+export const TEXT_Y_3 = 610;
+export const TEXT_Y_4 = 520;
+export const TEXT_Y_5 = 380;
+
+
+export const POLY_PATH_0 = 500;
+export const POLY_PATH_1 = 480;
+export const POLY_PATH_2 = 460;
+export const POLY_PATH_3 = 500;
+export const POLY_PATH_4 = 350;
+export const POLY_PATH_5 = 176;
+export const POLY_PATH_6 = 400;
+export const POLY_PATH_7 = 419;
+export const POLY_PATH_8 = 420;
+export const POLY_PATH_9 = 532;
+export const POLY_PATH_10 = 530;
+export const POLY_PATH_11 = 595;
+export const POLY_PATH_12 = 803;
+export const POLY_PATH_13 = 600;
+export const POLY_PATH_14 = 582;
+export const POLY_PATH_15 = 469;
+export const POLY_PATH_16 = 580;
+export const POLY_PATH_17 = 470;
+export const POLY_PATH_18 = 480;
+export const POLY_PATH_19 = 203;
+export const POLY_PATH_20 = 740;
+export const POLY_PATH_21 = 705;
+export const POLY_PATH_22 = 855;
+export const POLY_PATH_23 = 895;
+export const POLY_PATH_24 = 105;
+export const POLY_PATH_25 = 140;
+export const POLY_PATH_26 = 297;
+export const POLY_PATH_27 = 255;
+
+
+export const SYM_AXIS_0 = 390;
+export const SYM_AXIS_1 = 500;
+export const SYM_AXIS_2 = 840;

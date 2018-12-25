@@ -14,6 +14,11 @@ export const PolygonState = {
     C: 'C',
     D: 'D',
     E: 'E',
+    Aprim: "A'",
+    Bprim: "B'",
+    Cprim: "C'",
+    Dprim: "D'",
+    Eprim: "E'",
   },
 };
 

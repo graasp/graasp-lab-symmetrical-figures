@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'reactstrap';
 
-const TriangleExo = ({
+const TrianglePractice = ({
   foundWord,
   handleSymetricWord,
   toggleLine,
@@ -117,7 +117,7 @@ const TriangleExo = ({
   </div>
 );
 
-TriangleExo.propTypes = {
+TrianglePractice.propTypes = {
   foundWord: PropTypes.bool.isRequired,
   handleSymetricWord: PropTypes.func.isRequired,
   symOfAFound: PropTypes.bool.isRequired,
@@ -125,4 +125,4 @@ TriangleExo.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
 };
 
-export default TriangleExo;
+export default TrianglePractice;

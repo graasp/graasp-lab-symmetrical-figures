@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'reactstrap';
 
-const SquarePractice = ({
+const PolygonPractice = ({
   foundWord,
   handleSymetricWord,
   toggleLine,
@@ -140,7 +140,7 @@ const SquarePractice = ({
   </div>
 );
 
-SquarePractice.propTypes = {
+PolygonPractice.propTypes = {
   foundWord: PropTypes.bool.isRequired,
   handleSymetricWord: PropTypes.func.isRequired,
   symOfAFound: PropTypes.bool.isRequired,
@@ -149,4 +149,4 @@ SquarePractice.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
 };
 
-export default SquarePractice;
+export default PolygonPractice;

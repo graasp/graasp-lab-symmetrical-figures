@@ -4,6 +4,7 @@ import {
   Circle,
   Layer,
   Line,
+  Text,
 } from 'react-konva';
 
 const Axes = ({
@@ -21,6 +22,13 @@ const Axes = ({
   shadowBlur,
 }) => (
   <Layer>
+    <Text
+      x={CIRCLE_X - 20}
+      y={CIRCLE_Y + 20}
+      text="(N)"
+      fontSize={30}
+      fill={blueStroke}
+    />
     <Circle
       x={CIRCLE_X}
       y={CIRCLE_Y}
