@@ -43,3 +43,10 @@
 .dots-or-line-choice {
   padding: 0 7rem 5rem;
 }
+.btn.disabled, .btn:disabled, #disabledBtn {
+  cursor: help;
+}
+.description-title {
+  font-size: 1.3rem;
+  padding: 2rem;
+}
