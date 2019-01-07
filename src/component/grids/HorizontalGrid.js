@@ -221,7 +221,7 @@ const HorizintalGrid = ({
     <Text
       x={20}
       y={IDENTIC_PATH_6 - 775}
-      text="(Y)"
+      text="Y"
       fontSize={40}
       fill={blackStroke}
     />

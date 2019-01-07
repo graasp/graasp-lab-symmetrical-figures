@@ -224,7 +224,7 @@ const VerticalGrid = ({
     <Text
       x={840}
       y={IDENTIC_PATH_7}
-      text="(X)"
+      text="X"
       fontSize={40}
       fill={blackStroke}
     />
