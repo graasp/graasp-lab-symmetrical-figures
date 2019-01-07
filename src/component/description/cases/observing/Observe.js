@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'reactstrap';
+import { Input, UncontrolledTooltip } from 'reactstrap';
 import Line from './Line.svg';
 import Point from './Point.svg';
 import Forms from '../../../forms/Forms';
@@ -27,7 +27,11 @@ const Observe = ({
           src={Point}
           alt="Point"
           className="point-figure"
+          id="dotTooltip"
         />
+        <UncontrolledTooltip placement="left" target="dotTooltip">
+          Un point
+        </UncontrolledTooltip>
         <Input
           type="radio"
           checked={toggleLine}
@@ -40,7 +44,11 @@ const Observe = ({
           src={Line}
           alt="Line"
           className="line-figure"
+          id="lineTooltip"
         />
+        <UncontrolledTooltip placement="right" target="lineTooltip">
+          Une droite
+        </UncontrolledTooltip>
         <Input
           type="radio"
           name="kind-checker"
@@ -65,6 +73,12 @@ const Observe = ({
           onClick={handlePointsDisplay}
         />
       </div>
+    </div>
+    <div className="short-description">
+      <p className="description-title">
+        Ce Labo vous permetra de pourvoir identifier les outils nécessaires pour tracer des
+        figures symétriques par rapport à un point ou par rapport à une droite.
+      </p>
     </div>
   </div>
 );

@@ -4,6 +4,7 @@ import {
   Col,
   Input,
   Row,
+  UncontrolledTooltip,
 } from 'reactstrap';
 import Triangle from './Triangle.svg';
 import Rectangle from './Rectangle.svg';
@@ -21,21 +22,33 @@ const Forms = ({ handleForm, isTriangleActive }) => (
           src={Triangle}
           alt="Triangle"
           className="triangle-figure"
+          id="triangleTooltip"
         />
+        <UncontrolledTooltip placement="top" target="triangleTooltip">
+          Triangle
+        </UncontrolledTooltip>
       </Col>
       <Col md={4}>
         <img
           src={Rectangle}
           alt="Rectangle"
           className="rectangle-figure"
+          id="rectangleTooltip"
         />
+        <UncontrolledTooltip placement="top" target="rectangleTooltip">
+          Rectangle
+        </UncontrolledTooltip>
       </Col>
       <Col md={4}>
         <img
           src={Polygon}
           alt="Polygon"
           className="polygon-figure"
+          id="polygonTooltip"
         />
+        <UncontrolledTooltip placement="top" target="polygonTooltip">
+          Polygon
+        </UncontrolledTooltip>
       </Col>
     </Row>
     <Row className="forms-choice">
