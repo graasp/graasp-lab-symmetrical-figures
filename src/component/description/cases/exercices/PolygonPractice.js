@@ -6,9 +6,10 @@ const PolygonPractice = ({
   foundWord,
   handleSymetricWord,
   toggleLine,
-  symOfAFound,
-  symOfBFound,
-  symOfDFound,
+  polySymOfBFound,
+  polySymOfCFound,
+  polySymOfDFound,
+  polySymOfEFound,
 }) => (
   <div>
     <p className="testing-message">
@@ -44,7 +45,7 @@ const PolygonPractice = ({
       Complète donc les points de symétrie:
     </p>
     <p>
-      <b>B&apos; : ( 11;8 )</b>
+      <b>B&apos; : ( 15;8 )</b>
       &nbsp;
       est le
       &nbsp;
@@ -53,20 +54,20 @@ const PolygonPractice = ({
       de
       &nbsp;
       <span className="handle-result">
-        { symOfDFound ? (
-          <b>D</b>
+        { polySymOfBFound ? (
+          <b>A</b>
         ) : (
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfD', 'square')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfB', 'polygon')}
           />
         )
         }
       </span>
     </p>
     <p>
-      <b>C&apos; : ( 15;8 )</b>
+      <b>C&apos; : ( 15;12 )</b>
       &nbsp;
       est le
       &nbsp;
@@ -75,13 +76,13 @@ const PolygonPractice = ({
       de
       &nbsp;
       <span className="handle-result">
-        { symOfAFound ? (
-          <b>A</b>
+        { polySymOfCFound ? (
+          <b>B</b>
         ) : (
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfA', 'square')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfC', 'polygon')}
           />
         )
         }
@@ -97,13 +98,35 @@ const PolygonPractice = ({
       de
       &nbsp;
       <span className="handle-result">
-        { symOfBFound ? (
-          <b>B</b>
+        { polySymOfDFound ? (
+          <b>E</b>
         ) : (
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfB', 'square')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfD', 'polygon')}
+          />
+        )
+        }
+      </span>
+    </p>
+    <p>
+      <b>E&apos; : ( 15;12 )</b>
+      &nbsp;
+      est le
+      &nbsp;
+      <b>symétrique</b>
+      &nbsp;
+      de
+      &nbsp;
+      <span className="handle-result">
+        { polySymOfEFound ? (
+          <b>E</b>
+        ) : (
+          <Input
+            type="text"
+            className="change-value"
+            onChange={e => handleSymetricWord(e, 'symmetricOfE', 'polygon')}
           />
         )
         }
@@ -111,9 +134,9 @@ const PolygonPractice = ({
     </p>
 
     <p>
-      Le carré&nbsp;
+      Le polygône&nbsp;
       <b>ABCD</b>
-      &nbsp;et le carré&nbsp;
+      &nbsp;et le polygône&nbsp;
       <b>A&apos;B&apos;C&apos;D&apos;</b>
       &nbsp;sont&nbsp;
       <span className={`${foundWord ? 'symetric-found' : 'check-symetric-word'}`}>
@@ -123,7 +146,7 @@ const PolygonPractice = ({
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricWord')}
+            onChange={e => handleSymetricWord(e, 'symmetricWord', 'polygon')}
           />
         )
         }
@@ -143,9 +166,10 @@ const PolygonPractice = ({
 PolygonPractice.propTypes = {
   foundWord: PropTypes.bool.isRequired,
   handleSymetricWord: PropTypes.func.isRequired,
-  symOfAFound: PropTypes.bool.isRequired,
-  symOfBFound: PropTypes.bool.isRequired,
-  symOfDFound: PropTypes.bool.isRequired,
+  polySymOfBFound: PropTypes.bool.isRequired,
+  polySymOfCFound: PropTypes.bool.isRequired,
+  polySymOfDFound: PropTypes.bool.isRequired,
+  polySymOfEFound: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
 

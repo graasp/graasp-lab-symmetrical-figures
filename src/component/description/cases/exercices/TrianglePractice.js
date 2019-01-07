@@ -100,7 +100,7 @@ const TrianglePractice = ({
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricWord')}
+            onChange={e => handleSymetricWord(e, 'symmetricWord', 'triangle')}
           />
         )
         }
