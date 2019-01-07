@@ -29,7 +29,7 @@ export const CoordState = {
   polySymOfCFound: false,
   polySymOfDFound: false,
   polySymOfEFound: false,
-  swicthCase: false,
+  obserViewActive: true,
   triCoordA: [{ x: 0, y: 13 }],
   triCoordB: [{ x: 5, y: 0 }],
   triCoordC: [{ x: 3, y: 5 }],
