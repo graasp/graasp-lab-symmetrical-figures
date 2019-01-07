@@ -40,12 +40,12 @@ export class Description extends Component {
   handleCase = (e, value) => {
     if (value === 'observing') {
       this.setState({
-        swicthCase: true,
+        obserViewActive: true,
       });
     }
     if (value === 'testing') {
       this.setState({
-        swicthCase: false,
+        obserViewActive: false,
       });
     }
   }
@@ -364,12 +364,15 @@ export class Description extends Component {
       polySymOfCFound,
       polySymOfDFound,
       polySymOfEFound,
-      swicthCase,
+      obserViewActive,
     } = this.state;
     return (
       <div className="desc-container">
-        <TabComponent swicthCase={swicthCase} handleCase={this.handleCase} />
-        { swicthCase ? (
+        <TabComponent
+          obserViewActive={obserViewActive}
+          handleCase={this.handleCase}
+        />
+        { obserViewActive ? (
           <Observe
             handleForm={handleForm}
             handleCheck={handleCheck}
