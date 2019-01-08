@@ -41,6 +41,13 @@ class StudentView extends Component {
     });
   }
 
+  handleTitle = () => {
+    const { showTitle } = this.state;
+    this.setState({
+      showTitle: !showTitle,
+    });
+  }
+
   handleView = () => {
     const { toggleLine } = this.state;
 
@@ -87,6 +94,7 @@ class StudentView extends Component {
     const {
       color,
       showGrid,
+      showTitle,
       gridStroke,
       gridStrokeWidth,
       height,
@@ -107,6 +115,10 @@ class StudentView extends Component {
     return (
       <Row className="app-loader">
         <Col md={8} className="triangle-container">
+          { showTitle ? (
+            <h1 className="lab-title"><u>FIGURES SYMÉTRIQUES</u></h1>
+          ) : ''
+          }
           { showGrid ? (
             <Stage width={width} height={height}>
               <HorizontalGrid
@@ -172,6 +184,8 @@ class StudentView extends Component {
               handleCheck={this.handleCheck}
               handleForm={this.handleForm}
               handleView={this.handleView}
+              handleTitle={this.handleTitle}
+              showTitle={showTitle}
               showGrid={showGrid}
               showPoints={showPoints}
               handlePointsDisplay={this.handlePointsDisplay}
