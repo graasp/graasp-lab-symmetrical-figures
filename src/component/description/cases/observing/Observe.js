@@ -17,11 +17,15 @@ const Observe = ({
   handleView,
   isTriangleActive,
   toggleLine,
+  showTitle,
+  handleTitle,
 }) => (
-  <div className="main-container">
+  <div className="observe-container">
     <Forms
       handleForm={handleForm}
       isTriangleActive={isTriangleActive}
+      showTitle={showTitle}
+      handleTitle={handleTitle}
     />
     <RadioBtn
       handleView={handleView}
@@ -70,5 +74,7 @@ Observe.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
+  showTitle: PropTypes.bool.isRequired,
+  handleTitle: PropTypes.func.isRequired,
 };
 export default Observe;
