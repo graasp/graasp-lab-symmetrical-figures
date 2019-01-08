@@ -1,5 +1,5 @@
 .description-container {
-  background-color: #9E9D24;
+  background-color: #35baf6;
   padding-left: 0;
   padding-right: 0;
 }
@@ -17,4 +17,8 @@
   border-radius: 0;
   font-size: 26px;
   color: #000;
+}
+.lab-title {
+  text-align: center;
+  padding-top: 1rem;
 }
