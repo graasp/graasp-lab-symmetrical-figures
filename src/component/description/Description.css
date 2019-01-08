@@ -9,21 +9,7 @@
 .description-symetri {
    margin-top: 5rem;
  }
-.choice-checker {
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-}
-.displayer {
-  display: inline-block;
-}
-.display-line, .display-point {
-  float: left;
-  margin-right: 3rem;
-}
-.displayer-one {
-  margin: 3rem;
-}
+
 .dot-choice, .line-choice {
   width: 50%;
   display: inline-block;
@@ -49,4 +35,10 @@
 .description-title {
   font-size: 1.3rem;
   padding: 2rem;
+}
+.display-grid, .display-line {
+  font-size: 1.5rem;
+}
+.short-description {
+  margin-top: 3rem;
 }
