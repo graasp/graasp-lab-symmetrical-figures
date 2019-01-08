@@ -13,7 +13,8 @@
   background-color: #FEFEFE;
   font-weight: bold;
 }
-.test-button-active:HOVER, .observe-button-active:HOVER {
+.test-button-active:hover,
+.observe-button-active:hover {
   background-color: #EEEEEE;
   COLOR: #555555;
 }
@@ -38,7 +39,6 @@
 .short-description {
   margin-top: 3rem;
 }
-
 .radio-buton:nth-child(even) div div div div {
   height: 1.1rem !important;
   width: 1.1rem !important;
@@ -50,4 +50,13 @@
 }
 .short-description h2, .description-symetrie, .description-choice {
   color: rgba(0, 0, 0, .70);
+}
+.modal-container {
+  text-align: right;
+}
+.setting-icon {
+  width: 2rem;
+  cursor: pointer;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
 }
