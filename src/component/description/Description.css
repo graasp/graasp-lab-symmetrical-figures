@@ -2,9 +2,11 @@
   width: 50%;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  font-weight: 100;
 }
 .test-button-active, .observe-button-active {
   background-color: #F9FBE7;
+  font-weight: bold;
 }
 .description-symetrie {
    margin-top: 5rem;
