@@ -113,92 +113,98 @@ class StudentView extends Component {
     } = this.state;
     const { t } = this.props;
     return (
-      <Row className="app-loader">
-        <Col md={8} className="triangle-container">
-          { showTitle ? (
-            <h1 className="lab-title"><u>FIGURES SYMÉTRIQUES</u></h1>
-          ) : ''
-          }
-          { showGrid ? (
-            <Stage width={width} height={height}>
-              <HorizontalGrid
-                blackStroke={blackStroke}
-                defaultSize={defaultSize}
-                stroke={gridStroke}
-                strokeWidth={gridStrokeWidth}
-                IDENTIC_PATH_0={IDENTIC_PATH_0}
-                IDENTIC_PATH_1={IDENTIC_PATH_1}
-                IDENTIC_PATH_6={IDENTIC_PATH_6}
+      <div>
+        <Row>
+          <Col md={12}>
+            { showTitle ? (
+              <h1 className="lab-title">FIGURES SYMÉTRIQUES</h1>
+            ) : ''
+            }
+          </Col>
+        </Row>
+        <Row className="app-loader">
+          <Col md={8} className="triangle-container">
+            { showGrid ? (
+              <Stage width={width} height={height}>
+                <HorizontalGrid
+                  blackStroke={blackStroke}
+                  defaultSize={defaultSize}
+                  stroke={gridStroke}
+                  strokeWidth={gridStrokeWidth}
+                  IDENTIC_PATH_0={IDENTIC_PATH_0}
+                  IDENTIC_PATH_1={IDENTIC_PATH_1}
+                  IDENTIC_PATH_6={IDENTIC_PATH_6}
+                />
+                <VerticalGrid
+                  blackStroke={blackStroke}
+                  defaultSize={defaultSize}
+                  stroke={gridStroke}
+                  strokeWidth={gridStrokeWidth}
+                  IDENTIC_PATH_0={IDENTIC_PATH_0}
+                  IDENTIC_PATH_1={IDENTIC_PATH_1}
+                  IDENTIC_PATH_7={IDENTIC_PATH_7}
+                />
+              </Stage>
+            ) : ''
+            }
+            { isTriangleActive ? (
+              <TriangleView
+                triangleNodeB={triangleNodeB}
+                toggleLine={toggleLine}
+                showPoints={showPoints}
               />
-              <VerticalGrid
-                blackStroke={blackStroke}
-                defaultSize={defaultSize}
-                stroke={gridStroke}
-                strokeWidth={gridStrokeWidth}
-                IDENTIC_PATH_0={IDENTIC_PATH_0}
-                IDENTIC_PATH_1={IDENTIC_PATH_1}
-                IDENTIC_PATH_7={IDENTIC_PATH_7}
+            ) : ''
+            }
+            { isPolygonActive ? (
+              <PolygonView
+                color={color}
+                height={height}
+                midPointStroke={midPointStroke}
+                pointSize={pointSize}
+                showPoints={showPoints}
+                toggleLine={toggleLine}
+                width={width}
               />
-            </Stage>
-          ) : ''
-          }
-          { isTriangleActive ? (
-            <TriangleView
-              triangleNodeB={triangleNodeB}
-              toggleLine={toggleLine}
-              showPoints={showPoints}
-            />
-          ) : ''
-          }
-          { isPolygonActive ? (
-            <PolygonView
-              color={color}
-              height={height}
-              midPointStroke={midPointStroke}
-              pointSize={pointSize}
-              showPoints={showPoints}
-              toggleLine={toggleLine}
-              width={width}
-            />
-          ) : ''
-          }
-          { isSquareActive ? (
-            <SquareView
-              color={color}
-              height={height}
-              midPointStroke={midPointStroke}
-              pointSize={pointSize}
-              squareNodeA={squareNodeA}
-              squareNodeB={squareNodeB}
-              showPoints={showPoints}
-              toggleLine={toggleLine}
-              width={width}
-            />
-          ) : ''
-          }
+            ) : ''
+            }
+            { isSquareActive ? (
+              <SquareView
+                color={color}
+                height={height}
+                midPointStroke={midPointStroke}
+                pointSize={pointSize}
+                squareNodeA={squareNodeA}
+                squareNodeB={squareNodeB}
+                showPoints={showPoints}
+                toggleLine={toggleLine}
+                width={width}
+              />
+            ) : ''
+            }
 
-        </Col>
-        <Col md={4} className="description-container">
-          <div className="text-center">
-            <Description
-              handleCheck={this.handleCheck}
-              handleForm={this.handleForm}
-              handleView={this.handleView}
-              handleTitle={this.handleTitle}
-              showTitle={showTitle}
-              showGrid={showGrid}
-              showPoints={showPoints}
-              handlePointsDisplay={this.handlePointsDisplay}
-              kind={kind}
-              isPolygonActive={isPolygonActive}
-              isSquareActive={isSquareActive}
-              isTriangleActive={isTriangleActive}
-              toggleLine={toggleLine}
-              t={t}
-            />
-          </div>
-        </Col>
-      </Row>
+          </Col>
+          <Col md={4} className="description-container">
+            <div className="text-center">
+              <Description
+                handleCheck={this.handleCheck}
+                handleForm={this.handleForm}
+                handleView={this.handleView}
+                handleTitle={this.handleTitle}
+                showTitle={showTitle}
+                showGrid={showGrid}
+                showPoints={showPoints}
+                handlePointsDisplay={this.handlePointsDisplay}
+                kind={kind}
+                isPolygonActive={isPolygonActive}
+                isSquareActive={isSquareActive}
+                isTriangleActive={isTriangleActive}
+                toggleLine={toggleLine}
+                t={t}
+              />
+            </div>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
