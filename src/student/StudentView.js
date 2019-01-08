@@ -172,6 +172,8 @@ class StudentView extends Component {
               handleCheck={this.handleCheck}
               handleForm={this.handleForm}
               handleView={this.handleView}
+              showGrid={showGrid}
+              showPoints={showPoints}
               handlePointsDisplay={this.handlePointsDisplay}
               kind={kind}
               isPolygonActive={isPolygonActive}
