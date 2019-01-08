@@ -6,26 +6,9 @@
 .test-button-active, .observe-button-active {
   background-color: #F9FBE7;
 }
-.description-symetri {
+.description-symetrie {
    margin-top: 5rem;
  }
-
-.dot-choice, .line-choice {
-  width: 50%;
-  display: inline-block;
-  position: relative;
-}
-.dot-choice>input, .line-choice>input {
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-}
-.dot-choice>input {
-  top: 3rem;
-}
-.line-choice>input {
-  top: 4rem;
-}
 .dots-or-line-choice {
   padding: 0 7rem 5rem;
 }
@@ -41,4 +24,14 @@
 }
 .short-description {
   margin-top: 3rem;
+}
+
+.radio-buton:nth-child(even) div div div div {
+  height: 1.1rem !important;
+  width: 1.1rem !important;
+}
+
+.radio-buton:nth-child(even) div div div div div {
+  height: .5rem !important;
+  width: .5rem !important;
 }
