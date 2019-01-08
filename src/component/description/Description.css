@@ -21,6 +21,7 @@
 .description-title {
   font-size: 1.3rem;
   padding: 2rem;
+  color: rgba(0, 0, 0, .70);
 }
 .display-grid, .display-line {
   font-size: 1.5rem;
@@ -37,4 +38,7 @@
 .radio-buton:nth-child(even) div div div div div {
   height: .5rem !important;
   width: .5rem !important;
+}
+.short-description h2, .description-symetrie, .description-choice {
+  color: rgba(0, 0, 0, .70);
 }
