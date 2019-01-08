@@ -130,7 +130,6 @@ class StudentView extends Component {
       <div>
         <Row>
           <Col md={12}>
-            {headerBackground}
             { showTitle ? (
               <h1 className="lab-title" style={{ backgroundColor: headerBackground }}>FIGURES SYMÉTRIQUES</h1>
             ) : ''
