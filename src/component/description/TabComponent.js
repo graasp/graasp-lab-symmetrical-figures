@@ -22,7 +22,6 @@ const TabComponent = ({
       outline
       color="secondary"
       className={`${obserViewActive ? '' : 'test-button-active'} test-button`}
-      onClick={e => handleCase(e, 'testing')}
       id="disabledBtn"
     >
       Tester
