@@ -47,7 +47,7 @@ const Forms = ({ handleForm, isTriangleActive }) => (
           id="polygonTooltip"
         />
         <UncontrolledTooltip placement="top" target="polygonTooltip">
-          Polygon
+          Polygone
         </UncontrolledTooltip>
       </Col>
     </Row>
