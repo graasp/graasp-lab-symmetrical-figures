@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Input,
-  UncontrolledTooltip,
   Row,
   Col,
 } from 'reactstrap';
 import Switch from 'react-switch';
-import Line from './Line.svg';
-import Point from './Point.svg';
 import Forms from '../../../forms/Forms';
+import RadioBtn from './RadioBtn';
 
 const Observe = ({
   handleForm,
@@ -26,44 +23,10 @@ const Observe = ({
       handleForm={handleForm}
       isTriangleActive={isTriangleActive}
     />
-    <h2 className="description-symetri">
-      Symétrie par rapport à
-    </h2>
-    <div className="dots-or-line-choice">
-      <div className="dot-choice">
-        <img
-          src={Point}
-          alt="Point"
-          className="point-figure"
-          id="dotTooltip"
-        />
-        <UncontrolledTooltip placement="left" target="dotTooltip">
-          Un point
-        </UncontrolledTooltip>
-        <Input
-          type="radio"
-          checked={toggleLine}
-          name="kind-checker"
-          onChange={handleView}
-        />
-      </div>
-      <div className="line-choice">
-        <img
-          src={Line}
-          alt="Line"
-          className="line-figure"
-          id="lineTooltip"
-        />
-        <UncontrolledTooltip placement="right" target="lineTooltip">
-          Une droite
-        </UncontrolledTooltip>
-        <Input
-          type="radio"
-          name="kind-checker"
-          onChange={handleView}
-        />
-      </div>
-    </div>
+    <RadioBtn
+      handleView={handleView}
+      toggleLine={toggleLine}
+    />
     <Row>
       <Col xs="6">
         <span className="display-grid">Afficher grille</span>
