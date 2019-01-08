@@ -4,9 +4,18 @@
   padding-bottom: 1rem;
   font-weight: 100;
 }
+.test-button, .test-button:hover {
+  border: 1px solid #dedede;
+  color: #dedede;
+  background-color: rgba(0,0,0,0);
+}
 .test-button-active, .observe-button-active {
-  background-color: #cecccc;
+  background-color: #FEFEFE;
   font-weight: bold;
+}
+.test-button-active:HOVER, .observe-button-active:HOVER {
+  background-color: #EEEEEE;
+  COLOR: #555555;
 }
 .description-symetrie {
    margin-top: 5rem;
