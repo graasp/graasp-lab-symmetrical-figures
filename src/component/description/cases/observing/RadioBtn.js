@@ -4,6 +4,7 @@ import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
 const RadioBtn = ({
   handleView,
+  toggleLine,
 }) => (
   <div className="dots-or-line-choice">
     <h2 className="description-symetrie">
@@ -12,11 +13,11 @@ const RadioBtn = ({
 
     <div className="radio-buton">
       <RadioGroup onChange={handleView} horizontal>
-        <RadioButton value="point">
-          Un Ligne
+        <RadioButton value="line" checked={!toggleLine}>
+          Une Ligne
         </RadioButton>
-        <RadioButton value="line">
-          Une Point
+        <RadioButton value="point" checked={toggleLine}>
+          Un Point
         </RadioButton>
       </RadioGroup>
     </div>
@@ -25,6 +26,7 @@ const RadioBtn = ({
 
 RadioBtn.propTypes = {
   handleView: PropTypes.func.isRequired,
+  toggleLine: PropTypes.bool.isRequired,
 };
 
 export default RadioBtn;

@@ -8,9 +8,10 @@
 }
 .description-symetrie {
    margin-top: 5rem;
+   margin-bottom: 2rem;
  }
 .dots-or-line-choice {
-  padding: 0 7rem 5rem;
+  padding: 0 4rem 3rem;
 }
 .btn.disabled, .btn:disabled, #disabledBtn {
   cursor: help;
