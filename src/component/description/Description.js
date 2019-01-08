@@ -342,6 +342,8 @@ export class Description extends Component {
   render() {
     const {
       handleForm,
+      showGrid,
+      showPoints,
       handleCheck,
       handlePointsDisplay,
       handleView,
@@ -376,6 +378,8 @@ export class Description extends Component {
           <Observe
             handleForm={handleForm}
             handleCheck={handleCheck}
+            showGrid={showGrid}
+            showPoints={showPoints}
             handlePointsDisplay={handlePointsDisplay}
             handleView={handleView}
             isTriangleActive={isTriangleActive}
@@ -432,6 +436,8 @@ Description.propTypes = {
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
+  showGrid: PropTypes.bool.isRequired,
+  showPoints: PropTypes.bool.isRequired,
 };
 
 // we make sure the svg is gotten from our redux state and is mounted
