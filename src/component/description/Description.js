@@ -351,6 +351,8 @@ export class Description extends Component {
       isSquareActive,
       isTriangleActive,
       toggleLine,
+      showTitle,
+      handleTitle,
     } = this.props;
     const {
       foundWord,
@@ -384,6 +386,8 @@ export class Description extends Component {
             handleView={handleView}
             isTriangleActive={isTriangleActive}
             toggleLine={toggleLine}
+            showTitle={showTitle}
+            handleTitle={handleTitle}
           />
         ) : (
           <Try
@@ -438,6 +442,8 @@ Description.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
+  handleTitle: PropTypes.func.isRequired,
+  showTitle: PropTypes.bool.isRequired,
 };
 
 // we make sure the svg is gotten from our redux state and is mounted
