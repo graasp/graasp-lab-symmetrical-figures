@@ -48,6 +48,18 @@ class StudentView extends Component {
     });
   }
 
+  onOpenModal = () => {
+    this.setState({
+      openModal: true,
+    });
+  }
+
+  onCloseModal = () => {
+    this.setState({
+      openModal: false,
+    });
+  }
+
   handleView = () => {
     const { toggleLine } = this.state;
 
@@ -110,14 +122,17 @@ class StudentView extends Component {
       midPointStroke,
       toggleLine,
       width,
+      openModal,
+      headerBackground,
     } = this.state;
     const { t } = this.props;
     return (
       <div>
         <Row>
           <Col md={12}>
+            {headerBackground}
             { showTitle ? (
-              <h1 className="lab-title">FIGURES SYMÉTRIQUES</h1>
+              <h1 className="lab-title" style={{ backgroundColor: headerBackground }}>FIGURES SYMÉTRIQUES</h1>
             ) : ''
             }
           </Col>
@@ -186,6 +201,9 @@ class StudentView extends Component {
           <Col md={4} className="description-container">
             <div className="text-center">
               <Description
+                openModal={openModal}
+                onOpenModal={this.onOpenModal}
+                onCloseModal={this.onCloseModal}
                 handleCheck={this.handleCheck}
                 handleForm={this.handleForm}
                 handleView={this.handleView}
