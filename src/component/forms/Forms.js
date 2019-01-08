@@ -54,7 +54,7 @@ const Forms = ({
           id="rectangleTooltip"
         />
         <UncontrolledTooltip placement="top" target="rectangleTooltip">
-          Rectangle
+          Carré
         </UncontrolledTooltip>
       </Col>
       <Col md={4}>
