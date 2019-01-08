@@ -33,7 +33,7 @@ const Observe = ({
     />
     <Row>
       <Col xs="6">
-        <span className="display-grid">Afficher grille</span>
+        <span className="display-grid">Afficher points</span>
       </Col>
       <Col xs="6">
         <Switch
@@ -45,7 +45,7 @@ const Observe = ({
     </Row>
     <Row>
       <Col xs="6">
-        <span className="display-line">Afficher points</span>
+        <span className="display-line">Afficher grilles</span>
       </Col>
       <Col xs="6">
         <Switch
