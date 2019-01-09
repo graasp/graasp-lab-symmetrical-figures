@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withNamespaces } from 'react-i18next';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Qs from 'qs';
 import TeacherView from './teacher/TeacherView';
@@ -11,6 +12,7 @@ export class App extends Component {
     i18n: PropTypes.shape({
       defaultNS: PropTypes.string,
     }).isRequired,
+    defaultLanguage: PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -19,8 +21,12 @@ export class App extends Component {
       mode = 'default',
       lang = 'en',
     } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
-    const { i18n } = this.props;
-    i18n.changeLanguage(lang);
+    const { i18n, defaultLanguage } = this.props;
+    if (defaultLanguage) {
+      i18n.changeLanguage(defaultLanguage);
+    } else {
+      i18n.changeLanguage(lang);
+    }
     this.state = { mode };
   }
 
@@ -40,4 +46,10 @@ export class App extends Component {
   }
 }
 
-export default withNamespaces('translations')(App);
+const mapStateToProps = state => ({
+  defaultLanguage: state.Setting.defaultLanguage,
+});
+
+const connectedComponent = connect(mapStateToProps)(App);
+
+export default withNamespaces('translations')(connectedComponent);
