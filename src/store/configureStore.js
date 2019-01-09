@@ -1,13 +1,13 @@
 import {
   createStore,
 } from 'redux';
-import reducer from '../reducers';
+import reducers from '../reducers';
 
 const configureStore = (state) => {
   // create the store
   const store = createStore(
+    reducers,
     state,
-    reducer,
   );
   return {
     store,
