@@ -1,9 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-responsive-modal';
-import { Button } from 'reactstrap';
-import Setting from './Setting.svg';
-import Configs from './SwitchBox';
+import { withStyles } from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Settings';
+import Fab from '@material-ui/core/Fab';
+import './Styles.css';
+import LangBox from './LangBox';
+import SwitchBox from './SwitchBox';
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  extendedIcon: {
+    marginRight: theme.spacing.unit,
+  },
+});
 
 const SettingModal = ({
   openModal,
@@ -16,20 +28,14 @@ const SettingModal = ({
   handleCheck,
   showGrid,
   handleChangeComplete,
+  handleLang,
 }) => (
   <div className="modal-container">
-    <Button
-      color="none"
-      onClick={onOpenModal}
-    >
-      <img
-        src={Setting}
-        alt="Triangle"
-        className="setting-icon"
-      />
-    </Button>
+    <Fab color="primary" aria-label="Add" onClick={onOpenModal}>
+      <AddIcon />
+    </Fab>
     <Modal open={openModal} onClose={onCloseModal} center>
-      <Configs
+      <SwitchBox
         handleTitle={handleTitle}
         showTitle={showTitle}
         handlePointsDisplay={handlePointsDisplay}
@@ -37,6 +43,9 @@ const SettingModal = ({
         handleCheck={handleCheck}
         showGrid={showGrid}
         handleChangeComplete={handleChangeComplete}
+      />
+      <LangBox
+        handleLang={handleLang}
       />
     </Modal>
   </div>
@@ -46,6 +55,7 @@ SettingModal.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   handleTitle: PropTypes.func.isRequired,
   handleChangeComplete: PropTypes.func.isRequired,
+  handleLang: PropTypes.func.isRequired,
   handlePointsDisplay: PropTypes.func.isRequired,
   onOpenModal: PropTypes.func.isRequired,
   onCloseModal: PropTypes.func.isRequired,
@@ -54,4 +64,4 @@ SettingModal.propTypes = {
   showTitle: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
 };
-export default SettingModal;
+export default withStyles(styles)(SettingModal);
