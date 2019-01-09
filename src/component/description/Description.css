@@ -51,12 +51,3 @@
 .short-description h2, .description-symetrie, .description-choice {
   color: rgba(0, 0, 0, .70);
 }
-.modal-container {
-  text-align: right;
-}
-.setting-icon {
-  width: 2rem;
-  cursor: pointer;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-}

@@ -1,0 +1,18 @@
+.MuiFab-primary-5 {
+  margin-right: 10% !important;
+  margin-bottom: 10% !important;
+}
+.modal-container {
+  text-align: right;
+}
+.modal-color-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.modal-lang-container {
+  margin-top: 1rem;
+}
+.modal-lang-title {
+  font-size: 1.2rem;
+  line-height: 2;
+}
