@@ -16,7 +16,6 @@ export const AppState = {
   isSquareActive: false,
   showTitle: true,
   openModal: false,
-  headerBackground: '#2196F5',
   kind: 'triangle',
   lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
   lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
