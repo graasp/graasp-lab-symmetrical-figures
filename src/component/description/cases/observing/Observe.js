@@ -49,6 +49,7 @@ export class Observe extends Component {
       openModal,
       onOpenModal,
       onCloseModal,
+      t,
     } = this.props;
 
     return (
@@ -58,14 +59,16 @@ export class Observe extends Component {
           isTriangleActive={isTriangleActive}
           showTitle={showTitle}
           handleTitle={handleTitle}
+          t={t}
         />
         <RadioBtn
           handleView={handleView}
           toggleLine={toggleLine}
+          t={t}
         />
         <Row>
           <Col xs="6">
-            <span className="display-grid">Afficher points</span>
+            <span className="display-grid">{t('Display points')}</span>
           </Col>
           <Col xs="6">
             <Switch
@@ -77,7 +80,7 @@ export class Observe extends Component {
         </Row>
         <Row>
           <Col xs="6">
-            <span className="display-line">Afficher grilles</span>
+            <span className="display-line">{t('Display grid')}</span>
           </Col>
           <Col xs="6">
             <Switch
@@ -88,10 +91,9 @@ export class Observe extends Component {
           </Col>
         </Row>
         <div className="short-description">
-          <h2>Description</h2>
+          <h2>{t('Description')}</h2>
           <p className="description-title">
-            Ce Labo vous permetra de pourvoir identifier les outils nécessaires pour tracer des
-            figures symétriques par rapport à un point ou par rapport à une droite.
+            {t('This Lab will allow you to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.')}
           </p>
           <SettingModal
             openModal={openModal}
@@ -107,6 +109,7 @@ export class Observe extends Component {
             toggleLine={toggleLine}
             handleChangeComplete={this.handleChangeComplete}
             handleLang={this.handleLang}
+            t={t}
           />
         </div>
       </div>
@@ -140,6 +143,7 @@ Observe.propTypes = {
   onCloseModal: PropTypes.func.isRequired,
   dispatchDefaultLanguage: PropTypes.func.isRequired,
   dispatchHeaderBackground: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Observe);

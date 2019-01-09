@@ -29,6 +29,7 @@ const SettingModal = ({
   showGrid,
   handleChangeComplete,
   handleLang,
+  t,
 }) => (
   <div className="modal-container">
     <Fab color="primary" aria-label="Add" onClick={onOpenModal}>
@@ -43,9 +44,11 @@ const SettingModal = ({
         handleCheck={handleCheck}
         showGrid={showGrid}
         handleChangeComplete={handleChangeComplete}
+        t={t}
       />
       <LangBox
         handleLang={handleLang}
+        t={t}
       />
     </Modal>
   </div>
@@ -63,5 +66,6 @@ SettingModal.propTypes = {
   showGrid: PropTypes.bool.isRequired,
   showTitle: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
+  t: PropTypes.func.isRequired,
 };
 export default withStyles(styles)(SettingModal);

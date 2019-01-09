@@ -8,6 +8,7 @@ import {
 const TabComponent = ({
   handleCase,
   obserViewActive,
+  t,
 }) => (
   <div>
     <Button
@@ -16,7 +17,7 @@ const TabComponent = ({
       className={`${obserViewActive ? 'observe-button-active' : ''} observe-button`}
       onClick={e => handleCase(e, 'observing')}
     >
-      Observer
+      {t('Observe')}
     </Button>
     <Button
       outline
@@ -24,10 +25,10 @@ const TabComponent = ({
       className={`${obserViewActive ? '' : 'test-button-active'} test-button`}
       id="disabledBtn"
     >
-      Tester
+      {t('Test')}
     </Button>
     <UncontrolledTooltip placement="bottom" target="disabledBtn">
-      Coming Soon!
+      {t('Coming Soon!')}
     </UncontrolledTooltip>
 
   </div>
@@ -36,5 +37,6 @@ const TabComponent = ({
 TabComponent.propTypes = {
   handleCase: PropTypes.func.isRequired,
   obserViewActive: PropTypes.bool.isRequired,
+  t: PropTypes.func.isRequired,
 };
 export default TabComponent;

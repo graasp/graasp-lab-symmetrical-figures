@@ -132,7 +132,7 @@ class StudentView extends Component {
         <Row>
           <Col md={12}>
             { showTitle ? (
-              <h1 className="lab-title" style={{ backgroundColor: headerBackgroundColor }}>FIGURES SYMÉTRIQUES</h1>
+              <h1 className="lab-title" style={{ backgroundColor: headerBackgroundColor }}>{t('Symmetrical Figures')}</h1>
             ) : ''
             }
           </Col>
