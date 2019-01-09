@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 import { Stage } from 'react-konva';
@@ -23,6 +24,7 @@ import {
 class StudentView extends Component {
   static propTypes = {
     t: PropTypes.func.isRequired,
+    headerBackgroundColor: PropTypes.string.isRequired,
   };
 
   state = AppState;
@@ -123,15 +125,14 @@ class StudentView extends Component {
       toggleLine,
       width,
       openModal,
-      headerBackground,
     } = this.state;
-    const { t } = this.props;
+    const { t, headerBackgroundColor } = this.props;
     return (
       <div>
         <Row>
           <Col md={12}>
             { showTitle ? (
-              <h1 className="lab-title" style={{ backgroundColor: headerBackground }}>FIGURES SYMÉTRIQUES</h1>
+              <h1 className="lab-title" style={{ backgroundColor: headerBackgroundColor }}>FIGURES SYMÉTRIQUES</h1>
             ) : ''
             }
           </Col>
@@ -226,4 +227,10 @@ class StudentView extends Component {
   }
 }
 
-export default withNamespaces('translations')(StudentView);
+const mapStateToProps = state => ({
+  headerBackgroundColor: state.Setting.headerBackgroundColor,
+});
+
+const connectedComponent = connect(mapStateToProps)(StudentView);
+
+export default withNamespaces('translations')(connectedComponent);
