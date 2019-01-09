@@ -10,7 +10,7 @@
   background-color: rgba(0,0,0,0);
 }
 .test-button-active, .observe-button-active {
-  background-color: #FEFEFE;
+  background-color: #dedede;
   font-weight: bold;
 }
 .test-button-active:hover,
