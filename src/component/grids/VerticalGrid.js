@@ -17,13 +17,8 @@ const VerticalGrid = ({
 }) => (
   <Layer>
     <Line
-      points={[IDENTIC_PATH_0, IDENTIC_PATH_0, 0, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[50, IDENTIC_PATH_0, 50, IDENTIC_PATH_1]}
-      stroke={stroke}
+      stroke={10}
       strokeWidth={strokeWidth}
     />
     <Line
@@ -103,16 +98,6 @@ const VerticalGrid = ({
     />
     <Line
       points={[850, IDENTIC_PATH_0, 850, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[900, IDENTIC_PATH_0, 900, IDENTIC_PATH_1]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[IDENTIC_PATH_7, IDENTIC_PATH_0, IDENTIC_PATH_7, IDENTIC_PATH_1]}
       stroke={stroke}
       strokeWidth={strokeWidth}
     />
@@ -224,7 +209,7 @@ const VerticalGrid = ({
     <Text
       x={840}
       y={IDENTIC_PATH_7}
-      text="(X)"
+      text="X"
       fontSize={40}
       fill={blackStroke}
     />

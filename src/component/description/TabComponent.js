@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Button,
+  UncontrolledTooltip,
 } from 'reactstrap';
 
 const TabComponent = ({
   handleCase,
-  swicthCase,
+  obserViewActive,
 }) => (
   <div>
     <Button
       outline
       color="secondary"
-      className={`${swicthCase ? 'observe-button-active' : ''} observe-button`}
+      className={`${obserViewActive ? 'observe-button-active' : ''} observe-button`}
       onClick={e => handleCase(e, 'observing')}
     >
       Observer
@@ -20,16 +21,20 @@ const TabComponent = ({
     <Button
       outline
       color="secondary"
-      className={`${swicthCase ? '' : 'test-button-active'} test-button`}
-      onClick={e => handleCase(e, 'testing')}
+      className={`${obserViewActive ? '' : 'test-button-active'} test-button`}
+      id="disabledBtn"
     >
       Tester
     </Button>
+    <UncontrolledTooltip placement="bottom" target="disabledBtn">
+      Coming Soon!
+    </UncontrolledTooltip>
+
   </div>
 );
 
 TabComponent.propTypes = {
   handleCase: PropTypes.func.isRequired,
-  swicthCase: PropTypes.bool.isRequired,
+  obserViewActive: PropTypes.bool.isRequired,
 };
 export default TabComponent;

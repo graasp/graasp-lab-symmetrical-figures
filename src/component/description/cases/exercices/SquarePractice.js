@@ -6,9 +6,9 @@ const SquarePractice = ({
   foundWord,
   handleSymetricWord,
   toggleLine,
-  symOfAFound,
-  symOfBFound,
-  symOfDFound,
+  sqSymOfAFound,
+  sqSymOfBFound,
+  sqSymOfDFound,
 }) => (
   <div>
     <p className="testing-message">
@@ -53,8 +53,8 @@ const SquarePractice = ({
       de
       &nbsp;
       <span className="handle-result">
-        { symOfDFound ? (
-          <b>D</b>
+        { sqSymOfAFound ? (
+          <b>A</b>
         ) : (
           <Input
             type="text"
@@ -75,13 +75,13 @@ const SquarePractice = ({
       de
       &nbsp;
       <span className="handle-result">
-        { symOfAFound ? (
-          <b>A</b>
+        { sqSymOfBFound ? (
+          <b>B</b>
         ) : (
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricOfA', 'square')}
+            onChange={e => handleSymetricWord(e, 'symmetricOfC', 'square')}
           />
         )
         }
@@ -97,8 +97,8 @@ const SquarePractice = ({
       de
       &nbsp;
       <span className="handle-result">
-        { symOfBFound ? (
-          <b>B</b>
+        { sqSymOfDFound ? (
+          <b>D</b>
         ) : (
           <Input
             type="text"
@@ -123,7 +123,7 @@ const SquarePractice = ({
           <Input
             type="text"
             className="change-value"
-            onChange={e => handleSymetricWord(e, 'symmetricWord')}
+            onChange={e => handleSymetricWord(e, 'symmetricWord', 'square')}
           />
         )
         }
@@ -143,9 +143,9 @@ const SquarePractice = ({
 SquarePractice.propTypes = {
   foundWord: PropTypes.bool.isRequired,
   handleSymetricWord: PropTypes.func.isRequired,
-  symOfAFound: PropTypes.bool.isRequired,
-  symOfBFound: PropTypes.bool.isRequired,
-  symOfDFound: PropTypes.bool.isRequired,
+  sqSymOfAFound: PropTypes.bool.isRequired,
+  sqSymOfBFound: PropTypes.bool.isRequired,
+  sqSymOfDFound: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
 

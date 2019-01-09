@@ -15,3 +15,9 @@
 .form-checker {
   cursor: pointer;
 }
+.form-container {
+  padding-top: 2rem;
+}
+.display-title {
+  font-size: 1.5rem;
+}

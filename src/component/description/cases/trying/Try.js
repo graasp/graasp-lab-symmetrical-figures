@@ -6,12 +6,13 @@ import TableContent from '../table/TableContent';
 import StepOne from '../steps/StepOne';
 import TrianglePractice from '../exercices/TrianglePractice';
 import SquarePractice from '../exercices/SquarePractice';
+import PolygonPractice from '../exercices/PolygonPractice';
 
 const Try = ({
   foundWord,
   handleDatas,
+  handleSymWord,
   handleSymetricWord,
-  handleVerify,
   isPolygonActive,
   isSquareActive,
   isTriangleActive,
@@ -19,6 +20,14 @@ const Try = ({
   symOfBFound,
   symOfCFound,
   symOfDFound,
+  sqSymOfAFound,
+  sqSymOfBFound,
+  sqSymOfDFound,
+  polySymOfAFound,
+  polySymOfBFound,
+  polySymOfCFound,
+  polySymOfDFound,
+  polySymOfEFound,
   toggleLine,
 }) => (
   <div className="testing-container">
@@ -33,7 +42,9 @@ const Try = ({
         toggleLine={toggleLine}
         foundWord={foundWord}
         symOfAFound={symOfAFound}
+        symOfBFound={symOfBFound}
         symOfCFound={symOfCFound}
+        symOfDFound={symOfDFound}
         handleSymetricWord={handleSymetricWord}
       />
     ) : ''
@@ -42,18 +53,30 @@ const Try = ({
       <SquarePractice
         toggleLine={toggleLine}
         foundWord={foundWord}
-        symOfAFound={symOfAFound}
-        symOfBFound={symOfBFound}
-        symOfDFound={symOfDFound}
+        sqSymOfAFound={sqSymOfAFound}
+        sqSymOfBFound={sqSymOfBFound}
+        sqSymOfDFound={sqSymOfDFound}
         handleSymetricWord={handleSymetricWord}
       />
     ) : ''
-
+    }
+    { isPolygonActive ? (
+      <PolygonPractice
+        toggleLine={toggleLine}
+        foundWord={foundWord}
+        polySymOfAFound={polySymOfAFound}
+        polySymOfBFound={polySymOfBFound}
+        polySymOfCFound={polySymOfCFound}
+        polySymOfDFound={polySymOfDFound}
+        polySymOfEFound={polySymOfEFound}
+        handleSymetricWord={handleSymetricWord}
+      />
+    ) : ''
     }
 
     <Button
       color="secondary"
-      onClick={handleVerify}
+      onClick={handleSymWord}
       className="verfy-answer"
     >
       Vérifier mes réponses
@@ -64,8 +87,8 @@ const Try = ({
 Try.propTypes = {
   foundWord: PropTypes.bool.isRequired,
   handleDatas: PropTypes.func.isRequired,
+  handleSymWord: PropTypes.func.isRequired,
   handleSymetricWord: PropTypes.func.isRequired,
-  handleVerify: PropTypes.func.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
@@ -73,6 +96,14 @@ Try.propTypes = {
   symOfBFound: PropTypes.bool.isRequired,
   symOfCFound: PropTypes.bool.isRequired,
   symOfDFound: PropTypes.bool.isRequired,
+  sqSymOfAFound: PropTypes.bool.isRequired,
+  sqSymOfBFound: PropTypes.bool.isRequired,
+  sqSymOfDFound: PropTypes.bool.isRequired,
+  polySymOfAFound: PropTypes.bool.isRequired,
+  polySymOfBFound: PropTypes.bool.isRequired,
+  polySymOfCFound: PropTypes.bool.isRequired,
+  polySymOfDFound: PropTypes.bool.isRequired,
+  polySymOfEFound: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
 export default Try;

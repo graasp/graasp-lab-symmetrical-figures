@@ -2,44 +2,61 @@
   width: 50%;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  font-weight: 100;
+}
+.test-button, .test-button:hover {
+  border: 1px solid #dedede;
+  color: #dedede;
+  background-color: rgba(0,0,0,0);
 }
 .test-button-active, .observe-button-active {
-  background-color: #F9FBE7;
+  background-color: #FEFEFE;
+  font-weight: bold;
 }
-.description-symetri {
+.test-button-active:hover,
+.observe-button-active:hover {
+  background-color: #EEEEEE;
+  COLOR: #555555;
+}
+.description-symetrie {
    margin-top: 5rem;
+   margin-bottom: 2rem;
  }
-.choice-checker {
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-}
-.displayer {
-  display: inline-block;
-}
-.display-line, .display-point {
-  float: left;
-  margin-right: 3rem;
-}
-.displayer-one {
-  margin: 3rem;
-}
-.dot-choice, .line-choice {
-  width: 50%;
-  display: inline-block;
-  position: relative;
-}
-.dot-choice>input, .line-choice>input {
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-}
-.dot-choice>input {
-  top: 3rem;
-}
-.line-choice>input {
-  top: 4rem;
-}
 .dots-or-line-choice {
-  padding: 0 7rem 5rem;
+  padding: 0 4rem 3rem;
+}
+.btn.disabled, .btn:disabled, #disabledBtn {
+  cursor: help;
+}
+.description-title {
+  font-size: 1.3rem;
+  padding: 2rem;
+  color: rgba(0, 0, 0, .70);
+}
+.display-grid, .display-line {
+  font-size: 1.5rem;
+}
+.short-description {
+  margin-top: 3rem;
+}
+.radio-buton:nth-child(even) div div div div {
+  height: 1.1rem !important;
+  width: 1.1rem !important;
+}
+
+.radio-buton:nth-child(even) div div div div div {
+  height: .5rem !important;
+  width: .5rem !important;
+}
+.short-description h2, .description-symetrie, .description-choice {
+  color: rgba(0, 0, 0, .70);
+}
+.modal-container {
+  text-align: right;
+}
+.setting-icon {
+  width: 2rem;
+  cursor: pointer;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
 }

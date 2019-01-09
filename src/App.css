@@ -1,5 +1,6 @@
 html, body, #root, .app-loader {
   height: 100%;
+  background-color: #fafafa;
 }
 .App {
   text-align: center;

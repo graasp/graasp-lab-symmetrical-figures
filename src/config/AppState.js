@@ -11,9 +11,11 @@ export const AppState = {
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',
   height: window.innerHeight,
-  isTriangleActive: false,
-  isPolygonActive: true,
+  isTriangleActive: true,
+  isPolygonActive: false,
   isSquareActive: false,
+  showTitle: true,
+  openModal: false,
   kind: 'triangle',
   lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
   lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates

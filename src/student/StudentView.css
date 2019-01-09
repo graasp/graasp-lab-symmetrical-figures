@@ -1,13 +1,11 @@
 .description-container {
-  background-color: #9E9D24;
+  background-color: #ffffff;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
   padding-left: 0;
   padding-right: 0;
 }
 .triangle-parent {
   padding-right: 0;
-}
-.triangle-container {
-  background-color: #F9FBE7;
 }
 .konvajs-content {
   width: 100% !important;
@@ -17,4 +15,15 @@
   border-radius: 0;
   font-size: 26px;
   color: #000;
+}
+.triangle-container {
+  padding-right: 0;
+}
+.lab-title {
+  padding-top: 1.2rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  background: #2196F5;
+  color: #fff;
+  font-size: 2rem;
 }

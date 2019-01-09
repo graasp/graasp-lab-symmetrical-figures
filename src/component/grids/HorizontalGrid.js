@@ -17,11 +17,6 @@ const HorizintalGrid = ({
 }) => (
   <Layer>
     <Line
-      points={[IDENTIC_PATH_0, 50, IDENTIC_PATH_1, 50]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
       points={[IDENTIC_PATH_0, 100, IDENTIC_PATH_1, 100]}
       stroke={stroke}
       strokeWidth={strokeWidth}
@@ -103,7 +98,7 @@ const HorizintalGrid = ({
     />
     <Line
       points={[IDENTIC_PATH_0, 900, IDENTIC_PATH_1, 900]}
-      stroke={stroke}
+      stroke={10}
       strokeWidth={strokeWidth}
     />
     <Text
@@ -221,7 +216,7 @@ const HorizintalGrid = ({
     <Text
       x={20}
       y={IDENTIC_PATH_6 - 775}
-      text="(Y)"
+      text="Y"
       fontSize={40}
       fill={blackStroke}
     />
