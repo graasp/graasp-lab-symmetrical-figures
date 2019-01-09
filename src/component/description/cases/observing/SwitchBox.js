@@ -9,7 +9,7 @@ const SwitchBox = ({
   <div className="control-container">
     <Row>
       <Col xs="12">
-        <h4>Choose your panel color</h4>
+        <h4 className="modal-color-title">Choose your panel color</h4>
         <CirclePicker onChangeComplete={handleChangeComplete} />
       </Col>
     </Row>
