@@ -12,7 +12,7 @@ export class App extends Component {
     i18n: PropTypes.shape({
       defaultNS: PropTypes.string,
     }).isRequired,
-    defaultLanguage: PropTypes.string.isRequired,
+    changedLanguage: PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -21,9 +21,9 @@ export class App extends Component {
       mode = 'default',
       lang = 'en',
     } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
-    const { i18n, defaultLanguage } = this.props;
-    if (defaultLanguage) {
-      i18n.changeLanguage(defaultLanguage);
+    const { i18n, changedLanguage } = this.props;
+    if (changedLanguage) {
+      i18n.changeLanguage(changedLanguage);
     } else {
       i18n.changeLanguage(lang);
     }
@@ -47,7 +47,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  defaultLanguage: state.Setting.defaultLanguage,
+  changedLanguage: state.Setting.changedLanguage,
 });
 
 const connectedComponent = connect(mapStateToProps)(App);

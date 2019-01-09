@@ -1,21 +1,21 @@
 import {
-  DEFAULT_LANGUAGE,
-  HEADER_BACKGROUND_COLOR,
+  SET_LANGUAGE,
+  SET_HEADER_BACKGROUND_COLOR,
 } from '../types';
 
 const INITIAL_STATE = {
-  defaultLanguage: 'en',
+  changedLanguage: 'en',
   headerBackgroundColor: '#2196F5',
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case DEFAULT_LANGUAGE:
+    case SET_LANGUAGE:
       return {
         ...state,
-        defaultLanguage: payload,
+        changedLanguage: payload,
       };
-    case HEADER_BACKGROUND_COLOR:
+    case SET_HEADER_BACKGROUND_COLOR:
       return {
         ...state,
         headerBackgroundColor: payload,

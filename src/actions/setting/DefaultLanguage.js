@@ -1,10 +1,10 @@
-import { DEFAULT_LANGUAGE } from '../../types';
+import { SET_LANGUAGE } from '../../types';
 
-export const defaultLanguage = ({ newLang }) => (dispatch) => {
+export const changedLanguage = ({ newLang }) => (dispatch) => {
   dispatch({
-    type: DEFAULT_LANGUAGE,
+    type: SET_LANGUAGE,
     payload: newLang,
   });
 };
 
-export default defaultLanguage;
+export default changedLanguage;

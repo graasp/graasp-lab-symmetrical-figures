@@ -6,7 +6,7 @@ import Select from 'react-select';
 import { options } from '../../../../config/options';
 
 const LangBox = ({
-  handleLang,
+  handleChangeLang,
 }) => (
   <div className="control-container">
     <Row className="modal-lang-container">
@@ -17,7 +17,7 @@ const LangBox = ({
         <Select
           defaultValue={options[0]}
           options={options}
-          onChange={handleLang}
+          onChange={handleChangeLang}
           className="App-Select"
         />
       </Col>
@@ -26,7 +26,7 @@ const LangBox = ({
 );
 
 LangBox.propTypes = {
-  handleLang: PropTypes.func.isRequired,
+  handleChangeLang: PropTypes.func.isRequired,
 };
 
 export default withNamespaces('translations')(LangBox);

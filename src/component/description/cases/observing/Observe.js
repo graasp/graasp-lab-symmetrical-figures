@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 import Switch from 'react-switch';
 import {
-  defaultLanguage,
+  changedLanguage,
   headerBackgroundColor,
 } from '../../../../actions';
 import Forms from '../../../forms/Forms';
@@ -26,12 +26,12 @@ export class Observe extends Component {
     dispatchHeaderBackground({ newColor });
   }
 
-  handleLang = (lang) => {
+  handleChangeLang = (lang) => {
     const newLang = lang.value;
     const {
-      dispatchDefaultLanguage,
+      dispatchChangeLanguage,
     } = this.props;
-    dispatchDefaultLanguage({ newLang });
+    dispatchChangeLanguage({ newLang });
   }
 
   render() {
@@ -106,7 +106,7 @@ export class Observe extends Component {
             handleView={handleView}
             toggleLine={toggleLine}
             handleChangeComplete={this.handleChangeComplete}
-            handleLang={this.handleLang}
+            handleChangeLang={this.handleChangeLang}
           />
         </div>
       </div>
@@ -119,7 +119,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  dispatchDefaultLanguage: defaultLanguage,
+  dispatchChangeLanguage: changedLanguage,
   dispatchHeaderBackground: headerBackgroundColor,
 };
 
@@ -138,7 +138,7 @@ Observe.propTypes = {
   openModal: PropTypes.bool.isRequired,
   onOpenModal: PropTypes.func.isRequired,
   onCloseModal: PropTypes.func.isRequired,
-  dispatchDefaultLanguage: PropTypes.func.isRequired,
+  dispatchChangeLanguage: PropTypes.func.isRequired,
   dispatchHeaderBackground: PropTypes.func.isRequired,
 };
 
