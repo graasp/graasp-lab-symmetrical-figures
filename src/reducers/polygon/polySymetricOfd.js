@@ -1,13 +1,12 @@
-import Immutable from 'immutable';
 import {
   POLY_SYM_OF_D,
   POLY_WORD_FOUND,
   POLY_WORD_NOT_FOUND,
 } from '../../types';
 
-const INITIAL_STATE = new Immutable.Map({
+const INITIAL_STATE = {
   isPolySymOfDFound: false,
-});
+};
 
 export default (state = INITIAL_STATE, { type }) => {
   switch (type) {

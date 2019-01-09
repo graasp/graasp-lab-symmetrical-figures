@@ -1,13 +1,12 @@
-import Immutable from 'immutable';
 import {
   TRI_SYM_OF_A,
   TRI_WORD_FOUND,
   TRI_WORD_NOT_FOUND,
 } from '../../types';
 
-const INITIAL_STATE = new Immutable.Map({
+const INITIAL_STATE = {
   isTriSymOfAFound: false,
-});
+};
 
 export default (state = INITIAL_STATE, { type }) => {
   switch (type) {

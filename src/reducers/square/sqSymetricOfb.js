@@ -1,13 +1,12 @@
-import Immutable from 'immutable';
 import {
   SQ_SYM_OF_B,
   SQ_WORD_FOUND,
   SQ_WORD_NOT_FOUND,
 } from '../../types';
 
-const INITIAL_STATE = new Immutable.Map({
+const INITIAL_STATE = {
   isSqSymOfBFound: false,
-});
+};
 
 export default (state = INITIAL_STATE, { type }) => {
   switch (type) {
