@@ -1,4 +1,4 @@
-html, body, #root, .app-loader {
+html, body, #root, #root>div, .app-loader {
   height: 100%;
   background-color: #fafafa;
 }
