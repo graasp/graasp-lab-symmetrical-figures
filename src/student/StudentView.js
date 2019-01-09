@@ -34,12 +34,18 @@ class StudentView extends Component {
     this.setState({
       showGrid: !showGrid,
     });
+    this.postMessage({
+      show_grid: showGrid,
+    });
   }
 
   handlePointsDisplay = () => {
     const { showPoints } = this.state;
     this.setState({
       showPoints: !showPoints,
+    });
+    this.postMessage({
+      show_points: showPoints,
     });
   }
 
@@ -48,11 +54,17 @@ class StudentView extends Component {
     this.setState({
       showTitle: !showTitle,
     });
+    this.postMessage({
+      show_title: showTitle,
+    });
   }
 
   onOpenModal = () => {
     this.setState({
       openModal: true,
+    });
+    this.postMessage({
+      open_setting_modal: true,
     });
   }
 
@@ -60,11 +72,16 @@ class StudentView extends Component {
     this.setState({
       openModal: false,
     });
+    this.postMessage({
+      open_setting_modal: false,
+    });
   }
 
   handleView = () => {
     const { toggleLine } = this.state;
-
+    this.postMessage({
+      show_line: toggleLine,
+    });
     this.setState({
       toggleLine: !toggleLine,
       triangleNodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
@@ -78,6 +95,9 @@ class StudentView extends Component {
   }
 
   handleForm = (e, target) => {
+    this.postMessage({
+      figure_kind: target,
+    });
     if (target === 'triangle') {
       this.setState({
         kind: 'triangle',
@@ -103,6 +123,18 @@ class StudentView extends Component {
       });
     }
   }
+
+  postMessage = (data) => {
+    const message = JSON.stringify(data);
+    console.log('message', message);
+    if (document.postMessage) {
+      document.postMessage(message, '*');
+    } else if (window.postMessage) {
+      window.postMessage(message, '*');
+    } else {
+      console.error('unable to find postMessage');
+    }
+  };
 
   render() {
     const {
