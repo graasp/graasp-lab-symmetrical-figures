@@ -1,17 +1,14 @@
-import Immutable from 'immutable';
 import {
-  HEADER_BACKGROUND_COLOR,
   SYMMETRIC_WORD,
   WORD_FOUND,
   WORD_NOT_FOUND,
 } from '../../types';
 
-const INITIAL_STATE = new Immutable.Map({
+const INITIAL_STATE = {
   wordFound: false,
-});
+};
 
-export default (state = INITIAL_STATE, { type, payload }) => {
-  console.log('payload', payload);
+export default (state = INITIAL_STATE, { type }) => {
   switch (type) {
     case WORD_NOT_FOUND:
       return {
@@ -28,11 +25,6 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         isWordFound: true,
-      };
-    case HEADER_BACKGROUND_COLOR:
-      return {
-        ...state,
-        headerBackground: payload,
       };
     default:
       return state;
