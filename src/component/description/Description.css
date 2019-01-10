@@ -10,7 +10,7 @@
   background-color: rgba(0,0,0,0);
 }
 .test-button-active, .observe-button-active {
-  background-color: #FEFEFE;
+  background-color: #dedede;
   font-weight: bold;
 }
 .test-button-active:hover,
@@ -50,13 +50,4 @@
 }
 .short-description h2, .description-symetrie, .description-choice {
   color: rgba(0, 0, 0, .70);
-}
-.modal-container {
-  text-align: right;
-}
-.setting-icon {
-  width: 2rem;
-  cursor: pointer;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
 }

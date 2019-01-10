@@ -21,6 +21,7 @@ import {
   blackStroke,
   blueStroke,
   radius,
+  redStroke,
   stroke,
   strokeWidth,
   squareFill,
@@ -70,7 +71,7 @@ export class SquareView extends Component {
             <Rect
               fill={squareFill}
               height={squareHeight}
-              stroke={squareStroke}
+              stroke={redStroke}
               strokeWidth={squareStrokeWidth}
               x={squareTwoX}
               y={squareCommonY}

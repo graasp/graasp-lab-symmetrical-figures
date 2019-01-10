@@ -1,57 +1,105 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
-import { Button } from 'reactstrap';
-import Setting from './Setting.svg';
-import Configs from './SwitchBox';
+import { withStyles } from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Settings';
+import Fab from '@material-ui/core/Fab';
+import './Styles.css';
+import LangBox from './LangBox';
+import SwitchBox from './SwitchBox';
+import {
+  changedLanguage,
+  headerBackgroundColor,
+} from '../../../../actions';
 
-const SettingModal = ({
-  openModal,
-  onOpenModal,
-  onCloseModal,
-  handleTitle,
-  showTitle,
-  handlePointsDisplay,
-  showPoints,
-  handleCheck,
-  showGrid,
-  handleChangeComplete,
-}) => (
-  <div className="modal-container">
-    <Button
-      color="none"
-      onClick={onOpenModal}
-    >
-      <img
-        src={Setting}
-        alt="Triangle"
-        className="setting-icon"
-      />
-    </Button>
-    <Modal open={openModal} onClose={onCloseModal} center>
-      <Configs
-        handleTitle={handleTitle}
-        showTitle={showTitle}
-        handlePointsDisplay={handlePointsDisplay}
-        showPoints={showPoints}
-        handleCheck={handleCheck}
-        showGrid={showGrid}
-        handleChangeComplete={handleChangeComplete}
-      />
-    </Modal>
-  </div>
-);
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  extendedIcon: {
+    marginRight: theme.spacing.unit,
+  },
+  fab: {
+    right: theme.spacing.unit * 4,
+    bottom: theme.spacing.unit * 4,
+    position: 'fixed',
+  },
+});
+
+export class SettingModal extends Component {
+  static propTypes = {
+    t: PropTypes.func.isRequired,
+    dispatchHeaderBackground: PropTypes.func.isRequired,
+    dispatchDefaultLanguage: PropTypes.func.isRequired,
+  };
+
+  handleChangeComplete = (color) => {
+    const newColor = color.hex;
+    const {
+      dispatchHeaderBackground,
+    } = this.props;
+    dispatchHeaderBackground({ newColor });
+  }
+
+  handleLang = (lang) => {
+    const newLang = lang.value;
+    const {
+      dispatchDefaultLanguage,
+    } = this.props;
+    dispatchDefaultLanguage({ newLang });
+  }
+
+  render() {
+    const {
+      openModal,
+      onOpenModal,
+      onCloseModal,
+      classes,
+      t,
+    } = this.props;
+
+    return (
+      <div className="modal-container">
+        <Fab
+          color="primary"
+          aria-label="Add"
+          onClick={onOpenModal}
+          className={classes.fab}
+        >
+          <AddIcon />
+        </Fab>
+        <Modal open={openModal} onClose={onCloseModal} center>
+          <SwitchBox
+            handleChangeComplete={this.handleChangeComplete}
+            t={t}
+          />
+          <LangBox
+            handleLang={this.handleLang}
+            t={t}
+          />
+        </Modal>
+      </div>
+    );
+  }
+}
+
 
 SettingModal.propTypes = {
-  handleCheck: PropTypes.func.isRequired,
-  handleTitle: PropTypes.func.isRequired,
-  handleChangeComplete: PropTypes.func.isRequired,
-  handlePointsDisplay: PropTypes.func.isRequired,
   onOpenModal: PropTypes.func.isRequired,
   onCloseModal: PropTypes.func.isRequired,
   openModal: PropTypes.bool.isRequired,
-  showGrid: PropTypes.bool.isRequired,
-  showTitle: PropTypes.bool.isRequired,
-  showPoints: PropTypes.bool.isRequired,
+  t: PropTypes.func.isRequired,
+  classes: PropTypes.shape({}).isRequired,
 };
-export default SettingModal;
+const mapStateToProps = state => ({
+  headerBackgroundColor: state.Setting.headerBackgroundColor,
+});
+
+const mapDispatchToProps = {
+  dispatchHeaderBackground: headerBackgroundColor,
+  dispatchDefaultLanguage: changedLanguage,
+};
+
+const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);
+export default withStyles(styles)(connectedComponent);

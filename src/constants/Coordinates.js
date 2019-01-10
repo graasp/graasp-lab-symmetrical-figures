@@ -1,5 +1,4 @@
 // todo remove suppression on multiple exports
-// eslint-disable-next-line import/prefer-default-export
 export const EN_SYMETRIC_WORD = 'symmetrical';
 
 export const TRI_COORD_A = [{ x: 2, y: 13 }];

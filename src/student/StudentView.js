@@ -5,6 +5,7 @@ import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 import { Stage } from 'react-konva';
 import './StudentView.css';
+import SettingModal from '../component/description/cases/observing/SettingModal';
 import Description from '../component/description/Description';
 import HorizontalGrid from '../component/grids/HorizontalGrid';
 import VerticalGrid from '../component/grids/VerticalGrid';
@@ -34,12 +35,18 @@ class StudentView extends Component {
     this.setState({
       showGrid: !showGrid,
     });
+    this.postMessage({
+      show_grid: showGrid,
+    });
   }
 
   handlePointsDisplay = () => {
     const { showPoints } = this.state;
     this.setState({
       showPoints: !showPoints,
+    });
+    this.postMessage({
+      show_points: showPoints,
     });
   }
 
@@ -48,11 +55,17 @@ class StudentView extends Component {
     this.setState({
       showTitle: !showTitle,
     });
+    this.postMessage({
+      show_title: showTitle,
+    });
   }
 
   onOpenModal = () => {
     this.setState({
       openModal: true,
+    });
+    this.postMessage({
+      open_setting_modal: true,
     });
   }
 
@@ -60,11 +73,16 @@ class StudentView extends Component {
     this.setState({
       openModal: false,
     });
+    this.postMessage({
+      open_setting_modal: false,
+    });
   }
 
   handleView = () => {
     const { toggleLine } = this.state;
-
+    this.postMessage({
+      show_line: toggleLine,
+    });
     this.setState({
       toggleLine: !toggleLine,
       triangleNodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
@@ -78,6 +96,9 @@ class StudentView extends Component {
   }
 
   handleForm = (e, target) => {
+    this.postMessage({
+      figure_kind: target,
+    });
     if (target === 'triangle') {
       this.setState({
         kind: 'triangle',
@@ -104,6 +125,18 @@ class StudentView extends Component {
     }
   }
 
+  postMessage = (data) => {
+    const message = JSON.stringify(data);
+    console.log('message', message);
+    if (document.postMessage) {
+      document.postMessage(message, '*');
+    } else if (window.postMessage) {
+      window.postMessage(message, '*');
+    } else {
+      console.error('unable to find postMessage');
+    }
+  };
+
   render() {
     const {
       color,
@@ -128,11 +161,11 @@ class StudentView extends Component {
     } = this.state;
     const { t, headerBackgroundColor } = this.props;
     return (
-      <div>
+      <div className="app-parent">
         <Row>
           <Col md={12}>
             { showTitle ? (
-              <h1 className="lab-title" style={{ backgroundColor: headerBackgroundColor }}>FIGURES SYMÉTRIQUES</h1>
+              <h1 className="lab-title" style={{ backgroundColor: headerBackgroundColor }}>{t('Symmetrical Figures')}</h1>
             ) : ''
             }
           </Col>
@@ -201,16 +234,13 @@ class StudentView extends Component {
           <Col md={4} className="description-container">
             <div className="text-center">
               <Description
-                openModal={openModal}
-                onOpenModal={this.onOpenModal}
-                onCloseModal={this.onCloseModal}
                 handleCheck={this.handleCheck}
                 handleForm={this.handleForm}
+                showGrid={showGrid}
+                showTitle={showTitle}
+                showPoints={showPoints}
                 handleView={this.handleView}
                 handleTitle={this.handleTitle}
-                showTitle={showTitle}
-                showGrid={showGrid}
-                showPoints={showPoints}
                 handlePointsDisplay={this.handlePointsDisplay}
                 kind={kind}
                 isPolygonActive={isPolygonActive}
@@ -222,6 +252,12 @@ class StudentView extends Component {
             </div>
           </Col>
         </Row>
+        <SettingModal
+          openModal={openModal}
+          onOpenModal={this.onOpenModal}
+          onCloseModal={this.onCloseModal}
+          t={t}
+        />
       </div>
     );
   }

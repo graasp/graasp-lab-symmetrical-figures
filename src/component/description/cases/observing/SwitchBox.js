@@ -5,11 +5,12 @@ import { Col, Row } from 'reactstrap';
 
 const SwitchBox = ({
   handleChangeComplete,
+  t,
 }) => (
   <div className="control-container">
     <Row>
       <Col xs="12">
-        <h4>Choose your panel color</h4>
+        <h4 className="modal-color-title">{t('Choose your panel color')}</h4>
         <CirclePicker onChangeComplete={handleChangeComplete} />
       </Col>
     </Row>
@@ -18,6 +19,7 @@ const SwitchBox = ({
 
 SwitchBox.propTypes = {
   handleChangeComplete: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
 export default SwitchBox;

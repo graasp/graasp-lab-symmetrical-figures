@@ -353,9 +353,7 @@ export class Description extends Component {
       toggleLine,
       showTitle,
       handleTitle,
-      openModal,
-      onOpenModal,
-      onCloseModal,
+      t,
     } = this.props;
     const {
       foundWord,
@@ -378,6 +376,7 @@ export class Description extends Component {
         <TabComponent
           obserViewActive={obserViewActive}
           handleCase={this.handleCase}
+          t={t}
         />
         { obserViewActive ? (
           <Observe
@@ -391,9 +390,7 @@ export class Description extends Component {
             toggleLine={toggleLine}
             showTitle={showTitle}
             handleTitle={handleTitle}
-            openModal={openModal}
-            onOpenModal={onOpenModal}
-            onCloseModal={onCloseModal}
+            t={t}
           />
         ) : (
           <Try
@@ -450,9 +447,7 @@ Description.propTypes = {
   showPoints: PropTypes.bool.isRequired,
   handleTitle: PropTypes.func.isRequired,
   showTitle: PropTypes.bool.isRequired,
-  openModal: PropTypes.bool.isRequired,
-  onOpenModal: PropTypes.func.isRequired,
-  onCloseModal: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
 // we make sure the svg is gotten from our redux state and is mounted

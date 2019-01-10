@@ -1,8 +1,8 @@
-import { HEADER_BACKGROUND_COLOR } from '../../types';
+import { SET_HEADER_BACKGROUND_COLOR } from '../../types';
 
 export const headerBackgroundColor = ({ newColor }) => (dispatch) => {
   dispatch({
-    type: HEADER_BACKGROUND_COLOR,
+    type: SET_HEADER_BACKGROUND_COLOR,
     payload: newColor,
   });
 };

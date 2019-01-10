@@ -1,0 +1,17 @@
+.modal-container button {
+  outline: none;
+}
+.modal-container {
+  text-align: right;
+}
+.modal-color-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.modal-lang-container {
+  margin-top: 1rem;
+}
+.modal-lang-title {
+  font-size: 1.2rem;
+  line-height: 2;
+}

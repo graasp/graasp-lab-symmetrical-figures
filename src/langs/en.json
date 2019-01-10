@@ -2,6 +2,26 @@
   "translations" : {
     "This is the student view. Switch to the teacher view by clicking on the URL below.": "This is the student view. Switch to the teacher view by clicking on the URL below.",
     "This is the teacher view. Switch to the student view by clicking on the URL below.": "This is the teacher view. Switch to the student view by clicking on the URL below.",
-    "Welcome to the Graasp App Starter Kit": "Welcome to the Graasp App Starter Kit"
+    "Welcome to the Graasp App Starter Kit": "Welcome to the Graasp App Starter Kit",
+    "Observe": "Observe",
+    "Test": "Test",
+    "Symmetrical Figures": "Symmetrical Figures",
+    "Display Lab title": "Display Lab title",
+    "Choose a form": "Choose a form",
+    "Square": "Square",
+    "Triangle": "Triangle",
+    "Polygon": "Polygon",
+    "Symmetry with respect to": "Symmetry with respect to",
+    "A Line": "A line",
+    "A Point": "A dot",
+    "Display points": "Display points",
+    "Display grid": "Display grid",
+    "Description": "Description",
+    "This Lab will allow you to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.": "This Lab will allow you to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.",
+    "Point of Symmetry": "Point of Symmetry",
+    "Axe of Symmetry": "Axe of Symmetry",
+    "Choose your panel color": "Choose your panel color",
+    "Language": "Language",
+    "Coming Soon!": "Coming Soon!"
   }
 }
