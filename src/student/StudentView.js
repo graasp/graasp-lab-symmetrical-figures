@@ -5,6 +5,7 @@ import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
 import { Stage } from 'react-konva';
 import './StudentView.css';
+import SettingModal from '../component/description/cases/observing/SettingModal';
 import Description from '../component/description/Description';
 import HorizontalGrid from '../component/grids/HorizontalGrid';
 import VerticalGrid from '../component/grids/VerticalGrid';
@@ -233,16 +234,13 @@ class StudentView extends Component {
           <Col md={4} className="description-container">
             <div className="text-center">
               <Description
-                openModal={openModal}
-                onOpenModal={this.onOpenModal}
-                onCloseModal={this.onCloseModal}
                 handleCheck={this.handleCheck}
                 handleForm={this.handleForm}
+                showGrid={showGrid}
+                showTitle={showTitle}
+                showPoints={showPoints}
                 handleView={this.handleView}
                 handleTitle={this.handleTitle}
-                showTitle={showTitle}
-                showGrid={showGrid}
-                showPoints={showPoints}
                 handlePointsDisplay={this.handlePointsDisplay}
                 kind={kind}
                 isPolygonActive={isPolygonActive}
@@ -254,6 +252,12 @@ class StudentView extends Component {
             </div>
           </Col>
         </Row>
+        <SettingModal
+          openModal={openModal}
+          onOpenModal={this.onOpenModal}
+          onCloseModal={this.onCloseModal}
+          t={t}
+        />
       </div>
     );
   }
