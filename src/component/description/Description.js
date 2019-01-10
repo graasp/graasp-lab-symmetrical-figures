@@ -353,9 +353,6 @@ export class Description extends Component {
       toggleLine,
       showTitle,
       handleTitle,
-      openModal,
-      onOpenModal,
-      onCloseModal,
       t,
     } = this.props;
     const {
@@ -393,9 +390,6 @@ export class Description extends Component {
             toggleLine={toggleLine}
             showTitle={showTitle}
             handleTitle={handleTitle}
-            openModal={openModal}
-            onOpenModal={onOpenModal}
-            onCloseModal={onCloseModal}
             t={t}
           />
         ) : (
@@ -453,9 +447,6 @@ Description.propTypes = {
   showPoints: PropTypes.bool.isRequired,
   handleTitle: PropTypes.func.isRequired,
   showTitle: PropTypes.bool.isRequired,
-  openModal: PropTypes.bool.isRequired,
-  onOpenModal: PropTypes.func.isRequired,
-  onCloseModal: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
 };
 

@@ -6,33 +6,12 @@ import {
   Col,
 } from 'reactstrap';
 import Switch from 'react-switch';
-import {
-  changedLanguage,
-  headerBackgroundColor,
-} from '../../../../actions';
 import Forms from '../../../forms/Forms';
 import RadioBtn from './RadioBtn';
-import SettingModal from './SettingModal';
 import { AppState } from '../../../../config/AppState';
 
 export class Observe extends Component {
   state = AppState;
-
-  handleChangeComplete = (color) => {
-    const newColor = color.hex;
-    const {
-      dispatchHeaderBackground,
-    } = this.props;
-    dispatchHeaderBackground({ newColor });
-  }
-
-  handleLang = (lang) => {
-    const newLang = lang.value;
-    const {
-      dispatchDefaultLanguage,
-    } = this.props;
-    dispatchDefaultLanguage({ newLang });
-  }
 
   render() {
     const {
@@ -46,9 +25,6 @@ export class Observe extends Component {
       toggleLine,
       showTitle,
       handleTitle,
-      openModal,
-      onOpenModal,
-      onCloseModal,
       t,
     } = this.props;
 
@@ -95,22 +71,6 @@ export class Observe extends Component {
           <p className="description-title">
             {t('This Lab will allow you to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.')}
           </p>
-          <SettingModal
-            openModal={openModal}
-            onOpenModal={onOpenModal}
-            onCloseModal={onCloseModal}
-            showTitle={showTitle}
-            handleTitle={handleTitle}
-            handlePointsDisplay={handlePointsDisplay}
-            showPoints={showPoints}
-            handleCheck={handleCheck}
-            showGrid={showGrid}
-            handleView={handleView}
-            toggleLine={toggleLine}
-            handleChangeComplete={this.handleChangeComplete}
-            handleLang={this.handleLang}
-            t={t}
-          />
         </div>
       </div>
     );
@@ -120,11 +80,6 @@ export class Observe extends Component {
 const mapStateToProps = state => ({
   correct: state.headerBackgroundChanged ? 'Header Background Changed!' : 'Background has not changed. :-(',
 });
-
-const mapDispatchToProps = {
-  dispatchDefaultLanguage: changedLanguage,
-  dispatchHeaderBackground: headerBackgroundColor,
-};
 
 
 Observe.propTypes = {
@@ -138,12 +93,7 @@ Observe.propTypes = {
   showPoints: PropTypes.bool.isRequired,
   showTitle: PropTypes.bool.isRequired,
   handleTitle: PropTypes.func.isRequired,
-  openModal: PropTypes.bool.isRequired,
-  onOpenModal: PropTypes.func.isRequired,
-  onCloseModal: PropTypes.func.isRequired,
-  dispatchDefaultLanguage: PropTypes.func.isRequired,
-  dispatchHeaderBackground: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Observe);
+export default connect(mapStateToProps)(Observe);
