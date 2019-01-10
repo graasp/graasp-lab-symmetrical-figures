@@ -1,4 +1,5 @@
 import {
+  SET_CONFIG,
   SET_LANGUAGE,
   SET_HEADER_BACKGROUND_COLOR,
 } from '../types';
@@ -9,6 +10,7 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
+  console.log('Getting new language', payload);
   switch (type) {
     case SET_LANGUAGE:
       return {
@@ -20,7 +22,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         headerBackgroundColor: payload,
       };
-    case 'SET_CONFIG':
+    case SET_CONFIG:
       return {
         ...state,
         ...payload,
