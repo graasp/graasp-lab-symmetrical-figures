@@ -128,7 +128,7 @@ class StudentView extends Component {
     } = this.state;
     const { t, headerBackgroundColor } = this.props;
     return (
-      <div>
+      <div className="app-parent">
         <Row>
           <Col md={12}>
             { showTitle ? (
