@@ -17,11 +17,12 @@ const Forms = ({
   isTriangleActive,
   showTitle,
   handleTitle,
+  t,
 }) => (
   <div className="form-container">
     <Row>
       <Col xs="8">
-        <h5 className="display-title">Afficher le titre du Labo</h5>
+        <h5 className="display-title">{t('Display Lab title')}</h5>
       </Col>
       <Col xs="4">
         <Switch
@@ -32,7 +33,7 @@ const Forms = ({
       </Col>
     </Row>
     <h2 className="description-choice">
-      Choisis une forme
+      {t('Choose a form')}
     </h2>
     <Row>
       <Col md={4}>
@@ -43,7 +44,7 @@ const Forms = ({
           id="triangleTooltip"
         />
         <UncontrolledTooltip placement="top" target="triangleTooltip">
-          Triangle
+          {t('Triangle')}
         </UncontrolledTooltip>
       </Col>
       <Col md={4}>
@@ -54,7 +55,7 @@ const Forms = ({
           id="rectangleTooltip"
         />
         <UncontrolledTooltip placement="top" target="rectangleTooltip">
-          Carré
+          {t('Square')}
         </UncontrolledTooltip>
       </Col>
       <Col md={4}>
@@ -65,7 +66,7 @@ const Forms = ({
           id="polygonTooltip"
         />
         <UncontrolledTooltip placement="top" target="polygonTooltip">
-          Polygone
+          {('Polygon')}
         </UncontrolledTooltip>
       </Col>
     </Row>
@@ -104,5 +105,6 @@ Forms.propTypes = {
   handleTitle: PropTypes.func.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
   showTitle: PropTypes.bool.isRequired,
+  t: PropTypes.func.isRequired,
 };
 export default Forms;

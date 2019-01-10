@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Modal from 'react-responsive-modal';
 import { withStyles } from '@material-ui/core/styles';
@@ -29,12 +28,12 @@ const SettingModal = ({
   handleCheck,
   showGrid,
   handleChangeComplete,
-  handleChangeLang,
-  headerBackgroundColor,
+  handleLang,
+  t,
 }) => (
   <div className="modal-container">
-    <Fab style={{ backgroundColor: headerBackgroundColor }} aria-label="Add" onClick={onOpenModal}>
-      <AddIcon style={{ color: 'white' }} />
+    <Fab color="primary" aria-label="Add" onClick={onOpenModal}>
+      <AddIcon />
     </Fab>
     <Modal open={openModal} onClose={onCloseModal} center>
       <SwitchBox
@@ -45,9 +44,11 @@ const SettingModal = ({
         handleCheck={handleCheck}
         showGrid={showGrid}
         handleChangeComplete={handleChangeComplete}
+        t={t}
       />
       <LangBox
-        handleChangeLang={handleChangeLang}
+        handleLang={handleLang}
+        t={t}
       />
     </Modal>
   </div>
@@ -57,7 +58,7 @@ SettingModal.propTypes = {
   handleCheck: PropTypes.func.isRequired,
   handleTitle: PropTypes.func.isRequired,
   handleChangeComplete: PropTypes.func.isRequired,
-  handleChangeLang: PropTypes.func.isRequired,
+  handleLang: PropTypes.func.isRequired,
   handlePointsDisplay: PropTypes.func.isRequired,
   onOpenModal: PropTypes.func.isRequired,
   onCloseModal: PropTypes.func.isRequired,
@@ -65,13 +66,6 @@ SettingModal.propTypes = {
   showGrid: PropTypes.bool.isRequired,
   showTitle: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
-  headerBackgroundColor: PropTypes.string.isRequired,
+  t: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = state => ({
-  headerBackgroundColor: state.Setting.headerBackgroundColor,
-});
-
-const connectedComponent = connect(mapStateToProps)(SettingModal);
-
-export default withStyles(styles)(connectedComponent);
+export default withStyles(styles)(SettingModal);

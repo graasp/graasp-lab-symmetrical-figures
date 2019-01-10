@@ -4,6 +4,27 @@
       "Ceci est la vue des étudiants. Passez à la vue enseignant en cliquant sur l’URL ci-dessous.",
     "This is the teacher view. Switch to the student view by clicking on the URL below.":
       "Ceci est la vue de l'enseignant. Passez à la vue des étudiants en cliquant sur l’URL ci-dessous.",
-    "Welcome to the Graasp App Starter Kit": "Bienvenue dans le kit de démarrage de l'application Graasp"
+    "Welcome to the Graasp App Starter Kit": "Bienvenue dans le kit de démarrage de l'application Graasp",
+    "Observe": "Observer",
+    "Test": "Tester",
+    "Symmetrical Figures": "Figures symétriques",
+    "Display Lab title": "Afficher le titre du Labo",
+    "Choose a form": "Choisis une forme",
+    "Square": "Carré",
+    "Triangle": "Triangle",
+    "Polygon": "Polygône",
+    "Symmetry with respect to": "Symétrie par rapport à",
+    "A Line": "Une Ligne",
+    "A Point": "Un Point",
+    "Display points": "Afficher points",
+    "Display grid": "Afficher grilles",
+    "Description": "Description",
+    "This Lab will allow you to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.":
+      "Ce Labo vous permetra de pourvoir identifier les outils nécessaires pour tracer des figures symétriques par rapport à un point ou par rapport à une droite.",
+    "Point of Symmetry": "Point de Symétrie",
+    "Axe of Symmetry": "Axe de Symétrie",
+    "Choose your panel color": "Choisis la couleur de panel",
+    "Language": "Langue",
+    "Coming Soon!": "Bientôt disponible!"
   }
 }
