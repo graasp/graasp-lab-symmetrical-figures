@@ -6,19 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <App
     i18n={
       Object {
-        "changeLanguage": [MockFunction] {
-          "calls": Array [
-            Array [
-              "en",
-            ],
-          ],
-          "results": Array [
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-          ],
-        },
+        "changeLanguage": [MockFunction],
         "defaultNS": "",
       }
     }
