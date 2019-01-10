@@ -1,6 +1,4 @@
 // todo remove suppression on multiple exports
-// eslint-disable-next-line import/prefer-default-export
-
 export const CoordState = {
   typedWords: null,
   foundWord: false,

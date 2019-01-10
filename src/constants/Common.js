@@ -1,5 +1,4 @@
 // todo remove suppression on multiple exports
-// eslint-disable-next-line import/prefer-default-export
 export const CIRCLE_RADIUS = 5;
 export const CIRCLE_X = 450;
 export const circlePointsX = 450;
