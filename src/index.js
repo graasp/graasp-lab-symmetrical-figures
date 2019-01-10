@@ -27,6 +27,7 @@ const renderApp = () => {
     lang = DEFAULT_LANGUAGE,
     headerBackgroundColor = DEFAULT_BACKGROUND_COLOR,
   } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
+
   const config = {
     lang,
     headerBackgroundColor,
