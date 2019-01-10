@@ -20,6 +20,11 @@ export default (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         headerBackgroundColor: payload,
       };
+    case 'SET_CONFIG':
+      return {
+        ...state,
+        ...payload,
+      };
     default:
       return state;
   }
