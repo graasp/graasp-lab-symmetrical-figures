@@ -1,8 +1,8 @@
 # Graasp Lab Symmetrical Figures
 
-The lab allows the learner to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.(The drawing is not yet possible in this version)
+The lab allows the learner to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line(The drawing is not yet possible in this version).
 
-This Lab was created using [Graasp App Starter React](https://github.com/react-epfl/graasp-app-starter-react)
+This Lab was created using [Graasp App Starter React](https://github.com/react-epfl/graasp-app-starter-react).
 
 ![image](https://github.com/graasp/graasp-lab-symmetrical-figures/blob/38/update-readme/public/preview.png)
 ## Topic
@@ -30,4 +30,4 @@ Help us improve by creating [new issues](https://github.com/graasp/graasp-lab-sy
 
 ## Licence
 
-See the [Licence](https://github.com/graasp/graasp-lab-symmetrical-figures/blob/1/main-view/LICENSE)
+See the [Licence](https://github.com/graasp/graasp-lab-symmetrical-figures/blob/1/main-view/LICENSE).
