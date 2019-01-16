@@ -4,7 +4,7 @@ The lab allows the learner to identify the tools needed to draw symmetrical figu
 
 This Lab was created using [Graasp App Starter React](https://github.com/react-epfl/graasp-app-starter-react)
 
-![image](https://github.com/graasp/graasp-lab-symmetrical-figures/blob/67/update-readme/public/preview.png)
+![image](https://github.com/graasp/graasp-lab-symmetrical-figures/blob/38/update-readme/public/preview.png)
 ## Topic
 
 MATHS
