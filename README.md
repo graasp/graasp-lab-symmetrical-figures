@@ -1,6 +1,6 @@
-# Graasp Lab Ovarian Cycle
+# Graasp Lab Symmetrical Figures
 
-The lab allows the learner to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.
+The lab allows the learner to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.(The drawing is not yet possible in this version)
 
 This Lab was created using [Graasp App Starter React](https://github.com/react-epfl/graasp-app-starter-react)
 
