@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import { withStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Settings';
-import Fab from '@material-ui/core/Fab';
+import SettingIcon from './SettingIcon';
 import './Styles.css';
+import Displayer from './Displayer';
 import LangBox from './LangBox';
 import SwitchBox from './SwitchBox';
 import {
   changedLanguage,
-  headerBackgroundColor,
+  themeColor,
+  titleState,
 } from '../../../../actions';
+import { AppState } from '../../../../config/AppState';
 
 const styles = theme => ({
   button: {
@@ -28,18 +30,20 @@ const styles = theme => ({
 });
 
 export class SettingModal extends Component {
+  state = AppState;
+
   static propTypes = {
     t: PropTypes.func.isRequired,
-    dispatchHeaderBackground: PropTypes.func.isRequired,
+    dispatchThemeColor: PropTypes.func.isRequired,
     dispatchDefaultLanguage: PropTypes.func.isRequired,
   };
 
   handleChangeComplete = (color) => {
     const newColor = color.hex;
     const {
-      dispatchHeaderBackground,
+      dispatchThemeColor,
     } = this.props;
-    dispatchHeaderBackground({ newColor });
+    dispatchThemeColor({ newColor });
   }
 
   handleLang = (lang) => {
@@ -50,25 +54,24 @@ export class SettingModal extends Component {
     dispatchDefaultLanguage({ newLang });
   }
 
+  toggleTitle = () => {
+    const { showTitle } = this.state;
+    this.setState({ showTitle: !showTitle });
+    const { dispatchTitleState } = this.props;
+    dispatchTitleState({ showTitle });
+  }
+
   render() {
     const {
       openModal,
-      onOpenModal,
       onCloseModal,
-      classes,
+      onOpenModal,
       t,
     } = this.props;
 
     return (
       <div className="modal-container">
-        <Fab
-          color="primary"
-          aria-label="Add"
-          onClick={onOpenModal}
-          className={classes.fab}
-        >
-          <AddIcon />
-        </Fab>
+        <SettingIcon onOpenModal={onOpenModal} />
         <Modal open={openModal} onClose={onCloseModal} center>
           <SwitchBox
             handleChangeComplete={this.handleChangeComplete}
@@ -78,6 +81,7 @@ export class SettingModal extends Component {
             handleLang={this.handleLang}
             t={t}
           />
+          <Displayer toggleTitle={this.toggleTitle} t={t} />
         </Modal>
       </div>
     );
@@ -88,17 +92,19 @@ export class SettingModal extends Component {
 SettingModal.propTypes = {
   onOpenModal: PropTypes.func.isRequired,
   onCloseModal: PropTypes.func.isRequired,
+  dispatchTitleState: PropTypes.func.isRequired,
   openModal: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
   classes: PropTypes.shape({}).isRequired,
 };
 const mapStateToProps = state => ({
-  headerBackgroundColor: state.Setting.headerBackgroundColor,
+  themeColor: state.Setting.themeColor,
 });
 
 const mapDispatchToProps = {
-  dispatchHeaderBackground: headerBackgroundColor,
+  dispatchThemeColor: themeColor,
   dispatchDefaultLanguage: changedLanguage,
+  dispatchTitleState: titleState,
 };
 
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);
