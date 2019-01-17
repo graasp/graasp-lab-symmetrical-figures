@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Switch from 'react-switch';
 import {
   Col,
   Input,
@@ -15,23 +14,9 @@ import './Forms.css';
 const Forms = ({
   handleForm,
   isTriangleActive,
-  showTitle,
-  handleTitle,
   t,
 }) => (
   <div className="form-container">
-    <Row>
-      <Col xs="8">
-        <h5 className="display-title">{t('Display Lab title')}</h5>
-      </Col>
-      <Col xs="4">
-        <Switch
-          onChange={handleTitle}
-          checked={showTitle}
-          id="title-switch"
-        />
-      </Col>
-    </Row>
     <h2 className="description-choice">
       {t('Choose a form')}
     </h2>
@@ -102,9 +87,7 @@ const Forms = ({
 
 Forms.propTypes = {
   handleForm: PropTypes.func.isRequired,
-  handleTitle: PropTypes.func.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
-  showTitle: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
 };
 export default Forms;
