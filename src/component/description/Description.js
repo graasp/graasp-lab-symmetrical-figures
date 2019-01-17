@@ -352,7 +352,6 @@ export class Description extends Component {
       isTriangleActive,
       toggleLine,
       showTitle,
-      handleTitle,
       t,
     } = this.props;
     const {
@@ -389,7 +388,6 @@ export class Description extends Component {
             isTriangleActive={isTriangleActive}
             toggleLine={toggleLine}
             showTitle={showTitle}
-            handleTitle={handleTitle}
             t={t}
           />
         ) : (
@@ -445,7 +443,6 @@ Description.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
-  handleTitle: PropTypes.func.isRequired,
   showTitle: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
 };
