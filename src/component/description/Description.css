@@ -33,9 +33,6 @@
   padding: 2rem;
   color: rgba(0, 0, 0, .70);
 }
-.display-grid, .display-line {
-  font-size: 1.5rem;
-}
 .short-description {
   margin-top: 3rem;
 }
