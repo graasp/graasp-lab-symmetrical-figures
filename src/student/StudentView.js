@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Qs from 'qs';
 import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
 import { Col, Row } from 'reactstrap';
@@ -25,7 +26,8 @@ import {
 class StudentView extends Component {
   static propTypes = {
     t: PropTypes.func.isRequired,
-    headerBackgroundColor: PropTypes.string.isRequired,
+    showTitle: PropTypes.bool.isRequired,
+    themeColor: PropTypes.string.isRequired,
   };
 
   state = AppState;
@@ -47,16 +49,6 @@ class StudentView extends Component {
     });
     this.postMessage({
       show_points: showPoints,
-    });
-  }
-
-  handleTitle = () => {
-    const { showTitle } = this.state;
-    this.setState({
-      showTitle: !showTitle,
-    });
-    this.postMessage({
-      show_title: showTitle,
     });
   }
 
@@ -141,7 +133,6 @@ class StudentView extends Component {
     const {
       color,
       showGrid,
-      showTitle,
       gridStroke,
       gridStrokeWidth,
       height,
@@ -159,13 +150,18 @@ class StudentView extends Component {
       width,
       openModal,
     } = this.state;
-    const { t, headerBackgroundColor } = this.props;
+
+    const {
+      mode = 'default',
+    } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
+
+    const { t, themeColor, showTitle } = this.props;
     return (
       <div className="app-parent">
         <Row>
           <Col md={12}>
             { showTitle ? (
-              <h1 className="lab-title" style={{ backgroundColor: headerBackgroundColor }}>{t('Symmetrical Figures')}</h1>
+              <h1 className="lab-title" style={{ backgroundColor: themeColor }}>{t('Symmetrical Figures')}</h1>
             ) : ''
             }
           </Col>
@@ -240,7 +236,6 @@ class StudentView extends Component {
                 showTitle={showTitle}
                 showPoints={showPoints}
                 handleView={this.handleView}
-                handleTitle={this.handleTitle}
                 handlePointsDisplay={this.handlePointsDisplay}
                 kind={kind}
                 isPolygonActive={isPolygonActive}
@@ -252,19 +247,23 @@ class StudentView extends Component {
             </div>
           </Col>
         </Row>
-        <SettingModal
-          openModal={openModal}
-          onOpenModal={this.onOpenModal}
-          onCloseModal={this.onCloseModal}
-          t={t}
-        />
+        { mode === 'default' ? (
+          <SettingModal
+            openModal={openModal}
+            onOpenModal={this.onOpenModal}
+            onCloseModal={this.onCloseModal}
+            t={t}
+          />
+        ) : ''
+        }
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  headerBackgroundColor: state.Setting.headerBackgroundColor,
+  themeColor: state.Setting.themeColor,
+  showTitle: state.Setting.showTitle,
 });
 
 const connectedComponent = connect(mapStateToProps)(StudentView);
