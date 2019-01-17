@@ -2,11 +2,13 @@ import {
   SET_CONFIG,
   SET_LANGUAGE,
   SET_HEADER_BACKGROUND_COLOR,
+  SET_TITLE_STATE,
 } from '../types';
 
 const INITIAL_STATE = {
   changedLanguage: 'en',
-  headerBackgroundColor: '#2196F5',
+  themeColor: '#2196F5',
+  showTitle: true,
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -20,7 +22,12 @@ export default (state = INITIAL_STATE, { type, payload }) => {
     case SET_HEADER_BACKGROUND_COLOR:
       return {
         ...state,
-        headerBackgroundColor: payload,
+        themeColor: payload,
+      };
+    case SET_TITLE_STATE:
+      return {
+        ...state,
+        showTitle: payload,
       };
     case SET_CONFIG:
       return {
