@@ -28,29 +28,11 @@ class StudentView extends Component {
     t: PropTypes.func.isRequired,
     showTitle: PropTypes.bool.isRequired,
     themeColor: PropTypes.string.isRequired,
+    showGrid: PropTypes.bool.isRequired,
+    showPoints: PropTypes.bool.isRequired,
   };
 
   state = AppState;
-
-  handleCheck = () => {
-    const { showGrid } = this.state;
-    this.setState({
-      showGrid: !showGrid,
-    });
-    this.postMessage({
-      show_grid: showGrid,
-    });
-  }
-
-  handlePointsDisplay = () => {
-    const { showPoints } = this.state;
-    this.setState({
-      showPoints: !showPoints,
-    });
-    this.postMessage({
-      show_points: showPoints,
-    });
-  }
 
   onOpenModal = () => {
     this.setState({
@@ -132,7 +114,6 @@ class StudentView extends Component {
   render() {
     const {
       color,
-      showGrid,
       gridStroke,
       gridStrokeWidth,
       height,
@@ -144,7 +125,6 @@ class StudentView extends Component {
       squareNodeA,
       squareNodeB,
       triangleNodeB,
-      showPoints,
       midPointStroke,
       toggleLine,
       width,
@@ -155,7 +135,13 @@ class StudentView extends Component {
       mode = 'default',
     } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
 
-    const { t, themeColor, showTitle } = this.props;
+    const {
+      t,
+      themeColor,
+      showTitle,
+      showGrid,
+      showPoints,
+    } = this.props;
     return (
       <div className="app-parent">
         <Row>
@@ -230,13 +216,11 @@ class StudentView extends Component {
           <Col md={4} className="description-container">
             <div className="text-center">
               <Description
-                handleCheck={this.handleCheck}
                 handleForm={this.handleForm}
                 showGrid={showGrid}
                 showTitle={showTitle}
                 showPoints={showPoints}
                 handleView={this.handleView}
-                handlePointsDisplay={this.handlePointsDisplay}
                 kind={kind}
                 isPolygonActive={isPolygonActive}
                 isSquareActive={isSquareActive}
@@ -264,6 +248,8 @@ class StudentView extends Component {
 const mapStateToProps = state => ({
   themeColor: state.Setting.themeColor,
   showTitle: state.Setting.showTitle,
+  showPoints: state.Setting.showPoints,
+  showGrid: state.Setting.showGrid,
 });
 
 const connectedComponent = connect(mapStateToProps)(StudentView);
