@@ -1,3 +1,4 @@
 export * from './DefaultLanguage';
-export * from './HeaderBackgroundColor';
+export * from './ThemeColor';
 export * from './SetConfig';
+export * from './TitleState';
