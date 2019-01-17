@@ -23,8 +23,6 @@ export class Observe extends Component {
       handleView,
       isTriangleActive,
       toggleLine,
-      showTitle,
-      handleTitle,
       t,
     } = this.props;
 
@@ -33,8 +31,6 @@ export class Observe extends Component {
         <Forms
           handleForm={handleForm}
           isTriangleActive={isTriangleActive}
-          showTitle={showTitle}
-          handleTitle={handleTitle}
           t={t}
         />
         <RadioBtn
@@ -91,8 +87,6 @@ Observe.propTypes = {
   toggleLine: PropTypes.bool.isRequired,
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
-  showTitle: PropTypes.bool.isRequired,
-  handleTitle: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
 };
 
