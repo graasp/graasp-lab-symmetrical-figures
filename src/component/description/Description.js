@@ -342,10 +342,6 @@ export class Description extends Component {
   render() {
     const {
       handleForm,
-      showGrid,
-      showPoints,
-      handleCheck,
-      handlePointsDisplay,
       handleView,
       isPolygonActive,
       isSquareActive,
@@ -380,10 +376,6 @@ export class Description extends Component {
         { obserViewActive ? (
           <Observe
             handleForm={handleForm}
-            handleCheck={handleCheck}
-            showGrid={showGrid}
-            showPoints={showPoints}
-            handlePointsDisplay={handlePointsDisplay}
             handleView={handleView}
             isTriangleActive={isTriangleActive}
             toggleLine={toggleLine}
@@ -433,16 +425,12 @@ Description.propTypes = {
   dispatchTriSymOfc: PropTypes.func.isRequired,
   dispatchSearchWord: PropTypes.func.isRequired,
   handleForm: PropTypes.func.isRequired,
-  handleCheck: PropTypes.func.isRequired,
-  handlePointsDisplay: PropTypes.func.isRequired,
   handleView: PropTypes.func.isRequired,
   kind: PropTypes.string.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
-  showGrid: PropTypes.bool.isRequired,
-  showPoints: PropTypes.bool.isRequired,
   showTitle: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
 };
