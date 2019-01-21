@@ -5,7 +5,8 @@ import {
   RegularPolygon,
   Stage,
 } from 'react-konva';
-import Annotation from './components/Annotation';
+import PolyOneAnnotation from './components/PolyOneAnnotation';
+import PolyTwoAnnotation from './components/PolyTwoAnnotation';
 import Axes from './components/Axes';
 import SymetricalAxis from './components/SymetricalAxis';
 import { PolygonState } from '../../config/PolygonState';
@@ -107,19 +108,40 @@ export class PolygonView extends Component {
               y={500}
               opacity={0.7}
             />
-            <RegularPolygon
-              fill="#FFFF8D"
-              radius={100}
-              sides={5}
-              stroke="black"
-              strokeWidth={4}
-              x={800}
-              y={500}
-              opacity={0.7}
-              rotation={107}
-            />
           </Layer>
         </Stage>
+        { toggleLine ? (
+          <Stage width={1000} height={1000}>
+            <Layer>
+              <RegularPolygon
+                fill="#FFFF8D"
+                radius={101}
+                sides={5}
+                stroke="black"
+                strokeWidth={4}
+                x={800}
+                y={500}
+                opacity={0.7}
+                rotation={107}
+              />
+            </Layer>
+          </Stage>
+        ) : (
+          <Stage width={1000} height={1000}>
+            <Layer>
+              <RegularPolygon
+                fill="#FFFF8D"
+                radius={100}
+                sides={5}
+                stroke="black"
+                strokeWidth={4}
+                x={800}
+                y={500}
+              />
+            </Layer>
+          </Stage>
+        )
+        }
         { toggleLine ? (
           <Stage width={width} height={height}>
             <Axes
@@ -190,7 +212,7 @@ export class PolygonView extends Component {
         }
         { showPoints ? (
           <Stage width={width} height={height}>
-            <Annotation
+            <PolyOneAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
               POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
@@ -201,20 +223,50 @@ export class PolygonView extends Component {
               TEXT_X_2={TEXT_X_2}
               TEXT_X_3={TEXT_X_3}
               TEXT_X_4={TEXT_X_4}
+              TEXT_Y_0={TEXT_Y_0}
+              TEXT_Y_1={TEXT_Y_1}
+              TEXT_Y_2={TEXT_Y_2}
+            />
+          </Stage>
+        ) : ''
+        }
+        { toggleLine ? (
+          <Stage width={width} height={height}>
+            <PolyTwoAnnotation
+              middleLinePointLineStroke={middleLinePointLineStroke}
+              POLYGON_PATH_1={POLYGON_PATH_1}
+              fontSize={pointSize}
+              polygonNode={polygonNode}
+              blackStroke={blackStroke}
               TEXT_X_5={TEXT_X_5}
               TEXT_X_6={TEXT_X_6}
               TEXT_X_7={TEXT_X_7}
               TEXT_X_8={TEXT_X_8}
               TEXT_X_9={TEXT_X_9}
-              TEXT_Y_0={TEXT_Y_0}
-              TEXT_Y_1={TEXT_Y_1}
-              TEXT_Y_2={TEXT_Y_2}
               TEXT_Y_3={TEXT_Y_3}
               TEXT_Y_4={TEXT_Y_4}
               TEXT_Y_5={TEXT_Y_5}
             />
           </Stage>
-        ) : ''
+        ) : (
+          <Stage width={width} height={height}>
+            <PolyTwoAnnotation
+              middleLinePointLineStroke={middleLinePointLineStroke}
+              POLYGON_PATH_1={POLYGON_PATH_1}
+              fontSize={pointSize}
+              polygonNode={polygonNode}
+              blackStroke={blackStroke}
+              TEXT_X_5={TEXT_X_5}
+              TEXT_X_6={TEXT_X_6}
+              TEXT_X_7={TEXT_X_7}
+              TEXT_X_8={TEXT_X_8}
+              TEXT_X_9={TEXT_X_9}
+              TEXT_Y_3={TEXT_Y_0}
+              TEXT_Y_4={TEXT_Y_2}
+              TEXT_Y_5={TEXT_Y_1}
+            />
+          </Stage>
+        )
         }
       </div>
     );
