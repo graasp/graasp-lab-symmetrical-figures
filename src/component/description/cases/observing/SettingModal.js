@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import { withStyles } from '@material-ui/core/styles';
+import i18n from '../../../../config/i18n';
 import SettingIcon from './SettingIcon';
 import './Styles.css';
 import Displayer from './Displayer';
@@ -42,18 +43,15 @@ export class SettingModal extends Component {
 
   handleChangeComplete = (color) => {
     const newColor = color.hex;
-    const {
-      dispatchThemeColor,
-    } = this.props;
+    const { dispatchThemeColor } = this.props;
     dispatchThemeColor({ newColor });
     this.postMessage({ theme_color: newColor });
   }
 
   handleLang = (lang) => {
     const newLang = lang.value;
-    const {
-      dispatchDefaultLanguage,
-    } = this.props;
+    const { dispatchDefaultLanguage } = this.props;
+    i18n.changeLanguage(newLang);
     dispatchDefaultLanguage({ newLang });
     this.postMessage({ defaul_lang: newLang });
   }
