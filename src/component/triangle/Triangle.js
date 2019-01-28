@@ -15,6 +15,7 @@ const Triangle = ({
   opacity,
   shapeStroke,
   radius,
+  handleDragMove,
 }) => (
   <Layer>
     <Shape
@@ -58,11 +59,14 @@ const Triangle = ({
       stroke={stroke}
       strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
+      onDragMove={handleDragMove}
+      draggable
     />
   </Layer>
 );
 
 Triangle.propTypes = {
+  handleDragMove: PropTypes.func.isRequired,
   color: PropTypes.string.isRequired,
   stroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
