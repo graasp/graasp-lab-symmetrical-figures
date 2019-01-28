@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import { withStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Settings';
-import Fab from '@material-ui/core/Fab';
+import i18n from '../../../../config/i18n';
+import SettingIcon from './SettingIcon';
 import './Styles.css';
+import Displayer from './Displayer';
 import LangBox from './LangBox';
 import SwitchBox from './SwitchBox';
 import {
   changedLanguage,
-  headerBackgroundColor,
+  themeColor,
+  titleState,
+  pointState,
+  gridState,
 } from '../../../../actions';
+import { AppState } from '../../../../config/AppState';
 
 const styles = theme => ({
   button: {
@@ -28,47 +33,76 @@ const styles = theme => ({
 });
 
 export class SettingModal extends Component {
+  state = AppState;
+
   static propTypes = {
     t: PropTypes.func.isRequired,
-    dispatchHeaderBackground: PropTypes.func.isRequired,
+    dispatchThemeColor: PropTypes.func.isRequired,
     dispatchDefaultLanguage: PropTypes.func.isRequired,
   };
 
   handleChangeComplete = (color) => {
     const newColor = color.hex;
-    const {
-      dispatchHeaderBackground,
-    } = this.props;
-    dispatchHeaderBackground({ newColor });
+    const { dispatchThemeColor } = this.props;
+    dispatchThemeColor({ newColor });
+    this.postMessage({ theme_color: newColor });
   }
 
   handleLang = (lang) => {
     const newLang = lang.value;
-    const {
-      dispatchDefaultLanguage,
-    } = this.props;
+    const { dispatchDefaultLanguage } = this.props;
+    i18n.changeLanguage(newLang);
     dispatchDefaultLanguage({ newLang });
+    this.postMessage({ defaul_lang: newLang });
   }
+
+  toggleTitle = () => {
+    const { showTitle } = this.state;
+    this.setState({ showTitle: !showTitle });
+    const { dispatchTitleState } = this.props;
+    dispatchTitleState({ showTitle });
+    this.postMessage({ show_title: showTitle });
+  }
+
+  handlePointsDisplay = () => {
+    const { showPoints } = this.state;
+    this.setState({ showPoints: !showPoints });
+    const { dispatchPointState } = this.props;
+    dispatchPointState({ showPoints });
+    this.postMessage({ show_points: showPoints });
+  }
+
+  handleCheck = () => {
+    const { showGrid } = this.state;
+    this.setState({ showGrid: !showGrid });
+    const { dispatchGridState } = this.props;
+    dispatchGridState({ showGrid });
+    this.postMessage({ show_grid: showGrid });
+  }
+
+  postMessage = (data) => {
+    const message = JSON.stringify(data);
+    console.log('message', message);
+    if (document.postMessage) {
+      document.postMessage(message, '*');
+    } else if (window.postMessage) {
+      window.postMessage(message, '*');
+    } else {
+      console.error('unable to find postMessage');
+    }
+  };
 
   render() {
     const {
       openModal,
-      onOpenModal,
       onCloseModal,
-      classes,
+      onOpenModal,
       t,
     } = this.props;
 
     return (
       <div className="modal-container">
-        <Fab
-          color="primary"
-          aria-label="Add"
-          onClick={onOpenModal}
-          className={classes.fab}
-        >
-          <AddIcon />
-        </Fab>
+        <SettingIcon onOpenModal={onOpenModal} />
         <Modal open={openModal} onClose={onCloseModal} center>
           <SwitchBox
             handleChangeComplete={this.handleChangeComplete}
@@ -76,6 +110,12 @@ export class SettingModal extends Component {
           />
           <LangBox
             handleLang={this.handleLang}
+            t={t}
+          />
+          <Displayer
+            toggleTitle={this.toggleTitle}
+            handlePointsDisplay={this.handlePointsDisplay}
+            handleCheck={this.handleCheck}
             t={t}
           />
         </Modal>
@@ -88,17 +128,23 @@ export class SettingModal extends Component {
 SettingModal.propTypes = {
   onOpenModal: PropTypes.func.isRequired,
   onCloseModal: PropTypes.func.isRequired,
+  dispatchTitleState: PropTypes.func.isRequired,
+  dispatchPointState: PropTypes.func.isRequired,
+  dispatchGridState: PropTypes.func.isRequired,
   openModal: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
   classes: PropTypes.shape({}).isRequired,
 };
 const mapStateToProps = state => ({
-  headerBackgroundColor: state.Setting.headerBackgroundColor,
+  themeColor: state.Setting.themeColor,
 });
 
 const mapDispatchToProps = {
-  dispatchHeaderBackground: headerBackgroundColor,
+  dispatchThemeColor: themeColor,
   dispatchDefaultLanguage: changedLanguage,
+  dispatchTitleState: titleState,
+  dispatchPointState: pointState,
+  dispatchGridState: gridState,
 };
 
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);

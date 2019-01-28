@@ -25,12 +25,12 @@ const renderApp = () => {
 
   const {
     lang = DEFAULT_LANGUAGE,
-    headerBackgroundColor = DEFAULT_BACKGROUND_COLOR,
+    themeColor = DEFAULT_BACKGROUND_COLOR,
   } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
 
   const config = {
     lang,
-    headerBackgroundColor,
+    themeColor,
   };
 
   i18n.changeLanguage(lang);
