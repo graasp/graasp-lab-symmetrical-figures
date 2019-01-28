@@ -16,7 +16,6 @@ import {
 } from '../../actions';
 import './Description.css';
 import Observe from './cases/observing/Observe';
-import TabComponent from './TabComponent';
 import Try from './cases/trying/Try';
 import { CoordState } from '../../config/CoordState';
 import {
@@ -368,11 +367,6 @@ export class Description extends Component {
     } = this.state;
     return (
       <div className="desc-container">
-        <TabComponent
-          obserViewActive={obserViewActive}
-          handleCase={this.handleCase}
-          t={t}
-        />
         { obserViewActive ? (
           <Observe
             handleForm={handleForm}
