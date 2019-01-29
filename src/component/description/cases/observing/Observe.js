@@ -19,6 +19,12 @@ export class Observe extends Component {
 
     return (
       <div className="observe-container">
+        <div className="short-description">
+          <h2>{t('Description')}</h2>
+          <p className="description-title">
+            {t('This Lab will allow you to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.')}
+          </p>
+        </div>
         <Forms
           handleForm={handleForm}
           isTriangleActive={isTriangleActive}
@@ -29,12 +35,6 @@ export class Observe extends Component {
           toggleLine={toggleLine}
           t={t}
         />
-        <div className="short-description">
-          <h2>{t('Description')}</h2>
-          <p className="description-title">
-            {t('This Lab will allow you to identify the tools needed to draw symmetrical figures with respect to a point or relative to a line.')}
-          </p>
-        </div>
       </div>
     );
   }
