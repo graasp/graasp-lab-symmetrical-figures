@@ -14,28 +14,34 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Fab from '@material-ui/core/Fab';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { Stage } from 'react-konva';
+import {
+  Circle,
+  Layer,
+  Line,
+  Stage,
+} from 'react-konva';
 import Description from '../description/Description';
 import HorizontalGrid from '../grids/HorizontalGrid';
 import VerticalGrid from '../grids/VerticalGrid';
-import TriangleView from '../triangleView/TriangleView';
-import PolygonView from '../polygonView/PolygonView';
-import SquareView from '../squareView/SquareView';
 import SettingModal from '../description/cases/observing/SettingModal';
 import Styles from './Styles';
-import {
-  blackStroke,
-  defaultSize,
-  IDENTIC_PATH_0,
-  IDENTIC_PATH_1,
-  IDENTIC_PATH_6,
-  IDENTIC_PATH_7,
-} from '../../constants/Common';
+import AppState from '../../config/AppState';
 
 const styles = Styles;
 
 class PersistentDrawerRight extends React.Component {
-  state = { open: false };
+  state = AppState;
+
+  componentDidMount() {
+    console.log('this this', this);
+    this.circleNode.getLayer().batchDraw();
+  }
+
+  handleCircleChange = (newCircle) => {
+    this.setState({
+      circlePoints: newCircle,
+    });
+  }
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -45,25 +51,69 @@ class PersistentDrawerRight extends React.Component {
     this.setState({ open: false });
   };
 
+  handleDragEnd = (e) => {
+    const { circlePoints, blockSnapSize } = this.state;
+    const newCirclePoints = [...circlePoints];
+    const newCircle = newCirclePoints.map(() => ({
+      x: Math.round(e.target.x() / blockSnapSize) * blockSnapSize,
+      y: Math.round(e.target.y() / blockSnapSize) * blockSnapSize,
+    }));
+    this.handleCircleChange(newCircle);
+  }
+
+  renderVerticalGrid = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const { blockSnapSize } = this.state;
+    const lines = [];
+    const grouped = width / blockSnapSize;
+    for (let i = 0; i < grouped; i += 1) {
+      lines.push(
+        <Line
+          key={i}
+          points={[Math.round(i * blockSnapSize) + 1, 0, Math.round(i * blockSnapSize) + 1, height]}
+          stroke="#CCC"
+          strokeWidth={1}
+        />,
+      );
+    }
+    return lines;
+  }
+
+  renderHorizontalGrid = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const { blockSnapSize } = this.state;
+    const lines = [];
+    const grouped = height / blockSnapSize;
+    for (let j = 0; j < grouped; j += 1) {
+      lines.push(
+        <Line
+          key={j}
+          points={[0, Math.round(j * blockSnapSize), width, Math.round(j * blockSnapSize)]}
+          stroke="#CCC"
+          strokeWidth={1}
+        />,
+      );
+    }
+    return lines;
+  }
+
+  handleMouseOver = () => {
+    console.log('mouse hovering circle', this.circleNode);
+  }
+
   render() {
     const {
       classes,
       theme,
       showTitle,
       themeColor,
-      color,
-      gridStroke,
-      gridStrokeWidth,
       height,
       kind,
       isPolygonActive,
       isSquareActive,
       isTriangleActive,
-      pointSize,
-      squareNodeA,
-      squareNodeB,
-      triangleNodeB,
-      midPointStroke,
       toggleLine,
       width,
       openModal,
@@ -76,7 +126,7 @@ class PersistentDrawerRight extends React.Component {
       mode,
       t,
     } = this.props;
-    const { open } = this.state;
+    const { open, circlePoints } = this.state;
 
     return (
       <div className={classes.root}>
@@ -123,65 +173,34 @@ class PersistentDrawerRight extends React.Component {
                 className={classes.fab}
                 style={{ backgroundColor: themeColor, outline: 'none' }}
               >
-                { open ? <MenuIcon style={{ color: 'white' }} /> : <ChevronRightIcon /> }
+                { open ? <ChevronRightIcon /> : <MenuIcon style={{ color: 'white' }} /> }
               </Fab>
             )
           }
           { showGrid ? (
             <Stage width={width} height={height}>
               <HorizontalGrid
-                blackStroke={blackStroke}
-                defaultSize={defaultSize}
-                stroke={gridStroke}
-                strokeWidth={gridStrokeWidth}
-                IDENTIC_PATH_0={IDENTIC_PATH_0}
-                IDENTIC_PATH_1={IDENTIC_PATH_1}
-                IDENTIC_PATH_6={IDENTIC_PATH_6}
+                renderHorizontalGrid={this.renderHorizontalGrid()}
               />
               <VerticalGrid
-                blackStroke={blackStroke}
-                defaultSize={defaultSize}
-                stroke={gridStroke}
-                strokeWidth={gridStrokeWidth}
-                IDENTIC_PATH_0={IDENTIC_PATH_0}
-                IDENTIC_PATH_1={IDENTIC_PATH_1}
-                IDENTIC_PATH_7={IDENTIC_PATH_7}
+                renderVerticalGrid={this.renderVerticalGrid()}
               />
+              <Layer>
+                <Circle
+                  x={circlePoints[0].x}
+                  y={circlePoints[0].y}
+                  radius={10}
+                  fill="pink"
+                  stroke={2}
+                  strokeWidth={1}
+                  shadowBlur={14}
+                  draggable
+                  onDragEnd={this.handleDragEnd}
+                  ref={(node) => { this.circleNode = node; }}
+                  onMouseEnter={this.handleMouseOver}
+                />
+              </Layer>
             </Stage>
-          ) : ''
-          }
-          { isTriangleActive ? (
-            <TriangleView
-              triangleNodeB={triangleNodeB}
-              toggleLine={toggleLine}
-              showPoints={showPoints}
-            />
-          ) : ''
-          }
-          { isPolygonActive ? (
-            <PolygonView
-              color={color}
-              height={height}
-              midPointStroke={midPointStroke}
-              pointSize={pointSize}
-              showPoints={showPoints}
-              toggleLine={toggleLine}
-              width={width}
-            />
-          ) : ''
-          }
-          { isSquareActive ? (
-            <SquareView
-              color={color}
-              height={height}
-              midPointStroke={midPointStroke}
-              pointSize={pointSize}
-              squareNodeA={squareNodeA}
-              squareNodeB={squareNodeB}
-              showPoints={showPoints}
-              toggleLine={toggleLine}
-              width={width}
-            />
           ) : ''
           }
         </main>
@@ -235,19 +254,14 @@ PersistentDrawerRight.propTypes = {
   themeColor: PropTypes.string.isRequired,
   showTitle: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired,
-  gridStroke: PropTypes.string.isRequired,
-  gridStrokeWidth: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   kind: PropTypes.string.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
-  pointSize: PropTypes.number.isRequired,
   squareNodeA: PropTypes.shape({}).isRequired,
   squareNodeB: PropTypes.shape({}).isRequired,
   triangleNodeB: PropTypes.shape({}).isRequired,
-  midPointStroke: PropTypes.string.isRequired,
   toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
   openModal: PropTypes.bool.isRequired,
