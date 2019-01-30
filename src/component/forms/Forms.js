@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Col,
   Input,
-  Row,
   UncontrolledTooltip,
 } from 'reactstrap';
 import Triangle from './Triangle.svg';
@@ -20,7 +19,7 @@ const Forms = ({
     <h2 className="description-choice">
       {t('Choose a form')}
     </h2>
-    <Row>
+    <div className="flex-parent">
       <Col md={4}>
         <img
           src={Triangle}
@@ -54,8 +53,8 @@ const Forms = ({
           {('Polygon')}
         </UncontrolledTooltip>
       </Col>
-    </Row>
-    <Row className="forms-choice">
+    </div>
+    <div className="forms-choice">
       <Col md={4}>
         <Input
           type="radio"
@@ -81,7 +80,7 @@ const Forms = ({
           onChange={e => handleForm(e, 'polygon')}
         />
       </Col>
-    </Row>
+    </div>
   </div>
 );
 

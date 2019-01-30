@@ -61,8 +61,8 @@ class PersistentDrawerRight extends React.Component {
   }
 
   renderVerticalGrid = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = (2 / 3) * (window.innerWidth);
+    const height = (5 / 6) * window.innerHeight;
     const { blockSnapSize } = this.state;
     const lines = [];
     const grouped = width / blockSnapSize;
@@ -80,8 +80,8 @@ class PersistentDrawerRight extends React.Component {
   }
 
   renderHorizontalGrid = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = (2 / 3) * window.innerWidth;
+    const height = (5 / 6) * window.innerHeight;
     const { blockSnapSize } = this.state;
     const lines = [];
     const grouped = height / blockSnapSize;

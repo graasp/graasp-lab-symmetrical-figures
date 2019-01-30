@@ -16,3 +16,6 @@
 .form-checker {
   cursor: pointer;
 }
+.forms-choice, .flex-parent {
+  display: flex;
+}
