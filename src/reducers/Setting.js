@@ -9,7 +9,7 @@ import {
 
 const INITIAL_STATE = {
   changedLanguage: 'en',
-  themeColor: '#2196F5',
+  themeColor: 'rgb(0, 150, 136)',
   showTitle: true,
   showPoints: true,
   showGrid: true,
