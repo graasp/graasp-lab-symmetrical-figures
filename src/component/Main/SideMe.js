@@ -33,7 +33,6 @@ class PersistentDrawerRight extends React.Component {
   state = AppState;
 
   componentDidMount() {
-    console.log('this this', this);
     this.circleNode.getLayer().batchDraw();
   }
 
