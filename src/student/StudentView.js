@@ -3,25 +3,9 @@ import PropTypes from 'prop-types';
 import Qs from 'qs';
 import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
-import { Col, Row } from 'reactstrap';
-import { Stage } from 'react-konva';
 import './StudentView.css';
-import SettingModal from '../component/description/cases/observing/SettingModal';
-import Description from '../component/description/Description';
-import HorizontalGrid from '../component/grids/HorizontalGrid';
-import VerticalGrid from '../component/grids/VerticalGrid';
-import TriangleView from '../component/triangleView/TriangleView';
-import PolygonView from '../component/polygonView/PolygonView';
-import SquareView from '../component/squareView/SquareView';
+import SideMe from '../component/Main/SideMe';
 import { AppState } from '../config/AppState';
-import {
-  blackStroke,
-  defaultSize,
-  IDENTIC_PATH_0,
-  IDENTIC_PATH_1,
-  IDENTIC_PATH_6,
-  IDENTIC_PATH_7,
-} from '../constants/Common';
 
 class StudentView extends Component {
   static propTypes = {
@@ -144,102 +128,34 @@ class StudentView extends Component {
     } = this.props;
     return (
       <div className="app-parent">
-        <Row>
-          <Col md={12}>
-            { showTitle ? (
-              <h1 className="lab-title" style={{ backgroundColor: themeColor }}>{t('Symmetrical Figures')}</h1>
-            ) : ''
-            }
-          </Col>
-        </Row>
-        <Row className="app-loader">
-          <Col md={8} className="triangle-container">
-            { showGrid ? (
-              <Stage width={width} height={height}>
-                <HorizontalGrid
-                  blackStroke={blackStroke}
-                  defaultSize={defaultSize}
-                  stroke={gridStroke}
-                  strokeWidth={gridStrokeWidth}
-                  IDENTIC_PATH_0={IDENTIC_PATH_0}
-                  IDENTIC_PATH_1={IDENTIC_PATH_1}
-                  IDENTIC_PATH_6={IDENTIC_PATH_6}
-                />
-                <VerticalGrid
-                  blackStroke={blackStroke}
-                  defaultSize={defaultSize}
-                  stroke={gridStroke}
-                  strokeWidth={gridStrokeWidth}
-                  IDENTIC_PATH_0={IDENTIC_PATH_0}
-                  IDENTIC_PATH_1={IDENTIC_PATH_1}
-                  IDENTIC_PATH_7={IDENTIC_PATH_7}
-                />
-              </Stage>
-            ) : ''
-            }
-            { isTriangleActive ? (
-              <TriangleView
-                triangleNodeB={triangleNodeB}
-                toggleLine={toggleLine}
-                showPoints={showPoints}
-              />
-            ) : ''
-            }
-            { isPolygonActive ? (
-              <PolygonView
-                color={color}
-                height={height}
-                midPointStroke={midPointStroke}
-                pointSize={pointSize}
-                showPoints={showPoints}
-                toggleLine={toggleLine}
-                width={width}
-              />
-            ) : ''
-            }
-            { isSquareActive ? (
-              <SquareView
-                color={color}
-                height={height}
-                midPointStroke={midPointStroke}
-                pointSize={pointSize}
-                squareNodeA={squareNodeA}
-                squareNodeB={squareNodeB}
-                showPoints={showPoints}
-                toggleLine={toggleLine}
-                width={width}
-              />
-            ) : ''
-            }
-
-          </Col>
-          <Col md={4} className="description-container">
-            <div className="text-center">
-              <Description
-                handleForm={this.handleForm}
-                showGrid={showGrid}
-                showTitle={showTitle}
-                showPoints={showPoints}
-                handleView={this.handleView}
-                kind={kind}
-                isPolygonActive={isPolygonActive}
-                isSquareActive={isSquareActive}
-                isTriangleActive={isTriangleActive}
-                toggleLine={toggleLine}
-                t={t}
-              />
-            </div>
-          </Col>
-        </Row>
-        { mode === 'default' ? (
-          <SettingModal
-            openModal={openModal}
-            onOpenModal={this.onOpenModal}
-            onCloseModal={this.onCloseModal}
-            t={t}
-          />
-        ) : ''
-        }
+        <SideMe
+          handleForm={this.handleForm}
+          showGrid={showGrid}
+          showTitle={showTitle}
+          showPoints={showPoints}
+          handleView={this.handleView}
+          kind={kind}
+          isPolygonActive={isPolygonActive}
+          isSquareActive={isSquareActive}
+          isTriangleActive={isTriangleActive}
+          toggleLine={toggleLine}
+          t={t}
+          color={color}
+          height={height}
+          midPointStroke={midPointStroke}
+          pointSize={pointSize}
+          squareNodeA={squareNodeA}
+          squareNodeB={squareNodeB}
+          width={width}
+          gridStroke={gridStroke}
+          gridStrokeWidth={gridStrokeWidth}
+          triangleNodeB={triangleNodeB}
+          openModal={openModal}
+          themeColor={themeColor}
+          onOpenModal={this.onOpenModal}
+          onCloseModal={this.onCloseModal}
+          mode={mode}
+        />
       </div>
     );
   }
