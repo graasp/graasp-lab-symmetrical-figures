@@ -24,6 +24,7 @@ import Description from '../description/Description';
 import HorizontalGrid from '../grids/HorizontalGrid';
 import VerticalGrid from '../grids/VerticalGrid';
 import SettingModal from '../description/cases/observing/SettingModal';
+import TriangleView from '../triangleView/TriangleView';
 import Styles from './Styles';
 import AppState from '../../config/AppState';
 
@@ -123,6 +124,7 @@ class PersistentDrawerRight extends React.Component {
       onOpenModal,
       onCloseModal,
       mode,
+      triangleNodeB,
       t,
     } = this.props;
     const { open, circlePoints } = this.state;
@@ -159,6 +161,11 @@ class PersistentDrawerRight extends React.Component {
             [classes.contentShift]: open,
           })}
         >
+          <TriangleView
+            triangleNodeB={triangleNodeB}
+            toggleLine={toggleLine}
+            showPoints={showPoints}
+          />
           { showTitle ? (
             <div className={classes.drawerHeader} />
           ) : ''
