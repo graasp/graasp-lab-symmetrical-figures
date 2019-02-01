@@ -49,7 +49,7 @@ class SideMenu extends React.Component {
     const {
       classes,
       theme,
-      showTitle,
+      showHeader,
       themeColor,
       color,
       gridStroke,
@@ -81,7 +81,7 @@ class SideMenu extends React.Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        { showTitle ? (
+        { showHeader ? (
           <AppBar
             position="fixed"
             className={classNames(classes.appBar, {
@@ -110,11 +110,11 @@ class SideMenu extends React.Component {
             [classes.contentShift]: open,
           })}
         >
-          { showTitle ? (
+          { showHeader ? (
             <div className={classes.drawerHeader} />
           ) : ''
           }
-          { showTitle ? ''
+          { showHeader ? ''
             : (
               <Fab
                 color="primary"
@@ -204,7 +204,7 @@ class SideMenu extends React.Component {
           <Description
             handleForm={handleForm}
             showGrid={showGrid}
-            showTitle={showTitle}
+            showHeader={showHeader}
             showPoints={showPoints}
             handleView={handleView}
             kind={kind}
@@ -233,7 +233,7 @@ SideMenu.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   theme: PropTypes.shape({}).isRequired,
   themeColor: PropTypes.string.isRequired,
-  showTitle: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
   color: PropTypes.string.isRequired,
   gridStroke: PropTypes.string.isRequired,
@@ -261,8 +261,8 @@ SideMenu.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
-  showTitle: state.Setting.showTitle,
+  themeColor: state.layout.themeColor,
+  showHeader: state.layout.showHeader,
 });
 
 const connectedComponent = connect(mapStateToProps)(SideMenu);

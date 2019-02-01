@@ -128,10 +128,10 @@ MainView.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
-  showTitle: state.Setting.showTitle,
-  showGrid: state.Setting.showGrid,
-  showPoints: state.Setting.showPoints,
+  themeColor: state.layout.themeColor,
+  showHeader: state.layout.showHeader,
+  showGrid: state.simulation.showGrid,
+  showPoints: state.simulation.showPoints,
 });
 
 const connectedComponent = connect(mapStateToProps)(MainView);

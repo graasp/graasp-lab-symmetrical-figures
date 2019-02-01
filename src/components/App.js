@@ -37,7 +37,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  changedLanguage: state.Setting.changedLanguage,
+  changedLanguage: state.setting.changedLanguage,
 });
 
 const connectedComponent = connect(mapStateToProps)(App);

@@ -13,7 +13,7 @@ import SwitchBox from './SwitchBox';
 import {
   changedLanguage,
   themeColor,
-  titleState,
+  toggleHeader,
   pointState,
   gridState,
 } from '../../../../actions';
@@ -58,11 +58,11 @@ export class SettingModal extends Component {
   }
 
   toggleTitle = () => {
-    const { showTitle } = this.state;
-    this.setState({ showTitle: !showTitle });
+    const { showHeader } = this.state;
+    this.setState({ showHeader: !showHeader });
     const { dispatchTitleState } = this.props;
-    dispatchTitleState({ showTitle });
-    this.postMessage({ show_title: showTitle });
+    dispatchTitleState({ showHeader });
+    this.postMessage({ show_title: showHeader });
   }
 
   handlePointsDisplay = () => {
@@ -145,13 +145,13 @@ SettingModal.propTypes = {
   classes: PropTypes.shape({}).isRequired,
 };
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
+  themeColor: state.layout.themeColor,
 });
 
 const mapDispatchToProps = {
   dispatchThemeColor: themeColor,
   dispatchDefaultLanguage: changedLanguage,
-  dispatchTitleState: titleState,
+  dispatchTitleState: toggleHeader,
   dispatchPointState: pointState,
   dispatchGridState: gridState,
 };

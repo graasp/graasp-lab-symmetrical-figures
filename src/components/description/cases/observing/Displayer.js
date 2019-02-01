@@ -25,7 +25,7 @@ const styles = theme => ({
 const Displayer = ({
   t,
   toggleTitle,
-  showTitle,
+  showHeader,
   handleCheck,
   handlePointsDisplay,
   showPoints,
@@ -39,7 +39,7 @@ const Displayer = ({
       <Col xs={4}>
         <Switch
           onChange={toggleTitle}
-          checked={showTitle}
+          checked={showHeader}
           id="title-switch"
         />
       </Col>
@@ -74,7 +74,7 @@ const Displayer = ({
 Displayer.propTypes = {
   t: PropTypes.func.isRequired,
   toggleTitle: PropTypes.func.isRequired,
-  showTitle: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool.isRequired,
   classes: PropTypes.shape({}).isRequired,
   handleCheck: PropTypes.func.isRequired,
   handlePointsDisplay: PropTypes.func.isRequired,
@@ -82,10 +82,10 @@ Displayer.propTypes = {
   showGrid: PropTypes.bool.isRequired,
 };
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
-  showTitle: state.Setting.showTitle,
-  showPoints: state.Setting.showPoints,
-  showGrid: state.Setting.showGrid,
+  themeColor: state.layout.themeColor,
+  showHeader: state.layout.showHeader,
+  showPoints: state.simulation.showPoints,
+  showGrid: state.simulation.showGrid,
 });
 
 const connectedComponent = connect(mapStateToProps)(Displayer);

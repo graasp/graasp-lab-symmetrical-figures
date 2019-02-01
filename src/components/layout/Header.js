@@ -27,13 +27,13 @@ class Header extends Component {
   render() {
     const {
       classes,
-      showTitle,
+      showHeader,
       themeColor,
       t,
       showSideMenu,
     } = this.props;
 
-    if (!showTitle) {
+    if (!showHeader) {
       return <Fragment />;
     }
 
@@ -66,16 +66,16 @@ class Header extends Component {
 Header.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   themeColor: PropTypes.string.isRequired,
-  showTitle: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
   dispatchToggleSideMenu: PropTypes.func.isRequired,
   showSideMenu: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
-  showTitle: state.Setting.showTitle,
-  showSideMenu: state.Setting.showSideMenu,
+  themeColor: state.layout.themeColor,
+  showHeader: state.layout.showHeader,
+  showSideMenu: state.layout.showSideMenu,
 });
 
 const mapDispatchToProps = {

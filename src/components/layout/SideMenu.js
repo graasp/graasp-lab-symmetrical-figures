@@ -35,7 +35,7 @@ class SideMenu extends Component {
       toggleLine,
       showGrid,
       showPoints,
-      showTitle,
+      showHeader,
       handleForm,
       handleView,
       showSideMenu,
@@ -64,7 +64,7 @@ class SideMenu extends Component {
           <Description
             handleForm={handleForm}
             showGrid={showGrid}
-            showTitle={showTitle}
+            showHeader={showHeader}
             showPoints={showPoints}
             handleView={handleView}
             kind={kind}
@@ -83,7 +83,7 @@ class SideMenu extends Component {
 SideMenu.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   theme: PropTypes.shape({}).isRequired,
-  showTitle: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
   kind: PropTypes.string.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
@@ -99,11 +99,11 @@ SideMenu.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
-  showTitle: state.Setting.showTitle,
-  showGrid: state.Setting.showGrid,
-  showPoints: state.Setting.showPoints,
-  showSideMenu: state.Setting.showSideMenu,
+  themeColor: state.layout.themeColor,
+  showHeader: state.layout.showHeader,
+  showSideMenu: state.layout.showSideMenu,
+  showGrid: state.simulation.showGrid,
+  showPoints: state.simulation.showPoints,
 });
 
 const mapDispatchToProps = {

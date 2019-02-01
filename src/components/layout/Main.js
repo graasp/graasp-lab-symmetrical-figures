@@ -48,7 +48,7 @@ class Main extends Component {
       pointSize,
       showGrid,
       showPoints,
-      showTitle,
+      showHeader,
       showSideMenu,
       themeColor,
       squareNodeA,
@@ -64,11 +64,11 @@ class Main extends Component {
           [classes.contentShift]: showSideMenu,
         })}
       >
-        { showTitle ? (
+        { showHeader ? (
           <div className={classes.drawerHeader} />
         ) : ''
         }
-        { showTitle ? ''
+        { showHeader ? ''
           : (
             <Fab
               color="primary"
@@ -147,7 +147,7 @@ Main.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   theme: PropTypes.shape({}).isRequired,
   themeColor: PropTypes.string.isRequired,
-  showTitle: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool.isRequired,
   color: PropTypes.string.isRequired,
   gridStroke: PropTypes.string.isRequired,
   gridStrokeWidth: PropTypes.number.isRequired,
@@ -169,11 +169,11 @@ Main.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
-  showGrid: state.Setting.showGrid,
-  showTitle: state.Setting.showTitle,
-  showPoints: state.Setting.showPoints,
-  showSideMenu: state.Setting.showSideMenu,
+  themeColor: state.layout.themeColor,
+  showHeader: state.layout.showHeader,
+  showSideMenu: state.layout.showSideMenu,
+  showGrid: state.simulation.showGrid,
+  showPoints: state.simulation.showPoints,
 });
 
 const mapDispatchToProps = {

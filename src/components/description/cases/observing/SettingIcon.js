@@ -43,7 +43,7 @@ SettingIcon.propTypes = {
   classes: PropTypes.shape({}).isRequired,
 };
 const mapStateToProps = state => ({
-  themeColor: state.Setting.themeColor,
+  themeColor: state.layout.themeColor,
 });
 
 const connectedComponent = connect(mapStateToProps)(SettingIcon);
