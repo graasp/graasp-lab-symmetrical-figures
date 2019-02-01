@@ -12,7 +12,7 @@ import LangBox from './LangBox';
 import SwitchBox from './SwitchBox';
 import {
   changedLanguage,
-  themeColor,
+  changeThemeColor,
   toggleHeader,
   pointState,
   gridState,
@@ -38,14 +38,14 @@ export class SettingModal extends Component {
 
   static propTypes = {
     t: PropTypes.func.isRequired,
-    dispatchThemeColor: PropTypes.func.isRequired,
+    dispatchChangeThemeColor: PropTypes.func.isRequired,
     dispatchDefaultLanguage: PropTypes.func.isRequired,
   };
 
   handleChangeComplete = (color) => {
     const newColor = color.hex;
-    const { dispatchThemeColor } = this.props;
-    dispatchThemeColor({ newColor });
+    const { dispatchChangeThemeColor } = this.props;
+    dispatchChangeThemeColor(newColor);
     this.postMessage({ theme_color: newColor });
   }
 
@@ -57,27 +57,21 @@ export class SettingModal extends Component {
     this.postMessage({ defaul_lang: newLang });
   }
 
-  toggleTitle = () => {
-    const { showHeader } = this.state;
-    this.setState({ showHeader: !showHeader });
-    const { dispatchTitleState } = this.props;
-    dispatchTitleState({ showHeader });
-    this.postMessage({ show_title: showHeader });
+  handleToggleHeader = showHeader => () => {
+    const { dispatchToggleHeader } = this.props;
+    dispatchToggleHeader(showHeader);
+    this.postMessage({ show_header: showHeader });
   }
 
-  handlePointsDisplay = () => {
-    const { showPoints } = this.state;
-    this.setState({ showPoints: !showPoints });
-    const { dispatchPointState } = this.props;
-    dispatchPointState({ showPoints });
+  handleTogglePoints = showPoints => () => {
+    const { dispatchTogglePoints } = this.props;
+    dispatchTogglePoints(showPoints);
     this.postMessage({ show_points: showPoints });
   }
 
-  handleCheck = () => {
-    const { showGrid } = this.state;
-    this.setState({ showGrid: !showGrid });
-    const { dispatchGridState } = this.props;
-    dispatchGridState({ showGrid });
+  handleToggleGrid = showGrid => () => {
+    const { dispatchToggleGrid } = this.props;
+    dispatchToggleGrid(showGrid);
     this.postMessage({ show_grid: showGrid });
   }
 
@@ -106,11 +100,12 @@ export class SettingModal extends Component {
   render() {
     const {
       t,
+      showHeader,
+      showPoints,
+      showGrid,
     } = this.props;
 
-    const {
-      openModal,
-    } = this.state;
+    const { openModal } = this.state;
 
     return (
       <div className="modal-container">
@@ -125,9 +120,9 @@ export class SettingModal extends Component {
             t={t}
           />
           <Displayer
-            toggleTitle={this.toggleTitle}
-            handlePointsDisplay={this.handlePointsDisplay}
-            handleCheck={this.handleCheck}
+            toggleTitle={this.handleToggleHeader(!showHeader)}
+            handlePointsDisplay={this.handleTogglePoints(!showPoints)}
+            handleCheck={this.handleToggleGrid(!showGrid)}
             t={t}
           />
         </Modal>
@@ -138,22 +133,28 @@ export class SettingModal extends Component {
 
 
 SettingModal.propTypes = {
-  dispatchTitleState: PropTypes.func.isRequired,
-  dispatchPointState: PropTypes.func.isRequired,
-  dispatchGridState: PropTypes.func.isRequired,
+  dispatchToggleHeader: PropTypes.func.isRequired,
+  dispatchTogglePoints: PropTypes.func.isRequired,
+  dispatchToggleGrid: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   classes: PropTypes.shape({}).isRequired,
+  showGrid: PropTypes.bool.isRequired,
+  showPoints: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool.isRequired,
 };
 const mapStateToProps = state => ({
   themeColor: state.layout.themeColor,
+  showHeader: state.layout.showHeader,
+  showPoints: state.simulation.showPoints,
+  showGrid: state.simulation.showGrid,
 });
 
 const mapDispatchToProps = {
-  dispatchThemeColor: themeColor,
+  dispatchChangeThemeColor: changeThemeColor,
   dispatchDefaultLanguage: changedLanguage,
-  dispatchTitleState: toggleHeader,
-  dispatchPointState: pointState,
-  dispatchGridState: gridState,
+  dispatchToggleHeader: toggleHeader,
+  dispatchTogglePoints: pointState,
+  dispatchToggleGrid: gridState,
 };
 
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);

@@ -11,22 +11,22 @@ export const toggleSideMenu = payload => (dispatch) => {
   });
 };
 
-export const toggleHeader = ({ showHeader }) => (dispatch) => {
+export const toggleHeader = showHeader => (dispatch) => {
   dispatch({
     type: TOGGLE_HEADER,
     payload: showHeader,
   });
 };
 
-export const themeColor = ({ newColor }) => (dispatch) => {
+export const changeThemeColor = themeColor => (dispatch) => {
   dispatch({
     type: CHANGE_THEME_COLOR,
-    payload: newColor,
+    payload: themeColor,
   });
 };
 
 export default {
   toggleSideMenu,
   toggleHeader,
-  themeColor,
+  changeThemeColor,
 };
