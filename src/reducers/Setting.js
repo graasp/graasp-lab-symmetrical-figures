@@ -5,14 +5,16 @@ import {
   SET_TITLE_STATE,
   SET_GRID_STATE,
   SET_POINT_STATE,
+  TOGGLE_SIDE_MENU,
 } from '../types';
 
 const INITIAL_STATE = {
   changedLanguage: 'en',
-  themeColor: '#2196F5',
+  themeColor: 'rgb(0, 150, 136)',
   showTitle: true,
   showPoints: true,
   showGrid: true,
+  showSideMenu: false,
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -41,6 +43,11 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         showPoints: payload,
+      };
+    case TOGGLE_SIDE_MENU:
+      return {
+        ...state,
+        showSideMenu: payload,
       };
     case SET_CONFIG:
       return {
