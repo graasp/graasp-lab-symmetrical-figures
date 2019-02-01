@@ -99,10 +99,11 @@ export class SettingModal extends Component {
 
   render() {
     const {
-      t,
       showHeader,
       showPoints,
       showGrid,
+      t,
+      themeColor,
     } = this.props;
 
     const { openModal } = this.state;
@@ -112,6 +113,7 @@ export class SettingModal extends Component {
         <SettingIcon onOpenModal={this.onOpenModal} />
         <Modal open={openModal} onClose={this.onCloseModal} center>
           <SwitchBox
+            themeColor={themeColor}
             handleChangeComplete={this.handleChangeComplete}
             t={t}
           />
@@ -141,6 +143,7 @@ SettingModal.propTypes = {
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
   showHeader: PropTypes.bool.isRequired,
+  themeColor: PropTypes.string.isRequired,
 };
 const mapStateToProps = state => ({
   themeColor: state.layout.themeColor,

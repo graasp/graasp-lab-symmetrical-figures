@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import polygonReducer from './polygon';
 import squareReducer from './square';
-import settingReducer from './Setting';
+import settingReducer from './setting';
 import triangleReducer from './triangle';
 import layoutreducer from './layout';
 import simulationReducer from './simulation';
