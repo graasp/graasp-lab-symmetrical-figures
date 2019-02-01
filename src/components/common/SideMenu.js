@@ -34,7 +34,7 @@ import {
 
 const styles = Styles;
 
-class PersistentDrawerRight extends React.Component {
+class SideMenu extends React.Component {
   state = { open: false };
 
   handleDrawerOpen = () => {
@@ -229,7 +229,7 @@ class PersistentDrawerRight extends React.Component {
   }
 }
 
-PersistentDrawerRight.propTypes = {
+SideMenu.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   theme: PropTypes.shape({}).isRequired,
   themeColor: PropTypes.string.isRequired,
@@ -265,6 +265,6 @@ const mapStateToProps = state => ({
   showTitle: state.Setting.showTitle,
 });
 
-const connectedComponent = connect(mapStateToProps)(PersistentDrawerRight);
+const connectedComponent = connect(mapStateToProps)(SideMenu);
 
 export default withStyles(styles, { withTheme: true })(connectedComponent);

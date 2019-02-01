@@ -1,0 +1,10 @@
+html, body, #root, #root>div, .app-loader {
+  height: 100%;
+  background-color: #fafafa;
+}
+.App {
+  text-align: center;
+}
+.App-body {
+  padding: 2rem;
+}

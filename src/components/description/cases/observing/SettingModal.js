@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
+import { withNamespaces } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '../../../../config/i18n';
 import SettingIcon from './SettingIcon';
@@ -80,6 +81,16 @@ export class SettingModal extends Component {
     this.postMessage({ show_grid: showGrid });
   }
 
+  onOpenModal = () => {
+    this.setState({ openModal: true });
+    this.postMessage({ open_setting_modal: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ openModal: false });
+    this.postMessage({ open_setting_modal: false });
+  };
+
   postMessage = (data) => {
     const message = JSON.stringify(data);
     console.log('message', message);
@@ -94,16 +105,17 @@ export class SettingModal extends Component {
 
   render() {
     const {
-      openModal,
-      onCloseModal,
-      onOpenModal,
       t,
     } = this.props;
 
+    const {
+      openModal,
+    } = this.state;
+
     return (
       <div className="modal-container">
-        <SettingIcon onOpenModal={onOpenModal} />
-        <Modal open={openModal} onClose={onCloseModal} center>
+        <SettingIcon onOpenModal={this.onOpenModal} />
+        <Modal open={openModal} onClose={this.onCloseModal} center>
           <SwitchBox
             handleChangeComplete={this.handleChangeComplete}
             t={t}
@@ -126,12 +138,9 @@ export class SettingModal extends Component {
 
 
 SettingModal.propTypes = {
-  onOpenModal: PropTypes.func.isRequired,
-  onCloseModal: PropTypes.func.isRequired,
   dispatchTitleState: PropTypes.func.isRequired,
   dispatchPointState: PropTypes.func.isRequired,
   dispatchGridState: PropTypes.func.isRequired,
-  openModal: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
   classes: PropTypes.shape({}).isRequired,
 };
@@ -147,5 +156,7 @@ const mapDispatchToProps = {
   dispatchGridState: gridState,
 };
 
-const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);
-export default withStyles(styles)(connectedComponent);
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);
+const StyledComponent = withStyles(styles)(ConnectedComponent);
+
+export default withNamespaces()(StyledComponent);

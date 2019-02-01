@@ -1,0 +1,88 @@
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
+import { withNamespaces } from 'react-i18next';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Styles from '../common/Styles';
+import { AppState } from '../../config/AppState';
+import { toggleSideMenu } from '../../actions';
+
+const styles = Styles;
+
+class Header extends Component {
+  state = AppState;
+
+
+  handleToggleSideMenu = open => () => {
+    const { dispatchToggleSideMenu } = this.props;
+    dispatchToggleSideMenu(open);
+  }
+
+  render() {
+    const {
+      classes,
+      showTitle,
+      themeColor,
+      t,
+      showSideMenu,
+    } = this.props;
+
+    if (!showTitle) {
+      return <Fragment />;
+    }
+
+    return (
+      <AppBar
+        position="fixed"
+        className={classNames(classes.appBar, {
+          [classes.appBarShift]: showSideMenu,
+        })}
+      >
+        <Toolbar disableGutters style={{ backgroundColor: themeColor }}>
+          <Typography variant="h4" color="inherit" noWrap className={classes.title}>
+            {t('Symmetrical Figures')}
+          </Typography>
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            onClick={this.handleToggleSideMenu(true)}
+            className={classNames(classes.menuButton, showSideMenu && classes.hide)}
+            style={{ outline: 'none' }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    );
+  }
+}
+
+Header.propTypes = {
+  classes: PropTypes.shape({}).isRequired,
+  themeColor: PropTypes.string.isRequired,
+  showTitle: PropTypes.bool.isRequired,
+  t: PropTypes.func.isRequired,
+  dispatchToggleSideMenu: PropTypes.func.isRequired,
+  showSideMenu: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  themeColor: state.Setting.themeColor,
+  showTitle: state.Setting.showTitle,
+  showSideMenu: state.Setting.showSideMenu,
+});
+
+const mapDispatchToProps = {
+  dispatchToggleSideMenu: toggleSideMenu,
+};
+
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Header);
+const StyledComponent = withStyles(styles)(ConnectedComponent);
+
+export default withNamespaces()(StyledComponent);
