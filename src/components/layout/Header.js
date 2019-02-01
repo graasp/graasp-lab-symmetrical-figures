@@ -28,9 +28,9 @@ class Header extends Component {
     const {
       classes,
       showHeader,
+      showSideMenu,
       themeColor,
       t,
-      showSideMenu,
     } = this.props;
 
     if (!showHeader) {
