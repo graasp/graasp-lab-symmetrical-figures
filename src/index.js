@@ -7,7 +7,7 @@ import Qs from 'qs';
 import async from './middlewares/async';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import Root from './Root';
+import Root from './components/Root';
 import reducers from './reducers';
 import i18n from './config/i18n';
 import registerServiceWorker from './registerServiceWorker';
