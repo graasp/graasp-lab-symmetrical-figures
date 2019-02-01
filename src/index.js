@@ -11,8 +11,7 @@ import Root from './components/Root';
 import reducers from './reducers';
 import i18n from './config/i18n';
 import registerServiceWorker from './registerServiceWorker';
-import { DEFAULT_LANGUAGE, DEFAULT_BACKGROUND_COLOR } from './constants/Settings';
-import { setConfig } from './actions';
+import { DEFAULT_LANGUAGE } from './constants/Settings';
 
 const root = document.getElementById('root');
 const initialState = {};
@@ -25,17 +24,10 @@ const renderApp = () => {
 
   const {
     lang = DEFAULT_LANGUAGE,
-    themeColor = DEFAULT_BACKGROUND_COLOR,
   } = Qs.parse(window.location.search, { ignoreQueryPrefix: true });
-
-  const config = {
-    lang,
-    themeColor,
-  };
 
   i18n.changeLanguage(lang);
 
-  store.dispatch(setConfig(config));
 
   ReactDOM.render(
     <Provider store={store}>
