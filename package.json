@@ -37,11 +37,15 @@
     "react-switch": "3.0.4",
     "reactstrap": "6.5.0",
     "redux": "4.0.1",
+    "redux-devtools-extension": "2.13.7",
     "redux-thunk": "2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "start:local": "env-cmd ./.env.local yarn start",
+    "start:api": "yarn reset:api && json-server --watch data/db.json --port 3636 --id _id --routes data/routes.json",
+    "reset:api": "cat data/default.json > data/db.json",
     "lint": "eslint .",
     "test": "react-scripts test",
     "test:ci": "cross-env CI=true env-cmd ./.env.test react-scripts test --coverage",
