@@ -5,6 +5,9 @@ import settingReducer from './Setting';
 import triangleReducer from './triangle';
 import layoutreducer from './layout';
 import simulationReducer from './simulation';
+import appInstanceReducer from './appInstance';
+import contextReducer from './context';
+import userReducer from './users';
 
 export default combineReducers({
   polygon: polygonReducer,
@@ -13,4 +16,7 @@ export default combineReducers({
   triangle: triangleReducer,
   layout: layoutreducer,
   simulation: simulationReducer,
+  context: contextReducer,
+  appInstance: appInstanceReducer,
+  users: userReducer,
 });
