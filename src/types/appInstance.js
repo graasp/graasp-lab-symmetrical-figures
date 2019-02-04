@@ -1,6 +1,3 @@
-// todo: deal with this
-export const APPEND_SVG = 'APPEND_SVG';
-
 // get one app instance
 export const FLAG_GETTING_APP_INSTANCE = 'FLAG_GETTING_APP_INSTANCE';
 export const GET_APP_INSTANCE_SUCCEEDED = 'GET_APP_INSTANCE_SUCCEEDED';

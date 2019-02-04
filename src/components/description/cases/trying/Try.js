@@ -4,9 +4,9 @@ import { Button } from 'reactstrap';
 import './Try.css';
 import TableContent from '../table/TableContent';
 import StepOne from '../steps/StepOne';
-import TrianglePractice from '../exercices/TrianglePractice';
-import SquarePractice from '../exercices/SquarePractice';
-import PolygonPractice from '../exercices/PolygonPractice';
+import TrianglePractice from '../practices/TrianglePractice';
+import SquarePractice from '../practices/SquarePractice';
+import PolygonPractice from '../practices/PolygonPractice';
 
 const Try = ({
   foundWord,
@@ -106,4 +106,5 @@ Try.propTypes = {
   polySymOfEFound: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
 };
+
 export default Try;

@@ -5,17 +5,17 @@ import Modal from 'react-responsive-modal';
 import { withNamespaces } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '../../../../config/i18n';
-import SettingIcon from './SettingIcon';
+import Settings from './Settings';
 import './Styles.css';
 import Displayer from './Displayer';
 import LangBox from './LangBox';
 import SwitchBox from './SwitchBox';
 import {
-  changedLanguage,
   changeThemeColor,
   toggleHeader,
-  pointState,
-  gridState,
+  togglePoints,
+  toggleGrid,
+  changeLanguage,
 } from '../../../../actions';
 import { AppState } from '../../../../config/AppState';
 
@@ -36,12 +36,6 @@ const styles = theme => ({
 export class SettingModal extends Component {
   state = AppState;
 
-  static propTypes = {
-    t: PropTypes.func.isRequired,
-    dispatchChangeThemeColor: PropTypes.func.isRequired,
-    dispatchDefaultLanguage: PropTypes.func.isRequired,
-  };
-
   handleChangeComplete = (color) => {
     const newColor = color.hex;
     const { dispatchChangeThemeColor } = this.props;
@@ -49,13 +43,12 @@ export class SettingModal extends Component {
     this.postMessage({ theme_color: newColor });
   }
 
-  handleLang = (lang) => {
+  handleChangeLanguage = (lang) => {
     const newLang = lang.value;
-    const { dispatchDefaultLanguage } = this.props;
+    const { dispatchChangeLanguage } = this.props;
     i18n.changeLanguage(newLang);
-    dispatchDefaultLanguage({ newLang });
-    this.postMessage({ defaul_lang: newLang });
-  }
+    dispatchChangeLanguage(newLang);
+  };
 
   handleToggleHeader = showHeader => () => {
     const { dispatchToggleHeader } = this.props;
@@ -110,7 +103,7 @@ export class SettingModal extends Component {
 
     return (
       <div className="modal-container">
-        <SettingIcon onOpenModal={this.onOpenModal} />
+        <Settings onOpenModal={this.onOpenModal} />
         <Modal open={openModal} onClose={this.onCloseModal} center>
           <SwitchBox
             themeColor={themeColor}
@@ -118,7 +111,7 @@ export class SettingModal extends Component {
             t={t}
           />
           <LangBox
-            handleLang={this.handleLang}
+            handleLang={this.handleChangeLanguage}
             t={t}
           />
           <Displayer
@@ -138,12 +131,14 @@ SettingModal.propTypes = {
   dispatchToggleHeader: PropTypes.func.isRequired,
   dispatchTogglePoints: PropTypes.func.isRequired,
   dispatchToggleGrid: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired,
+  dispatchChangeLanguage: PropTypes.func.isRequired,
   classes: PropTypes.shape({}).isRequired,
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
   showHeader: PropTypes.bool.isRequired,
   themeColor: PropTypes.string.isRequired,
+  t: PropTypes.func.isRequired,
+  dispatchChangeThemeColor: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
   themeColor: state.layout.themeColor,
@@ -154,13 +149,14 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   dispatchChangeThemeColor: changeThemeColor,
-  dispatchDefaultLanguage: changedLanguage,
   dispatchToggleHeader: toggleHeader,
-  dispatchTogglePoints: pointState,
-  dispatchToggleGrid: gridState,
+  dispatchTogglePoints: togglePoints,
+  dispatchToggleGrid: toggleGrid,
+  dispatchChangeLanguage: changeLanguage,
 };
 
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);
+
 const StyledComponent = withStyles(styles)(ConnectedComponent);
 
 export default withNamespaces()(StyledComponent);
