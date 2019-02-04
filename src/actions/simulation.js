@@ -3,14 +3,14 @@ import {
   TOGGLE_POINT,
 } from '../types';
 
-export const pointState = showPoints => (dispatch) => {
+export const togglePoints = showPoints => (dispatch) => {
   dispatch({
     type: TOGGLE_POINT,
     payload: showPoints,
   });
 };
 
-export const gridState = showGrid => (dispatch) => {
+export const toggleGrid = showGrid => (dispatch) => {
   dispatch({
     type: TOGGLE_GRID,
     payload: showGrid,
@@ -18,4 +18,4 @@ export const gridState = showGrid => (dispatch) => {
 };
 
 
-export default { pointState, gridState };
+export default { togglePoints, toggleGrid };
