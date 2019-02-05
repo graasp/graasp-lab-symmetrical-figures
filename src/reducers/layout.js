@@ -1,13 +1,15 @@
 import {
   CHANGE_THEME_COLOR,
   TOGGLE_HEADER,
+  TOGGLE_LOADER,
   TOGGLE_SIDE_MENU,
 } from '../types';
 
 const INITIAL_STATE = {
-  themeColor: 'rgb(0, 150, 136)',
   showHeader: true,
+  showLoader: true,
   showSideMenu: false,
+  themeColor: 'rgb(0, 150, 136)',
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -21,6 +23,11 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         showHeader: payload,
+      };
+    case TOGGLE_LOADER:
+      return {
+        ...state,
+        showLoader: payload,
       };
     case TOGGLE_SIDE_MENU:
       return {

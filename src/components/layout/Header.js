@@ -10,15 +10,11 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Styles from '../common/Styles';
-import { AppState } from '../../config/AppState';
 import { toggleSideMenu } from '../../actions';
 
 const styles = Styles;
 
 class Header extends Component {
-  state = AppState;
-
-
   handleToggleSideMenu = open => () => {
     const { dispatchToggleSideMenu } = this.props;
     dispatchToggleSideMenu(open);
@@ -40,9 +36,7 @@ class Header extends Component {
     return (
       <AppBar
         position="fixed"
-        className={classNames(classes.appBar, {
-          [classes.appBarShift]: showSideMenu,
-        })}
+        className={classNames(classes.appBar, { [classes.appBarShift]: showSideMenu })}
       >
         <Toolbar disableGutters style={{ backgroundColor: themeColor }}>
           <Typography variant="h4" color="inherit" noWrap className={classes.title}>
