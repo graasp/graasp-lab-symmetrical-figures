@@ -24,10 +24,10 @@ const styles = theme => ({
 
 const Displayer = ({
   t,
-  toggleTitle,
+  handleToggleHeader,
   showHeader,
-  handleCheck,
-  handlePointsDisplay,
+  handleToggleGrid,
+  handleTogglePoints,
   showPoints,
   showGrid,
 }) => (
@@ -38,7 +38,7 @@ const Displayer = ({
       </Col>
       <Col xs={4}>
         <Switch
-          onChange={toggleTitle}
+          onChange={handleToggleHeader}
           checked={showHeader}
           id="title-switch"
         />
@@ -50,7 +50,7 @@ const Displayer = ({
       </Col>
       <Col xs={4}>
         <Switch
-          onChange={handlePointsDisplay}
+          onChange={handleTogglePoints}
           checked={showPoints}
           id="point-switch"
         />
@@ -62,7 +62,7 @@ const Displayer = ({
       </Col>
       <Col xs={4}>
         <Switch
-          onChange={handleCheck}
+          onChange={handleToggleGrid}
           checked={showGrid}
           id="grid-switch"
         />
@@ -73,11 +73,11 @@ const Displayer = ({
 
 Displayer.propTypes = {
   t: PropTypes.func.isRequired,
-  toggleTitle: PropTypes.func.isRequired,
+  handleToggleHeader: PropTypes.func.isRequired,
   showHeader: PropTypes.bool.isRequired,
   classes: PropTypes.shape({}).isRequired,
-  handleCheck: PropTypes.func.isRequired,
-  handlePointsDisplay: PropTypes.func.isRequired,
+  handleToggleGrid: PropTypes.func.isRequired,
+  handleTogglePoints: PropTypes.func.isRequired,
   showPoints: PropTypes.bool.isRequired,
   showGrid: PropTypes.bool.isRequired,
 };

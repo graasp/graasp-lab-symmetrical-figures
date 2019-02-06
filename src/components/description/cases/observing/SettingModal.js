@@ -115,9 +115,9 @@ export class SettingModal extends Component {
             t={t}
           />
           <Displayer
-            toggleTitle={this.handleToggleHeader(!showHeader)}
-            handlePointsDisplay={this.handleTogglePoints(!showPoints)}
-            handleCheck={this.handleToggleGrid(!showGrid)}
+            handleToggleHeader={this.handleToggleHeader(!showHeader)}
+            handleTogglePoints={this.handleTogglePoints(!showPoints)}
+            handleToggleGrid={this.handleToggleGrid(!showGrid)}
             t={t}
           />
         </Modal>
