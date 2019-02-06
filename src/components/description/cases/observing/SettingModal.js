@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '../../../../config/i18n';
 import Settings from './Settings';
@@ -159,4 +159,4 @@ const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingM
 
 const StyledComponent = withStyles(styles)(ConnectedComponent);
 
-export default withNamespaces()(StyledComponent);
+export default withTranslation()(StyledComponent);
