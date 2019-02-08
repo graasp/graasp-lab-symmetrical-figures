@@ -21,7 +21,7 @@ import VerticalGrid from '../grids/VerticalGrid';
 import TriangleView from '../triangleView/TriangleView';
 import PolygonView from '../polygonView/PolygonView';
 import SquareView from '../squareView/SquareView';
-import SettingModal from '../description/cases/observing/SettingModal';
+import SettingsModal from '../description/cases/observing/SettingsModal';
 import Styles from './Styles';
 import {
   blackStroke,
@@ -215,7 +215,7 @@ class SideMenu extends React.Component {
             t={t}
           />
           { mode === 'default' ? (
-            <SettingModal
+            <SettingsModal
               openModal={openModal}
               onOpenModal={onOpenModal}
               onCloseModal={onCloseModal}

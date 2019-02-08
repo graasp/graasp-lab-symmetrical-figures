@@ -33,7 +33,7 @@ const styles = theme => ({
   },
 });
 
-export class SettingModal extends Component {
+export class SettingsModal extends Component {
   state = AppState;
 
   handleChangeComplete = (color) => {
@@ -127,7 +127,7 @@ export class SettingModal extends Component {
 }
 
 
-SettingModal.propTypes = {
+SettingsModal.propTypes = {
   dispatchToggleHeader: PropTypes.func.isRequired,
   dispatchTogglePoints: PropTypes.func.isRequired,
   dispatchToggleGrid: PropTypes.func.isRequired,
@@ -155,7 +155,7 @@ const mapDispatchToProps = {
   dispatchChangeLanguage: changeLanguage,
 };
 
-const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingsModal);
 
 const StyledComponent = withStyles(styles)(ConnectedComponent);
 
