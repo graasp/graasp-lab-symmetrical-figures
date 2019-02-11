@@ -1,12 +1,9 @@
 export const AppState = {
   openModal: false,
-  axisPointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
-  axisPointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
-  axisPointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
   axeStroke: '#0091EA',
   axeStrokeWidth: 0.5,
   circleRadius: 5,
-  circlePoints: [350, 450], // this is our middle circle coordinates
+  circlePoints: [425, 325], // this is our middle circle coordinates
   color: '#000',
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',
@@ -15,10 +12,7 @@ export const AppState = {
   isPolygonActive: false,
   isSquareActive: false,
   kind: 'triangle',
-  lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
-  lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
-  lineAxeThree: [200, 400, 400, 600], // this is CC' left line separator coordinates
-  linePoints: [750, 50, 200, 600], // this is our main line separator coordinates
+  linePoints: [700, 50, 200, 550], // this is our main line separator coordinates
   lineStroke: '#1DE9B6',
   lineStrokeWidth: 0.5,
   midPointStroke: '#D50000',
@@ -57,15 +51,15 @@ export const AppState = {
   triangleStroke: '#555',
   // triangleA is our left triangle coordinates
   triangleA: [
-    { x: 150, y: 250 },
-    { x: 300, y: 300 },
-    { x: 200, y: 400 },
+    { x: 200, y: 100 },
+    { x: 350, y: 150 },
+    { x: 250, y: 250 },
   ],
   // triangleB is our right triangle coordinates
   triangleB: [
-    { x: 550, y: 650 },
+    { x: 650, y: 550 },
+    { x: 600, y: 400 },
     { x: 500, y: 500 },
-    { x: 400, y: 600 },
   ],
   width: window.innerWidth,
 };
