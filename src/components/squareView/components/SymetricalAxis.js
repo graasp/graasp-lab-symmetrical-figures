@@ -60,59 +60,11 @@ const SymetricalAxis = ({
       stroke={blackStroke}
       strokeWidth={lineStrokeWidth}
     />
-    <Line
-      points={
-        [
-          IDENTIC_PATH_3,
-          IDENTIC_PATH_3,
-          IDENTIC_PATH_5,
-          IDENTIC_PATH_3,
-        ]
-      }
-      stroke={midPointStroke}
-      strokeWidth={3}
-    />
-    <Line
-      points={
-        [
-          IDENTIC_PATH_3,
-          IDENTIC_PATH_4,
-          IDENTIC_PATH_5,
-          IDENTIC_PATH_4,
-        ]
-      }
-      stroke={midPointStroke}
-      strokeWidth={3}
-    />
-    <Line
-      points={
-        [
-          IDENTIC_PATH_2,
-          IDENTIC_PATH_4,
-          IDENTIC_PATH_6,
-          IDENTIC_PATH_4,
-        ]
-      }
-      stroke={middleLinePointLineStroke}
-      strokeWidth={9}
-    />
-    <Line
-      points={
-        [
-          IDENTIC_PATH_2,
-          IDENTIC_PATH_3,
-          IDENTIC_PATH_6,
-          IDENTIC_PATH_3,
-        ]
-      }
-      stroke={middleLinePointLineStroke}
-      strokeWidth={9}
-    />
     <Text
-      x={IDENTIC_PATH_3 + 40}
-      y={IDENTIC_PATH_6 + 40}
-      text="Axe de Symetrie"
-      fontSize={fontSize}
+      x={circlePointsX + 40}
+      y={circlePointsY2 - 20}
+      text="(M) Axe de Symetrie"
+      fontSize={20}
       fill={blackStroke}
     />
   </Layer>
