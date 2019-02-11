@@ -41,9 +41,9 @@ const Axes = ({
       points={
         [
           IDENTIC_PATH_3,
-          IDENTIC_PATH_3,
+          200,
           IDENTIC_PATH_5,
-          IDENTIC_PATH_4,
+          350,
         ]
       }
       stroke={blueStroke}
@@ -53,9 +53,9 @@ const Axes = ({
       points={
         [
           IDENTIC_PATH_5,
+          200,
           IDENTIC_PATH_3,
-          IDENTIC_PATH_3,
-          IDENTIC_PATH_4,
+          350,
         ]
       }
       stroke={blueStroke}
@@ -64,10 +64,10 @@ const Axes = ({
     <Line
       points={
         [
-          IDENTIC_PATH_2,
+          200,
           IDENTIC_PATH_3,
-          IDENTIC_PATH_6,
-          IDENTIC_PATH_4,
+          750,
+          200,
         ]
       }
       stroke={blackStroke}
@@ -76,9 +76,9 @@ const Axes = ({
     <Line
       points={
         [
-          IDENTIC_PATH_2,
-          IDENTIC_PATH_4,
-          IDENTIC_PATH_6,
+          200,
+          200,
+          750,
           IDENTIC_PATH_3,
         ]
       }
