@@ -19,7 +19,9 @@ import {
   blackStroke,
   defaultSize,
   IDENTIC_PATH_0,
+  VERTICAL_IDENTIC_PATH_0,
   IDENTIC_PATH_1,
+  IDENTIC_PATH_5,
   IDENTIC_PATH_6,
   IDENTIC_PATH_7,
 } from '../../constants/Common';
@@ -97,8 +99,8 @@ class Main extends Component {
               defaultSize={defaultSize}
               stroke={gridStroke}
               strokeWidth={gridStrokeWidth}
-              IDENTIC_PATH_0={IDENTIC_PATH_0}
-              IDENTIC_PATH_1={IDENTIC_PATH_1}
+              VERTICAL_IDENTIC_PATH_0={VERTICAL_IDENTIC_PATH_0}
+              IDENTIC_PATH_5={IDENTIC_PATH_5}
               IDENTIC_PATH_7={IDENTIC_PATH_7}
             />
           </Stage>
