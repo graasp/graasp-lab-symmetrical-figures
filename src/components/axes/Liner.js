@@ -11,13 +11,12 @@ const Liner = ({
   color,
   handleDragMove,
   linePoints,
-  lineAxeOne,
-  lineAxeTwo,
-  lineAxeThree,
   shadowBlur,
   lineStroke,
   radius,
   strokeWidth,
+  triangleA,
+  triangleB,
 }) => (
   <Layer>
     <Line
@@ -35,10 +34,10 @@ const Liner = ({
     <Line
       points={
         [
-          lineAxeOne[0],
-          lineAxeOne[1],
-          lineAxeOne[2],
-          lineAxeOne[3],
+          triangleA[0].x,
+          triangleA[0].y,
+          triangleB[0].x,
+          triangleB[0].y,
         ]
       }
       stroke={lineStroke}
@@ -47,10 +46,10 @@ const Liner = ({
     <Line
       points={
         [
-          lineAxeTwo[0],
-          lineAxeTwo[1],
-          lineAxeTwo[2],
-          lineAxeTwo[3],
+          triangleA[1].x,
+          triangleA[1].y,
+          triangleB[1].x,
+          triangleB[1].y,
         ]
       }
       stroke={lineStroke}
@@ -59,10 +58,10 @@ const Liner = ({
     <Line
       points={
         [
-          lineAxeThree[0],
-          lineAxeThree[1],
-          lineAxeThree[2],
-          lineAxeThree[3],
+          triangleA[2].x,
+          triangleA[2].y,
+          triangleB[2].x,
+          triangleB[2].y,
         ]
       }
       stroke={lineStroke}
@@ -106,9 +105,8 @@ Liner.propTypes = {
   shadowBlur: PropTypes.number.isRequired,
   handleDragMove: PropTypes.func.isRequired,
   linePoints: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  lineAxeOne: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  lineAxeTwo: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  lineAxeThree: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  triangleA: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  triangleB: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
 };
 
 export default Liner;
