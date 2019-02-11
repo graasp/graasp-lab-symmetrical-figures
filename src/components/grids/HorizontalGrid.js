@@ -13,9 +13,13 @@ const HorizintalGrid = ({
   strokeWidth,
   IDENTIC_PATH_0,
   IDENTIC_PATH_1,
-  IDENTIC_PATH_6,
 }) => (
   <Layer>
+    <Line
+      points={[IDENTIC_PATH_0, 50, IDENTIC_PATH_1, 50]}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+    />
     <Line
       points={[IDENTIC_PATH_0, 100, IDENTIC_PATH_1, 100]}
       stroke={stroke}
@@ -68,156 +72,92 @@ const HorizintalGrid = ({
     />
     <Line
       points={[IDENTIC_PATH_0, 600, IDENTIC_PATH_1, 600]}
-      stroke={stroke}
+      stroke={2}
       strokeWidth={strokeWidth}
     />
-    <Line
-      points={[IDENTIC_PATH_0, 650, IDENTIC_PATH_1, 650]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[IDENTIC_PATH_0, 700, IDENTIC_PATH_1, 700]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[IDENTIC_PATH_0, 750, IDENTIC_PATH_1, 750]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[IDENTIC_PATH_0, 800, IDENTIC_PATH_1, 800]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[IDENTIC_PATH_0, 850, IDENTIC_PATH_1, 850]}
-      stroke={stroke}
-      strokeWidth={strokeWidth}
-    />
-    <Line
-      points={[IDENTIC_PATH_0, 900, IDENTIC_PATH_1, 900]}
-      stroke={10}
-      strokeWidth={strokeWidth}
-    />
+
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 + 25}
+      x={70}
+      y={535}
       text={1}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 25}
+      x={70}
+      y={485}
       text={2}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 75}
+      x={70}
+      y={435}
       text={3}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 125}
+      x={70}
+      y={385}
       text={4}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 175}
+      x={70}
+      y={335}
       text={5}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 225}
+      x={70}
+      y={285}
       text={6}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 275}
+      x={70}
+      y={235}
       text={7}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 325}
+      x={70}
+      y={185}
       text={8}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 375}
+      x={70}
+      y={135}
       text={9}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 425}
+      x={70}
+      y={85}
       text={10}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 475}
+      x={70}
+      y={35}
       text={11}
       fontSize={defaultSize}
       fill={blackStroke}
     />
     <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 525}
-      text={12}
-      fontSize={defaultSize}
-      fill={blackStroke}
-    />
-    <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 575}
-      text={13}
-      fontSize={defaultSize}
-      fill={blackStroke}
-    />
-    <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 625}
-      text={14}
-      fontSize={defaultSize}
-      fill={blackStroke}
-    />
-    <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 675}
-      text={15}
-      fontSize={defaultSize}
-      fill={blackStroke}
-    />
-    <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 725}
-      text={16}
-      fontSize={defaultSize}
-      fill={blackStroke}
-    />
-    <Text
-      x={20}
-      y={IDENTIC_PATH_6 - 775}
+      x={70}
+      y={0}
       text="Y"
-      fontSize={40}
+      fontSize={30}
       fill={blackStroke}
     />
   </Layer>
@@ -230,7 +170,6 @@ HorizintalGrid.propTypes = {
   strokeWidth: PropTypes.number.isRequired,
   IDENTIC_PATH_0: PropTypes.number.isRequired,
   IDENTIC_PATH_1: PropTypes.number.isRequired,
-  IDENTIC_PATH_6: PropTypes.number.isRequired,
 };
 
 export default HorizintalGrid;
