@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Stage } from 'react-konva';
 import Triangle from '../triangle/Triangle';
 import Points from '../points/Points';
-import Liner from '../liner/Liner';
+import Liner from '../axes/Liner';
 import Axes from '../axes/Axes';
 import MidPoint from '../axes/MidPoint';
 import { AppState } from '../../config/AppState';
@@ -57,9 +57,6 @@ class TriangleView extends Component {
 
   render() {
     const {
-      axisPointsOne,
-      axisPointsTwo,
-      axisPointsThree,
       axeStroke,
       axeStrokeWidth,
       circlePoints,
@@ -67,9 +64,6 @@ class TriangleView extends Component {
       color,
       height,
       linePoints,
-      lineAxeOne,
-      lineAxeTwo,
-      lineAxeThree,
       lineStroke,
       lineStrokeWidth,
       midPointStroke,
@@ -104,9 +98,8 @@ class TriangleView extends Component {
               radius={midPointRadius}
             />
             <Axes
-              axisPointsOne={axisPointsOne}
-              axisPointsTwo={axisPointsTwo}
-              axisPointsThree={axisPointsThree}
+              triangleA={triangleA}
+              triangleB={triangleB}
               stroke={axeStroke}
               strokeWidth={axeStrokeWidth}
             />
@@ -118,14 +111,13 @@ class TriangleView extends Component {
                 color={color}
                 handleDragMove={this.handleDragMove}
                 handleDragMoveOne={this.handleDragMoveOne}
-                lineAxeOne={lineAxeOne}
-                lineAxeTwo={lineAxeTwo}
-                lineAxeThree={lineAxeThree}
                 linePoints={linePoints}
                 lineStroke={lineStroke}
                 radius={circleRadius}
                 shadowBlur={triangleShadowBlur}
                 strokeWidth={lineStrokeWidth}
+                triangleA={triangleA}
+                triangleB={triangleB}
               />
             </Stage>
           )
