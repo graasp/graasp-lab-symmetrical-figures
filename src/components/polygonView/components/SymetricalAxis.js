@@ -46,9 +46,9 @@ const SymetricalAxis = ({
       points={
         [
           middleLinePoint[0],
-          middleLinePoint[1],
+          50,
           middleLinePoint[2],
-          middleLinePoint[3],
+          550,
         ]
       }
       stroke={redStroke}

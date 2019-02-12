@@ -41,7 +41,7 @@ const Axes = ({
   <Layer>
     <Circle
       x={POLY_PATH_0}
-      y={POLY_PATH_0}
+      y={300}
       radius={CIRCLE_RADIUS}
       fill={blackStroke}
       strokeWidth={strokeWidth}
@@ -49,7 +49,7 @@ const Axes = ({
     />
     <Text
       x={POLY_PATH_1}
-      y={POLY_PATH_2}
+      y={320}
       text="(K)"
       fontSize={30}
       fill="blue"
