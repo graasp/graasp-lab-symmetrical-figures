@@ -15,7 +15,6 @@ class MainView extends Component {
   handleView = () => {
     const { toggleLine } = this.state;
     this.postMessage({ show_line: toggleLine });
-    console.log('toggleLine before', toggleLine);
     this.setState({
       toggleLine: !toggleLine,
       triangleNodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
@@ -26,7 +25,6 @@ class MainView extends Component {
           A: "A'", B: "B'", C: "C'", D: "D'",
         },
     });
-    console.log('toggleLine after', toggleLine);
   };
 
   handleForm = (e, target) => {
