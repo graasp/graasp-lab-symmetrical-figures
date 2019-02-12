@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Layer } from 'react-konva';
 
-const HorizintalGrid = ({
+const HorizontalGrid = ({
   renderHorizontalGrid,
 }) => (
   <Layer>
@@ -10,8 +10,8 @@ const HorizintalGrid = ({
   </Layer>
 );
 
-HorizintalGrid.propTypes = {
+HorizontalGrid.propTypes = {
   renderHorizontalGrid: PropTypes.shape({}).isRequired,
 };
 
-export default HorizintalGrid;
+export default HorizontalGrid;
