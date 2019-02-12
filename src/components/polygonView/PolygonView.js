@@ -48,12 +48,7 @@ import {
   POLY_PATH_25,
   POLY_PATH_26,
   POLY_PATH_27,
-  POLYGON_PATH_0,
-  POLYGON_PATH_1,
-  POLYGON_PATH_2,
   POLY_PATH_2,
-  POLYGON_PATH_4,
-  POLYGON_PATH_5,
   POLY_PATH_12,
   redStroke,
   TEXT_X_0,
@@ -128,10 +123,9 @@ export class PolygonView extends Component {
           <Stage width={1000} height={1000}>
             <Layer>
               <RegularPolygon
-                fill="#FFFF8D"
                 radius={80}
                 sides={5}
-                stroke="black"
+                stroke="#555555"
                 strokeWidth={4}
                 x={800}
                 y={300}
@@ -148,9 +142,6 @@ export class PolygonView extends Component {
               CIRCLE_Y={CIRCLE_Y}
               POLY_PATH_0={POLY_PATH_0}
               POLY_PATH_1={POLY_PATH_1}
-              POLYGON_PATH_0={POLYGON_PATH_0}
-              POLYGON_PATH_1={POLYGON_PATH_1}
-              POLYGON_PATH_2={POLYGON_PATH_2}
               POLY_PATH_2={POLY_PATH_2}
               POLY_PATH_5={POLY_PATH_5}
               POLY_PATH_6={POLY_PATH_6}
@@ -173,8 +164,6 @@ export class PolygonView extends Component {
               POLY_PATH_25={POLY_PATH_25}
               POLY_PATH_26={POLY_PATH_26}
               POLY_PATH_27={POLY_PATH_27}
-              POLYGON_PATH_4={POLYGON_PATH_4}
-              POLYGON_PATH_5={POLYGON_PATH_5}
               POLY_PATH_12={POLY_PATH_12}
               blackStroke={blackStroke}
               blueStroke={blueStroke}
@@ -212,7 +201,6 @@ export class PolygonView extends Component {
           <Stage width={width} height={height}>
             <PolyOneAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
-              POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
               polygonNode={polygonNode}
               blackStroke={blackStroke}
@@ -232,7 +220,6 @@ export class PolygonView extends Component {
           <Stage width={width} height={height}>
             <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
-              POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
               polygonNode={polygonNode}
               blackStroke={blackStroke}
@@ -250,7 +237,6 @@ export class PolygonView extends Component {
           <Stage width={width} height={height}>
             <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
-              POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
               polygonNode={polygonNode}
               blackStroke={blackStroke}
