@@ -99,13 +99,12 @@ export class PolygonView extends Component {
         <Stage width={1000} height={1000}>
           <Layer>
             <RegularPolygon
-              fill="#FF8A65"
-              radius={100}
+              radius={80}
               sides={5}
-              stroke="black"
+              stroke="#FF8A65"
               strokeWidth={4}
               x={200}
-              y={500}
+              y={300}
               opacity={0.7}
             />
           </Layer>
@@ -114,13 +113,12 @@ export class PolygonView extends Component {
           <Stage width={1000} height={1000}>
             <Layer>
               <RegularPolygon
-                fill="#FFFF8D"
-                radius={101}
+                radius={81}
                 sides={5}
-                stroke="black"
+                stroke="#555555"
                 strokeWidth={4}
                 x={800}
-                y={500}
+                y={300}
                 opacity={0.7}
                 rotation={107}
               />
@@ -131,12 +129,12 @@ export class PolygonView extends Component {
             <Layer>
               <RegularPolygon
                 fill="#FFFF8D"
-                radius={100}
+                radius={80}
                 sides={5}
                 stroke="black"
                 strokeWidth={4}
                 x={800}
-                y={500}
+                y={300}
               />
             </Layer>
           </Stage>
