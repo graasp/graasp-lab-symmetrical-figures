@@ -20,7 +20,6 @@ const SymetricalAxis = ({
   middleLinePoint,
   shadowBlur,
   radius,
-  redStroke,
   strokeWidth,
 }) => (
   <Layer>
@@ -29,7 +28,7 @@ const SymetricalAxis = ({
       y={circlePointsY}
       radius={radius}
       fill={color}
-      stroke={redStroke}
+      stroke={blackStroke}
       strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
     />
@@ -38,7 +37,7 @@ const SymetricalAxis = ({
       y={circlePointsY2}
       radius={radius}
       fill={color}
-      stroke={redStroke}
+      stroke={blackStroke}
       strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
     />
@@ -51,7 +50,7 @@ const SymetricalAxis = ({
           550,
         ]
       }
-      stroke={redStroke}
+      stroke={blackStroke}
       strokeWidth={3}
     />
     <Text
@@ -73,7 +72,6 @@ SymetricalAxis.propTypes = {
   SYM_AXIS_0: PropTypes.number.isRequired,
   SYM_AXIS_1: PropTypes.number.isRequired,
   SYM_AXIS_2: PropTypes.number.isRequired,
-  redStroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
   shadowBlur: PropTypes.number.isRequired,
   radius: PropTypes.number.isRequired,
