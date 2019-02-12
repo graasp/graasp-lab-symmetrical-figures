@@ -174,6 +174,7 @@ Main.propTypes = {
   showPoints: PropTypes.bool.isRequired,
   dispatchToggleSideMenu: PropTypes.func.isRequired,
   showSideMenu: PropTypes.bool.isRequired,
+  scale: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
