@@ -41,7 +41,7 @@ export const AppState = {
     B: "C'",
     C: "B'",
   },
-  pointSize: 30,
+  pointSize: 20,
   blueShapeStroke: 'blue',
   greenShapeStroke: 'green',
   toggleLine: true,
