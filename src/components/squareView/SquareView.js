@@ -150,6 +150,7 @@ export class SquareView extends Component {
 
 SquareView.propTypes = {
   color: PropTypes.string.isRequired,
+  scale: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   midPointStroke: PropTypes.string.isRequired,
   pointSize: PropTypes.number.isRequired,

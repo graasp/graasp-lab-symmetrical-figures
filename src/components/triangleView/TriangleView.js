@@ -10,6 +10,7 @@ import { AppState } from '../../config/AppState';
 
 class TriangleView extends Component {
   static propTypes = {
+    scale: PropTypes.number.isRequired,
     showPoints: PropTypes.bool.isRequired,
     toggleLine: PropTypes.bool.isRequired,
     triangleNodeB: PropTypes.shape({

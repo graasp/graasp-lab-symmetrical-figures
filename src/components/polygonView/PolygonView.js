@@ -266,6 +266,7 @@ PolygonView.propTypes = {
   showPoints: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
+  scale: PropTypes.number.isRequired,
 };
 
 export default PolygonView;

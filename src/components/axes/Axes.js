@@ -54,8 +54,14 @@ const Axes = ({
 Axes.propTypes = {
   stroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
-  triangleA: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  triangleB: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  triangleA: PropTypes.arrayOf(PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+  })).isRequired,
+  triangleB: PropTypes.arrayOf(PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
 export default Axes;
