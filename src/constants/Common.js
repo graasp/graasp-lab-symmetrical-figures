@@ -31,34 +31,24 @@ export const squareWidth = 150;
 export const squareOneX = 200;
 export const squareTwoX = 600;
 export const squareCommonY = 200;
-export const POLYGON_PATH_0 = 240;
-export const POLYGON_PATH_1 = 350;
-export const POLYGON_PATH_2 = 405;
-export const POLYGON_PATH_3 = 460;
-export const POLYGON_PATH_4 = 500;
-export const POLYGON_PATH_5 = 530;
-export const POLYGON_PATH_6 = 595;
-export const POLYGON_PATH_7 = 650;
-export const POLYGON_PATH_8 = 855;
 
 export const TEXT_X_0 = 190;
 export const TEXT_X_1 = 250;
-export const TEXT_X_2 = 70;
-export const TEXT_X_3 = 300;
-export const TEXT_X_4 = 110;
+export const TEXT_X_2 = 110;
+export const TEXT_X_3 = 280;
+export const TEXT_X_4 = 130;
 export const TEXT_X_5 = 790;
-export const TEXT_X_6 = 910;
-export const TEXT_X_7 = 870;
+export const TEXT_X_6 = 890;
+export const TEXT_X_7 = 850;
 export const TEXT_X_8 = 730;
-export const TEXT_X_9 = 670;
+export const TEXT_X_9 = 700;
 
-export const TEXT_Y_0 = 350;
-export const TEXT_Y_1 = 600;
-export const TEXT_Y_2 = 450;
-export const TEXT_Y_3 = 610;
-export const TEXT_Y_4 = 520;
-export const TEXT_Y_5 = 380;
-
+export const TEXT_Y_0 = 190;
+export const TEXT_Y_1 = 370;
+export const TEXT_Y_2 = 250;
+export const TEXT_Y_3 = 390;
+export const TEXT_Y_4 = 330;
+export const TEXT_Y_5 = 210;
 
 export const POLY_PATH_0 = 500;
 export const POLY_PATH_1 = 480;
@@ -88,7 +78,6 @@ export const POLY_PATH_24 = 125;
 export const POLY_PATH_25 = 152;
 export const POLY_PATH_26 = 278;
 export const POLY_PATH_27 = 248;
-
 
 export const SYM_AXIS_0 = 390;
 export const SYM_AXIS_1 = 500;
