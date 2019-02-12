@@ -54,10 +54,11 @@ export class SquareView extends Component {
       showPoints,
       toggleLine,
       width,
+      scale,
     } = this.props;
     return (
       <div className="square-container">
-        <Stage width={width} height={height}>
+        <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
           <Layer>
             <Rect
               fill={squareFill}
@@ -80,7 +81,7 @@ export class SquareView extends Component {
           </Layer>
         </Stage>
         { toggleLine ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Axes
               CIRCLE_RADIUS={CIRCLE_RADIUS}
               CIRCLE_X={CIRCLE_X}
@@ -98,7 +99,7 @@ export class SquareView extends Component {
           </Stage>
         )
           : (
-            <Stage width={width} height={height}>
+            <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
               <SymetricalAxis
                 color={color}
                 fontSize={pointSize}
@@ -126,7 +127,7 @@ export class SquareView extends Component {
           )
         }
         { showPoints ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Annotation
               IDENTIC_PATH_2={IDENTIC_PATH_2}
               IDENTIC_PATH_3={IDENTIC_PATH_3}

@@ -7,7 +7,6 @@ export const AppState = {
   color: '#000',
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',
-  height: window.innerHeight,
   isTriangleActive: true,
   isPolygonActive: false,
   isSquareActive: false,
@@ -61,6 +60,7 @@ export const AppState = {
     { x: 600, y: 400 },
     { x: 500, y: 500 },
   ],
+  height: window.innerHeight,
   width: window.innerWidth,
 };
 

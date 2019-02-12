@@ -88,10 +88,11 @@ export class PolygonView extends Component {
       showPoints,
       toggleLine,
       width,
+      scale,
     } = this.props;
     return (
       <div className="polygon-container">
-        <Stage width={1000} height={1000}>
+        <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
           <Layer>
             <RegularPolygon
               radius={80}
@@ -105,7 +106,7 @@ export class PolygonView extends Component {
           </Layer>
         </Stage>
         { toggleLine ? (
-          <Stage width={1000} height={1000}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Layer>
               <RegularPolygon
                 radius={81}
@@ -120,7 +121,7 @@ export class PolygonView extends Component {
             </Layer>
           </Stage>
         ) : (
-          <Stage width={1000} height={1000}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Layer>
               <RegularPolygon
                 radius={80}
@@ -135,7 +136,7 @@ export class PolygonView extends Component {
         )
         }
         { toggleLine ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Axes
               CIRCLE_RADIUS={CIRCLE_RADIUS}
               CIRCLE_X={CIRCLE_X}
@@ -174,7 +175,7 @@ export class PolygonView extends Component {
           </Stage>
         )
           : (
-            <Stage width={width} height={height}>
+            <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
               <SymetricalAxis
                 color={color}
                 SYM_AXIS_0={SYM_AXIS_0}
@@ -198,7 +199,7 @@ export class PolygonView extends Component {
           )
         }
         { showPoints ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <PolyOneAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
               fontSize={pointSize}
@@ -217,7 +218,7 @@ export class PolygonView extends Component {
         ) : ''
         }
         { toggleLine ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
               fontSize={pointSize}
@@ -234,7 +235,7 @@ export class PolygonView extends Component {
             />
           </Stage>
         ) : (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
               fontSize={pointSize}

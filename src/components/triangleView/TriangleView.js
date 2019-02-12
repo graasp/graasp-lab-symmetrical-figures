@@ -83,12 +83,17 @@ class TriangleView extends Component {
       width,
     } = this.state;
 
-    const { showPoints, triangleNodeB, toggleLine } = this.props;
+    const {
+      showPoints,
+      triangleNodeB,
+      toggleLine,
+      scale,
+    } = this.props;
 
     return (
       <div className="triangle-content">
         { toggleLine ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <MidPoint
               circlePoints={circlePoints}
               color={color}
@@ -106,7 +111,7 @@ class TriangleView extends Component {
           </Stage>
         )
           : (
-            <Stage width={width} height={height}>
+            <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
               <Liner
                 color={color}
                 handleDragMove={this.handleDragMove}
@@ -123,7 +128,7 @@ class TriangleView extends Component {
           )
         }
         { showPoints ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Points
               color={color}
               fontSize={pointSize}
@@ -151,7 +156,7 @@ class TriangleView extends Component {
           </Stage>
         ) : ''
         }
-        <Stage width={width} height={height}>
+        <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
           <Triangle
             color={color}
             triangleNodeA={triangleNodeA}

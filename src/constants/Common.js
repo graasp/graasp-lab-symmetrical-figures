@@ -82,3 +82,6 @@ export const POLY_PATH_27 = 248;
 export const SYM_AXIS_0 = 390;
 export const SYM_AXIS_1 = 500;
 export const SYM_AXIS_2 = 840;
+
+export const CANVAS_VIRTUAL_WIDTH = 750;
+export const CANVAS_VIRTUAL_HEIGHT = 750;
