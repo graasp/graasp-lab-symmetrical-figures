@@ -1,4 +1,5 @@
 export const AppState = {
+  openModal: false,
   axisPointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
   axisPointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
   axisPointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
@@ -7,15 +8,12 @@ export const AppState = {
   circleRadius: 5,
   circlePoints: [350, 450], // this is our middle circle coordinates
   color: '#000',
-  showGrid: true,
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',
   height: window.innerHeight,
   isTriangleActive: true,
   isPolygonActive: false,
   isSquareActive: false,
-  showTitle: true,
-  openModal: false,
   kind: 'triangle',
   lineAxeOne: [150, 250, 550, 650], // this is our AA' line separator coordinates
   lineAxeTwo: [300, 300, 500, 500], // this is our BB' line separator coordinates
@@ -52,7 +50,6 @@ export const AppState = {
   pointSize: 30,
   blueShapeStroke: 'blue',
   greenShapeStroke: 'green',
-  showPoints: true,
   toggleLine: true,
   triangleOpacity: 0.5,
   triangleShadowBlur: 5,
