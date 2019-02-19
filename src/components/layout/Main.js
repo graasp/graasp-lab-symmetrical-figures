@@ -19,7 +19,9 @@ import {
   blackStroke,
   defaultSize,
   IDENTIC_PATH_0,
+  VERTICAL_IDENTIC_PATH_0,
   IDENTIC_PATH_1,
+  IDENTIC_PATH_5,
   IDENTIC_PATH_6,
   IDENTIC_PATH_7,
 } from '../../constants/Common';
@@ -56,6 +58,7 @@ class Main extends Component {
       toggleLine,
       triangleNodeB,
       width,
+      scale,
     } = this.props;
 
     return (
@@ -82,7 +85,7 @@ class Main extends Component {
           )
         }
         { showGrid ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <HorizontalGrid
               blackStroke={blackStroke}
               defaultSize={defaultSize}
@@ -91,15 +94,17 @@ class Main extends Component {
               IDENTIC_PATH_0={IDENTIC_PATH_0}
               IDENTIC_PATH_1={IDENTIC_PATH_1}
               IDENTIC_PATH_6={IDENTIC_PATH_6}
+              scale={scale}
             />
             <VerticalGrid
               blackStroke={blackStroke}
               defaultSize={defaultSize}
               stroke={gridStroke}
               strokeWidth={gridStrokeWidth}
-              IDENTIC_PATH_0={IDENTIC_PATH_0}
-              IDENTIC_PATH_1={IDENTIC_PATH_1}
+              VERTICAL_IDENTIC_PATH_0={VERTICAL_IDENTIC_PATH_0}
+              IDENTIC_PATH_5={IDENTIC_PATH_5}
               IDENTIC_PATH_7={IDENTIC_PATH_7}
+              scale={scale}
             />
           </Stage>
         ) : ''
@@ -109,6 +114,7 @@ class Main extends Component {
             triangleNodeB={triangleNodeB}
             toggleLine={toggleLine}
             showPoints={showPoints}
+            scale={scale}
           />
         ) : ''
         }
@@ -121,6 +127,7 @@ class Main extends Component {
             showPoints={showPoints}
             toggleLine={toggleLine}
             width={width}
+            scale={scale}
           />
         ) : ''
         }
@@ -135,6 +142,7 @@ class Main extends Component {
             showPoints={showPoints}
             toggleLine={toggleLine}
             width={width}
+            scale={scale}
           />
         ) : ''
         }
@@ -166,6 +174,7 @@ Main.propTypes = {
   showPoints: PropTypes.bool.isRequired,
   dispatchToggleSideMenu: PropTypes.func.isRequired,
   showSideMenu: PropTypes.bool.isRequired,
+  scale: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({

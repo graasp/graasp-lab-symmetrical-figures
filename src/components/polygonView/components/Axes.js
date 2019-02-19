@@ -11,7 +11,6 @@ const Axes = ({
   CIRCLE_RADIUS,
   POLY_PATH_0,
   POLY_PATH_1,
-  POLY_PATH_2,
   POLY_PATH_6,
   POLY_PATH_7,
   POLY_PATH_8,
@@ -41,7 +40,7 @@ const Axes = ({
   <Layer>
     <Circle
       x={POLY_PATH_0}
-      y={POLY_PATH_0}
+      y={300}
       radius={CIRCLE_RADIUS}
       fill={blackStroke}
       strokeWidth={strokeWidth}
@@ -49,7 +48,7 @@ const Axes = ({
     />
     <Text
       x={POLY_PATH_1}
-      y={POLY_PATH_2}
+      y={320}
       text="(K)"
       fontSize={30}
       fill="blue"
@@ -124,7 +123,6 @@ Axes.propTypes = {
   strokeWidth: PropTypes.number.isRequired,
   POLY_PATH_0: PropTypes.number.isRequired,
   POLY_PATH_1: PropTypes.number.isRequired,
-  POLY_PATH_2: PropTypes.number.isRequired,
   POLY_PATH_6: PropTypes.number.isRequired,
   POLY_PATH_7: PropTypes.number.isRequired,
   POLY_PATH_8: PropTypes.number.isRequired,

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -79,4 +79,4 @@ const mapDispatchToProps = {
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Header);
 const StyledComponent = withStyles(styles)(ConnectedComponent);
 
-export default withNamespaces()(StyledComponent);
+export default withTranslation()(StyledComponent);

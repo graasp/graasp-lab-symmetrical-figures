@@ -6,6 +6,10 @@ import Main from '../layout/Main';
 import SideMenu from '../layout/SideMenu';
 import Styles from '../common/Styles';
 import { AppState } from '../../config/AppState';
+import {
+  CANVAS_VIRTUAL_WIDTH,
+  CANVAS_VIRTUAL_HEIGHT,
+} from '../../constants/Common';
 
 const styles = Styles;
 
@@ -20,9 +24,9 @@ class MainView extends Component {
       triangleNodeB: toggleLine ? { A: "A'", B: "B'", C: "C'" } : { A: "A'", B: "C'", C: "B'" },
       squareNodeB: toggleLine
         ? {
-          A: "A'", B: "B'", C: "C'", D: "D'",
-        } : {
           A: "C'", B: "D'", C: "A'", D: "B'",
+        } : {
+          A: "A'", B: "B'", C: "C'", D: "D'",
         },
     });
   };
@@ -89,6 +93,11 @@ class MainView extends Component {
 
     const { classes } = this.props;
 
+    const scale = Math.min(
+      width / CANVAS_VIRTUAL_WIDTH,
+      height / CANVAS_VIRTUAL_HEIGHT,
+    );
+
     return (
       <div className={classes.root}>
         <Main
@@ -106,6 +115,7 @@ class MainView extends Component {
           toggleLine={toggleLine}
           triangleNodeB={triangleNodeB}
           width={width}
+          scale={scale}
         />
         <SideMenu
           kind={kind}

@@ -6,20 +6,19 @@ import {
 } from 'react-konva';
 
 const Axes = ({
-  axisPointsOne,
-  axisPointsTwo,
-  axisPointsThree,
   stroke,
   strokeWidth,
+  triangleA,
+  triangleB,
 }) => (
   <Layer>
     <Line
       points={
         [
-          axisPointsOne[0],
-          axisPointsOne[1],
-          axisPointsOne[2],
-          axisPointsOne[3],
+          triangleA[0].x,
+          triangleA[0].y,
+          triangleB[0].x,
+          triangleB[0].y,
         ]
       }
       stroke={stroke}
@@ -28,10 +27,10 @@ const Axes = ({
     <Line
       points={
         [
-          axisPointsTwo[0],
-          axisPointsTwo[1],
-          axisPointsTwo[2],
-          axisPointsTwo[3],
+          triangleA[1].x,
+          triangleA[1].y,
+          triangleB[2].x,
+          triangleB[2].y,
         ]
       }
       stroke={stroke}
@@ -40,10 +39,10 @@ const Axes = ({
     <Line
       points={
         [
-          axisPointsThree[0],
-          axisPointsThree[1],
-          axisPointsThree[2],
-          axisPointsThree[3],
+          triangleA[2].x,
+          triangleA[2].y,
+          triangleB[1].x,
+          triangleB[1].y,
         ]
       }
       stroke={stroke}
@@ -55,9 +54,14 @@ const Axes = ({
 Axes.propTypes = {
   stroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
-  axisPointsOne: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  axisPointsTwo: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  axisPointsThree: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  triangleA: PropTypes.arrayOf(PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+  })).isRequired,
+  triangleB: PropTypes.arrayOf(PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
 export default Axes;

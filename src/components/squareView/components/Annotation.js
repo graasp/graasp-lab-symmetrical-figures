@@ -19,57 +19,57 @@ const Annotation = ({
 }) => (
   <Layer>
     <Text
-      x={IDENTIC_PATH_2 - 10}
-      y={IDENTIC_PATH_3 - 40}
+      x={160}
+      y={180}
       text={squareNodeA.A}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_2 - 10}
-      y={IDENTIC_PATH_4 + 20}
+      x={160}
+      y={350}
       text={squareNodeA.B}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_3 - 10}
-      y={IDENTIC_PATH_4 + 20}
+      x={370}
+      y={350}
       text={squareNodeA.C}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_3 - 10}
-      y={IDENTIC_PATH_3 - 40}
+      x={370}
+      y={180}
       text={squareNodeA.D}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_5 - 10}
-      y={IDENTIC_PATH_3 - 40}
+      x={770}
+      y={370}
       text={squareNodeB.A}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_5 - 10}
-      y={IDENTIC_PATH_4 + 20}
+      x={770}
+      y={180}
       text={squareNodeB.B}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_6 - 10}
-      y={IDENTIC_PATH_4 + 20}
+      x={560}
+      y={180}
       text={squareNodeB.C}
       fontSize={fontSize}
       fill={blackStroke}
     />
     <Text
-      x={IDENTIC_PATH_6 - 10}
-      y={IDENTIC_PATH_3 - 40}
+      x={560}
+      y={370}
       text={squareNodeB.D}
       fontSize={fontSize}
       fill={blackStroke}

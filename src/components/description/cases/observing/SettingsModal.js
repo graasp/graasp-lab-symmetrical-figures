@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '../../../../config/i18n';
 import Settings from './Settings';
@@ -33,7 +33,7 @@ const styles = theme => ({
   },
 });
 
-export class SettingModal extends Component {
+export class SettingsModal extends Component {
   state = AppState;
 
   handleChangeComplete = (color) => {
@@ -127,7 +127,7 @@ export class SettingModal extends Component {
 }
 
 
-SettingModal.propTypes = {
+SettingsModal.propTypes = {
   dispatchToggleHeader: PropTypes.func.isRequired,
   dispatchTogglePoints: PropTypes.func.isRequired,
   dispatchToggleGrid: PropTypes.func.isRequired,
@@ -155,8 +155,8 @@ const mapDispatchToProps = {
   dispatchChangeLanguage: changeLanguage,
 };
 
-const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingModal);
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(SettingsModal);
 
 const StyledComponent = withStyles(styles)(ConnectedComponent);
 
-export default withNamespaces()(StyledComponent);
+export default withTranslation()(StyledComponent);

@@ -28,8 +28,8 @@ const MidPoint = ({
       x={circlePoints[0] + 20}
       y={circlePoints[1] - 50}
       text="(M) Point de symétrie"
-      fontSize={40}
-      fill="green"
+      fontSize={20}
+      fill={color}
     />
   </Layer>
 );

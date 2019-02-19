@@ -48,12 +48,7 @@ import {
   POLY_PATH_25,
   POLY_PATH_26,
   POLY_PATH_27,
-  POLYGON_PATH_0,
-  POLYGON_PATH_1,
-  POLYGON_PATH_2,
   POLY_PATH_2,
-  POLYGON_PATH_4,
-  POLYGON_PATH_5,
   POLY_PATH_12,
   redStroke,
   TEXT_X_0,
@@ -93,66 +88,61 @@ export class PolygonView extends Component {
       showPoints,
       toggleLine,
       width,
+      scale,
     } = this.props;
     return (
       <div className="polygon-container">
-        <Stage width={1000} height={1000}>
+        <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
           <Layer>
             <RegularPolygon
-              fill="#FF8A65"
-              radius={100}
+              radius={80}
               sides={5}
-              stroke="black"
+              stroke="#FF8A65"
               strokeWidth={4}
               x={200}
-              y={500}
+              y={300}
               opacity={0.7}
             />
           </Layer>
         </Stage>
         { toggleLine ? (
-          <Stage width={1000} height={1000}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Layer>
               <RegularPolygon
-                fill="#FFFF8D"
-                radius={101}
+                radius={81}
                 sides={5}
-                stroke="black"
+                stroke="#555555"
                 strokeWidth={4}
                 x={800}
-                y={500}
+                y={300}
                 opacity={0.7}
                 rotation={107}
               />
             </Layer>
           </Stage>
         ) : (
-          <Stage width={1000} height={1000}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Layer>
               <RegularPolygon
-                fill="#FFFF8D"
-                radius={100}
+                radius={80}
                 sides={5}
-                stroke="black"
+                stroke="#555555"
                 strokeWidth={4}
                 x={800}
-                y={500}
+                y={300}
               />
             </Layer>
           </Stage>
         )
         }
         { toggleLine ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Axes
               CIRCLE_RADIUS={CIRCLE_RADIUS}
               CIRCLE_X={CIRCLE_X}
               CIRCLE_Y={CIRCLE_Y}
               POLY_PATH_0={POLY_PATH_0}
               POLY_PATH_1={POLY_PATH_1}
-              POLYGON_PATH_0={POLYGON_PATH_0}
-              POLYGON_PATH_1={POLYGON_PATH_1}
-              POLYGON_PATH_2={POLYGON_PATH_2}
               POLY_PATH_2={POLY_PATH_2}
               POLY_PATH_5={POLY_PATH_5}
               POLY_PATH_6={POLY_PATH_6}
@@ -175,8 +165,6 @@ export class PolygonView extends Component {
               POLY_PATH_25={POLY_PATH_25}
               POLY_PATH_26={POLY_PATH_26}
               POLY_PATH_27={POLY_PATH_27}
-              POLYGON_PATH_4={POLYGON_PATH_4}
-              POLYGON_PATH_5={POLYGON_PATH_5}
               POLY_PATH_12={POLY_PATH_12}
               blackStroke={blackStroke}
               blueStroke={blueStroke}
@@ -187,7 +175,7 @@ export class PolygonView extends Component {
           </Stage>
         )
           : (
-            <Stage width={width} height={height}>
+            <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
               <SymetricalAxis
                 color={color}
                 SYM_AXIS_0={SYM_AXIS_0}
@@ -211,10 +199,9 @@ export class PolygonView extends Component {
           )
         }
         { showPoints ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <PolyOneAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
-              POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
               polygonNode={polygonNode}
               blackStroke={blackStroke}
@@ -231,10 +218,9 @@ export class PolygonView extends Component {
         ) : ''
         }
         { toggleLine ? (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
-              POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
               polygonNode={polygonNode}
               blackStroke={blackStroke}
@@ -249,10 +235,9 @@ export class PolygonView extends Component {
             />
           </Stage>
         ) : (
-          <Stage width={width} height={height}>
+          <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
-              POLYGON_PATH_1={POLYGON_PATH_1}
               fontSize={pointSize}
               polygonNode={polygonNode}
               blackStroke={blackStroke}
@@ -281,6 +266,7 @@ PolygonView.propTypes = {
   showPoints: PropTypes.bool.isRequired,
   toggleLine: PropTypes.bool.isRequired,
   width: PropTypes.number.isRequired,
+  scale: PropTypes.number.isRequired,
 };
 
 export default PolygonView;
