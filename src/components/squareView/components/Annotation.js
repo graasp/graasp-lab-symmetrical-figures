@@ -8,11 +8,6 @@ import {
 // names witch are: ABCD anf A'B'C'D'.
 const Annotation = ({
   blackStroke,
-  IDENTIC_PATH_2,
-  IDENTIC_PATH_3,
-  IDENTIC_PATH_4,
-  IDENTIC_PATH_5,
-  IDENTIC_PATH_6,
   fontSize,
   squareNodeA,
   squareNodeB,
@@ -79,11 +74,6 @@ const Annotation = ({
 
 Annotation.propTypes = {
   blackStroke: PropTypes.string.isRequired,
-  IDENTIC_PATH_2: PropTypes.number.isRequired,
-  IDENTIC_PATH_3: PropTypes.number.isRequired,
-  IDENTIC_PATH_4: PropTypes.number.isRequired,
-  IDENTIC_PATH_5: PropTypes.number.isRequired,
-  IDENTIC_PATH_6: PropTypes.number.isRequired,
   fontSize: PropTypes.number.isRequired,
   squareNodeA: PropTypes.shape({
     A: PropTypes.string.isRequired,

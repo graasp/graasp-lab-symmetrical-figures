@@ -13,7 +13,6 @@ const VerticalGrid = ({
   strokeWidth,
   VERTICAL_IDENTIC_PATH_0,
   IDENTIC_PATH_5,
-  IDENTIC_PATH_7,
 }) => (
   <Layer>
     <Line
@@ -217,7 +216,6 @@ VerticalGrid.propTypes = {
   strokeWidth: PropTypes.number.isRequired,
   VERTICAL_IDENTIC_PATH_0: PropTypes.number.isRequired,
   IDENTIC_PATH_5: PropTypes.number.isRequired,
-  IDENTIC_PATH_7: PropTypes.number.isRequired,
 };
 
 export default VerticalGrid;

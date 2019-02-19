@@ -11,11 +11,8 @@ const Axes = ({
   CIRCLE_RADIUS,
   CIRCLE_X,
   CIRCLE_Y,
-  IDENTIC_PATH_2,
   IDENTIC_PATH_3,
-  IDENTIC_PATH_4,
   IDENTIC_PATH_5,
-  IDENTIC_PATH_6,
   blackStroke,
   blueStroke,
   strokeWidth,
@@ -95,11 +92,8 @@ Axes.propTypes = {
   blackStroke: PropTypes.string.isRequired,
   blueStroke: PropTypes.string.isRequired,
   strokeWidth: PropTypes.number.isRequired,
-  IDENTIC_PATH_2: PropTypes.number.isRequired,
   IDENTIC_PATH_3: PropTypes.number.isRequired,
-  IDENTIC_PATH_4: PropTypes.number.isRequired,
   IDENTIC_PATH_5: PropTypes.number.isRequired,
-  IDENTIC_PATH_6: PropTypes.number.isRequired,
   shadowBlur: PropTypes.number.isRequired,
 };
 
