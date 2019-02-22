@@ -19,12 +19,10 @@ import {
   Layer,
   Line,
   Stage,
+  useStrictMode,
 } from 'react-konva';
 import Description from '../description/Description';
-import HorizontalGrid from '../grids/HorizontalGrid';
-import VerticalGrid from '../grids/VerticalGrid';
 import SettingModal from '../description/cases/observing/SettingModal';
-import TriangleView from '../triangleView/TriangleView';
 import Styles from './Styles';
 import AppState from '../../config/AppState';
 
@@ -34,13 +32,7 @@ class PersistentDrawerRight extends React.Component {
   state = AppState;
 
   componentDidMount() {
-    this.circleNode.getLayer().batchDraw();
-  }
-
-  handleCircleChange = (newCircle) => {
-    this.setState({
-      circlePoints: newCircle,
-    });
+    useStrictMode(true);
   }
 
   handleDrawerOpen = () => {
@@ -58,12 +50,12 @@ class PersistentDrawerRight extends React.Component {
       x: Math.round(e.target.x() / blockSnapSize) * blockSnapSize,
       y: Math.round(e.target.y() / blockSnapSize) * blockSnapSize,
     }));
-    this.handleCircleChange(newCircle);
+    this.setState({ circlePoints: newCircle });
   }
 
   renderVerticalGrid = () => {
-    const width = (2 / 3) * (window.innerWidth);
-    const height = (5 / 6) * window.innerHeight;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     const { blockSnapSize } = this.state;
     const lines = [];
     const grouped = width / blockSnapSize;
@@ -81,8 +73,8 @@ class PersistentDrawerRight extends React.Component {
   }
 
   renderHorizontalGrid = () => {
-    const width = (2 / 3) * window.innerWidth;
-    const height = (5 / 6) * window.innerHeight;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     const { blockSnapSize } = this.state;
     const lines = [];
     const grouped = height / blockSnapSize;
@@ -99,23 +91,17 @@ class PersistentDrawerRight extends React.Component {
     return lines;
   }
 
-  handleMouseOver = () => {
-    console.log('mouse hovering circle', this.circleNode);
-  }
-
   render() {
     const {
       classes,
       theme,
       showTitle,
       themeColor,
-      height,
       kind,
       isPolygonActive,
       isSquareActive,
       isTriangleActive,
       toggleLine,
-      width,
       openModal,
       showGrid,
       showPoints,
@@ -124,7 +110,6 @@ class PersistentDrawerRight extends React.Component {
       onOpenModal,
       onCloseModal,
       mode,
-      triangleNodeB,
       t,
     } = this.props;
     const { open, circlePoints } = this.state;
@@ -161,11 +146,6 @@ class PersistentDrawerRight extends React.Component {
             [classes.contentShift]: open,
           })}
         >
-          <TriangleView
-            triangleNodeB={triangleNodeB}
-            toggleLine={toggleLine}
-            showPoints={showPoints}
-          />
           { showTitle ? (
             <div className={classes.drawerHeader} />
           ) : ''
@@ -184,26 +164,19 @@ class PersistentDrawerRight extends React.Component {
             )
           }
           { showGrid ? (
-            <Stage width={width} height={height}>
-              <HorizontalGrid
-                renderHorizontalGrid={this.renderHorizontalGrid()}
-              />
-              <VerticalGrid
-                renderVerticalGrid={this.renderVerticalGrid()}
-              />
+            <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
+                {this.renderVerticalGrid()}
+                {this.renderHorizontalGrid()}
                 <Circle
                   x={circlePoints[0].x}
                   y={circlePoints[0].y}
-                  radius={10}
-                  fill="pink"
-                  stroke={2}
-                  strokeWidth={1}
+                  radius={15}
+                  stroke="rgb(255, 87, 34)"
+                  strokeWidth={5}
                   shadowBlur={14}
                   draggable
                   onDragEnd={this.handleDragEnd}
-                  ref={(node) => { this.circleNode = node; }}
-                  onMouseEnter={this.handleMouseOver}
                 />
               </Layer>
             </Stage>
@@ -260,7 +233,6 @@ PersistentDrawerRight.propTypes = {
   themeColor: PropTypes.string.isRequired,
   showTitle: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
-  height: PropTypes.number.isRequired,
   kind: PropTypes.string.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
@@ -269,7 +241,6 @@ PersistentDrawerRight.propTypes = {
   squareNodeB: PropTypes.shape({}).isRequired,
   triangleNodeB: PropTypes.shape({}).isRequired,
   toggleLine: PropTypes.bool.isRequired,
-  width: PropTypes.number.isRequired,
   openModal: PropTypes.bool.isRequired,
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
