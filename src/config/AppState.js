@@ -1,9 +1,14 @@
 export const AppState = {
-  openModal: false,
+  blockSnapSize: 50,
+  open: false,
+  axisPointsOne: [150, 250, 550, 650], // Tis our AA' axe coordinates
+  axisPointsTwo: [300, 300, 400, 600], // Tis our BB'' axe coordinates
+  axisPointsThree: [200, 400, 500, 500], // Tis our CC'' axe coordinates
   axeStroke: '#0091EA',
   axeStrokeWidth: 0.5,
   circleRadius: 5,
   circlePoints: [425, 325], // this is our middle circle coordinates
+  openModal: false,
   color: '#000',
   gridStrokeWidth: 0.5,
   gridStroke: '#ced4da',

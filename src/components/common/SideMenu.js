@@ -14,28 +14,26 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Fab from '@material-ui/core/Fab';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { Stage } from 'react-konva';
-import Description from '../description/Description';
-import HorizontalGrid from '../grids/HorizontalGrid';
-import VerticalGrid from '../grids/VerticalGrid';
-import TriangleView from '../triangleView/TriangleView';
-import PolygonView from '../polygonView/PolygonView';
-import SquareView from '../squareView/SquareView';
-import SettingsModal from '../description/cases/observing/SettingsModal';
-import Styles from './Styles';
 import {
-  blackStroke,
-  defaultSize,
-  IDENTIC_PATH_0,
-  IDENTIC_PATH_1,
-  IDENTIC_PATH_6,
-  IDENTIC_PATH_7,
-} from '../../constants/Common';
+  Circle,
+  Layer,
+  Line,
+  Stage,
+  useStrictMode,
+} from 'react-konva';
+import Description from '../description/Description';
+import SettingModal from '../description/cases/observing/SettingsModal';
+import Styles from './Styles';
+import AppState from '../../config/AppState';
 
 const styles = Styles;
 
-class SideMenu extends React.Component {
-  state = { open: false };
+class PersistentDrawerRight extends React.Component {
+  state = AppState;
+
+  componentDidMount() {
+    useStrictMode(true);
+  }
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -45,27 +43,65 @@ class SideMenu extends React.Component {
     this.setState({ open: false });
   };
 
+  handleDragEnd = (e) => {
+    const { circlePoints, blockSnapSize } = this.state;
+    const newCirclePoints = [...circlePoints];
+    const newCircle = newCirclePoints.map(() => ({
+      x: Math.round(e.target.x() / blockSnapSize) * blockSnapSize,
+      y: Math.round(e.target.y() / blockSnapSize) * blockSnapSize,
+    }));
+    this.setState({ circlePoints: newCircle });
+  }
+
+  renderVerticalGrid = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const { blockSnapSize } = this.state;
+    const lines = [];
+    const grouped = width / blockSnapSize;
+    for (let i = 0; i < grouped; i += 1) {
+      lines.push(
+        <Line
+          key={i}
+          points={[Math.round(i * blockSnapSize) + 1, 0, Math.round(i * blockSnapSize) + 1, height]}
+          stroke="#CCC"
+          strokeWidth={1}
+        />,
+      );
+    }
+    return lines;
+  }
+
+  renderHorizontalGrid = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const { blockSnapSize } = this.state;
+    const lines = [];
+    const grouped = height / blockSnapSize;
+    for (let j = 0; j < grouped; j += 1) {
+      lines.push(
+        <Line
+          key={j}
+          points={[0, Math.round(j * blockSnapSize), width, Math.round(j * blockSnapSize)]}
+          stroke="#CCC"
+          strokeWidth={1}
+        />,
+      );
+    }
+    return lines;
+  }
+
   render() {
     const {
       classes,
       theme,
-      showHeader,
+      showTitle,
       themeColor,
-      color,
-      gridStroke,
-      gridStrokeWidth,
-      height,
       kind,
       isPolygonActive,
       isSquareActive,
       isTriangleActive,
-      pointSize,
-      squareNodeA,
-      squareNodeB,
-      triangleNodeB,
-      midPointStroke,
       toggleLine,
-      width,
       openModal,
       showGrid,
       showPoints,
@@ -76,19 +112,19 @@ class SideMenu extends React.Component {
       mode,
       t,
     } = this.props;
-    const { open } = this.state;
+    const { open, circlePoints } = this.state;
 
     return (
       <div className={classes.root}>
         <CssBaseline />
-        { showHeader ? (
+        { showTitle ? (
           <AppBar
             position="fixed"
             className={classNames(classes.appBar, {
               [classes.appBarShift]: open,
             })}
           >
-            <Toolbar disableGutters={!open} style={{ backgroundColor: themeColor }}>
+            <Toolbar disableGutters style={{ backgroundColor: themeColor }}>
               <IconButton
                 color="inherit"
                 aria-label="Open drawer"
@@ -110,11 +146,11 @@ class SideMenu extends React.Component {
             [classes.contentShift]: open,
           })}
         >
-          { showHeader ? (
+          { showTitle ? (
             <div className={classes.drawerHeader} />
           ) : ''
           }
-          { showHeader ? ''
+          { showTitle ? ''
             : (
               <Fab
                 color="primary"
@@ -123,65 +159,27 @@ class SideMenu extends React.Component {
                 className={classes.fab}
                 style={{ backgroundColor: themeColor, outline: 'none' }}
               >
-                { open ? <MenuIcon style={{ color: 'white' }} /> : <ChevronRightIcon /> }
+                { open ? <ChevronRightIcon /> : <MenuIcon style={{ color: 'white' }} /> }
               </Fab>
             )
           }
           { showGrid ? (
-            <Stage width={width} height={height}>
-              <HorizontalGrid
-                blackStroke={blackStroke}
-                defaultSize={defaultSize}
-                stroke={gridStroke}
-                strokeWidth={gridStrokeWidth}
-                IDENTIC_PATH_0={IDENTIC_PATH_0}
-                IDENTIC_PATH_1={IDENTIC_PATH_1}
-                IDENTIC_PATH_6={IDENTIC_PATH_6}
-              />
-              <VerticalGrid
-                blackStroke={blackStroke}
-                defaultSize={defaultSize}
-                stroke={gridStroke}
-                strokeWidth={gridStrokeWidth}
-                IDENTIC_PATH_0={IDENTIC_PATH_0}
-                IDENTIC_PATH_1={IDENTIC_PATH_1}
-                IDENTIC_PATH_7={IDENTIC_PATH_7}
-              />
+            <Stage width={window.innerWidth} height={window.innerHeight}>
+              <Layer>
+                {this.renderVerticalGrid()}
+                {this.renderHorizontalGrid()}
+                <Circle
+                  x={circlePoints[0].x}
+                  y={circlePoints[0].y}
+                  radius={15}
+                  stroke="rgb(255, 87, 34)"
+                  strokeWidth={5}
+                  shadowBlur={14}
+                  draggable
+                  onDragEnd={this.handleDragEnd}
+                />
+              </Layer>
             </Stage>
-          ) : ''
-          }
-          { isTriangleActive ? (
-            <TriangleView
-              triangleNodeB={triangleNodeB}
-              toggleLine={toggleLine}
-              showPoints={showPoints}
-            />
-          ) : ''
-          }
-          { isPolygonActive ? (
-            <PolygonView
-              color={color}
-              height={height}
-              midPointStroke={midPointStroke}
-              pointSize={pointSize}
-              showPoints={showPoints}
-              toggleLine={toggleLine}
-              width={width}
-            />
-          ) : ''
-          }
-          { isSquareActive ? (
-            <SquareView
-              color={color}
-              height={height}
-              midPointStroke={midPointStroke}
-              pointSize={pointSize}
-              squareNodeA={squareNodeA}
-              squareNodeB={squareNodeB}
-              showPoints={showPoints}
-              toggleLine={toggleLine}
-              width={width}
-            />
           ) : ''
           }
         </main>
@@ -204,7 +202,7 @@ class SideMenu extends React.Component {
           <Description
             handleForm={handleForm}
             showGrid={showGrid}
-            showHeader={showHeader}
+            showTitle={showTitle}
             showPoints={showPoints}
             handleView={handleView}
             kind={kind}
@@ -215,7 +213,7 @@ class SideMenu extends React.Component {
             t={t}
           />
           { mode === 'default' ? (
-            <SettingsModal
+            <SettingModal
               openModal={openModal}
               onOpenModal={onOpenModal}
               onCloseModal={onCloseModal}
@@ -229,27 +227,20 @@ class SideMenu extends React.Component {
   }
 }
 
-SideMenu.propTypes = {
+PersistentDrawerRight.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   theme: PropTypes.shape({}).isRequired,
   themeColor: PropTypes.string.isRequired,
-  showHeader: PropTypes.bool.isRequired,
+  showTitle: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired,
-  gridStroke: PropTypes.string.isRequired,
-  gridStrokeWidth: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
   kind: PropTypes.string.isRequired,
   isPolygonActive: PropTypes.bool.isRequired,
   isSquareActive: PropTypes.bool.isRequired,
   isTriangleActive: PropTypes.bool.isRequired,
-  pointSize: PropTypes.number.isRequired,
   squareNodeA: PropTypes.shape({}).isRequired,
   squareNodeB: PropTypes.shape({}).isRequired,
   triangleNodeB: PropTypes.shape({}).isRequired,
-  midPointStroke: PropTypes.string.isRequired,
   toggleLine: PropTypes.bool.isRequired,
-  width: PropTypes.number.isRequired,
   openModal: PropTypes.bool.isRequired,
   showGrid: PropTypes.bool.isRequired,
   showPoints: PropTypes.bool.isRequired,
@@ -261,10 +252,10 @@ SideMenu.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  themeColor: state.layout.themeColor,
-  showHeader: state.layout.showHeader,
+  themeColor: state.Setting.themeColor,
+  showTitle: state.Setting.showTitle,
 });
 
-const connectedComponent = connect(mapStateToProps)(SideMenu);
+const connectedComponent = connect(mapStateToProps)(PersistentDrawerRight);
 
 export default withStyles(styles, { withTheme: true })(connectedComponent);
