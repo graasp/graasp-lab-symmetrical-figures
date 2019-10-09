@@ -2,10 +2,10 @@ export const SquareState = {
   axeStroke: '#0091EA',
   shadowBlur: 5,
   middleLinePoint: [
-    450,
-    100,
-    450,
-    800,
+    475,
+    50,
+    475,
+    550,
   ],
   middleLinePointLineStroke: 'rgba(6, 129, 218, .5)',
 };
