@@ -5,9 +5,9 @@ import {
   Input,
   UncontrolledTooltip,
 } from 'reactstrap';
-import Triangle from './Triangle.svg';
-import Rectangle from './Rectangle.svg';
-import Polygon from './Polygon.svg';
+import { ReactComponent as Triangle } from './Triangle.svg';
+import { ReactComponent as Rectangle } from './Rectangle.svg';
+import { ReactComponent as Polygon } from './Polygon.svg';
 import './Forms.css';
 
 const Forms = ({
@@ -21,8 +21,7 @@ const Forms = ({
     </h2>
     <div className="flex-parent">
       <Col md={4}>
-        <img
-          src={Triangle}
+        <Triangle
           alt="Triangle"
           className="triangle-figure"
           id="triangleTooltip"
@@ -32,8 +31,7 @@ const Forms = ({
         </UncontrolledTooltip>
       </Col>
       <Col md={4}>
-        <img
-          src={Rectangle}
+        <Rectangle
           alt="Rectangle"
           className="rectangle-figure"
           id="rectangleTooltip"
@@ -43,10 +41,9 @@ const Forms = ({
         </UncontrolledTooltip>
       </Col>
       <Col md={4}>
-        <img
-          src={Polygon}
+        <Polygon
           alt="Polygon"
-          className="polygon-figure"
+          className="rectangle-figure"
           id="polygonTooltip"
         />
         <UncontrolledTooltip placement="top" target="polygonTooltip">
