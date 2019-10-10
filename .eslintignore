@@ -4,3 +4,4 @@ public
 coverage
 src/registerServiceWorker.js
 cypress/integration/examples
+node_modules
