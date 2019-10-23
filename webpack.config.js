@@ -37,7 +37,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', '@svgr/webpack', 'url-loader'],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
