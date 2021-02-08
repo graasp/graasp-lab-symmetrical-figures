@@ -7,36 +7,38 @@ import {
 } from 'react-konva';
 import { SquareState } from '../../config/SquareState';
 import Annotation from './components/Annotation';
-import Axes from './components/Axes';
+// import Axes from './components/Axes';
+import MidPoint from '../axes/MidPoint';
 import SymetricalAxis from './components/SymetricalAxis';
 import {
-  CIRCLE_RADIUS,
-  CIRCLE_X,
-  CIRCLE_Y,
+  // CIRCLE_RADIUS,
+  // CIRCLE_X,
+  // CIRCLE_Y,
   IDENTIC_PATH_2,
   IDENTIC_PATH_3,
   IDENTIC_PATH_4,
   IDENTIC_PATH_5,
   IDENTIC_PATH_6,
   blackStroke,
-  blueStroke,
+  // blueStroke,
   radius,
-  redStroke,
+  // redStroke,
   stroke,
-  strokeWidth,
+  // strokeWidth,
   squareFill,
   squareStroke,
   squareStrokeWidth,
   squareHeight,
   squareWidth,
   squareOneX,
-  squareTwoX,
+  // squareTwoX,
   squareCommonY,
   circlePointsX,
   circlePointsY,
   circlePointsY2,
   lineStrokeWidth,
 } from '../../constants/Common';
+import AppState from '../../config/AppState';
 // this component manage our square figures, the Symetrical axes
 // and the names of each square. then sitch view based on choice
 export class SquareView extends Component {
@@ -56,6 +58,12 @@ export class SquareView extends Component {
       width,
       scale,
     } = this.props;
+    const {
+      midPointStrokeWidth,
+      midPointShadowBlur,
+      midPointRadius,
+    } = AppState;
+    const circlePoints = [525, 275];
     return (
       <div className="square-container">
         <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
@@ -69,7 +77,7 @@ export class SquareView extends Component {
               y={squareCommonY}
               width={squareWidth}
             />
-            <Rect
+            {/* <Rect
               fill={squareFill}
               height={squareHeight}
               stroke={redStroke}
@@ -77,12 +85,12 @@ export class SquareView extends Component {
               x={squareTwoX}
               y={squareCommonY}
               width={squareWidth}
-            />
+            /> */}
           </Layer>
         </Stage>
         { toggleLine ? (
           <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
-            <Axes
+            {/* <Axes
               CIRCLE_RADIUS={CIRCLE_RADIUS}
               CIRCLE_X={CIRCLE_X}
               CIRCLE_Y={CIRCLE_Y}
@@ -95,6 +103,14 @@ export class SquareView extends Component {
               blueStroke={blueStroke}
               strokeWidth={strokeWidth}
               shadowBlur={shadowBlur}
+            /> */}
+            <MidPoint
+              circlePoints={circlePoints}
+              color={color}
+              shadowBlur={midPointShadowBlur}
+              stroke={midPointStroke}
+              strokeWidth={midPointStrokeWidth}
+              radius={midPointRadius}
             />
           </Stage>
         )

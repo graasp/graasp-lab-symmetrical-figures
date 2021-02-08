@@ -4,7 +4,7 @@ import { Stage } from 'react-konva';
 import Triangle from '../triangle/Triangle';
 import Points from '../points/Points';
 import Liner from '../axes/Liner';
-import Axes from '../axes/Axes';
+// import Axes from '../axes/Axes';
 import MidPoint from '../axes/MidPoint';
 import { AppState } from '../../config/AppState';
 
@@ -58,8 +58,8 @@ class TriangleView extends Component {
 
   render() {
     const {
-      axeStroke,
-      axeStrokeWidth,
+      // axeStroke,
+      // axeStrokeWidth,
       circlePoints,
       circleRadius,
       color,
@@ -73,7 +73,7 @@ class TriangleView extends Component {
       midPointRadius,
       triangleNodeA,
       pointSize,
-      blueShapeStroke,
+      // blueShapeStroke,
       greenShapeStroke,
       triangleA,
       triangleB,
@@ -86,7 +86,7 @@ class TriangleView extends Component {
 
     const {
       showPoints,
-      triangleNodeB,
+      // triangleNodeB,
       toggleLine,
       scale,
     } = this.props;
@@ -103,12 +103,12 @@ class TriangleView extends Component {
               strokeWidth={midPointStrokeWidth}
               radius={midPointRadius}
             />
-            <Axes
+            {/* <Axes
               triangleA={triangleA}
               triangleB={triangleB}
               stroke={axeStroke}
               strokeWidth={axeStrokeWidth}
-            />
+            /> */}
           </Stage>
         )
           : (
@@ -142,7 +142,7 @@ class TriangleView extends Component {
                 ]
               }
             />
-            <Points
+            {/* <Points
               color={color}
               fontSize={pointSize}
               node={triangleNodeB}
@@ -153,7 +153,7 @@ class TriangleView extends Component {
                   { x: triangleB[2].x, y: triangleB[2].y },
                 ]
               }
-            />
+            /> */}
           </Stage>
         ) : ''
         }
@@ -175,7 +175,7 @@ class TriangleView extends Component {
             stroke={triangleStroke}
             strokeWidth={triangleStrokeWidth}
           />
-          <Triangle
+          {/* <Triangle
             color={color}
             linePoints={linePoints}
             triangleNodeB={triangleNodeB}
@@ -192,7 +192,7 @@ class TriangleView extends Component {
             shapeStroke={blueShapeStroke}
             stroke={triangleStroke}
             strokeWidth={triangleStrokeWidth}
-          />
+          /> */}
         </Stage>
       </div>
     );

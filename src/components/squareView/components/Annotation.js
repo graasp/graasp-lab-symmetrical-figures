@@ -10,7 +10,7 @@ const Annotation = ({
   blackStroke,
   fontSize,
   squareNodeA,
-  squareNodeB,
+  // squareNodeB,
 }) => (
   <Layer>
     <Text
@@ -41,7 +41,7 @@ const Annotation = ({
       fontSize={fontSize}
       fill={blackStroke}
     />
-    <Text
+    {/* <Text
       x={770}
       y={370}
       text={squareNodeB.A}
@@ -68,7 +68,7 @@ const Annotation = ({
       text={squareNodeB.D}
       fontSize={fontSize}
       fill={blackStroke}
-    />
+    /> */}
   </Layer>
 );
 

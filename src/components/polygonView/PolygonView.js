@@ -6,67 +6,69 @@ import {
   Stage,
 } from 'react-konva';
 import PolyOneAnnotation from './components/PolyOneAnnotation';
-import PolyTwoAnnotation from './components/PolyTwoAnnotation';
-import Axes from './components/Axes';
+// import PolyTwoAnnotation from './components/PolyTwoAnnotation';
+// import Axes from './components/Axes';
+import MidPoint from '../axes/MidPoint';
 import SymetricalAxis from './components/SymetricalAxis';
 import { PolygonState } from '../../config/PolygonState';
+import AppState from '../../config/AppState';
 import {
-  CIRCLE_RADIUS,
-  CIRCLE_X,
-  CIRCLE_Y,
+  // CIRCLE_RADIUS,
+  // CIRCLE_X,
+  // CIRCLE_Y,
   SYM_AXIS_0,
   SYM_AXIS_1,
   SYM_AXIS_2,
   blackStroke,
-  blueStroke,
+  // blueStroke,
   radius,
-  strokeWidth,
+  // strokeWidth,
   circlePointsX,
   circlePointsY,
   circlePointsY2,
   lineStrokeWidth,
-  POLY_PATH_0,
-  POLY_PATH_1,
-  POLY_PATH_5,
-  POLY_PATH_6,
-  POLY_PATH_7,
-  POLY_PATH_8,
-  POLY_PATH_9,
-  POLY_PATH_10,
-  POLY_PATH_13,
-  POLY_PATH_14,
-  POLY_PATH_15,
-  POLY_PATH_16,
-  POLY_PATH_17,
-  POLY_PATH_18,
-  POLY_PATH_19,
-  POLY_PATH_20,
-  POLY_PATH_21,
-  POLY_PATH_22,
-  POLY_PATH_23,
-  POLY_PATH_24,
-  POLY_PATH_25,
-  POLY_PATH_26,
-  POLY_PATH_27,
-  POLY_PATH_2,
-  POLY_PATH_12,
+  // POLY_PATH_0,
+  // POLY_PATH_1,
+  // POLY_PATH_5,
+  // POLY_PATH_6,
+  // POLY_PATH_7,
+  // POLY_PATH_8,
+  // POLY_PATH_9,
+  // POLY_PATH_10,
+  // POLY_PATH_13,
+  // POLY_PATH_14,
+  // POLY_PATH_15,
+  // POLY_PATH_16,
+  // POLY_PATH_17,
+  // POLY_PATH_18,
+  // POLY_PATH_19,
+  // POLY_PATH_20,
+  // POLY_PATH_21,
+  // POLY_PATH_22,
+  // POLY_PATH_23,
+  // POLY_PATH_24,
+  // POLY_PATH_25,
+  // POLY_PATH_26,
+  // POLY_PATH_27,
+  // POLY_PATH_2,
+  // POLY_PATH_12,
   redStroke,
   TEXT_X_0,
   TEXT_X_1,
   TEXT_X_2,
   TEXT_X_3,
   TEXT_X_4,
-  TEXT_X_5,
-  TEXT_X_6,
-  TEXT_X_7,
-  TEXT_X_8,
-  TEXT_X_9,
+  // TEXT_X_5,
+  // TEXT_X_6,
+  // TEXT_X_7,
+  // TEXT_X_8,
+  // TEXT_X_9,
   TEXT_Y_0,
   TEXT_Y_1,
   TEXT_Y_2,
-  TEXT_Y_3,
-  TEXT_Y_4,
-  TEXT_Y_5,
+  // TEXT_Y_3,
+  // TEXT_Y_4,
+  // TEXT_Y_5,
 } from '../../constants/Common';
 // this component manage our square figures, the Symetrical axes
 // and the names of each square. then sitch view based on choice
@@ -90,6 +92,12 @@ export class PolygonView extends Component {
       width,
       scale,
     } = this.props;
+    const {
+      midPointStrokeWidth,
+      midPointShadowBlur,
+      midPointRadius,
+    } = AppState;
+    const circlePoints = [450, 295];
     return (
       <div className="polygon-container">
         <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
@@ -108,7 +116,7 @@ export class PolygonView extends Component {
         { toggleLine ? (
           <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Layer>
-              <RegularPolygon
+              {/* <RegularPolygon
                 radius={81}
                 sides={5}
                 stroke="#555555"
@@ -117,27 +125,27 @@ export class PolygonView extends Component {
                 y={300}
                 opacity={0.7}
                 rotation={107}
-              />
+              /> */}
             </Layer>
           </Stage>
         ) : (
           <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
             <Layer>
-              <RegularPolygon
+              {/* <RegularPolygon
                 radius={80}
                 sides={5}
                 stroke="#555555"
                 strokeWidth={4}
                 x={800}
                 y={300}
-              />
+              /> */}
             </Layer>
           </Stage>
         )
         }
         { toggleLine ? (
           <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
-            <Axes
+            {/* <Axes
               CIRCLE_RADIUS={CIRCLE_RADIUS}
               CIRCLE_X={CIRCLE_X}
               CIRCLE_Y={CIRCLE_Y}
@@ -171,6 +179,14 @@ export class PolygonView extends Component {
               redStroke={redStroke}
               strokeWidth={strokeWidth}
               shadowBlur={shadowBlur}
+            /> */}
+            <MidPoint
+              circlePoints={circlePoints}
+              color={color}
+              shadowBlur={midPointShadowBlur}
+              stroke={midPointStroke}
+              strokeWidth={midPointStrokeWidth}
+              radius={midPointRadius}
             />
           </Stage>
         )
@@ -219,7 +235,7 @@ export class PolygonView extends Component {
         }
         { toggleLine ? (
           <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
-            <PolyTwoAnnotation
+            {/* <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
               fontSize={pointSize}
               polygonNode={polygonNode}
@@ -232,11 +248,11 @@ export class PolygonView extends Component {
               TEXT_Y_3={TEXT_Y_3}
               TEXT_Y_4={TEXT_Y_4}
               TEXT_Y_5={TEXT_Y_5}
-            />
+            /> */}
           </Stage>
         ) : (
           <Stage width={width} height={height} scaleX={scale} scaleY={scale}>
-            <PolyTwoAnnotation
+            {/* <PolyTwoAnnotation
               middleLinePointLineStroke={middleLinePointLineStroke}
               fontSize={pointSize}
               polygonNode={polygonNode}
@@ -249,7 +265,7 @@ export class PolygonView extends Component {
               TEXT_Y_3={TEXT_Y_0}
               TEXT_Y_4={TEXT_Y_2}
               TEXT_Y_5={TEXT_Y_1}
-            />
+            /> */}
           </Stage>
         )
         }

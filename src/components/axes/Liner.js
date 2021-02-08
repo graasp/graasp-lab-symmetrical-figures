@@ -15,8 +15,8 @@ const Liner = ({
   lineStroke,
   radius,
   strokeWidth,
-  triangleA,
-  triangleB,
+  // triangleA,
+  // triangleB,
 }) => (
   <Layer>
     <Line
@@ -31,7 +31,7 @@ const Liner = ({
       stroke="#ced4da"
       strokeWidth={5}
     />
-    <Line
+    {/* <Line
       points={
         [
           triangleA[0].x,
@@ -66,7 +66,7 @@ const Liner = ({
       }
       stroke={lineStroke}
       strokeWidth={1}
-    />
+    /> */}
     <Circle
       x={linePoints[0]}
       y={linePoints[1]}
@@ -105,8 +105,8 @@ Liner.propTypes = {
   shadowBlur: PropTypes.number.isRequired,
   handleDragMove: PropTypes.func.isRequired,
   linePoints: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  triangleA: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  triangleB: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  // triangleA: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  // triangleB: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
 };
 
 export default Liner;

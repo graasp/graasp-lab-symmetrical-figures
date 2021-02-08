@@ -58,7 +58,7 @@ const Triangle = ({
       stroke={stroke}
       strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
-      draggable
+      // draggable
     />
   </Layer>
 );
