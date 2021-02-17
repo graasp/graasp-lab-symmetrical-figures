@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Main from '../layout/Main';
 import SideMenu from '../layout/SideMenu';
+import Refresher from '../refresher/Refresher';
 import Styles from '../common/Styles';
 import { AppState } from '../../config/AppState';
 import {
@@ -128,6 +129,7 @@ class MainView extends Component {
           onOpenModal={this.onOpenModal}
           onCloseModal={this.onCloseModal}
         />
+        <Refresher />
       </div>
     );
   }
