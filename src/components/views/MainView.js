@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Main from '../layout/Main';
 import SideMenu from '../layout/SideMenu';
+import Refresher from '../refresher/Refresher';
 import Styles from '../common/Styles';
 import { AppState } from '../../config/AppState';
 import {
@@ -61,13 +62,13 @@ class MainView extends Component {
 
   postMessage = (data) => {
     const message = JSON.stringify(data);
-    console.log('message', message);
+    // console.log('message', message);
     if (document.postMessage) {
       document.postMessage(message, '*');
     } else if (window.postMessage) {
       window.postMessage(message, '*');
     } else {
-      console.error('unable to find postMessage');
+      // console.error('unable to find postMessage');
     }
   };
 
@@ -128,6 +129,7 @@ class MainView extends Component {
           onOpenModal={this.onOpenModal}
           onCloseModal={this.onCloseModal}
         />
+        <Refresher />
       </div>
     );
   }
