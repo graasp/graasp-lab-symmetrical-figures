@@ -79,6 +79,17 @@ export const POLY_PATH_25 = 152;
 export const POLY_PATH_26 = 278;
 export const POLY_PATH_27 = 248;
 
+export const POLY_POINT_X_1 = 200;
+export const POLY_POINT_Y_1 = 220;
+export const POLY_POINT_X_2 = 125;
+export const POLY_POINT_Y_2 = 275;
+export const POLY_POINT_X_3 = 150;
+export const POLY_POINT_Y_3 = 363;
+export const POLY_POINT_X_4 = 248;
+export const POLY_POINT_Y_4 = 363;
+export const POLY_POINT_X_5 = 275;
+export const POLY_POINT_Y_5 = 275;
+
 export const SYM_AXIS_0 = 390;
 export const SYM_AXIS_1 = 500;
 export const SYM_AXIS_2 = 840;
