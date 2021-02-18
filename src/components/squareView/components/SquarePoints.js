@@ -2,21 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Layer, Circle, Line, Text, Shape,
+  Layer, Circle, Line, Text, Shape, /* Rect */
 } from 'react-konva';
 import { AppState } from '../../../config/AppState';
-import {
-  POLY_POINT_X_1,
-  POLY_POINT_Y_1,
-  POLY_POINT_X_2,
-  POLY_POINT_Y_2,
-  POLY_POINT_X_3,
-  POLY_POINT_Y_3,
-  POLY_POINT_X_4,
-  POLY_POINT_Y_4,
-  POLY_POINT_X_5,
-  POLY_POINT_Y_5,
-} from '../../../constants/Common';
 
 class PolyOnePoints extends Component {
   constructor(props) {
@@ -36,10 +24,6 @@ class PolyOnePoints extends Component {
         color: AppState.color,
       },
       D: {
-        stroke: AppState.triangleStroke,
-        color: AppState.color,
-      },
-      E: {
         stroke: AppState.triangleStroke,
         color: AppState.color,
       },
@@ -74,69 +58,68 @@ class PolyOnePoints extends Component {
 
     render() {
       const {
-        radius, handlePointClick, tracedLines, pointClicked, mouseMoving,
+        Acoords,
+        Bcoords,
+        Ccoords,
+        Dcoords,
+        radius,
+        handlePointClick,
+        tracedLines,
+        pointClicked,
+        mouseMoving,
+        // height,
+        // width
       } = this.props;
+
       const {
-        A, B, C, D, E,
+        A, B, C, D,
       } = this.state;
       const symmetricLines = Object.values(tracedLines);
 
       return (
         <Layer>
           <Circle
-            x={POLY_POINT_X_1}
-            y={POLY_POINT_Y_1}
+            {...Acoords}
             fill={A.color}
             stroke={A.stroke}
             radius={radius}
             strokeWidth={4}
-            onMouseMove={() => this.handleMouseEnter('A')}
+            onMouseEnter={() => this.handleMouseEnter('A')}
             onMouseLeave={() => this.handleMouseLeave('A')}
             onClick={e => handlePointClick(e, 'A')}
           />
+
           <Circle
-            x={POLY_POINT_X_2}
-            y={POLY_POINT_Y_2}
+            {...Bcoords}
             fill={B.color}
             stroke={B.stroke}
             radius={radius}
             strokeWidth={4}
-            onMouseMove={() => this.handleMouseEnter('B')}
+            onMouseEnter={() => this.handleMouseEnter('B')}
             onMouseLeave={() => this.handleMouseLeave('B')}
             onClick={e => handlePointClick(e, 'B')}
           />
+
           <Circle
-            x={POLY_POINT_X_3}
-            y={POLY_POINT_Y_3}
+            {...Ccoords}
             fill={C.color}
             stroke={C.stroke}
             radius={radius}
             strokeWidth={4}
-            onMouseMove={() => this.handleMouseEnter('C')}
+            onMouseEnter={() => this.handleMouseEnter('C')}
             onMouseLeave={() => this.handleMouseLeave('C')}
             onClick={e => handlePointClick(e, 'C')}
           />
+
           <Circle
-            x={POLY_POINT_X_4}
-            y={POLY_POINT_Y_4}
+            {...Dcoords}
             fill={D.color}
             stroke={D.stroke}
             radius={radius}
             strokeWidth={4}
-            onMouseMove={() => this.handleMouseEnter('D')}
+            onMouseEnter={() => this.handleMouseEnter('D')}
             onMouseLeave={() => this.handleMouseLeave('D')}
             onClick={e => handlePointClick(e, 'D')}
-          />
-          <Circle
-            x={POLY_POINT_X_5}
-            y={POLY_POINT_Y_5}
-            fill={E.color}
-            stroke={E.stroke}
-            radius={radius}
-            strokeWidth={4}
-            onMouseMove={() => this.handleMouseEnter('E')}
-            onMouseLeave={() => this.handleMouseLeave('E')}
-            onClick={e => handlePointClick(e, 'E')}
           />
 
           {symmetricLines.map(
@@ -152,66 +135,76 @@ class PolyOnePoints extends Component {
               subXDistance1,
               subYDistance2,
             }) => (
-                    <>
-                      <Line
-                        key={JSON.stringify(startPoint)}
-                        x={this.condCheck(startPoint, startPoint ? startPoint.x : 0,
-                          this.condCheck(pointClicked, pointClicked ? pointClicked.x : 0, null))}
-                        y={this.condCheck(startPoint, startPoint ? startPoint.y : 0,
-                          this.condCheck(pointClicked, pointClicked ? pointClicked.y : 0, null))}
-                        points={[
-                          0,
-                          0,
-                          this.condCheck(endPoint, endPoint ? endPoint.x : 0,
-                            this.condCheck(mouseMoving, mouseMoving ? mouseMoving.x : 0, 0)),
-                          this.condCheck(endPoint, endPoint ? endPoint.y : 0,
-                            this.condCheck(mouseMoving, mouseMoving ? mouseMoving.y : 0, 0)),
-                        ]}
-                        stroke="#2196f3"
-                      />
-                      {endPoint
+                        <>
+                          <Line
+                            key={JSON.stringify(startPoint)}
+                            x={this.condCheck(startPoint, startPoint ? startPoint.x : 0,
+                              this.condCheck(pointClicked, pointClicked ? pointClicked.x
+                                : 0, null))}
+                            y={this.condCheck(startPoint, startPoint ? startPoint.y : 0,
+                              this.condCheck(pointClicked, pointClicked ? pointClicked.y
+                                : 0, null))}
+                            points={[
+                              0,
+                              0,
+                              this.condCheck(endPoint, endPoint ? endPoint.x : 0,
+                                this.condCheck(mouseMoving, mouseMoving ? mouseMoving.x : 0, 0)),
+                              this.condCheck(endPoint, endPoint ? endPoint.y : 0,
+                                this.condCheck(mouseMoving, mouseMoving ? mouseMoving.y : 0, 0)),
+                            ]}
+                            stroke="#2196f3"
+                          />
+                          {endPoint
+                            && (
+                            <Text
+                              fontSize={20}
+                              x={endPoint.x + startPoint.x}
+                              y={endPoint.y + startPoint.y}
+                              text={symmetryLabel}
+                            />
+                            )
+                        }
+                          {distanceFromClickedToSymPoint
                         && (
                         <Text
-                          fontSize={20}
-                          x={endPoint.x + startPoint.x}
-                          y={endPoint.y + startPoint.y}
-                          text={symmetryLabel}
+                          fontSize={14}
+                          x={xDistance1}
+                          y={yDistance1}
+                          rotation={rotation}
+                          text={distanceFromClickedToSymPoint}
                         />
                         )
-                    }
-                      {distanceFromClickedToSymPoint
-                    && (
-                    <Text
-                      fontSize={14}
-                      x={xDistance1}
-                      y={yDistance1}
-                      rotation={rotation}
-                      text={distanceFromClickedToSymPoint}
-                    />
-                    )
-                    }
-                      {distanceFromSymPointToEnd
-                    && (
-                    <Text
-                      fontSize={14}
-                      rotation={rotation}
-                      x={endPoint
-                        ? endPoint.x + startPoint.x + subXDistance1
-                        : mouseMoving ? mouseMoving.x + startPoint.x + subXDistance1 : 0}
-                      y={endPoint
-                        ? endPoint.y + startPoint.y + subYDistance2
-                        : mouseMoving ? mouseMoving.y + startPoint.y + subYDistance2 : 0}
-                      text={distanceFromSymPointToEnd}
-                    />
-                    )
-                    }
-                    </>
+                        }
+                          {distanceFromSymPointToEnd
+                        && (
+                        <Text
+                          fontSize={14}
+                          rotation={rotation}
+                          x={endPoint
+                            ? endPoint.x + startPoint.x + subXDistance1
+                            : mouseMoving ? mouseMoving.x + startPoint.x + subXDistance1 : 0}
+                          y={endPoint
+                            ? endPoint.y + startPoint.y + subYDistance2
+                            : mouseMoving ? mouseMoving.y + startPoint.y + subYDistance2 : 0}
+                          text={distanceFromSymPointToEnd}
+                        />
+                        )
+                        }
+                        </>
             ),
           )
-          }
+            }
 
           {symmetricLines.every(line => line.endPoint)
                 && (
+          /* <Rect
+                    height={height}
+                    stroke="#FF8A65"
+                    strokeWidth={4}
+                    x={symmetricLines[0].endPoint.x + symmetricLines[0].startPoint.x}
+                    y={symmetricLines[0].endPoint.y + symmetricLines[0].startPoint.y}
+                    width={width}
+                  /> */
                 <Shape
                   sceneFunc={(context, shape) => {
                     context.beginPath();
@@ -230,10 +223,6 @@ class PolyOnePoints extends Component {
                     context.lineTo(
                       symmetricLines[3].endPoint.x + symmetricLines[3].startPoint.x,
                       symmetricLines[3].endPoint.y + symmetricLines[3].startPoint.y,
-                    );
-                    context.lineTo(
-                      symmetricLines[4].endPoint.x + symmetricLines[4].startPoint.x,
-                      symmetricLines[4].endPoint.y + symmetricLines[4].startPoint.y,
                     );
                     context.closePath();
                     context.fillStrokeShape(shape);
