@@ -8,6 +8,7 @@ import {
   Line,
   Text,
 } from 'react-konva';
+import Swal from 'sweetalert2';
 
 class Triangle extends Component {
   constructor(props) {
@@ -226,6 +227,23 @@ class Triangle extends Component {
         />
         )
         }
+        { tracedLines.A.endPoint && tracedLines.B.endPoint && tracedLines.C.endPoint
+        && this.condCheck(tracedLines.A.isEqual && tracedLines.B.isEqual && tracedLines.C.isEqual
+          ? Swal.fire({
+            icon: 'sucess',
+            title: 'Félicitation!',
+            text: 'Vous venez de tracer deux figures symétriques!',
+            confirmButtonColor: 'gray',
+          })
+          : Swal.fire({
+            icon: 'error',
+            title: 'Désolé',
+            text: 'Vos figures ne sont pas symétriques',
+            confirmButtonText: 'Reprendre',
+            confirmButtonColor: 'red',
+            showCancelButton: true,
+            cancelButtonText: 'Ok',
+          }).then((result) => { if (result.isConfirmed) { window.location.reload(); } }))}
       </Layer>);
   }
 }

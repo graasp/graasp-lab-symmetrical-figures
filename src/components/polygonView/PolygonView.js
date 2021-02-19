@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layer, RegularPolygon, Stage } from 'react-konva';
+import Swal from 'sweetalert2';
+
 import PolyOneAnnotation from './components/PolyOneAnnotation';
 import PolyOnePoints from './components/PolyOnePoints';
 // import PolyTwoAnnotation from './components/PolyTwoAnnotation';
@@ -259,6 +261,8 @@ export class PolygonView extends Component {
     }
   }
 
+  condCheck = (condition, then, otherwise) => (condition ? then : otherwise)
+
   render() {
     const {
       middleLinePoint,
@@ -471,6 +475,25 @@ export class PolygonView extends Component {
           </Stage>
         )
         }
+        { tracedLines.A.endPoint && tracedLines.B.endPoint && tracedLines.C.endPoint
+        && tracedLines.D.endPoint && tracedLines.E.endPoint
+        && this.condCheck(tracedLines.A.isEqual && tracedLines.B.isEqual && tracedLines.C.isEqual
+          && tracedLines.D.isEqual && tracedLines.E.isEqual
+          ? Swal.fire({
+            icon: 'sucess',
+            title: 'Félicitation!',
+            text: 'Vous venez de tracer deux figures symétriques!',
+            confirmButtonColor: 'gray',
+          })
+          : Swal.fire({
+            icon: 'error',
+            title: 'Désolé',
+            text: 'Vos figures ne sont pas symétriques',
+            confirmButtonText: 'Reprendre',
+            confirmButtonColor: 'red',
+            showCancelButton: true,
+            cancelButtonText: 'Ok',
+          }).then((result) => { if (result.isConfirmed) { window.location.reload(); } }))}
       </div>
     );
   }
