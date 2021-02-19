@@ -1,4 +1,5 @@
 /* eslint-disable no-useless-return */
+/* eslint-disable no-lonely-if */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Stage } from 'react-konva';
@@ -9,6 +10,56 @@ import Liner from '../axes/Liner';
 import MidPoint from '../axes/MidPoint';
 import { AppState } from '../../config/AppState';
 import { getLineEquation2, findClosestToPoint, distanceBetween } from '../../helpers';
+
+const initialState = {
+  ...AppState,
+  pointClicked: null,
+  pointClickedLabel: '',
+  mouseMoving: null,
+  pointClickedRef: null,
+  tracedLines: {
+    A: { // Infos about the drawed line from point A
+      symmetryLabel: "A'",
+      startPoint: null,
+      endPoint: null,
+      distanceFromClickedToSymPoint: null,
+      xDistance1: 340,
+      yDistance1: 210,
+      rotation: 50,
+      subXDistance1: -40,
+      subYDistance2: -80,
+      distanceFromSymPointToEnd: null,
+      isEqual: false,
+    },
+    B: { // Infos about the drawed line from point B
+      symmetryLabel: "B'",
+      startPoint: null,
+      endPoint: null,
+      distanceFromClickedToSymPoint: null,
+      xDistance1: 410,
+      yDistance1: 220,
+      rotation: 70,
+      subXDistance1: 0,
+      subYDistance2: -90,
+      distanceFromSymPointToEnd: null,
+      isEqual: false,
+    },
+    C: { // Infos about the drawed line from point B
+      symmetryLabel: "C'",
+      startPoint: null,
+      endPoint: null,
+      distanceFromClickedToSymPoint: null,
+      xDistance1: 290,
+      yDistance1: 280,
+      rotation: 30,
+      subXDistance1: -50,
+      subYDistance2: -10,
+      distanceFromSymPointToEnd: null,
+      isEqual: false,
+    },
+  },
+
+};
 
 class TriangleView extends Component {
   static propTypes = {
@@ -22,55 +73,32 @@ class TriangleView extends Component {
     }).isRequired,
   };
 
-  state = {
-    ...AppState,
-    pointClicked: null,
-    pointClickedLabel: '',
-    mouseMoving: null,
-    pointClickedRef: null,
-    tracedLines: {
-      A: { // Infos about the drawed line from point A
-        symmetryLabel: "A'",
-        startPoint: null,
-        endPoint: null,
-        distanceFromClickedToSymPoint: null,
-        xDistance1: 340,
-        yDistance1: 210,
-        rotation: 50,
-        subXDistance1: -40,
-        subYDistance2: -80,
-        distanceFromSymPointToEnd: null,
-        isEqual: false,
-      },
-      B: { // Infos about the drawed line from point B
-        symmetryLabel: "B'",
-        startPoint: null,
-        endPoint: null,
-        distanceFromClickedToSymPoint: null,
-        xDistance1: 410,
-        yDistance1: 220,
-        rotation: 70,
-        subXDistance1: 0,
-        subYDistance2: -90,
-        distanceFromSymPointToEnd: null,
-        isEqual: false,
-      },
-      C: { // Infos about the drawed line from point B
-        symmetryLabel: "C'",
-        startPoint: null,
-        endPoint: null,
-        distanceFromClickedToSymPoint: null,
-        xDistance1: 290,
-        yDistance1: 280,
-        rotation: 30,
-        subXDistance1: -50,
-        subYDistance2: -10,
-        distanceFromSymPointToEnd: null,
-        isEqual: false,
-      },
-    },
+  state = initialState;
 
-  };
+  componentWillReceiveProps(nextProps) {
+    const { tracedLines } = initialState;
+    const { toggleLine } = nextProps;
+    this.setState({
+      ...initialState,
+      tracedLines: {
+        ...tracedLines,
+        B: {
+          ...tracedLines.B,
+          yDistance1: toggleLine ? 220 : 175,
+          rotation: toggleLine ? 70 : 50,
+          subXDistance1: toggleLine ? 0 : -40,
+          subYDistance2: toggleLine ? -90 : -70,
+        },
+        C: {
+          ...tracedLines.C,
+          yDistance1: toggleLine ? 280 : 295,
+          rotation: toggleLine ? 30 : 40,
+          subXDistance1: toggleLine ? -50 : -60,
+          subYDistance2: toggleLine ? -10 : -50,
+        },
+      },
+    });
+  }
 
   handleLineChange = (newLinePoints) => {
     this.setState({
@@ -114,35 +142,87 @@ class TriangleView extends Component {
       pointClicked,
       pointClickedLabel,
       tracedLines,
+      linePoints,
     } = this.state;
+
+    const { toggleLine } = this.props;
+
     const node = pointClickedRef || e.target;
     const transform = node.getAbsoluteTransform().copy();
     transform.invert();
     const pos = node.getStage().getPointerPosition();
     const { x, y } = transform.point(pos);
 
-    if (pointClicked) {
-      this.setState({ mouseMoving: { x, y } });
+    if (toggleLine) {
+      // Logic for symmetry regarding a point
+      if (pointClicked) {
+        this.setState({ mouseMoving: { x, y } });
 
-      // Determine if the ending point of the Line is after the symmetry point
-      const clickedX = pointClicked ? pointClicked.x : 0;
-      const clickedY = pointClicked ? pointClicked.y : 0;
+        // Determine if the ending point of the Line is after the symmetry point
+        const clickedX = pointClicked ? pointClicked.x : 0;
+        const clickedY = pointClicked ? pointClicked.y : 0;
 
-      if ((x + clickedX) > circlePoints[0] && (y + clickedY) > circlePoints[1]) {
-        const lineEquation = getLineEquation2([clickedX, clickedY], circlePoints);
-        const closestPoint = findClosestToPoint(x + clickedX, y + clickedY, lineEquation);
+        if ((x + clickedX) > circlePoints[0] && (y + clickedY) > circlePoints[1]) {
+          const lineEquation = getLineEquation2([clickedX, clickedY], circlePoints);
+          const closestPoint = findClosestToPoint(x + clickedX, y + clickedY, lineEquation);
+          this.setState({
+            mouseMoving: {
+              x: closestPoint.x - clickedX,
+              y: closestPoint.y - clickedY,
+            },
+          });
+
+          // Display the distance between the clicked point and the symmetry point
+          const distance1 = distanceBetween([clickedX, clickedY], circlePoints);
+          const distance2 = distanceBetween(circlePoints, [x + clickedX, y + clickedY]);
+
+          if (pointClicked && pointClickedLabel) {
+            this.setState({
+              tracedLines: {
+                ...tracedLines,
+                [pointClickedLabel]: {
+                  ...tracedLines[pointClickedLabel],
+                  distanceFromClickedToSymPoint: parseInt(distance1, 10).toString(),
+                  distanceFromSymPointToEnd: parseInt(distance2, 10).toString(),
+                  isEqual: parseInt(distance1, 10) === parseInt(distance2, 10),
+                },
+              },
+            });
+          }
+        }
+      }
+    } else {
+      // Logic for symmetry regarding a line
+      if (pointClicked) {
+        let hiddenPoint = [];
+        let distance1 = 0;
+        let distance2 = 0;
+        const clickedX = pointClicked ? pointClicked.x : 0;
+        const clickedY = pointClicked ? pointClicked.y : 0;
+
+        if (pointClickedLabel === 'A') hiddenPoint = [122, 23];
+        else if (pointClickedLabel === 'B') hiddenPoint = [126, -70];
+        else if (pointClickedLabel === 'C') hiddenPoint = [128, 130];
+
+        const lineEquation = getLineEquation2(
+          [linePoints[0], linePoints[1]],
+          [linePoints[2], linePoints[3]],
+        );
+        const closestPoint = findClosestToPoint(hiddenPoint[0], hiddenPoint[1], lineEquation);
+        distance1 = distanceBetween([clickedX, clickedY], [closestPoint.x, closestPoint.y]);
+        distance2 = distanceBetween([closestPoint.x, closestPoint.y], [x + clickedX, y + clickedY]);
+
+        // Determine if the ending point of the Line is after the symmetry point
+        const lineEquation2 = getLineEquation2([clickedX, clickedY], [...hiddenPoint]);
+        const closestPoint2 = findClosestToPoint(x + clickedX, y + clickedY, lineEquation2);
         this.setState({
           mouseMoving: {
-            x: closestPoint.x - clickedX,
-            y: closestPoint.y - clickedY,
+            x: closestPoint2.x - clickedX,
+            y: closestPoint2.y - clickedY,
           },
         });
 
-        // Display the distance between the clicked point and the symmetry point
-        const distance1 = distanceBetween([clickedX, clickedY], circlePoints);
-        const distance2 = distanceBetween(circlePoints, [x + clickedX, y + clickedY]);
-
-        if (pointClicked && pointClickedLabel) {
+        if ((x > hiddenPoint[0]) && pointClicked && pointClickedLabel) {
           this.setState({
             tracedLines: {
               ...tracedLines,
