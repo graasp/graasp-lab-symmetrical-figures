@@ -6,6 +6,7 @@ import {
   Rect,
   Stage,
 } from 'react-konva';
+import Swal from 'sweetalert2';
 import { SquareState } from '../../config/SquareState';
 import Annotation from './components/Annotation';
 import SquarePoints from './components/SquarePoints';
@@ -219,6 +220,8 @@ export class SquareView extends Component {
     }
   }
 
+  condCheck = (condition, then, otherwise) => (condition ? then : otherwise)
+
   render() {
     const {
       middleLinePoint,
@@ -364,6 +367,25 @@ export class SquareView extends Component {
           </Stage>
         ) : ''
         }
+        { tracedLines.A.endPoint && tracedLines.B.endPoint
+        && tracedLines.C.endPoint && tracedLines.D.endPoint
+        && this.condCheck(tracedLines.A.isEqual && tracedLines.B.isEqual
+          && tracedLines.C.isEqual && tracedLines.D.isEqual
+          ? Swal.fire({
+            icon: 'sucess',
+            title: 'Félicitation!',
+            text: 'Vous venez de tracer deux figures symétriques!',
+            confirmButtonColor: 'gray',
+          })
+          : Swal.fire({
+            icon: 'error',
+            title: 'Désolé',
+            text: 'Vos figures ne sont pas symétriques',
+            confirmButtonText: 'Reprendre',
+            confirmButtonColor: 'red',
+            showCancelButton: true,
+            cancelButtonText: 'Ok',
+          }).then((result) => { if (result.isConfirmed) { window.location.reload(); } }))}
       </div>
     );
   }
