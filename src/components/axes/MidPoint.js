@@ -23,6 +23,7 @@ const MidPoint = ({
       stroke={stroke}
       strokeWidth={strokeWidth}
       shadowBlur={shadowBlur}
+      dashEnabled={false}
     />
     <Text
       x={circlePoints[0] + 20}

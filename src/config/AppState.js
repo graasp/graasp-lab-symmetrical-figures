@@ -22,7 +22,7 @@ export const AppState = {
   midPointStroke: '#D50000',
   midPointStrokeWidth: 5,
   midPointShadowBlur: 5,
-  midPointRadius: 5,
+  midPointRadius: 3,
   squareNodeA: {
     A: 'A',
     B: 'B',
