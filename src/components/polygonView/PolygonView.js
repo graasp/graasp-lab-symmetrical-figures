@@ -121,52 +121,56 @@ export class PolygonView extends Component {
   componentWillReceiveProps(nextProps) {
     const { tracedLines } = initialState;
     const { toggleLine } = nextProps;
-    this.setState({
-      ...initialState,
-      tracedLines: {
-        ...tracedLines,
-        A: {
-          ...tracedLines.A,
-          xDistance1: toggleLine ? 290 : 300,
-          yDistance1: toggleLine ? 230 : 200,
-          rotation: toggleLine ? 20 : 0,
-          subXDistance1: toggleLine ? -60 : -80,
-          subYDistance2: toggleLine ? -17 : -20,
+    const { toggleLine: tgLine } = this.props;
+
+    if (toggleLine !== tgLine) {
+      this.setState({
+        ...initialState,
+        tracedLines: {
+          ...tracedLines,
+          A: {
+            ...tracedLines.A,
+            xDistance1: toggleLine ? 290 : 300,
+            yDistance1: toggleLine ? 230 : 200,
+            rotation: toggleLine ? 20 : 0,
+            subXDistance1: toggleLine ? -60 : -80,
+            subYDistance2: toggleLine ? -17 : -20,
+          },
+          B: {
+            ...tracedLines.B,
+            xDistance1: toggleLine ? 185 : 190,
+            yDistance1: toggleLine ? 260 : 260,
+            rotation: toggleLine ? 5 : 0,
+            subXDistance1: toggleLine ? -40 : -60,
+            subYDistance2: toggleLine ? 10 : -20,
+          },
+          C: {
+            ...tracedLines.C,
+            xDistance1: toggleLine ? 310 : 190,
+            yDistance1: toggleLine ? 300 : 350,
+            rotation: toggleLine ? -10 : 0,
+            subXDistance1: toggleLine ? -50 : -80,
+            subYDistance2: toggleLine ? -10 : -20,
+          },
+          D: {
+            ...tracedLines.D,
+            xDistance1: toggleLine ? 340 : 310,
+            yDistance1: toggleLine ? 340 : 350,
+            rotation: toggleLine ? -20 : 0,
+            subXDistance1: toggleLine ? -70 : -90,
+            subYDistance2: toggleLine ? 5 : -20,
+          },
+          E: {
+            ...tracedLines.E,
+            xDistance1: toggleLine ? 350 : 310,
+            yDistance1: toggleLine ? 265 : 260,
+            rotation: toggleLine ? 10 : 0,
+            subXDistance1: toggleLine ? -50 : -70,
+            subYDistance2: toggleLine ? 0 : -20,
+          },
         },
-        B: {
-          ...tracedLines.B,
-          xDistance1: toggleLine ? 185 : 190,
-          yDistance1: toggleLine ? 260 : 260,
-          rotation: toggleLine ? 5 : 0,
-          subXDistance1: toggleLine ? -40 : -60,
-          subYDistance2: toggleLine ? 10 : -20,
-        },
-        C: {
-          ...tracedLines.C,
-          xDistance1: toggleLine ? 310 : 190,
-          yDistance1: toggleLine ? 300 : 350,
-          rotation: toggleLine ? -10 : 0,
-          subXDistance1: toggleLine ? -50 : -80,
-          subYDistance2: toggleLine ? -10 : -20,
-        },
-        D: {
-          ...tracedLines.D,
-          xDistance1: toggleLine ? 340 : 310,
-          yDistance1: toggleLine ? 340 : 350,
-          rotation: toggleLine ? -20 : 0,
-          subXDistance1: toggleLine ? -70 : -90,
-          subYDistance2: toggleLine ? 5 : -20,
-        },
-        E: {
-          ...tracedLines.E,
-          xDistance1: toggleLine ? 350 : 310,
-          yDistance1: toggleLine ? 265 : 260,
-          rotation: toggleLine ? 10 : 0,
-          subXDistance1: toggleLine ? -50 : -70,
-          subYDistance2: toggleLine ? 0 : -20,
-        },
-      },
-    });
+      });
+    }
   }
 
   handlePointClick = (e, pointLabel) => {
@@ -303,7 +307,7 @@ export class PolygonView extends Component {
     const pos = node.getStage().getPointerPosition();
     const { x, y } = transform.point(pos);
 
-    if (pointClicked && x > 0 && y > 0) {
+    if (pointClicked && x > 5 && y > 5) {
       this.setState({
         tracedLines: {
           ...tracedLines,

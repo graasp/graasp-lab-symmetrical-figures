@@ -118,44 +118,48 @@ export class SquareView extends Component {
   componentWillReceiveProps(nextProps) {
     const { tracedLines } = initialState;
     const { toggleLine } = nextProps;
-    this.setState({
-      ...initialState,
-      tracedLines: {
-        ...tracedLines,
-        A: {
-          ...tracedLines.A,
-          xDistance1: toggleLine ? 290 : 250,
-          yDistance1: toggleLine ? 225 : 185,
-          rotation: toggleLine ? 20 : 0,
-          subXDistance1: toggleLine ? -60 : -80,
-          subYDistance2: toggleLine ? -10 : -15,
+    const { toggleLine: tgLine } = this.props;
+
+    if (toggleLine !== tgLine) {
+      this.setState({
+        ...initialState,
+        tracedLines: {
+          ...tracedLines,
+          A: {
+            ...tracedLines.A,
+            xDistance1: toggleLine ? 290 : 250,
+            yDistance1: toggleLine ? 225 : 185,
+            rotation: toggleLine ? 20 : 0,
+            subXDistance1: toggleLine ? -60 : -80,
+            subYDistance2: toggleLine ? -10 : -15,
+          },
+          B: {
+            ...tracedLines.B,
+            xDistance1: toggleLine ? 270 : 250,
+            yDistance1: toggleLine ? 320 : 325,
+            rotation: toggleLine ? -20 : 0,
+            subXDistance1: toggleLine ? -40 : -30,
+            subYDistance2: toggleLine ? 15 : -20,
+          },
+          C: {
+            ...tracedLines.C,
+            xDistance1: toggleLine ? 390 : 380,
+            yDistance1: toggleLine ? 335 : 325,
+            rotation: toggleLine ? -20 : 0,
+            subXDistance1: toggleLine ? -50 : -30,
+            subYDistance2: toggleLine ? -2 : -20,
+          },
+          D: {
+            ...tracedLines.D,
+            xDistance1: toggleLine ? 390 : 400,
+            yDistance1: toggleLine ? 200 : 185,
+            rotation: toggleLine ? 20 : 0,
+            subXDistance1: toggleLine ? -70 : -80,
+            subYDistance2: toggleLine ? -25 : -15,
+          },
         },
-        B: {
-          ...tracedLines.B,
-          xDistance1: toggleLine ? 270 : 250,
-          yDistance1: toggleLine ? 320 : 325,
-          rotation: toggleLine ? -20 : 0,
-          subXDistance1: toggleLine ? -40 : -30,
-          subYDistance2: toggleLine ? 15 : -20,
-        },
-        C: {
-          ...tracedLines.C,
-          xDistance1: toggleLine ? 390 : 380,
-          yDistance1: toggleLine ? 335 : 325,
-          rotation: toggleLine ? -20 : 0,
-          subXDistance1: toggleLine ? -50 : -30,
-          subYDistance2: toggleLine ? -2 : -20,
-        },
-        D: {
-          ...tracedLines.D,
-          xDistance1: toggleLine ? 390 : 400,
-          yDistance1: toggleLine ? 200 : 185,
-          rotation: toggleLine ? 20 : 0,
-          subXDistance1: toggleLine ? -70 : -80,
-          subYDistance2: toggleLine ? -25 : -15,
-        },
-      },
-    });
+      });
+    }
   }
 
   handlePointClick = (e, pointLabel) => {
@@ -291,7 +295,7 @@ export class SquareView extends Component {
     const pos = node.getStage().getPointerPosition();
     const { x, y } = transform.point(pos);
 
-    if (pointClicked && x > 0 && y > 0) {
+    if (pointClicked && x > 5 && y > 5) {
       this.setState({
         tracedLines: {
           ...tracedLines,

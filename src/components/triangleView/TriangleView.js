@@ -78,26 +78,30 @@ class TriangleView extends Component {
   componentWillReceiveProps(nextProps) {
     const { tracedLines } = initialState;
     const { toggleLine } = nextProps;
-    this.setState({
-      ...initialState,
-      tracedLines: {
-        ...tracedLines,
-        B: {
-          ...tracedLines.B,
-          yDistance1: toggleLine ? 220 : 175,
-          rotation: toggleLine ? 70 : 50,
-          subXDistance1: toggleLine ? 0 : -40,
-          subYDistance2: toggleLine ? -90 : -70,
+    const { toggleLine: tgLine } = this.props;
+
+    if (toggleLine !== tgLine) {
+      this.setState({
+        ...initialState,
+        tracedLines: {
+          ...tracedLines,
+          B: {
+            ...tracedLines.B,
+            yDistance1: toggleLine ? 220 : 175,
+            rotation: toggleLine ? 70 : 50,
+            subXDistance1: toggleLine ? 0 : -40,
+            subYDistance2: toggleLine ? -90 : -70,
+          },
+          C: {
+            ...tracedLines.C,
+            yDistance1: toggleLine ? 280 : 295,
+            rotation: toggleLine ? 30 : 40,
+            subXDistance1: toggleLine ? -50 : -60,
+            subYDistance2: toggleLine ? -10 : -50,
+          },
         },
-        C: {
-          ...tracedLines.C,
-          yDistance1: toggleLine ? 280 : 295,
-          rotation: toggleLine ? 30 : 40,
-          subXDistance1: toggleLine ? -50 : -60,
-          subYDistance2: toggleLine ? -10 : -50,
-        },
-      },
-    });
+      });
+    }
   }
 
   handleLineChange = (newLinePoints) => {
@@ -253,7 +257,7 @@ class TriangleView extends Component {
     const pos = node.getStage().getPointerPosition();
     const { x, y } = transform.point(pos);
 
-    if (pointClicked && x > 0 && y > 0) {
+    if (pointClicked && x > 5 && y > 5) {
       this.setState({
         tracedLines: {
           ...tracedLines,
@@ -277,7 +281,6 @@ class TriangleView extends Component {
   handlePointClick = (e, pointLabel) => {
     const { tracedLines } = this.state;
     const { x, y } = e.target.attrs;
-
     this.setState({
       pointClickedRef: e.target,
       pointClicked: { x, y },
